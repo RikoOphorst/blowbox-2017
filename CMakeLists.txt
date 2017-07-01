@@ -32,10 +32,46 @@ if (NOT BLOWBOX_IS_64BIT)
 endif (NOT BLOWBOX_IS_64BIT)
 
 # Find all source/header files for the different projects
-file(GLOB Win32Files        src/win32/*.cc          src/win32/*.h)
-file(GLOB RendererFiles     src/renderer/*.cc       src/renderer/*.h)
-file(GLOB ContentFiles      src/content/*.cc        src/content/*.h)
-file(GLOB CoreFiles         src/core/*.cc           src/core/*.h)
+file(GLOB Win32Files 
+    src/win32/*.cc 
+    src/win32/*/*.cc 
+    src/win32/*/*/*.cc
+    src/win32/*/*/*/*.cc
+    src/win32/*.h 
+    src/win32/*/*.h 
+    src/win32/*/*/*.h
+    src/win32/*/*/*/*.h
+)
+file(GLOB RendererFiles
+    src/renderer/*.cc 
+    src/renderer/*/*.cc 
+    src/renderer/*/*/*.cc
+    src/renderer/*/*/*/*.cc
+    src/renderer/*.h 
+    src/renderer/*/*.h 
+    src/renderer/*/*/*.h
+    src/renderer/*/*/*/*.h
+)
+file(GLOB ContentFiles
+    src/content/*.cc 
+    src/content/*/*.cc 
+    src/content/*/*/*.cc
+    src/content/*/*/*/*.cc
+    src/content/*.h 
+    src/content/*/*.h 
+    src/content/*/*/*.h
+    src/content/*/*/*/*.h
+)
+file(GLOB CoreFiles
+    src/core/*.cc 
+    src/core/*/*.cc 
+    src/core/*/*/*.cc
+    src/core/*/*/*/*.cc
+    src/core/*.h 
+    src/core/*/*.h 
+    src/core/*/*/*.h
+    src/core/*/*/*/*.h
+)
 
 # Put all source/header files under the right source groups
 source_group("win32"            FILES       ${Win32Files})
