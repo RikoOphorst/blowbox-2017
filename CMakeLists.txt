@@ -33,55 +33,37 @@ endif (NOT BLOWBOX_IS_64BIT)
 
 # Find all source/header files for the different projects
 file(GLOB Win32Files 
-    src/win32/*.cc 
-    src/win32/*/*.cc 
-    src/win32/*/*/*.cc
-    src/win32/*/*/*/*.cc
+    src/win32/*.cc
     src/win32/*.h 
-    src/win32/*/*.h 
-    src/win32/*/*/*.h
-    src/win32/*/*/*/*.h
 )
 file(GLOB RendererFiles
     src/renderer/*.cc 
-    src/renderer/*/*.cc 
-    src/renderer/*/*/*.cc
-    src/renderer/*/*/*/*.cc
     src/renderer/*.h 
-    src/renderer/*/*.h 
-    src/renderer/*/*/*.h
-    src/renderer/*/*/*/*.h
+)
+file(GLOB RendererImguiFiles
+    src/renderer/imgui/*.cc 
+    src/renderer/imgui/*.cpp
+    src/renderer/imgui/*.h 
 )
 file(GLOB ContentFiles
     src/content/*.cc 
-    src/content/*/*.cc 
-    src/content/*/*/*.cc
-    src/content/*/*/*/*.cc
     src/content/*.h 
-    src/content/*/*.h 
-    src/content/*/*/*.h
-    src/content/*/*/*/*.h
 )
 file(GLOB CoreFiles
     src/core/*.cc 
-    src/core/*/*.cc 
-    src/core/*/*/*.cc
-    src/core/*/*/*/*.cc
     src/core/*.h 
-    src/core/*/*.h 
-    src/core/*/*/*.h
-    src/core/*/*/*/*.h
 )
 
 # Put all source/header files under the right source groups
 source_group("win32"            FILES       ${Win32Files})
 source_group("renderer"         FILES       ${RendererFiles})
+source_group("renderer\\imgui"   FILES       ${RendererImguiFiles})
 source_group("content"          FILES       ${ContentFiles})
 source_group("core"             FILES       ${CoreFiles})
 
 # Add the libraries and executables to the main solution
 add_library(blowbox_win32       STATIC      ${Win32Files})
-add_library(blowbox_renderer    STATIC      ${RendererFiles})
+add_library(blowbox_renderer    STATIC      ${RendererFiles} ${RendererImguiFiles})
 add_library(blowbox_content     STATIC      ${ContentFiles})
 add_executable(blowbox_core                 ${CoreFiles})
 
