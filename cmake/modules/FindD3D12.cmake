@@ -3,6 +3,8 @@
 # Find the win10 SDK path.
 get_filename_component(WIN10_SDK_PATH "[HKEY_LOCAL_MACHINE\\SOFTWARE\\WOW6432Node\\Microsoft\\Microsoft SDKs\\Windows\\v10.0;InstallationFolder]" ABSOLUTE CACHE)
 
+message("WIN SDK DIR ${WIN10_SDK_PATH}/Include/${CMAKE_VS_WINDOWS_TARGET_PLATFORM_VERSION}/um")
+
 find_path(D3D12_INCLUDE_DIR    # Set variable D3D12_INCLUDE_DIR
           d3d12.h                # Find a path with d3d12.h
           HINTS "${WIN10_SDK_PATH}/Include/${CMAKE_VS_WINDOWS_TARGET_PLATFORM_VERSION}/um"
@@ -26,7 +28,6 @@ endif (CMAKE_SIZEOF_VOID_P EQUAL "8")
 message (STATUS ${WIN10_SDK_LIB_PATH})
 find_library(D3D12_LIBRARY          NAMES d3d12.lib         HINTS ${WIN10_SDK_LIB_PATH} )
 find_library(DXGI_LIBRARY           NAMES dxgi.lib          HINTS ${WIN10_SDK_LIB_PATH} )
-find_library(DXGUID_LIBRARY         NAMES dxguid.lib        HINTS ${WIN10_SDK_LIB_PATH} )
 find_library(D3DCOMPILER_LIBRARY    NAMES d3dcompiler.lib   HINTS ${WIN10_SDK_LIB_PATH} )
 
 set(D3D12_LIBRARIES     

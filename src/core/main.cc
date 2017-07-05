@@ -1,7 +1,7 @@
 #include <iostream>
 
+#include "core/eastl.h"
 #include "content/content.h"
-#include "renderer/renderer.h"
 
 #include "EASTL/string.h"
 
