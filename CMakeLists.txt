@@ -94,6 +94,14 @@ target_link_libraries(blowbox_content   assimp)
 target_link_libraries(blowbox_win32     assimp)
 include_directories("deps/assimp-3.3.1/include")
 
+# Linking GLFW
+add_subdirectory("deps/glfw-3.2.1")
+target_link_libraries(blowbox_core 		glfw)
+target_link_libraries(blowbox_renderer  glfw)
+target_link_libraries(blowbox_content   glfw)
+target_link_libraries(blowbox_win32     glfw)
+include_directories("deps/glfw-3.2.1/include")
+
 # Linking D3D12
 if (WIN32)
     find_package(D3D12 REQUIRED)
@@ -124,3 +132,4 @@ set_target_properties(blowbox_core                          PROPERTIES FOLDER bl
 set_target_properties(blowbox_content                       PROPERTIES FOLDER blowbox)
 set_target_properties(blowbox_renderer                      PROPERTIES FOLDER blowbox)
 set_target_properties(blowbox_win32                         PROPERTIES FOLDER blowbox)
+set_target_properties(glfw     			                    PROPERTIES FOLDER deps/glfw)

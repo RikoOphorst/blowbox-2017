@@ -11,6 +11,8 @@
 
 #include <assimp\postprocess.h>
 
+#include <GLFW/glfw3.h>
+
 int main(int argc, char** argv)
 {
 	eastl::string str = "wow anton is nasty";
@@ -20,6 +22,8 @@ int main(int argc, char** argv)
 	system("PAUSE");
 
 	jemoeder::Anus* anus = new jemoeder::Anus();
+
+	
 
 	return 0;
 }
