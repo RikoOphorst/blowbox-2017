@@ -22,17 +22,10 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 void* operator new[](size_t size, const char* /*name*/, int /*flags*/,
-	unsigned /*debugFlags*/, const char* /*file*/, int /*line*/) THROW_SPEC_1(std::bad_alloc)
-{
-	return malloc(size);
-}
+	unsigned /*debugFlags*/, const char* /*file*/, int /*line*/) THROW_SPEC_1(std::bad_alloc);
 
 void* operator new[](size_t size, size_t alignment, size_t alignmentOffset, const char* /*name*/,
-	int flags, unsigned /*debugFlags*/, const char* /*file*/, int /*line*/) THROW_SPEC_1(std::bad_alloc)
-{
-	// Substitute your aligned malloc. 
-	return malloc(size);
-}
+	int flags, unsigned /*debugFlags*/, const char* /*file*/, int /*line*/) THROW_SPEC_1(std::bad_alloc);
 
 
 
@@ -40,31 +33,17 @@ void* operator new[](size_t size, size_t alignment, size_t alignmentOffset, cons
 // Other operator new as typically required by applications.
 ///////////////////////////////////////////////////////////////////////////////
 
-void* operator new(size_t size) THROW_SPEC_1(std::bad_alloc)
-{
-	return malloc(size);
-}
+void* operator new(size_t size) THROW_SPEC_1(std::bad_alloc);
 
 
-void* operator new[](size_t size) THROW_SPEC_1(std::bad_alloc)
-{
-	return malloc(size);
-}
+void* operator new[](size_t size) THROW_SPEC_1(std::bad_alloc);
 
 
 ///////////////////////////////////////////////////////////////////////////////
 // Operator delete, which is shared between operator new implementations.
 ///////////////////////////////////////////////////////////////////////////////
 
-void operator delete(void* p) THROW_SPEC_0
-{
-	if (p) // The standard specifies that 'delete NULL' is a valid operation.
-		free(p);
-}
+void operator delete(void* p) THROW_SPEC_0;
 
 
-void operator delete[](void* p) THROW_SPEC_0
-{
-	if (p)
-	free(p);
-}
+void operator delete[](void* p) THROW_SPEC_0;

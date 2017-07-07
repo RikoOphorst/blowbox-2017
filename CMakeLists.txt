@@ -53,18 +53,24 @@ file(GLOB CoreFiles
     src/core/*.cc 
     src/core/*.h 
 )
+file(GLOB UtilFiles
+    src/util/*.cc 
+    src/util/*.h 
+)
 
 # Put all source/header files under the right source groups
 source_group("win32"            FILES       ${Win32Files})
 source_group("renderer"         FILES       ${RendererFiles})
-source_group("renderer\\imgui"   FILES       ${RendererImguiFiles})
+source_group("renderer\\imgui"  FILES       ${RendererImguiFiles})
 source_group("content"          FILES       ${ContentFiles})
 source_group("core"             FILES       ${CoreFiles})
+source_group("util"             FILES       ${UtilFiles})
 
 # Add the libraries and executables to the main solution
 add_library(blowbox_win32       STATIC      ${Win32Files})
 add_library(blowbox_renderer    STATIC      ${RendererFiles} ${RendererImguiFiles})
 add_library(blowbox_content     STATIC      ${ContentFiles})
+add_library(blowbox_util        STATIC      ${UtilFiles})
 add_executable(blowbox_core                 ${CoreFiles})
 
 # Make the blowbox_core project the startup project in Visual Studio
@@ -74,6 +80,7 @@ set_property(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY VS_STARTUP_PROJECT b
 target_link_libraries(blowbox_core blowbox_renderer)
 target_link_libraries(blowbox_core blowbox_content)
 target_link_libraries(blowbox_core blowbox_win32)
+target_link_libraries(blowbox_core blowbox_util)
 include_directories(blowbox_core PUBLIC src)
 
 set (BUILD_SHARED_LIBS_TEMP ${BUILD_SHARED_LIBS})
@@ -84,6 +91,7 @@ target_link_libraries(blowbox_core      EASTL)
 target_link_libraries(blowbox_renderer  EASTL)
 target_link_libraries(blowbox_content   EASTL)
 target_link_libraries(blowbox_win32     EASTL)
+target_link_libraries(blowbox_util      EASTL)
 set (BUILD_SHARED_LIBS ${BUILD_SHARED_LIBS_TEMP} CACHE BOOL "whether shared libs should be built by default" FORCE)
 
 # Linking Assimp
@@ -92,14 +100,16 @@ target_link_libraries(blowbox_core      assimp)
 target_link_libraries(blowbox_renderer  assimp)
 target_link_libraries(blowbox_content   assimp)
 target_link_libraries(blowbox_win32     assimp)
+target_link_libraries(blowbox_util      assimp)
 include_directories("deps/assimp-3.3.1/include")
 
 # Linking GLFW
 add_subdirectory("deps/glfw-3.2.1")
-target_link_libraries(blowbox_core 		glfw)
+target_link_libraries(blowbox_core      glfw)
 target_link_libraries(blowbox_renderer  glfw)
 target_link_libraries(blowbox_content   glfw)
 target_link_libraries(blowbox_win32     glfw)
+target_link_libraries(blowbox_util      glfw)
 include_directories("deps/glfw-3.2.1/include")
 
 # Linking D3D12
@@ -116,20 +126,61 @@ if (WIN32)
 endif(WIN32)
 
 # Organize all projects into folders
+set_target_properties(blowbox_core                          PROPERTIES FOLDER blowbox)
+set_target_properties(blowbox_content                       PROPERTIES FOLDER blowbox)
+set_target_properties(blowbox_renderer                      PROPERTIES FOLDER blowbox)
+set_target_properties(blowbox_win32                         PROPERTIES FOLDER blowbox)
+set_target_properties(blowbox_util                          PROPERTIES FOLDER blowbox)
+
 set_target_properties(assimp                                PROPERTIES FOLDER deps/assimp)
 set_target_properties(assimp_cmd                            PROPERTIES FOLDER deps/assimp)
+
 if (TARGET assimp_viewer)
-	set_target_properties(assimp_viewer                         PROPERTIES FOLDER deps/assimp)
+    set_target_properties(assimp_viewer                     PROPERTIES FOLDER deps/assimp)
 endif (TARGET assimp_viewer)
+
 set_target_properties(gtest                                 PROPERTIES FOLDER deps/assimp)
 set_target_properties(uninstall                             PROPERTIES FOLDER deps/assimp)
 set_target_properties(unit                                  PROPERTIES FOLDER deps/assimp)
 set_target_properties(UpdateAssimpLibsDebugSymbolsAndDLLs   PROPERTIES FOLDER deps/assimp)
 set_target_properties(zlibstatic                            PROPERTIES FOLDER deps/assimp)
-set_target_properties(EABase_ide                            PROPERTIES FOLDER deps/EASTL)
-set_target_properties(EASTL                                 PROPERTIES FOLDER deps/EASTL)
-set_target_properties(blowbox_core                          PROPERTIES FOLDER blowbox)
-set_target_properties(blowbox_content                       PROPERTIES FOLDER blowbox)
-set_target_properties(blowbox_renderer                      PROPERTIES FOLDER blowbox)
-set_target_properties(blowbox_win32                         PROPERTIES FOLDER blowbox)
-set_target_properties(glfw     			                    PROPERTIES FOLDER deps/glfw)
+
+set_target_properties(EABase_ide                            PROPERTIES FOLDER deps/eastl)
+set_target_properties(EASTL                                 PROPERTIES FOLDER deps/eastl)
+
+set_target_properties(glfw                                  PROPERTIES FOLDER deps/glfw)
+
+if (GLFW_BUILD_EXAMPLES)
+    set_target_properties(boing                             PROPERTIES FOLDER deps/glfw/examples)
+    set_target_properties(gears                             PROPERTIES FOLDER deps/glfw/examples)
+    set_target_properties(heightmap                         PROPERTIES FOLDER deps/glfw/examples)
+    set_target_properties(particles                         PROPERTIES FOLDER deps/glfw/examples)
+    set_target_properties(simple                            PROPERTIES FOLDER deps/glfw/examples)
+    set_target_properties(splitview                         PROPERTIES FOLDER deps/glfw/examples)
+    set_target_properties(wave                              PROPERTIES FOLDER deps/glfw/examples)
+endif (GLFW_BUILD_EXAMPLES)
+
+if (GLFW_BUILD_TESTS)
+    set_target_properties(clipboard                         PROPERTIES FOLDER deps/glfw/tests)
+    set_target_properties(cursor                            PROPERTIES FOLDER deps/glfw/tests)
+    set_target_properties(empty                             PROPERTIES FOLDER deps/glfw/tests)
+    set_target_properties(events                            PROPERTIES FOLDER deps/glfw/tests)
+    set_target_properties(gamma                             PROPERTIES FOLDER deps/glfw/tests)
+    set_target_properties(glfwinfo                          PROPERTIES FOLDER deps/glfw/tests)
+    set_target_properties(icon                              PROPERTIES FOLDER deps/glfw/tests)
+    set_target_properties(iconify                           PROPERTIES FOLDER deps/glfw/tests)
+    set_target_properties(joysticks                         PROPERTIES FOLDER deps/glfw/tests)
+    set_target_properties(monitors                          PROPERTIES FOLDER deps/glfw/tests)
+    set_target_properties(msaa                              PROPERTIES FOLDER deps/glfw/tests)
+    set_target_properties(reopen                            PROPERTIES FOLDER deps/glfw/tests)
+    set_target_properties(sharing                           PROPERTIES FOLDER deps/glfw/tests)
+    set_target_properties(tearing                           PROPERTIES FOLDER deps/glfw/tests)
+    set_target_properties(threads                           PROPERTIES FOLDER deps/glfw/tests)
+    set_target_properties(timeout                           PROPERTIES FOLDER deps/glfw/tests)
+    set_target_properties(title                             PROPERTIES FOLDER deps/glfw/tests)
+    set_target_properties(windows                           PROPERTIES FOLDER deps/glfw/tests)
+endif (GLFW_BUILD_TESTS)
+
+if (GLFW_BUILD_DOCS)
+    set_target_properties(docs                              PROPERTIES FOLDER deps/glfw/docs)
+endif (GLFW_BUILD_DOCS)
