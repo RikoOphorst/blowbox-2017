@@ -57,6 +57,12 @@ namespace blowbox
 
 	public:
 		/**
+		* @brief Set a function that gets called whenever the Run step happens in the game loop
+		* @param[in] run_procedure	The function that should be called when the Run step happens in the game loop
+		*/
+		void SetRunProcedure(const eastl::function<void(void)>& run_procedure);
+
+		/**
 		* @brief Set a function that gets called whenever the Update step happens in the game loop
 		* @param[in] update_procedure	The function that should be called each frame when the Update step happens in the game loop
 		*/
@@ -80,13 +86,21 @@ namespace blowbox
 		*/
 		void SetPostRenderProcedure(const eastl::function<void(void)>& post_render_procedure);
 
+		/**
+		* @brief Set a function that gets called whenever the Shutdown step happens in the game loop
+		* @param[in] shutdown_procedure	The function that should be called when the Shutdown step happens in the game loop
+		*/
+		void SetShutdownProcedure(const eastl::function<void(void)>& shutdown_procedure);
+
 	private:
 		BlowboxConfig* config_; //!< The configuration of blowbox
 		bool alive_; //!< Tracks whether the engine should still be alive
 
+		eastl::function<void(void)> user_procedure_run_; //!< The procedure that is defined by the user for the Run step
 		eastl::function<void(void)> user_procedure_update_; //!< The procedure that is defined by the user for the Update step
 		eastl::function<void(void)> user_procedure_post_update_; //!< The procedure that is defined by the user for the PostUpdate step
 		eastl::function<void(void)> user_procedure_render_; //!< The procedure that is defined by the user for the Render step
 		eastl::function<void(void)> user_procedure_post_render_; //!< The procedure that is defined by the user for the PostRender step
+		eastl::function<void(void)> user_procedure_shutdown_; //!< The procedure that is defined by the user for the Shutdown step
 	};
 }

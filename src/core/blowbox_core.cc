@@ -28,13 +28,37 @@ namespace blowbox
 	//------------------------------------------------------------------------------------------------------
 	void BlowboxCore::Run()
 	{
+		if (user_procedure_run_)
+		{
+			user_procedure_run_();
+		}
+
 		while (IsBlowboxAlive())
 		{
-			user_procedure_update_();
-			user_procedure_post_update_();
+			if (user_procedure_update_)
+			{
+				user_procedure_update_();
+			}
 
-			user_procedure_render_();
-			user_procedure_post_render_();
+			if (user_procedure_post_update_)
+			{
+				user_procedure_post_update_();
+			}
+
+			if (user_procedure_render_)
+			{
+				user_procedure_render_();
+			}
+
+			if (user_procedure_post_render_)
+			{
+				user_procedure_post_render_();
+			}
+		}
+
+		if (user_procedure_shutdown_)
+		{
+			user_procedure_shutdown_();
 		}
 	}
 
@@ -48,6 +72,12 @@ namespace blowbox
 	bool BlowboxCore::IsBlowboxAlive()
 	{
 		return alive_;
+	}
+
+	//------------------------------------------------------------------------------------------------------
+	void BlowboxCore::SetRunProcedure(const eastl::function<void(void)>& run_procedure)
+	{
+		user_procedure_run_ = run_procedure;
 	}
 
 	//------------------------------------------------------------------------------------------------------
@@ -72,5 +102,11 @@ namespace blowbox
 	void BlowboxCore::SetPostRenderProcedure(const eastl::function<void(void)>& post_render_procedure)
 	{
 		user_procedure_post_render_ = post_render_procedure;
+	}
+	
+	//------------------------------------------------------------------------------------------------------
+	void BlowboxCore::SetShutdownProcedure(const eastl::function<void(void)>& shutdown_procedure)
+	{
+		user_procedure_shutdown_ = shutdown_procedure;
 	}
 }

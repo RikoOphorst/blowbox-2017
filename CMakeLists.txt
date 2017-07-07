@@ -81,10 +81,11 @@ target_link_libraries(blowbox_core blowbox_renderer)
 target_link_libraries(blowbox_core blowbox_content)
 target_link_libraries(blowbox_core blowbox_win32)
 target_link_libraries(blowbox_core blowbox_util)
-include_directories(blowbox_core PUBLIC src)
+include_directories("src" "deps/EASTL/test/packages/EAAssert/include")
 
 set (BUILD_SHARED_LIBS_TEMP ${BUILD_SHARED_LIBS})
 set (BUILD_SHARED_LIBS OFF CACHE BOOL "whether shared libs should be built by default" FORCE)
+set (EASTL_BUILD_TESTS ON CACHE BOOL "whether to build the tests for EASTL" FORCE)
 # Linking EASTL
 add_subdirectory("deps/EASTL")
 target_link_libraries(blowbox_core      EASTL)
@@ -92,6 +93,19 @@ target_link_libraries(blowbox_renderer  EASTL)
 target_link_libraries(blowbox_content   EASTL)
 target_link_libraries(blowbox_win32     EASTL)
 target_link_libraries(blowbox_util      EASTL)
+
+target_link_libraries(blowbox_core      EAStdC)
+target_link_libraries(blowbox_renderer  EAStdC)
+target_link_libraries(blowbox_content   EAStdC)
+target_link_libraries(blowbox_win32     EAStdC)
+target_link_libraries(blowbox_util      EAStdC)
+
+target_link_libraries(blowbox_core      EATest)
+target_link_libraries(blowbox_renderer  EATest)
+target_link_libraries(blowbox_content   EATest)
+target_link_libraries(blowbox_win32     EATest)
+target_link_libraries(blowbox_util      EATest)
+
 set (BUILD_SHARED_LIBS ${BUILD_SHARED_LIBS_TEMP} CACHE BOOL "whether shared libs should be built by default" FORCE)
 
 # Linking Assimp
@@ -139,14 +153,30 @@ if (TARGET assimp_viewer)
     set_target_properties(assimp_viewer                     PROPERTIES FOLDER deps/assimp)
 endif (TARGET assimp_viewer)
 
-set_target_properties(gtest                                 PROPERTIES FOLDER deps/assimp)
+if (TARGET gtest)
+    set_target_properties(gtest                             PROPERTIES FOLDER deps/assimp)
+endif (TARGET gtest)
+
+if (TARGET unit)
+    set_target_properties(unit                              PROPERTIES FOLDER deps/assimp)
+endif (TARGET unit)
+
 set_target_properties(uninstall                             PROPERTIES FOLDER deps/assimp)
-set_target_properties(unit                                  PROPERTIES FOLDER deps/assimp)
 set_target_properties(UpdateAssimpLibsDebugSymbolsAndDLLs   PROPERTIES FOLDER deps/assimp)
 set_target_properties(zlibstatic                            PROPERTIES FOLDER deps/assimp)
 
-set_target_properties(EABase_ide                            PROPERTIES FOLDER deps/eastl)
 set_target_properties(EASTL                                 PROPERTIES FOLDER deps/eastl)
+set_target_properties(EABase_ide                            PROPERTIES FOLDER deps/eastl)
+set_target_properties(EAAssert_ide                          PROPERTIES FOLDER deps/eastl)
+set_target_properties(EAMain_ide                            PROPERTIES FOLDER deps/eastl)
+set_target_properties(EAThread_ide                          PROPERTIES FOLDER deps/eastl)
+set_target_properties(EAStdC                                PROPERTIES FOLDER deps/eastl)
+set_target_properties(EASTLTest                             PROPERTIES FOLDER deps/eastl)
+set_target_properties(EATest                                PROPERTIES FOLDER deps/eastl)
+set_target_properties(Continuous                            PROPERTIES FOLDER deps/eastl)
+set_target_properties(Experimental                          PROPERTIES FOLDER deps/eastl)
+set_target_properties(Nightly                               PROPERTIES FOLDER deps/eastl)
+set_target_properties(NightlyMemoryCheck                    PROPERTIES FOLDER deps/eastl)
 
 set_target_properties(glfw                                  PROPERTIES FOLDER deps/glfw)
 

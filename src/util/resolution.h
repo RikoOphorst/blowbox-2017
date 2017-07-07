@@ -1,5 +1,8 @@
 #pragma once
 
+#include "core/eastl_required.h"
+#include <EASTL/string.h>
+
 /**
 * @namespace blowbox
 * @author Riko Ophorst
@@ -21,5 +24,6 @@ namespace blowbox
 		int height;
 
 		float GetAspectRatio();
+		eastl::string ToString();
 	};
 }
