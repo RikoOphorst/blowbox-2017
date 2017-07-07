@@ -49,6 +49,10 @@ file(GLOB ContentFiles
     src/content/*.cc 
     src/content/*.h 
 )
+file(GLOB ContentStbFiles
+    src/content/stb/*.cc 
+    src/content/stb/*.h 
+)
 file(GLOB CoreFiles
     src/core/*.cc 
     src/core/*.h 
@@ -63,15 +67,18 @@ source_group("win32"            FILES       ${Win32Files})
 source_group("renderer"         FILES       ${RendererFiles})
 source_group("renderer\\imgui"  FILES       ${RendererImguiFiles})
 source_group("content"          FILES       ${ContentFiles})
+source_group("content\\stb"     FILES       ${ContentStbFiles})
 source_group("core"             FILES       ${CoreFiles})
 source_group("util"             FILES       ${UtilFiles})
 
 # Add the libraries and executables to the main solution
 add_library(blowbox_win32       STATIC      ${Win32Files})
 add_library(blowbox_renderer    STATIC      ${RendererFiles} ${RendererImguiFiles})
-add_library(blowbox_content     STATIC      ${ContentFiles})
+add_library(blowbox_content     STATIC      ${ContentFiles} ${ContentStbFiles})
 add_library(blowbox_util        STATIC      ${UtilFiles})
 add_executable(blowbox_core                 ${CoreFiles})
+
+set_target_properties(blowbox_core PROPERTIES LINK_FLAGS "/SUBSYSTEM:WINDOWS /ENTRY:mainCRTStartup")
 
 # Make the blowbox_core project the startup project in Visual Studio
 set_property(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY VS_STARTUP_PROJECT blowbox_core)
@@ -147,7 +154,10 @@ set_target_properties(blowbox_win32                         PROPERTIES FOLDER bl
 set_target_properties(blowbox_util                          PROPERTIES FOLDER blowbox)
 
 set_target_properties(assimp                                PROPERTIES FOLDER deps/assimp)
-set_target_properties(assimp_cmd                            PROPERTIES FOLDER deps/assimp)
+
+if (TARGET assimp_cmd)
+    set_target_properties(assimp_cmd                            PROPERTIES FOLDER deps/assimp)
+endif(TARGET assimp_cmd)
 
 if (TARGET assimp_viewer)
     set_target_properties(assimp_viewer                     PROPERTIES FOLDER deps/assimp)

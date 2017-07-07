@@ -8,6 +8,8 @@
 // throw specification wrappers, which allow for portability.
 ///////////////////////////////////////////////////////////////////////////////
 
+#define EA_COMPILER_NO_EXCEPTIONS
+
 #if defined(EA_COMPILER_NO_EXCEPTIONS) && (!defined(__MWERKS__) || defined(_MSL_NO_THROW_SPECS)) && !defined(EA_COMPILER_RVCT)
 #define THROW_SPEC_0    // Throw 0 arguments
 #define THROW_SPEC_1(x) // Throw 1 argument

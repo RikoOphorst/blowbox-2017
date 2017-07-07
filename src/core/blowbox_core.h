@@ -10,7 +10,10 @@
 */
 namespace blowbox
 {
+	class Get;
 	struct BlowboxConfig;
+	class GLFWManager;
+	class Window;
 
 	/**
 	* @class blowbox::BlowboxCore
@@ -32,6 +35,12 @@ namespace blowbox
 		* @param[in] The configuration you wish to use for the BlowboxCore instance
 		*/
 		BlowboxCore(BlowboxConfig* config);
+
+		/**
+		* @brief Delete the copy constructor
+		* @author Riko Ophorst
+		*/
+		BlowboxCore(const BlowboxCore& that) = delete;
 
 		/**
 		* @brief Destroys the BlowboxCore.
@@ -102,5 +111,9 @@ namespace blowbox
 		eastl::function<void(void)> user_procedure_render_; //!< The procedure that is defined by the user for the Render step
 		eastl::function<void(void)> user_procedure_post_render_; //!< The procedure that is defined by the user for the PostRender step
 		eastl::function<void(void)> user_procedure_shutdown_; //!< The procedure that is defined by the user for the Shutdown step
+
+		Get* getter_;
+		GLFWManager* glfw_manager_;
+		Window* main_window_;
 	};
 }

@@ -2,6 +2,9 @@
 
 #include "util/assert.h"
 #include "core/blowbox_config.h"
+#include "core/get.h"
+#include "win32/glfw_manager.h"
+#include "win32/window.h"
 
 namespace blowbox
 {
@@ -17,17 +20,30 @@ namespace blowbox
 		config_(config)
 	{
 		BLOWBOX_ASSERT(config_ != nullptr);
+
+		glfw_manager_ = new GLFWManager();
+
+		getter_ = new Get();
+		getter_->SetBlowboxCore(this);
+		getter_->SetGLFWManager(glfw_manager_);
 	}
 
 	//------------------------------------------------------------------------------------------------------
 	BlowboxCore::~BlowboxCore()
 	{
-
+		delete main_window_;
+		delete glfw_manager_;
+		delete getter_;
 	}
 
 	//------------------------------------------------------------------------------------------------------
 	void BlowboxCore::Run()
 	{
+		glfw_manager_->Init();
+
+		main_window_ = new Window(config_->window_resolution, config_->window_title);
+		getter_->SetMainWindow(main_window_);
+
 		if (user_procedure_run_)
 		{
 			user_procedure_run_();
@@ -35,6 +51,8 @@ namespace blowbox
 
 		while (IsBlowboxAlive())
 		{
+			glfw_manager_->Update();
+
 			if (user_procedure_update_)
 			{
 				user_procedure_update_();
@@ -60,6 +78,8 @@ namespace blowbox
 		{
 			user_procedure_shutdown_();
 		}
+
+		glfw_manager_->Shutdown();
 	}
 
 	//------------------------------------------------------------------------------------------------------
