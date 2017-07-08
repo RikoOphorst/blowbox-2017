@@ -10,6 +10,10 @@ namespace blowbox
     class GLFWManager;
     class BlowboxCore;
     class Window;
+    class Renderer;
+    class CommandManager;
+    class CommandContextManager;
+    class Device;
 
     /**
     * @class blowbox::Get
@@ -50,6 +54,30 @@ namespace blowbox
         * @author Riko Ophorst
         */
         static Window* MainWindow();
+
+        /**
+        * @brief Returns the Renderer instance
+        * @author Riko Ophorst
+        */
+        static Renderer* Renderer();
+
+        /**
+        * @brief Returns the CommandContextManager instance
+        * @author Riko Ophorst
+        */
+        static CommandContextManager* CommandContextManager();
+
+        /**
+        * @brief Returns the CommandManager instance
+        * @author Riko Ophorst
+        */
+        static CommandManager* CommandManager();
+
+        /**
+        * @brief Returns the Device instance
+        * @author Riko Ophorst
+        */
+        static Device* Device();
         
     protected:
         /**
@@ -73,11 +101,43 @@ namespace blowbox
         */
         void SetMainWindow(blowbox::Window* main_window);
 
+        /**
+        * @brief Sets the Renderer instance. Only accessible to BlowboxCore.
+        * @author Riko Ophorst
+        * @param[in] renderer       The instance of Renderer
+        */
+        void SetRenderer(blowbox::Renderer* renderer);
+
+        /**
+        * @brief Sets the CommandContextManager instance. Only accessible to BlowboxCore.
+        * @author Riko Ophorst
+        * @param[in] command_context_manager       The instance of CommandContextManager
+        */
+        void SetCommandContextManager(blowbox::CommandContextManager* command_context_manager);
+
+        /**
+        * @brief Sets the CommandManager instance. Only accessible to BlowboxCore.
+        * @author Riko Ophorst
+        * @param[in] command_manager       The instance of CommandManager
+        */
+        void SetCommandManager(blowbox::CommandManager* command_manager);
+
+        /**
+        * @brief Sets the Device instance. Only accessible to BlowboxCore.
+        * @author Riko Ophorst
+        * @param[in] device       The instance of Device
+        */
+        void SetDevice(blowbox::Device* device);
+
         static Get* instance_; //!< The instance of the Get class
 
     private:
         blowbox::BlowboxCore* blowbox_core_; //!< The BlowboxCore instance
         blowbox::GLFWManager* glfw_manager_; //!< The GLFWManager instance
         blowbox::Window* main_window_; //!< The main Window instance
+        blowbox::Renderer* renderer_; //!< The Renderer that is used to render stuff to the main Window
+        blowbox::CommandContextManager* command_context_manager_; //!< The CommandContextManager instance
+        blowbox::CommandManager* command_manager_; //!< The CommandManager instance
+        blowbox::Device* device_; //!< The render Device instance
     };
 }

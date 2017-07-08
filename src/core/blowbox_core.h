@@ -14,6 +14,7 @@ namespace blowbox
     struct BlowboxConfig;
     class GLFWManager;
     class Window;
+    class Renderer;
 
     /**
     * @class blowbox::BlowboxCore
@@ -115,5 +116,8 @@ namespace blowbox
         Get* getter_; //!< The Get instance that is used in the entire engine
         GLFWManager* glfw_manager_; //!< The GLFWManager instance is stored here
         Window* main_window_; //!< The main Window instance
+        Renderer* renderer_; //!< The Renderer instance
+        CommandManager* command_manager_; //!< The CommandManager instance
+        CommandContextManager* command_context_manager_; //!< The CommandContextManager instance
     };
 }

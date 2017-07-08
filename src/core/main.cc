@@ -9,15 +9,20 @@
 
 #include "core/eastl_required.h"
 #include <EASTL/string.h>
-#include <GLFW/glfw3.h>
+
+#include <d3d12.h>
+#include <d3dcompiler.h>
+#include <dxgi1_6.h>
 
 using namespace blowbox;
 
 BlowboxCore* blowbox_instance;
+Window* main_window;
 
 void Run()
 {
-    Get::MainWindow()->SetWindowIcon(new Image("icon.png"));
+    main_window = Get::MainWindow();
+    main_window->SetWindowIcon(new Image("icon.png"));
 }
 
 void Update()

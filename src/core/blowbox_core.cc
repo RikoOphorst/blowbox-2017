@@ -5,6 +5,9 @@
 #include "core/get.h"
 #include "win32/glfw_manager.h"
 #include "win32/window.h"
+#include "renderer/renderer.h"
+#include "renderer/commands/command_context_manager.h"
+#include "renderer/commands/command_manager.h"
 
 namespace blowbox
 {
@@ -22,15 +25,24 @@ namespace blowbox
         BLOWBOX_ASSERT(config_ != nullptr);
 
         glfw_manager_ = new GLFWManager();
+        renderer_ = new Renderer();
+        command_manager_ = new CommandManager();
+        command_context_manager_ = new CommandContextManager();
 
         getter_ = new Get();
         getter_->SetBlowboxCore(this);
         getter_->SetGLFWManager(glfw_manager_);
+        getter_->SetRenderer(renderer_);
+        getter_->SetCommandManager(command_manager_);
+        getter_->SetCommandContextManager(command_context_manager_);
     }
 
     //------------------------------------------------------------------------------------------------------
     BlowboxCore::~BlowboxCore()
     {
+        delete command_context_manager_;
+        delete command_manager_;
+        delete renderer_;
         delete main_window_;
         delete glfw_manager_;
         delete getter_;
@@ -43,6 +55,12 @@ namespace blowbox
 
         main_window_ = new Window(config_->window_resolution, config_->window_title);
         getter_->SetMainWindow(main_window_);
+        
+        renderer_->Startup();
+        getter_->SetDevice(renderer_->GetDevice());
+
+        command_manager_->Startup();
+        command_context_manager_->Startup();
 
         if (user_procedure_run_)
         {

@@ -39,6 +39,30 @@ namespace blowbox
     {
         return Get::instance_->main_window_;
     }
+
+    //------------------------------------------------------------------------------------------------------
+    Renderer* Get::Renderer()
+    {
+        return Get::instance_->renderer_;
+    }
+
+    //------------------------------------------------------------------------------------------------------
+    CommandContextManager* Get::CommandContextManager()
+    {
+        return Get::instance_->command_context_manager_;
+    }
+
+    //------------------------------------------------------------------------------------------------------
+    CommandManager* Get::CommandManager()
+    {
+        return Get::instance_->command_manager_;
+    }
+
+    //------------------------------------------------------------------------------------------------------
+    Device* Get::Device()
+    {
+        return Get::instance_->device_;
+    }
     
     //------------------------------------------------------------------------------------------------------
     void Get::SetBlowboxCore(blowbox::BlowboxCore* blowbox_core)
@@ -56,5 +80,29 @@ namespace blowbox
     void Get::SetMainWindow(blowbox::Window* main_window)
     {
         main_window_ = main_window;
+    }
+    
+    //------------------------------------------------------------------------------------------------------
+    void Get::SetRenderer(blowbox::Renderer* renderer)
+    {
+        renderer_ = renderer;
+    }
+
+    //------------------------------------------------------------------------------------------------------
+    void Get::SetCommandContextManager(blowbox::CommandContextManager* command_context_manager)
+    {
+        command_context_manager_ = command_context_manager;
+    }
+
+    //------------------------------------------------------------------------------------------------------
+    void Get::SetCommandManager(blowbox::CommandManager* command_manager)
+    {
+        command_manager_ = command_manager;
+    }
+    
+    //------------------------------------------------------------------------------------------------------
+    void Get::SetDevice(blowbox::Device* device)
+    {
+        device_ = device;
     }
 }
