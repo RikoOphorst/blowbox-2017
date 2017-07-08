@@ -2829,9 +2829,9 @@ ImVec2 ImGui::GetMousePos()
 ImVec2 ImGui::GetMousePosOnOpeningCurrentPopup()
 {
     ImGuiState& g = *GImGui;
-	if (g.CurrentPopupStack.Size > 0)
-		return g.OpenedPopupStack[g.CurrentPopupStack.Size-1].MousePosOnOpen;
-	return g.IO.MousePos;
+    if (g.CurrentPopupStack.Size > 0)
+        return g.OpenedPopupStack[g.CurrentPopupStack.Size-1].MousePosOnOpen;
+    return g.IO.MousePos;
 }
 
 ImVec2 ImGui::GetMouseDragDelta(int button, float lock_threshold)
@@ -4402,7 +4402,7 @@ static void SetWindowSize(ImGuiWindow* window, const ImVec2& size, ImGuiSetCond 
     // Set
     if (size.x > 0.0f)
     {
-		window->AutoFitFramesX = 0;
+        window->AutoFitFramesX = 0;
         window->SizeFull.x = size.x;
     }
     else
@@ -4412,7 +4412,7 @@ static void SetWindowSize(ImGuiWindow* window, const ImVec2& size, ImGuiSetCond 
     }
     if (size.y > 0.0f)
     {
-		window->AutoFitFramesY = 0;
+        window->AutoFitFramesY = 0;
         window->SizeFull.y = size.y;
     }
     else
@@ -7654,7 +7654,7 @@ bool ImGui::Combo(const char* label, int* current_item, bool (*items_getter)(voi
             }
             else
             {
-            	FocusWindow(window);
+                FocusWindow(window);
                 ImGui::OpenPopup(label);
                 menu_toggled = true;
             }

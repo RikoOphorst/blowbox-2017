@@ -17,54 +17,54 @@ BlowboxCore* blowbox_instance;
 
 void Run()
 {
-	//Get::MainWindow()->SetWindowIcon(new Image("icon.png"));
+    Get::MainWindow()->SetWindowIcon(new Image("icon.png"));
 }
 
 void Update()
 {
-	
+    
 }
 
 void PostUpdate()
 {
-	
+    
 }
 
 void Render()
 {
-	
+    
 }
 
 void PostRender()
 {
-	
+    
 }
 
 void Shutdown()
 {
-	
+    
 }
 
 int main(int argc, char** argv)
 {
-	BlowboxConfig config;
-	config.window_title = "Blowbox 2017";
-	config.window_resolution = Resolution(1280, 720);
+    BlowboxConfig config;
+    config.window_title = "Blowbox 2017";
+    config.window_resolution = Resolution(1280, 720);
 
-	blowbox_instance = new BlowboxCore(&config);
+    blowbox_instance = new BlowboxCore(&config);
 
-	std::cout << Get::GLFWManager() << std::endl;
+    std::cout << Get::GLFWManager() << std::endl;
 
-	blowbox_instance->SetRunProcedure(Run);
-	blowbox_instance->SetUpdateProcedure(Update);
-	blowbox_instance->SetPostUpdateProcedure(PostUpdate);
-	blowbox_instance->SetRenderProcedure(Render);
-	blowbox_instance->SetPostRenderProcedure(PostRender);
-	blowbox_instance->SetShutdownProcedure(Shutdown);
+    blowbox_instance->SetRunProcedure(Run);
+    blowbox_instance->SetUpdateProcedure(Update);
+    blowbox_instance->SetPostUpdateProcedure(PostUpdate);
+    blowbox_instance->SetRenderProcedure(Render);
+    blowbox_instance->SetPostRenderProcedure(PostRender);
+    blowbox_instance->SetShutdownProcedure(Shutdown);
 
-	blowbox_instance->Run();
+    blowbox_instance->Run();
 
-	delete blowbox_instance;
+    delete blowbox_instance;
 
-	return 0;
+    return 0;
 }
