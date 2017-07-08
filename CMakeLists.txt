@@ -221,6 +221,6 @@ if (GLFW_BUILD_TESTS)
     set_target_properties(windows                           PROPERTIES FOLDER deps/glfw/tests)
 endif (GLFW_BUILD_TESTS)
 
-if (GLFW_BUILD_DOCS)
+if (TARGET docs)
     set_target_properties(docs                              PROPERTIES FOLDER deps/glfw/docs)
-endif (GLFW_BUILD_DOCS)
+endif (TARGET docs)

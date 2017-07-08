@@ -17,7 +17,7 @@ BlowboxCore* blowbox_instance;
 
 void Run()
 {
-	Get::MainWindow()->SetWindowIcon(new Image("icon.png"));
+	//Get::MainWindow()->SetWindowIcon(new Image("icon.png"));
 }
 
 void Update()
