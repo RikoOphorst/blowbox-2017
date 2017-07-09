@@ -1,5 +1,10 @@
 #pragma once
 
+#include "core/eastl_required.h"
+#include <EASTL/map.h>
+
+struct GLFWwindow;
+
 /**
 * @namespace blowbox
 * @author Riko Ophorst
@@ -7,6 +12,8 @@
 */
 namespace blowbox
 {
+    class Window;
+
     /**
     * @class GLFWManager
     * @author Riko Ophorst
@@ -15,6 +22,7 @@ namespace blowbox
     class GLFWManager
     {
         friend class BlowboxCore;
+        friend class Window;
     protected:
         /**
         * @brief Constructor for the GLFWManager. Only accessible to BlowboxCore.
@@ -44,5 +52,28 @@ namespace blowbox
         * @author Riko Ophorst
         */
         void Shutdown();
+
+        /**
+        * @brief Adds a Window to the GLFWManager.
+        * @author Riko Ophorst
+        * @param[in] window The window to be added
+        */
+        void AddWindow(Window* window);
+
+        /**
+        * @brief Removes a Window from the GLFWManager.
+        * @author Riko Ophorst
+        * @param[in] window The window to be removed
+        */
+        void RemoveWindow(Window* window);
+
+        /**
+        * @brief Finds corresponding Window
+        * @author Riko Ophorst
+        * @param[in] window The GLFW window to which we need to find the Window
+        */
+        Window* FindCorrespondingWindow(GLFWwindow* window);
+    private:
+        eastl::map<GLFWwindow*, Window*> windows_; //!< All windows in the world
     };
 }

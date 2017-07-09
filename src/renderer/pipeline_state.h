@@ -35,10 +35,8 @@ namespace blowbox
 	{
 	public:
 		GraphicsPSO();
-		~GraphicsPSO()
-		{
-			int i = 0;
-		}
+        ~GraphicsPSO();
+
 	public:
 		static GraphicsPSO& Get(const eastl::string& name);
 

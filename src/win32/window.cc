@@ -1,5 +1,7 @@
 #include "window.h"
 
+#include "core/get.h"
+#include "win32/glfw_manager.h"
 #include "content/image.h"
 #include "util/assert.h"
 
@@ -16,6 +18,7 @@ namespace blowbox
     //------------------------------------------------------------------------------------------------------
     Window::~Window()
     {
+        Get::GLFWManager()->RemoveWindow(this);
         glfwDestroyWindow(window_);
     }
 
@@ -29,6 +32,12 @@ namespace blowbox
         {
             SetWindowIcon(window_icon);
         }
+
+        Get::GLFWManager()->AddWindow(this);
+
+        glfwSetKeyCallback(window_, GlfwKeyCallback);
+        glfwSetCursorPosCallback(window_, GlfwCursorPosCallback);
+        glfwSetMouseButtonCallback(window_, GlfwMouseButtonCallback);
     }
 
     //------------------------------------------------------------------------------------------------------
@@ -109,5 +118,45 @@ namespace blowbox
     HWND Window::GetWindowHandle() const
     {
         return glfwGetWin32Window(window_);
+    }
+    
+    //------------------------------------------------------------------------------------------------------
+    GLFWwindow* Window::GetGLFWWindow()
+    {
+        return window_;
+    }
+
+    //------------------------------------------------------------------------------------------------------
+    KeyboardState& Window::GetKeyboardState()
+    {
+        return keyboard_state_;
+    }
+
+    //------------------------------------------------------------------------------------------------------
+    void Window::GlfwKeyCallback(GLFWwindow* window, int key, int scancode, int action, int modifiers)
+    {
+        KeyboardState& keyboard_state = Get::GLFWManager()->FindCorrespondingWindow(window)->GetKeyboardState();
+        
+        if (action == GLFW_PRESS)
+        {
+            keyboard_state.SetKeyPressed(GlfwKeyToBlowboxKeyCode(key));
+        }
+
+        if (action == GLFW_RELEASE)
+        {
+            keyboard_state.SetKeyReleased(GlfwKeyToBlowboxKeyCode(key));
+        }
+    }
+
+    //------------------------------------------------------------------------------------------------------
+    void Window::GlfwCursorPosCallback(GLFWwindow* window, double x, double y)
+    {
+
+    }
+    
+    //------------------------------------------------------------------------------------------------------
+    void Window::GlfwMouseButtonCallback(GLFWwindow* window, int button, int action, int modifiers)
+    {
+
     }
 }

@@ -25,6 +25,12 @@ namespace blowbox
 		pso_desc_.InputLayout.NumElements = 0;
 	}
 
+    //------------------------------------------------------------------------------------------------------
+    GraphicsPSO::~GraphicsPSO()
+    {
+
+    }
+
 	//------------------------------------------------------------------------------------------------------
 	GraphicsPSO& GraphicsPSO::Get(const eastl::string& name)
 	{

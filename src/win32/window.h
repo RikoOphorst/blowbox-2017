@@ -9,6 +9,8 @@
 #include <GLFW/glfw3.h>
 #include <GLFW/glfw3native.h>
 
+#include "win32/key_code.h"
+#include "win32/keyboard_state.h"
 #include "util/resolution.h"
 
 #include <DirectXMath.h>
@@ -125,11 +127,55 @@ namespace blowbox
         */
         HWND GetWindowHandle() const;
 
+        /**
+        * @brief Returns the underlying GLFWwindow
+        * @author Riko Ophorst
+        */
+        GLFWwindow* GetGLFWWindow();
+
+        /**
+        * @brief Returns this window's KeyboardState
+        * @author Riko Ophorst
+        */
+        KeyboardState& GetKeyboardState();
+
+        /**
+        * @brief This is the callback function that is used for key input
+        * @author Riko Ophorst
+        * @param[in] window     The window that the callback function is associated with
+        * @param[in] key        The key in question
+        * @param[in] scancode   Don't know what this is.
+        * @param[in] action     What happened with the key in question
+        * @param[in] modifiers  Whether any modifiers were active when this key was pressed
+        */
+        static void GlfwKeyCallback(GLFWwindow* window, int key, int scancode, int action, int modifiers);
+
+        /**
+        * @brief This is the callback function that is used for mouse movement input
+        * @author Riko Ophorst
+        * @param[in] window     The window that the callback function is associated with
+        * @param[in] x          The position of the cursor on the x-axis
+        * @param[in] y          The position of the cursor on the y-axis
+        */
+        static void GlfwCursorPosCallback(GLFWwindow* window, double x, double y);
+
+        /**
+        * @brief This is the callback function that is used for mouse movement input
+        * @author Riko Ophorst
+        * @param[in] window     The window that the callback function is associated with
+        * @param[in] button     The button in question
+        * @param[in] action     The action
+        * @param[in] modifiers  Whether any modifiers were active when this button was pressed
+        */
+        static void GlfwMouseButtonCallback(GLFWwindow* window, int button, int action, int modifiers);
+
     private:
         GLFWwindow* window_; //!< The underlying window that GLFW uses
         Image* window_icon_; //!< The currently bound icon
         eastl::string window_title_; //!< The title of window
         Resolution min_resolution_; //!< The minimum resolution of the window
         Resolution max_resolution_; //!< The maximum resolution of the window
+
+        KeyboardState keyboard_state_; //!< The state of the keyboard for this window
     };
 }
