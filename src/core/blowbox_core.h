@@ -3,6 +3,11 @@
 #include "core/eastl_required.h"
 #include <EASTL/functional.h>
 
+#define BLOWBOX_SWAP_CHAIN_BUFFER_COUNT 2
+#define BLOWBOX_DESCRIPTOR_HEAP_MAX_RTV_COUNT 1024U
+#define BLOWBOX_DESCRIPTOR_HEAP_MAX_DSV_COUNT 1024U
+#define BLOWBOX_DESCRIPTOR_HEAP_MAX_CBV_SRV_UAV_COUNT 16384U
+
 /**
 * @namespace blowbox
 * @author Riko Ophorst
@@ -14,9 +19,13 @@ namespace blowbox
     struct BlowboxConfig;
     class GLFWManager;
     class Window;
-    class Renderer;
+    class Device;
+    class SwapChain;
     class CommandManager;
     class CommandContextManager;
+    class DescriptorHeap;
+    class ForwardRenderer;
+    class DeferredRenderer;
 
     /**
     * @class blowbox::BlowboxCore
@@ -64,8 +73,21 @@ namespace blowbox
     protected:
         /**
         * @brief Figures out whether the BlowboxCore should shutdown based on the state of the engine (window, input, etc)
+        * @author Riko Ophorst
         */
         bool IsBlowboxAlive();
+
+        /**
+        * @brief Starts up the Win32 subsystems
+        * @author Riko Ophorst
+        */
+        void StartupWin32();
+
+        /**
+        * @brief Starts up the Renderer subsystems
+        * @author Riko Ophorst
+        */
+        void StartupRenderer();
 
     public:
         /**
@@ -107,6 +129,7 @@ namespace blowbox
     private:
         BlowboxConfig* config_; //!< The configuration of blowbox
         bool alive_; //!< Tracks whether the engine should still be alive
+        Get* getter_; //!< The Get instance that is used in the entire engine
 
         eastl::function<void(void)> user_procedure_run_; //!< The procedure that is defined by the user for the Run step
         eastl::function<void(void)> user_procedure_update_; //!< The procedure that is defined by the user for the Update step
@@ -114,12 +137,24 @@ namespace blowbox
         eastl::function<void(void)> user_procedure_render_; //!< The procedure that is defined by the user for the Render step
         eastl::function<void(void)> user_procedure_post_render_; //!< The procedure that is defined by the user for the PostRender step
         eastl::function<void(void)> user_procedure_shutdown_; //!< The procedure that is defined by the user for the Shutdown step
+        
+        // win32 stuff
+        GLFWManager* win32_glfw_manager_; //!< The GLFWManager instance is stored here
+        Window* win32_main_window_; //!< The main Window instance
 
-        Get* getter_; //!< The Get instance that is used in the entire engine
-        GLFWManager* glfw_manager_; //!< The GLFWManager instance is stored here
-        Window* main_window_; //!< The main Window instance
-        Renderer* renderer_; //!< The Renderer instance
-        CommandManager* command_manager_; //!< The CommandManager instance
-        CommandContextManager* command_context_manager_; //!< The CommandContextManager instance
+        // render stuff
+        Device* render_device_; //!< The Device used by the renderers
+        SwapChain* render_swap_chain_; //!< The SwapChain used by the renderers
+        CommandManager* render_command_manager_; //!< The CommandManager instance
+        CommandContextManager* render_command_context_manager_; //!< The CommandContextManager instance
+        DescriptorHeap* render_rtv_heap_; //!< DescriptorHeap for render target views
+        DescriptorHeap* render_dsv_heap_; //!< DescriptorHeap for depth stencil views
+        DescriptorHeap* render_cbv_srv_uav_heap_; //!< DescriptorHeap for cbv/srv/uavs
+
+        ForwardRenderer* render_forward_renderer_; //!< The ForwardRenderer instance
+        DeferredRenderer* render_deferred_renderer_; //!< The DeferredRenderer instance
+
+        // content stuff
+        // nothing yet
     };
 }

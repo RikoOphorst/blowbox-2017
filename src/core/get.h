@@ -10,12 +10,13 @@ namespace blowbox
     class GLFWManager;
     class BlowboxCore;
     class Window;
-    class Renderer;
+    class ForwardRenderer;
+    class DeferredRenderer;
     class CommandManager;
     class CommandContextManager;
     class Device;
+    class SwapChain;
     class DescriptorHeap;
-    class BufferManager;
 
     /**
     * @class blowbox::Get
@@ -58,10 +59,16 @@ namespace blowbox
         static Window* MainWindow();
 
         /**
-        * @brief Returns the Renderer instance
+        * @brief Returns the ForwardRenderer instance
         * @author Riko Ophorst
         */
-        static Renderer* Renderer();
+        static ForwardRenderer* ForwardRenderer();
+
+        /**
+        * @brief Returns the DeferredRenderer instance
+        * @author Riko Ophorst
+        */
+        static DeferredRenderer* DeferredRenderer();
 
         /**
         * @brief Returns the CommandContextManager instance
@@ -100,10 +107,10 @@ namespace blowbox
         static DescriptorHeap* CbvSrvUavHeap();
 
         /**
-        * @brief Returns the BufferManager instance
+        * @brief Returns the SwapChain instance
         * @author Riko Ophorst
         */
-        static BufferManager* BufferManager();
+        static SwapChain* SwapChain();
         
     protected:
         /**
@@ -128,11 +135,18 @@ namespace blowbox
         void SetMainWindow(blowbox::Window* main_window);
 
         /**
-        * @brief Sets the Renderer instance. Only accessible to BlowboxCore.
+        * @brief Sets the ForwardRenderer instance. Only accessible to BlowboxCore.
         * @author Riko Ophorst
-        * @param[in] renderer       The instance of Renderer
+        * @param[in] forward_renderer       The instance of ForwardRenderer
         */
-        void SetRenderer(blowbox::Renderer* renderer);
+        void SetForwardRenderer(blowbox::ForwardRenderer* forward_renderer);
+
+        /**
+        * @brief Sets the DeferredRenderer instance. Only accessible to BlowboxCore.
+        * @author Riko Ophorst
+        * @param[in] deferred_renderer       The instance of DeferredRenderer
+        */
+        void SetDeferredRenderer(blowbox::DeferredRenderer* deferred_renderer);
 
         /**
         * @brief Sets the CommandContextManager instance. Only accessible to BlowboxCore.
@@ -177,11 +191,11 @@ namespace blowbox
         void SetCbvSrvUavHeap(blowbox::DescriptorHeap* heap);
 
         /**
-        * @brief Sets the BufferManager instance. Only accessible to BlowboxCore.
+        * @brief Sets the SwapChain instance. Only accessible to BlowboxCore.
         * @author Riko Ophorst
-        * @param[in] buffer_manager       The instance of the BufferManager
+        * @param[in] swap_chain       The instance of the SwapChain 
         */
-        void SetBufferManager(blowbox::BufferManager* buffer_manager);
+        void SetSwapChain(blowbox::SwapChain* swap_chain);
 
         static Get* instance_; //!< The instance of the Get class
 
@@ -189,13 +203,14 @@ namespace blowbox
         blowbox::BlowboxCore* blowbox_core_; //!< The BlowboxCore instance
         blowbox::GLFWManager* glfw_manager_; //!< The GLFWManager instance
         blowbox::Window* main_window_; //!< The main Window instance
-        blowbox::Renderer* renderer_; //!< The Renderer that is used to render stuff to the main Window
+        blowbox::ForwardRenderer* forward_renderer_; //!< The ForwardRenderer that is used to render stuff to the main Window
+        blowbox::DeferredRenderer* deferred_renderer_; //!< The DeferredRenderer that is used to render stuff to the main Window
         blowbox::CommandContextManager* command_context_manager_; //!< The CommandContextManager instance
         blowbox::CommandManager* command_manager_; //!< The CommandManager instance
         blowbox::Device* device_; //!< The render Device instance
         blowbox::DescriptorHeap* rtv_descriptor_heap_; //!< DescriptorHeap for rtvs
         blowbox::DescriptorHeap* dsv_descriptor_heap_; //!< DescriptorHeap for dsvs
         blowbox::DescriptorHeap* cbv_srv_uav_descriptor_heap_; //!< DescriptorHeap for cbv/srv/uavs
-        blowbox::BufferManager* buffer_manager_; //!< The BufferManager instance
+        blowbox::SwapChain* swap_chain_; //!< The SwapChain instance
     };
 }

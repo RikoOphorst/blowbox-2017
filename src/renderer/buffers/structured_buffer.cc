@@ -1,7 +1,6 @@
 #include "structured_buffer.h"
 
 #include "renderer/descriptor_heap.h"
-#include "renderer/renderer.h"
 #include "renderer/device.h"
 #include "core/get.h"
 #include "renderer/commands/command_context.h"

@@ -1,8 +1,8 @@
 #include "gpu_buffer.h"
 
-#include "renderer/device.h"
-#include "renderer/renderer.h"
 #include "core/get.h"
+#include "renderer/device.h"
+#include "renderer/descriptor_heap.h"
 #include "renderer/commands/command_context.h"
 
 namespace blowbox
@@ -29,7 +29,7 @@ namespace blowbox
 		heap_properties.CreationNodeMask = 1;
 		heap_properties.VisibleNodeMask = 1;
 
-		BLOWBOX_ASSERT_HR(Get::Renderer()->GetDevice()->Get()->CreateCommittedResource(&heap_properties, D3D12_HEAP_FLAG_NONE, &resource_desc, usage_state_, nullptr, IID_PPV_ARGS(&resource_)));
+		BLOWBOX_ASSERT_HR(Get::Device()->Get()->CreateCommittedResource(&heap_properties, D3D12_HEAP_FLAG_NONE, &resource_desc, usage_state_, nullptr, IID_PPV_ARGS(&resource_)));
 
 		gpu_virtual_address_ = resource_->GetGPUVirtualAddress();
 

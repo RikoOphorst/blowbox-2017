@@ -1,7 +1,6 @@
 #include "command_queue.h"
 
 #include "renderer/device.h"
-#include "renderer/renderer.h"
 #include "renderer/commands/command_manager.h"
 #include "renderer/commands/command_allocator_pool.h"
 #include "core/get.h"
@@ -15,7 +14,7 @@ namespace blowbox
 	CommandQueue::CommandQueue(D3D12_COMMAND_LIST_TYPE type) :
 		type_(type)
 	{
-		ID3D12Device* device = Get::Renderer()->GetDevice()->Get();
+		ID3D12Device* device = Get::Device()->Get();
 
 		D3D12_COMMAND_QUEUE_DESC queue_desc;
 		queue_desc.Flags = D3D12_COMMAND_QUEUE_FLAG_NONE;

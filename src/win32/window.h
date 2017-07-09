@@ -33,18 +33,25 @@ namespace blowbox
     {
     public:
         /**
-        * @brief Constructs a window. Resolution and window title are required. Window icon is optional.
+        * @brief Constructor for Window.
+        * @author Riko Ophorst
+        */
+        Window();
+
+        /**
+        * @brief Destructs the window. Note that this does NOT delete the window icon that might have been set. That is your responsibility.
+        * @author Riko Ophorst
+        */
+        ~Window();
+
+        /**
+        * @brief Creates the window. Resolution and window title are required. Window icon is optional.
         * @author Riko Ophorst
         * @param[in] resolution     The resolution of the usable client area
         * @param[in] window_title   The title of the window
         * @param[in] window_icon    The icon that should be used by this window. Usable formats include 16x16, 32x32, 48x48. Optional.
         */
-        Window(const Resolution& resolution, const eastl::string& window_title, Image* window_icon = nullptr);
-
-        /**
-        * @brief Destructs the window. Note that this does NOT delete the window icon that might have been set. That is your responsibility.
-        */
-        ~Window();
+        void Create(const Resolution& resolution, const eastl::string& window_title, Image* window_icon = nullptr);
 
         /**
         * @brief Sets the resolution of the window

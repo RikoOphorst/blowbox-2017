@@ -1,8 +1,8 @@
 #include "pipeline_state.h"
 
 #include "core/get.h"
-#include "renderer/renderer.h"
 #include "util/release.h"
+#include "renderer/device.h"
 
 namespace blowbox
 {
@@ -109,7 +109,7 @@ namespace blowbox
 		pso_desc_.pRootSignature = root_signature_->Get();
 		assert(pso_desc_.pRootSignature != nullptr); // root signature has to be set
 
-		BLOWBOX_ASSERT_HR(Get::Renderer()->GetDevice()->Get()->CreateGraphicsPipelineState(&pso_desc_, IID_PPV_ARGS(&pso_)));
+		BLOWBOX_ASSERT_HR(Get::Device()->Get()->CreateGraphicsPipelineState(&pso_desc_, IID_PPV_ARGS(&pso_)));
 	}
 	
 	//------------------------------------------------------------------------------------------------------
@@ -139,6 +139,6 @@ namespace blowbox
 		pso_desc_.pRootSignature = root_signature_->Get();
 		assert(pso_desc_.pRootSignature != nullptr); // root signature has to be set
 
-		Get::Renderer()->GetDevice()->Get()->CreateComputePipelineState(&pso_desc_, IID_PPV_ARGS(&pso_));
+		Get::Device()->Get()->CreateComputePipelineState(&pso_desc_, IID_PPV_ARGS(&pso_));
 	}
 }

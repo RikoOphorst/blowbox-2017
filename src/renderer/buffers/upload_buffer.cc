@@ -1,7 +1,7 @@
 #include "upload_buffer.h"
 
 #include "core/get.h"
-#include "renderer/renderer.h"
+#include "renderer/descriptor_heap.h"
 #include "renderer/commands/command_context.h"
 
 namespace blowbox
@@ -15,7 +15,7 @@ namespace blowbox
 		usage_state_ = D3D12_RESOURCE_STATE_COMMON;
 		
 		BLOWBOX_ASSERT_HR(
-			Get::Renderer()->GetDevice()->Get()->CreateCommittedResource(
+			Get::Device()->Get()->CreateCommittedResource(
 				&CD3DX12_HEAP_PROPERTIES(D3D12_HEAP_TYPE_UPLOAD),
 				D3D12_HEAP_FLAG_NONE,
 				&CD3DX12_RESOURCE_DESC::Buffer(element_size_ * element_count_),

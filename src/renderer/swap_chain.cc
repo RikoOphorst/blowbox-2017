@@ -1,6 +1,5 @@
 #include "swap_chain.h"
 
-#include "renderer.h"
 #include "device.h"
 #include "renderer/commands/command_manager.h"
 #include "renderer/commands/command_queue.h"

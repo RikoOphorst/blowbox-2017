@@ -2,7 +2,6 @@
 
 #include "core/get.h"
 #include "renderer/device.h"
-#include "renderer/renderer.h"
 #include "renderer/commands/command_queue.h"
 #include "renderer/commands/command_manager.h"
 #include "renderer/commands/command_context_manager.h"

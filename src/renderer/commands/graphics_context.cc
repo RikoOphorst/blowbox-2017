@@ -1,7 +1,7 @@
 #include "graphics_context.h"
 
 #include "core/get.h"
-#include "renderer/renderer.h"
+#include "renderer/descriptor_heap.h"
 #include "renderer/root_signature.h"
 
 namespace blowbox

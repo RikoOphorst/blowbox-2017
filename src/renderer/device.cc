@@ -1,7 +1,6 @@
 #include "device.h"
 
 #include "core/get.h"
-#include "renderer/renderer.h"
 #include <codecvt>
 #include <locale>
 
@@ -39,6 +38,15 @@ namespace blowbox
 	//------------------------------------------------------------------------------------------------------
 	void Device::Create(const Adapter& adapter)
 	{
+#ifdef _DEBUG
+        ID3D12Debug* debug_controller;
+        if (SUCCEEDED(D3D12GetDebugInterface(IID_PPV_ARGS(&debug_controller))))
+        {
+            debug_controller->EnableDebugLayer();
+        }
+        debug_controller->Release();
+#endif
+
         BLOWBOX_ASSERT_HR(D3D12CreateDevice(adapter.dxgi_adapter, D3D_FEATURE_LEVEL_11_0, IID_PPV_ARGS(&device_)));
 	}
 
@@ -100,7 +108,7 @@ namespace blowbox
             }
         }
 
-        if (find_adapter_flags & FindAdapterFlag_NO_SOFTWARE != FindAdapterFlag_NO_SOFTWARE)
+        if ((find_adapter_flags & FindAdapterFlag_NO_SOFTWARE) != FindAdapterFlag_NO_SOFTWARE)
         {
             IDXGIAdapter4* adapter;
             factory->EnumWarpAdapter(IID_PPV_ARGS(&adapter));

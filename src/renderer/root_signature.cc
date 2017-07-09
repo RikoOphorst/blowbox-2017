@@ -1,7 +1,6 @@
 #include "root_signature.h"
 
 #include "core/get.h"
-#include "renderer.h"
 #include "device.h"
 #include "util/release.h"
 
@@ -87,7 +86,7 @@ namespace blowbox
 		//	DebugBreak();
 		//}
 
-		BLOWBOX_ASSERT_HR(Get::Renderer()->GetDevice()->Get()->CreateRootSignature(0, output_blob->GetBufferPointer(), output_blob->GetBufferSize(), IID_PPV_ARGS(&root_signature_)));
+		BLOWBOX_ASSERT_HR(Get::Device()->Get()->CreateRootSignature(0, output_blob->GetBufferPointer(), output_blob->GetBufferSize(), IID_PPV_ARGS(&root_signature_)));
 
 		root_signature_->SetName(name.c_str());
 		finalized_ = true;

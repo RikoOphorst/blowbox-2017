@@ -3,9 +3,15 @@
 #include "util/assert.h"
 #include "core/blowbox_config.h"
 #include "core/get.h"
+
 #include "win32/glfw_manager.h"
 #include "win32/window.h"
-#include "renderer/renderer.h"
+
+#include "renderer/device.h"
+#include "renderer/swap_chain.h"
+#include "renderer/forward_renderer.h"
+#include "renderer/deferred_renderer.h"
+#include "renderer/descriptor_heap.h"
 #include "renderer/commands/command_context_manager.h"
 #include "renderer/commands/command_manager.h"
 
@@ -24,43 +30,64 @@ namespace blowbox
     {
         BLOWBOX_ASSERT(config_ != nullptr);
 
-        glfw_manager_ = new GLFWManager();
-        renderer_ = new Renderer();
-        command_manager_ = new CommandManager();
-        command_context_manager_ = new CommandContextManager();
+        // Create win32 stuff
+        win32_glfw_manager_ = new GLFWManager();
+        win32_main_window_ = new Window();
 
+        // Create render stuff
+        render_device_ = new Device();
+        render_swap_chain_ = new SwapChain();
+        render_command_manager_ = new CommandManager();
+        render_command_context_manager_ = new CommandContextManager();
+        render_rtv_heap_ = new DescriptorHeap();
+        render_dsv_heap_ = new DescriptorHeap();
+        render_cbv_srv_uav_heap_ = new DescriptorHeap();
+
+        render_forward_renderer_ = new ForwardRenderer();
+        render_deferred_renderer_ = new DeferredRenderer();
+
+        // Create & configure getters
         getter_ = new Get();
+
         getter_->SetBlowboxCore(this);
-        getter_->SetGLFWManager(glfw_manager_);
-        getter_->SetRenderer(renderer_);
-        getter_->SetCommandManager(command_manager_);
-        getter_->SetCommandContextManager(command_context_manager_);
+
+        getter_->SetGLFWManager(win32_glfw_manager_);
+        getter_->SetMainWindow(win32_main_window_);
+
+        getter_->SetDevice(render_device_);
+        getter_->SetCommandManager(render_command_manager_);
+        getter_->SetCommandContextManager(render_command_context_manager_);
+        getter_->SetRtvHeap(render_rtv_heap_);
+        getter_->SetDsvHeap(render_dsv_heap_);
+        getter_->SetCbvSrvUavHeap(render_cbv_srv_uav_heap_);
+        getter_->SetSwapChain(render_swap_chain_);
+        getter_->SetForwardRenderer(render_forward_renderer_);
     }
 
     //------------------------------------------------------------------------------------------------------
     BlowboxCore::~BlowboxCore()
     {
-        delete command_context_manager_;
-        delete command_manager_;
-        delete renderer_;
-        delete main_window_;
-        delete glfw_manager_;
+        delete render_forward_renderer_;
+        delete render_deferred_renderer_;
+        delete render_cbv_srv_uav_heap_;
+        delete render_dsv_heap_;
+        delete render_rtv_heap_;
+        delete render_command_context_manager_;
+        delete render_command_manager_;
+        delete render_swap_chain_;
+        delete render_device_;
+
+        delete win32_main_window_;
+        delete win32_glfw_manager_;
+        
         delete getter_;
     }
 
     //------------------------------------------------------------------------------------------------------
     void BlowboxCore::Run()
     {
-        glfw_manager_->Init();
-
-        main_window_ = new Window(config_->window_resolution, config_->window_title);
-        getter_->SetMainWindow(main_window_);
-        getter_->SetDevice(renderer_->GetDevice());
-        getter_->SetRtvHeap(renderer_->GetRtvHeap());
-        getter_->SetDsvHeap(renderer_->GetDsvHeap());
-        getter_->SetCbvSrvUavHeap(renderer_->GetCbvSrvUavHeap());
-        
-        renderer_->Startup();
+        StartupWin32();
+        StartupRenderer();
 
         if (user_procedure_run_)
         {
@@ -69,7 +96,7 @@ namespace blowbox
 
         while (IsBlowboxAlive())
         {
-            glfw_manager_->Update();
+            win32_glfw_manager_->Update();
 
             if (user_procedure_update_)
             {
@@ -86,7 +113,7 @@ namespace blowbox
                 user_procedure_render_();
             }
 
-            renderer_->Draw();
+            render_forward_renderer_->Render();
 
             if (user_procedure_post_render_)
             {
@@ -99,7 +126,7 @@ namespace blowbox
             user_procedure_shutdown_();
         }
 
-        glfw_manager_->Shutdown();
+        win32_glfw_manager_->Shutdown();
     }
 
     //------------------------------------------------------------------------------------------------------
@@ -112,6 +139,44 @@ namespace blowbox
     bool BlowboxCore::IsBlowboxAlive()
     {
         return alive_;
+    }
+
+    //------------------------------------------------------------------------------------------------------
+    void BlowboxCore::StartupWin32()
+    {
+        win32_glfw_manager_->Init();
+        win32_main_window_->Create(config_->window_resolution, config_->window_title);
+    }
+
+    //------------------------------------------------------------------------------------------------------
+    void BlowboxCore::StartupRenderer()
+    {
+        // Render device creation
+        auto available_adapters = Device::FindAvailableAdapters(static_cast<FindAdapterFlag>(FindAdapterFlag_NO_INTEL | FindAdapterFlag_NO_SOFTWARE));
+        BLOWBOX_ASSERT(available_adapters.size() > 0);
+        render_device_->Create(available_adapters[0]);
+
+        // Render command object creation
+        render_command_manager_->Startup(render_device_);
+        render_command_context_manager_->Startup();
+
+        // Render descriptor heap creation
+        render_rtv_heap_->Create(           D3D12_DESCRIPTOR_HEAP_TYPE_RTV,         D3D12_DESCRIPTOR_HEAP_FLAG_NONE,            BLOWBOX_DESCRIPTOR_HEAP_MAX_RTV_COUNT);
+		render_dsv_heap_->Create(           D3D12_DESCRIPTOR_HEAP_TYPE_DSV,         D3D12_DESCRIPTOR_HEAP_FLAG_NONE,            BLOWBOX_DESCRIPTOR_HEAP_MAX_DSV_COUNT);
+		render_cbv_srv_uav_heap_->Create(   D3D12_DESCRIPTOR_HEAP_TYPE_CBV_SRV_UAV, D3D12_DESCRIPTOR_HEAP_FLAG_SHADER_VISIBLE,  BLOWBOX_DESCRIPTOR_HEAP_MAX_CBV_SRV_UAV_COUNT);
+
+        // Render swap chain creation
+        render_swap_chain_->Create(
+            win32_main_window_->GetWindowHandle(),
+            win32_main_window_->GetWindowResolution().width,
+            win32_main_window_->GetWindowResolution().height,
+            DXGI_FORMAT_R8G8B8A8_UNORM,
+            BLOWBOX_SWAP_CHAIN_BUFFER_COUNT,
+            DXGI_SWAP_EFFECT_FLIP_DISCARD,
+            DXGI_SWAP_CHAIN_FLAG_ALLOW_MODE_SWITCH
+        );
+
+        render_forward_renderer_->Startup();
     }
 
     //------------------------------------------------------------------------------------------------------

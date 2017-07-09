@@ -6,9 +6,21 @@
 namespace blowbox
 {
     //------------------------------------------------------------------------------------------------------
-    Window::Window(const Resolution& resolution, const eastl::string& window_title, Image* window_icon) :
+    Window::Window() :
         window_(nullptr),
-        window_icon_(window_icon)
+        window_icon_(nullptr)
+    {
+        
+    }
+
+    //------------------------------------------------------------------------------------------------------
+    Window::~Window()
+    {
+        glfwDestroyWindow(window_);
+    }
+
+    //------------------------------------------------------------------------------------------------------
+    void Window::Create(const Resolution& resolution, const eastl::string& window_title, Image* window_icon)
     {
         window_ = glfwCreateWindow(resolution.width, resolution.height, window_title.c_str(), nullptr, nullptr);
         BLOWBOX_ASSERT(window_ != nullptr);
@@ -17,12 +29,6 @@ namespace blowbox
         {
             SetWindowIcon(window_icon);
         }
-    }
-
-    //------------------------------------------------------------------------------------------------------
-    Window::~Window()
-    {
-        glfwDestroyWindow(window_);
     }
 
     //------------------------------------------------------------------------------------------------------

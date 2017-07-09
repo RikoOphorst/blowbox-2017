@@ -2,7 +2,6 @@
 
 #include "core/get.h"
 #include "renderer/device.h"
-#include "renderer/renderer.h"
 
 namespace blowbox
 {
@@ -43,7 +42,7 @@ namespace blowbox
 
 		if (allocator == nullptr)
 		{
-			BLOWBOX_ASSERT_HR(Get::Renderer()->GetDevice()->Get()->CreateCommandAllocator(type_, IID_PPV_ARGS(&allocator)));
+			BLOWBOX_ASSERT_HR(Get::Device()->Get()->CreateCommandAllocator(type_, IID_PPV_ARGS(&allocator)));
 			wchar_t AllocatorName[32];
 			swprintf(AllocatorName, 32, L"CommandAllocator %zu", allocator_pool_.size());
 			allocator->SetName(AllocatorName);

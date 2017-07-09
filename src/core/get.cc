@@ -41,9 +41,15 @@ namespace blowbox
     }
 
     //------------------------------------------------------------------------------------------------------
-    Renderer* Get::Renderer()
+    ForwardRenderer* Get::ForwardRenderer()
     {
-        return Get::instance_->renderer_;
+        return Get::instance_->forward_renderer_;
+    }
+
+    //------------------------------------------------------------------------------------------------------
+    DeferredRenderer* Get::DeferredRenderer()
+    {
+        return Get::instance_->deferred_renderer_;
     }
 
     //------------------------------------------------------------------------------------------------------
@@ -83,9 +89,9 @@ namespace blowbox
     }
 
     //------------------------------------------------------------------------------------------------------
-    BufferManager* Get::BufferManager()
+    SwapChain* Get::SwapChain()
     {
-        return Get::instance_->buffer_manager_;
+        return Get::instance_->swap_chain_;
     }
     
     //------------------------------------------------------------------------------------------------------
@@ -107,9 +113,15 @@ namespace blowbox
     }
     
     //------------------------------------------------------------------------------------------------------
-    void Get::SetRenderer(blowbox::Renderer* renderer)
+    void Get::SetForwardRenderer(blowbox::ForwardRenderer* renderer)
     {
-        renderer_ = renderer;
+        forward_renderer_ = renderer;
+    }
+
+    //------------------------------------------------------------------------------------------------------
+    void Get::SetDeferredRenderer(blowbox::DeferredRenderer* deferred_renderer)
+    {
+        deferred_renderer_ = deferred_renderer;
     }
 
     //------------------------------------------------------------------------------------------------------
@@ -147,10 +159,10 @@ namespace blowbox
     {
         cbv_srv_uav_descriptor_heap_ = heap;
     }
-    
+
     //------------------------------------------------------------------------------------------------------
-    void Get::SetBufferManager(blowbox::BufferManager* buffer_manager)
+    void Get::SetSwapChain(blowbox::SwapChain * swap_chain)
     {
-        buffer_manager_ = buffer_manager;
+        swap_chain_ = swap_chain;
     }
 }

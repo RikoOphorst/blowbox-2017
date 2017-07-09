@@ -2,7 +2,6 @@
 
 #include "util/assert.h"
 #include "renderer/device.h"
-#include "renderer/renderer.h"
 #include "core/get.h"
 
 namespace blowbox
