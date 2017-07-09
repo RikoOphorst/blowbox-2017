@@ -1,8 +1,9 @@
 #include "descriptor_heap.h"
 
-#include "device.h"
-#include "renderer.h"
-#include "../get.h"
+#include "util/assert.h"
+#include "renderer/device.h"
+#include "renderer/renderer.h"
+#include "core/get.h"
 
 namespace blowbox
 {
@@ -19,13 +20,13 @@ namespace blowbox
 	//------------------------------------------------------------------------------------------------------
 	DescriptorHeap::~DescriptorHeap()
 	{
-		GUARANTEE_RELEASE(heap_);
+		BLOWBOX_RELEASE(heap_);
 	}
 
 	//------------------------------------------------------------------------------------------------------
 	void DescriptorHeap::Create(D3D12_DESCRIPTOR_HEAP_TYPE heap_type, D3D12_DESCRIPTOR_HEAP_FLAGS flags, UINT descriptor_count)
 	{
-		device_ = &Get::Renderer()->GetDevice();
+		device_ = Get::Device();
 
 		heap_desc_.Flags = flags;
 		heap_desc_.NodeMask = 0;
@@ -126,7 +127,7 @@ namespace blowbox
 	//------------------------------------------------------------------------------------------------------
 	void DescriptorHeap::Clear()
 	{
-		GUARANTEE_RELEASE(heap_);
+		BLOWBOX_RELEASE(heap_);
 		current_allocations_ = 0;
 		BLOWBOX_ASSERT_HR(device_->Get()->CreateDescriptorHeap(&heap_desc_, IID_PPV_ARGS(&heap_)));
 	}

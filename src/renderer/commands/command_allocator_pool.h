@@ -1,5 +1,10 @@
 #pragma once
 
+#include "core/eastl_required.h"
+#include <EASTL/vector.h>
+#include <EASTL/queue.h>
+#include "renderer/d3d12_includes.h"
+
 namespace blowbox
 {
 	class CommandAllocatorPool
@@ -25,7 +30,7 @@ namespace blowbox
 
 	private:
 		D3D12_COMMAND_LIST_TYPE type_;
-		std::vector<ID3D12CommandAllocator*> allocator_pool_;
-		std::queue<std::pair<uint64_t, ID3D12CommandAllocator*>> available_allocators_;
+		eastl::vector<ID3D12CommandAllocator*> allocator_pool_;
+        eastl::queue<eastl::pair<uint64_t, ID3D12CommandAllocator*>> available_allocators_;
 	};
 }

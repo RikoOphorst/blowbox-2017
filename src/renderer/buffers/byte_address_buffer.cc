@@ -1,8 +1,9 @@
 #include "byte_address_buffer.h"
 
-#include "descriptor_heap.h"
-#include "renderer.h"
-#include "device.h"
+#include "renderer/descriptor_heap.h"
+#include "renderer/renderer.h"
+#include "renderer/device.h"
+#include "core/get.h"
 
 namespace blowbox
 {
@@ -16,7 +17,7 @@ namespace blowbox
 		srv_desc.Buffer.NumElements = (UINT)buffer_size_ / 4; // divide by 4 because who the fuck knows ???????
 		srv_desc.Buffer.Flags = D3D12_BUFFER_SRV_FLAG_RAW;
 
-		srv_id_ = Get::CbvSrvUavHeap().CreateShaderResourceView(resource_, &srv_desc);
+		srv_id_ = Get::CbvSrvUavHeap()->CreateShaderResourceView(resource_, &srv_desc);
 
 		D3D12_UNORDERED_ACCESS_VIEW_DESC uav_desc = {};
 		uav_desc.ViewDimension = D3D12_UAV_DIMENSION_BUFFER;
@@ -24,6 +25,6 @@ namespace blowbox
 		uav_desc.Buffer.NumElements = (UINT)buffer_size_ / 4;
 		uav_desc.Buffer.Flags = D3D12_BUFFER_UAV_FLAG_RAW;
 
-		uav_id_ = Get::CbvSrvUavHeap().CreateUnorderedAccessView(resource_, nullptr, &uav_desc);
+		uav_id_ = Get::CbvSrvUavHeap()->CreateUnorderedAccessView(resource_, nullptr, &uav_desc);
 	}
 }

@@ -15,6 +15,8 @@ namespace blowbox
     class GLFWManager;
     class Window;
     class Renderer;
+    class CommandManager;
+    class CommandContextManager;
 
     /**
     * @class blowbox::BlowboxCore

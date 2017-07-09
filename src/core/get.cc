@@ -63,6 +63,30 @@ namespace blowbox
     {
         return Get::instance_->device_;
     }
+
+    //------------------------------------------------------------------------------------------------------
+    DescriptorHeap* Get::RtvHeap()
+    {
+        return Get::instance_->rtv_descriptor_heap_;
+    }
+
+    //------------------------------------------------------------------------------------------------------
+    DescriptorHeap* Get::DsvHeap()
+    {
+        return Get::instance_->dsv_descriptor_heap_;
+    }
+
+    //------------------------------------------------------------------------------------------------------
+    DescriptorHeap* Get::CbvSrvUavHeap()
+    {
+        return Get::instance_->cbv_srv_uav_descriptor_heap_;
+    }
+
+    //------------------------------------------------------------------------------------------------------
+    BufferManager* Get::BufferManager()
+    {
+        return Get::instance_->buffer_manager_;
+    }
     
     //------------------------------------------------------------------------------------------------------
     void Get::SetBlowboxCore(blowbox::BlowboxCore* blowbox_core)
@@ -104,5 +128,29 @@ namespace blowbox
     void Get::SetDevice(blowbox::Device* device)
     {
         device_ = device;
+    }
+
+    //------------------------------------------------------------------------------------------------------
+    void Get::SetRtvHeap(blowbox::DescriptorHeap* heap)
+    {
+        rtv_descriptor_heap_ = heap;
+    }
+
+    //------------------------------------------------------------------------------------------------------
+    void Get::SetDsvHeap(blowbox::DescriptorHeap* heap)
+    {
+        dsv_descriptor_heap_ = heap;
+    }
+
+    //------------------------------------------------------------------------------------------------------
+    void Get::SetCbvSrvUavHeap(blowbox::DescriptorHeap* heap)
+    {
+        cbv_srv_uav_descriptor_heap_ = heap;
+    }
+    
+    //------------------------------------------------------------------------------------------------------
+    void Get::SetBufferManager(blowbox::BufferManager* buffer_manager)
+    {
+        buffer_manager_ = buffer_manager;
     }
 }

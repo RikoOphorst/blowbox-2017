@@ -109,7 +109,7 @@ namespace blowbox
     }
 
     //------------------------------------------------------------------------------------------------------
-    const UINT& Shader::GetShaderBinaryLength() const
+    UINT Shader::GetShaderBinaryLength() const
     {
         return static_cast<UINT>(shader_byte_code_.BytecodeLength);
     }

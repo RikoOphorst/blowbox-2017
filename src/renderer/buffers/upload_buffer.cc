@@ -15,7 +15,7 @@ namespace blowbox
 		usage_state_ = D3D12_RESOURCE_STATE_COMMON;
 		
 		BLOWBOX_ASSERT_HR(
-			Get::Renderer()->GetDevice().Get()->CreateCommittedResource(
+			Get::Renderer()->GetDevice()->Get()->CreateCommittedResource(
 				&CD3DX12_HEAP_PROPERTIES(D3D12_HEAP_TYPE_UPLOAD),
 				D3D12_HEAP_FLAG_NONE,
 				&CD3DX12_RESOURCE_DESC::Buffer(element_size_ * element_count_),
@@ -51,10 +51,10 @@ namespace blowbox
 		srv_desc.Buffer.StructureByteStride = element_size_;
 		srv_desc.Buffer.Flags = D3D12_BUFFER_SRV_FLAG_NONE;
 
-		srv_id_ = Get::CbvSrvUavHeap().CreateShaderResourceView(resource_, &srv_desc);
+		srv_id_ = Get::CbvSrvUavHeap()->CreateShaderResourceView(resource_, &srv_desc);
 
 		// resources in an upload heap cannot have a UAV
-		uav_id_ = DESCRIPTOR_ID_UNKNOWN;
+		uav_id_ = BLOWBOX_DESCRIPTOR_ID_UNKNOWN;
 	}
 
 	//------------------------------------------------------------------------------------------------------

@@ -3,7 +3,7 @@
 #include "util/assert.h"
 #include "renderer/buffers/color_buffer.h"
 
-#define SWAP_CHAIN_MAX_BUFFER_COUNT 3
+#define SWAP_CHAIN_MAX_BUFFER_COUNT 2
 
 namespace blowbox
 {

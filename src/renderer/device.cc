@@ -70,33 +70,37 @@ namespace blowbox
             // Convert the temp adapter to an IDXGIAdapter4
             Adapter adapter(temp_dxgi_adapter);
 
-            if ((find_flags & FindAdapterFlag_NO_INTEL) == FindAdapterFlag_NO_INTEL && (adapter.name[0] == 'I' || adapter.name[1] == 'i'))
+            if ((find_adapter_flags & FindAdapterFlag_NO_INTEL) == FindAdapterFlag_NO_INTEL && (adapter.name[0] == 'I' || adapter.name[1] == 'i'))
             {
                 // skip this adapter, it is an Intel adapter
                 i++;
                 continue;
             }
 
-            if (find_flags & FindAdapterFlag_NO_SOFTWARE == FindAdapterFlag_NO_SOFTWARE && adapter.flags & DXGI_ADAPTER_FLAG_SOFTWARE == DXGI_ADAPTER_FLAG_SOFTWARE)
+            if ((find_adapter_flags & FindAdapterFlag_NO_SOFTWARE) == FindAdapterFlag_NO_SOFTWARE && (adapter.flags & DXGI_ADAPTER_FLAG_SOFTWARE) == DXGI_ADAPTER_FLAG_SOFTWARE)
             {
                 // skip this adapter, it is a software adapter (warp most likely)
                 i++;
                 continue;
             }
 
-            if (D3D12CreateDevice(adapter.dxgi_adapter, D3D_FEATURE_LEVEL_11_0, __uuidof(ID3D12Device), nullptr) == S_OK)
+            ID3D12Device* throwaway_device = nullptr;
+            if (D3D12CreateDevice(adapter.dxgi_adapter, D3D_FEATURE_LEVEL_11_0, IID_PPV_ARGS(&throwaway_device)) == S_OK)
             {
+                BLOWBOX_RELEASE(throwaway_device);
                 adapters.push_back(adapter);
+                i++;
             }
             else
             {
                 // Current adapter is not DX12 compatible, so skip it.
+                BLOWBOX_RELEASE(throwaway_device);
                 i++;
                 continue;
             }
         }
 
-        if (find_flags & FindAdapterFlag_NO_SOFTWARE != FindAdapterFlag_NO_SOFTWARE)
+        if (find_adapter_flags & FindAdapterFlag_NO_SOFTWARE != FindAdapterFlag_NO_SOFTWARE)
         {
             IDXGIAdapter4* adapter;
             factory->EnumWarpAdapter(IID_PPV_ARGS(&adapter));
@@ -105,5 +109,7 @@ namespace blowbox
         }
 
         BLOWBOX_RELEASE(factory);
+
+        return adapters;
     }
 }

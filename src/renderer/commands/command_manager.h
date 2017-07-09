@@ -1,5 +1,7 @@
 #pragma once
 
+#include "renderer/d3d12_includes.h"
+
 namespace blowbox
 {
 	class Device;
@@ -12,7 +14,7 @@ namespace blowbox
 		CommandManager();
 		~CommandManager();
 
-		void Startup(Device& device);
+		void Startup(Device* device);
 
 		void CreateCommandList(D3D12_COMMAND_LIST_TYPE type, ID3D12GraphicsCommandList** out_list, ID3D12CommandAllocator** out_allocator);
 

@@ -1,8 +1,8 @@
 #include "graphics_context.h"
 
-#include "../get.h"
-#include "renderer.h"
-#include "root_signature.h"
+#include "core/get.h"
+#include "renderer/renderer.h"
+#include "renderer/root_signature.h"
 
 namespace blowbox
 {
@@ -16,7 +16,7 @@ namespace blowbox
 	void GraphicsContext::ClearUAV(GpuBuffer& target)
 	{
 		const UINT clear_color[4] = {};
-		list_->ClearUnorderedAccessViewUint(Get::CbvSrvUavHeap().GetGPUDescriptorById(target.GetUAV()), Get::CbvSrvUavHeap().GetCPUDescriptorById(target.GetUAV()), target, clear_color, 0, nullptr);
+		list_->ClearUnorderedAccessViewUint(Get::CbvSrvUavHeap()->GetGPUDescriptorById(target.GetUAV()), Get::CbvSrvUavHeap()->GetCPUDescriptorById(target.GetUAV()), target, clear_color, 0, nullptr);
 	}
 	
 	//------------------------------------------------------------------------------------------------------
@@ -24,31 +24,31 @@ namespace blowbox
 	{
 		const float* clear_color = target.GetClearColor();
 		CD3DX12_RECT clear_rect(0, 0, static_cast<LONG>(target.GetWidth()), static_cast<LONG>(target.GetHeight()));
-		list_->ClearUnorderedAccessViewFloat(Get::CbvSrvUavHeap().GetGPUDescriptorById(target.GetUAV()), Get::CbvSrvUavHeap().GetCPUDescriptorById(target.GetUAV()), target, clear_color, 1, &clear_rect);
+		list_->ClearUnorderedAccessViewFloat(Get::CbvSrvUavHeap()->GetGPUDescriptorById(target.GetUAV()), Get::CbvSrvUavHeap()->GetCPUDescriptorById(target.GetUAV()), target, clear_color, 1, &clear_rect);
 	}
 	
 	//------------------------------------------------------------------------------------------------------
 	void GraphicsContext::ClearColor(ColorBuffer& target)
 	{
-		list_->ClearRenderTargetView(Get::RtvHeap().GetCPUDescriptorById(target.GetRTV()), target.GetClearColor(), 0, nullptr);
+		list_->ClearRenderTargetView(Get::RtvHeap()->GetCPUDescriptorById(target.GetRTV()), target.GetClearColor(), 0, nullptr);
 	}
 	
 	//------------------------------------------------------------------------------------------------------
 	void GraphicsContext::ClearDepth(DepthBuffer& target)
 	{
-		list_->ClearDepthStencilView(Get::DsvHeap().GetCPUDescriptorById(target.GetDSV()), D3D12_CLEAR_FLAG_DEPTH, target.GetDepthClearValue(), target.GetStencilClearValue(), 0, nullptr);
+		list_->ClearDepthStencilView(Get::DsvHeap()->GetCPUDescriptorById(target.GetDSV()), D3D12_CLEAR_FLAG_DEPTH, target.GetDepthClearValue(), target.GetStencilClearValue(), 0, nullptr);
 	}
 
 	//------------------------------------------------------------------------------------------------------
 	void GraphicsContext::ClearStencil(DepthBuffer& target)
 	{
-		list_->ClearDepthStencilView(Get::DsvHeap().GetCPUDescriptorById(target.GetDSV()), D3D12_CLEAR_FLAG_STENCIL, target.GetDepthClearValue(), target.GetStencilClearValue(), 0, nullptr);
+		list_->ClearDepthStencilView(Get::DsvHeap()->GetCPUDescriptorById(target.GetDSV()), D3D12_CLEAR_FLAG_STENCIL, target.GetDepthClearValue(), target.GetStencilClearValue(), 0, nullptr);
 	}
 	
 	//------------------------------------------------------------------------------------------------------
 	void GraphicsContext::ClearDepthAndStencil(DepthBuffer& target)
 	{
-		list_->ClearDepthStencilView(Get::DsvHeap().GetCPUDescriptorById(target.GetDSV()), D3D12_CLEAR_FLAG_DEPTH | D3D12_CLEAR_FLAG_STENCIL, target.GetDepthClearValue(), target.GetStencilClearValue(), 0, nullptr);
+		list_->ClearDepthStencilView(Get::DsvHeap()->GetCPUDescriptorById(target.GetDSV()), D3D12_CLEAR_FLAG_DEPTH | D3D12_CLEAR_FLAG_STENCIL, target.GetDepthClearValue(), target.GetStencilClearValue(), 0, nullptr);
 	}
 	
 	//------------------------------------------------------------------------------------------------------
@@ -87,7 +87,7 @@ namespace blowbox
 		D3D12_CPU_DESCRIPTOR_HANDLE handles[16];
 		for (UINT i = 0; i < num_rtvs; i++)
 		{
-			handles[i] = Get::RtvHeap().GetCPUDescriptorById(rtvs[i]);
+			handles[i] = Get::RtvHeap()->GetCPUDescriptorById(rtvs[i]);
 		}
 
 		list_->OMSetRenderTargets(num_rtvs, handles, false, nullptr);
@@ -101,10 +101,10 @@ namespace blowbox
 		D3D12_CPU_DESCRIPTOR_HANDLE handles[16];
 		for (UINT i = 0; i < num_rtvs; i++)
 		{
-			handles[i] = Get::RtvHeap().GetCPUDescriptorById(rtvs[i]);
+			handles[i] = Get::RtvHeap()->GetCPUDescriptorById(rtvs[i]);
 		}
 
-		list_->OMSetRenderTargets(num_rtvs, handles, false, &Get::DsvHeap().GetCPUDescriptorById(dsv));
+		list_->OMSetRenderTargets(num_rtvs, handles, false, &Get::DsvHeap()->GetCPUDescriptorById(dsv));
 	}
 
 	//------------------------------------------------------------------------------------------------------

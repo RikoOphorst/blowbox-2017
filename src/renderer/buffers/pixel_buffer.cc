@@ -1,8 +1,8 @@
 #include "pixel_buffer.h"
 
-#include "renderer.h"
-#include "device.h"
-#include "../get.h"
+#include "renderer/renderer.h"
+#include "renderer/device.h"
+#include "core/get.h"
 
 namespace blowbox
 {
@@ -57,13 +57,15 @@ namespace blowbox
 		format_ = desc.Format;
 
 		resource_->SetName(name.c_str());
+
+        usage_state_ = current_resource_state;
 	}
 
 	//------------------------------------------------------------------------------------------------------
 	void PixelBuffer::CreateTextureResource(const eastl::wstring& name, const D3D12_RESOURCE_DESC& resource_desc, const D3D12_CLEAR_VALUE& clear_value)
 	{
 		BLOWBOX_ASSERT_HR(
-			Get::Renderer()->GetDevice().Get()->CreateCommittedResource(
+			Get::Renderer()->GetDevice()->Get()->CreateCommittedResource(
 				&CD3DX12_HEAP_PROPERTIES(D3D12_HEAP_TYPE_DEFAULT), 
 				D3D12_HEAP_FLAG_NONE, 
 				&resource_desc, 

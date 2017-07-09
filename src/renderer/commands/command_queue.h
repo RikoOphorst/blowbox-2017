@@ -1,5 +1,7 @@
 #pragma once
 
+#include "renderer/d3d12_includes.h"
+
 namespace blowbox
 {
 	class CommandAllocatorPool;

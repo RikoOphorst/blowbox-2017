@@ -1,5 +1,8 @@
 #pragma once
 
+#include "core/eastl_required.h"
+#include <EASTL/string.h>
+
 #include "gpu_resource.h"
 
 namespace blowbox

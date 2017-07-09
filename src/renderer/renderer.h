@@ -44,13 +44,13 @@ namespace blowbox
 		* @brief Makes the renderer draw to screen
 		*/
 		void Draw();
-		
-        const Device& GetDevice() const { return device_; }
 
-		DescriptorHeap& GetRtvHeap() { return rtv_heap_; }
-		DescriptorHeap& GetDsvHeap() { return dsv_heap_; }
-		DescriptorHeap& GetCbvSrvUavHeap() { return cbv_srv_uav_heap_; }
-		DescriptorHeap& GetSamplerHeap() { return sampler_heap_; }
+        Device* GetDevice() { return &device_; }
+        const Device* GetDevice() const { return &device_; }
+
+		DescriptorHeap* GetRtvHeap() { return &rtv_heap_; }
+		DescriptorHeap* GetDsvHeap() { return &dsv_heap_; }
+		DescriptorHeap* GetCbvSrvUavHeap() { return &cbv_srv_uav_heap_; }
 
 		SwapChain& GetSwapChain() { return swap_chain_; }
 
@@ -88,7 +88,6 @@ namespace blowbox
 		DescriptorHeap rtv_heap_; //!< Heap to store descriptors of the render target views
 		DescriptorHeap dsv_heap_; //!< Heap to store descriptors of the depth/stencil views
 		DescriptorHeap cbv_srv_uav_heap_; //!< Heap to store descriptors of shader resource views
-		DescriptorHeap sampler_heap_; //!< Heap to store descriptors of sampler states
 
 		UploadBuffer pass_constants_;
 		UploadBuffer debug_constants_;

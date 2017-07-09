@@ -1,5 +1,7 @@
 #include "buffer_manager.h"
 
+#include "core/get.h"
+
 namespace blowbox
 {
 	//------------------------------------------------------------------------------------------------------
@@ -34,30 +36,30 @@ namespace blowbox
 	//------------------------------------------------------------------------------------------------------
 	ColorBuffer& BufferManager::GetBuffer(const ColorBufferType& type)
 	{
-		return Get::BufferManager().buffers_color_[type];
+		return Get::BufferManager()->buffers_color_[type];
 	}
 
 	//------------------------------------------------------------------------------------------------------
 	DepthBuffer& BufferManager::GetBuffer(const DepthBufferType& type)
 	{
-		return Get::BufferManager().buffers_depth_[type];
+		return Get::BufferManager()->buffers_depth_[type];
 	}
 
 	//------------------------------------------------------------------------------------------------------
 	ByteAddressBuffer& BufferManager::GetBuffer(const ByteBufferType& type)
 	{
-		return Get::BufferManager().buffers_byte_address_[type];
+		return Get::BufferManager()->buffers_byte_address_[type];
 	}
 
 	//------------------------------------------------------------------------------------------------------
 	TypedBuffer& BufferManager::GetBuffer(const TypedBufferType& type)
 	{
-		return Get::BufferManager().buffers_typed_[type];
+		return Get::BufferManager()->buffers_typed_[type];
 	}
 
 	//------------------------------------------------------------------------------------------------------
 	StructuredBuffer& BufferManager::GetBuffer(const StructuredBufferType& type)
 	{
-		return Get::BufferManager().buffers_structured_[type];
+		return Get::BufferManager()->buffers_structured_[type];
 	}
 }

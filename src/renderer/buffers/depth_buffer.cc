@@ -1,9 +1,9 @@
 #include "depth_buffer.h"
 
-#include "descriptor_heap.h"
-#include "renderer.h"
-#include "device.h"
-#include "../get.h"
+#include "renderer/descriptor_heap.h"
+#include "renderer/renderer.h"
+#include "renderer/device.h"
+#include "core/get.h"
 
 namespace blowbox
 {
@@ -11,12 +11,12 @@ namespace blowbox
 	DepthBuffer::DepthBuffer(float depth_clear, UINT stencil_clear) :
 		depth_clear_(depth_clear),
 		stencil_clear_(stencil_clear),
-		dsv_id_(DESCRIPTOR_ID_UNKNOWN),
-		dsv_depth_read_id_(DESCRIPTOR_ID_UNKNOWN),
-		dsv_stencil_read_id_(DESCRIPTOR_ID_UNKNOWN),
-		dsv_read_id_(DESCRIPTOR_ID_UNKNOWN),
-		srv_depth_id_(DESCRIPTOR_ID_UNKNOWN),
-		srv_stencil_id_(DESCRIPTOR_ID_UNKNOWN)
+		dsv_id_(BLOWBOX_DESCRIPTOR_ID_UNKNOWN),
+		dsv_depth_read_id_(BLOWBOX_DESCRIPTOR_ID_UNKNOWN),
+		dsv_stencil_read_id_(BLOWBOX_DESCRIPTOR_ID_UNKNOWN),
+		dsv_read_id_(BLOWBOX_DESCRIPTOR_ID_UNKNOWN),
+		srv_depth_id_(BLOWBOX_DESCRIPTOR_ID_UNKNOWN),
+		srv_stencil_id_(BLOWBOX_DESCRIPTOR_ID_UNKNOWN)
 	{
 		
 	}
@@ -40,8 +40,8 @@ namespace blowbox
 	//------------------------------------------------------------------------------------------------------
 	void DepthBuffer::CreateDerivedViews(DXGI_FORMAT format)
 	{
-		DescriptorHeap& dsv_heap = Get::DsvHeap();
-		DescriptorHeap& srv_heap = Get::CbvSrvUavHeap();
+		DescriptorHeap* dsv_heap = Get::DsvHeap();
+		DescriptorHeap* srv_heap = Get::CbvSrvUavHeap();
 
 		D3D12_DEPTH_STENCIL_VIEW_DESC dsv_desc = {};
 		dsv_desc.Format = GetDSVFormat(format);
@@ -49,20 +49,20 @@ namespace blowbox
 		dsv_desc.Texture2D.MipSlice = 0;
 
 		dsv_desc.Flags = D3D12_DSV_FLAG_NONE;
-		dsv_id_ = dsv_heap.CreateDepthStencilView(resource_, &dsv_desc);
+		dsv_id_ = dsv_heap->CreateDepthStencilView(resource_, &dsv_desc);
 
 		dsv_desc.Flags = D3D12_DSV_FLAG_READ_ONLY_DEPTH;
-		dsv_depth_read_id_ = dsv_heap.CreateDepthStencilView(resource_, &dsv_desc);
+		dsv_depth_read_id_ = dsv_heap->CreateDepthStencilView(resource_, &dsv_desc);
 
 		DXGI_FORMAT stencil_format = GetStencilFormat(format);
 
 		if (stencil_format != DXGI_FORMAT_UNKNOWN)
 		{
 			dsv_desc.Flags = D3D12_DSV_FLAG_READ_ONLY_STENCIL;
-			dsv_stencil_read_id_ = dsv_heap.CreateDepthStencilView(resource_, &dsv_desc);
+			dsv_stencil_read_id_ = dsv_heap->CreateDepthStencilView(resource_, &dsv_desc);
 
 			dsv_desc.Flags = D3D12_DSV_FLAG_READ_ONLY_DEPTH | D3D12_DSV_FLAG_READ_ONLY_STENCIL;
-			dsv_read_id_ = dsv_heap.CreateDepthStencilView(resource_, &dsv_desc);
+			dsv_read_id_ = dsv_heap->CreateDepthStencilView(resource_, &dsv_desc);
 		}
 		else
 		{
@@ -76,12 +76,12 @@ namespace blowbox
 		srv_desc.Texture2D.MipLevels = 1;
 		srv_desc.Shader4ComponentMapping = D3D12_DEFAULT_SHADER_4_COMPONENT_MAPPING;
 
-		srv_depth_id_ = srv_heap.CreateShaderResourceView(resource_, &srv_desc);
+		srv_depth_id_ = srv_heap->CreateShaderResourceView(resource_, &srv_desc);
 
 		if (stencil_format != DXGI_FORMAT_UNKNOWN)
 		{
 			srv_desc.Format = stencil_format;
-			srv_stencil_id_ = srv_heap.CreateShaderResourceView(resource_, &srv_desc);
+			srv_stencil_id_ = srv_heap->CreateShaderResourceView(resource_, &srv_desc);
 		}
 	}
 }

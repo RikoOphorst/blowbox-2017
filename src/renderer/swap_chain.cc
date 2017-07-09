@@ -33,7 +33,9 @@ namespace blowbox
         IDXGIFactory5* factory;
         BLOWBOX_ASSERT_HR(CreateDXGIFactory1(IID_PPV_ARGS(&factory)));
 
-		BLOWBOX_ASSERT_HR(factory->CreateSwapChain(Get::CommandManager()->GetGraphicsQueue()->Get(), &desc, &swap_chain_));
+        auto queue = Get::CommandManager()->GetGraphicsQueue();
+
+		BLOWBOX_ASSERT_HR(factory->CreateSwapChain(queue->Get(), &desc, &swap_chain_));
 
 		if (disable_alt_enter)
 		{

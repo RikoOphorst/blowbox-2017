@@ -13,7 +13,7 @@
 
 #include <DirectXMath.h>
 
-class GLFWwindow;
+struct GLFWwindow;
 
 /**
 * @namespace blowbox

@@ -39,6 +39,6 @@ namespace blowbox
 	//------------------------------------------------------------------------------------------------------
 	void GpuResource::Destroy()
 	{
-		SAFE_RELEASE(resource_);
+		BLOWBOX_RELEASE(resource_);
 	}
 }

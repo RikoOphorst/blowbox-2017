@@ -1,9 +1,9 @@
 #include "gpu_buffer.h"
 
-#include "device.h"
-#include "renderer.h"
-#include "../get.h"
-#include "command_context.h"
+#include "renderer/device.h"
+#include "renderer/renderer.h"
+#include "core/get.h"
+#include "renderer/commands/command_context.h"
 
 namespace blowbox
 {
@@ -29,7 +29,7 @@ namespace blowbox
 		heap_properties.CreationNodeMask = 1;
 		heap_properties.VisibleNodeMask = 1;
 
-		BLOWBOX_ASSERT_HR(Get::Renderer()->GetDevice().Get()->CreateCommittedResource(&heap_properties, D3D12_HEAP_FLAG_NONE, &resource_desc, usage_state_, nullptr, IID_PPV_ARGS(&resource_)));
+		BLOWBOX_ASSERT_HR(Get::Renderer()->GetDevice()->Get()->CreateCommittedResource(&heap_properties, D3D12_HEAP_FLAG_NONE, &resource_desc, usage_state_, nullptr, IID_PPV_ARGS(&resource_)));
 
 		gpu_virtual_address_ = resource_->GetGPUVirtualAddress();
 
@@ -84,8 +84,8 @@ namespace blowbox
 	GpuBuffer::GpuBuffer() : buffer_size_(0), element_count_(0), element_size_(0)
 	{
 		resource_flags_ = D3D12_RESOURCE_FLAG_ALLOW_UNORDERED_ACCESS;
-		uav_id_ = DESCRIPTOR_ID_UNKNOWN;
-		srv_id_ = DESCRIPTOR_ID_UNKNOWN;
+		uav_id_ = BLOWBOX_DESCRIPTOR_ID_UNKNOWN;
+		srv_id_ = BLOWBOX_DESCRIPTOR_ID_UNKNOWN;
 	}
 	
 	//------------------------------------------------------------------------------------------------------

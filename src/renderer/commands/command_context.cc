@@ -66,10 +66,10 @@ namespace blowbox
 		CommandContext& context = CommandContext::Begin();
 
 		UINT64 texture_upload_buffer_size;
-		Get::Device().Get()->GetCopyableFootprints(&dest_resource->GetDesc(), 0, 1, 0, nullptr, nullptr, nullptr, &texture_upload_buffer_size);
+		Get::Device()->Get()->GetCopyableFootprints(&dest_resource->GetDesc(), 0, 1, 0, nullptr, nullptr, nullptr, &texture_upload_buffer_size);
 
 		BLOWBOX_ASSERT_HR(
-			Get::Device().Get()->CreateCommittedResource(
+			Get::Device()->Get()->CreateCommittedResource(
 				&CD3DX12_HEAP_PROPERTIES(D3D12_HEAP_TYPE_UPLOAD),
 				D3D12_HEAP_FLAG_NONE,
 				&CD3DX12_RESOURCE_DESC::Buffer(texture_upload_buffer_size),
@@ -117,7 +117,7 @@ namespace blowbox
 		buffer_desc.Flags = D3D12_RESOURCE_FLAG_NONE;
 
 		BLOWBOX_ASSERT_HR(
-			Get::Device().Get()->CreateCommittedResource(
+			Get::Device()->Get()->CreateCommittedResource(
 				&heap_properties, 
 				D3D12_HEAP_FLAG_NONE, 
 				&buffer_desc, 
@@ -246,7 +246,7 @@ namespace blowbox
 	//------------------------------------------------------------------------------------------------------
 	uint64_t CommandContext::Finish(bool wait_for_completion)
 	{
-		assert(type_ == D3D12_COMMAND_LIST_TYPE_DIRECT || type_ == D3D12_COMMAND_LIST_TYPE_COMPUTE);
+		BLOWBOX_ASSERT(type_ == D3D12_COMMAND_LIST_TYPE_DIRECT || type_ == D3D12_COMMAND_LIST_TYPE_COMPUTE);
 
 		FlushResourceBarriers();
 

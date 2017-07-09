@@ -1,9 +1,9 @@
 #include "color_buffer.h"
 
-#include "descriptor_heap.h"
-#include "renderer.h"
-#include "device.h"
-#include "../get.h"
+#include "renderer/descriptor_heap.h"
+#include "renderer/renderer.h"
+#include "renderer/device.h"
+#include "core/get.h"
 
 namespace blowbox
 {
@@ -27,16 +27,16 @@ namespace blowbox
 	{
 		AssociateWithResource(name, swap_chain_resource, D3D12_RESOURCE_STATE_PRESENT);
 
-		srv_id_ = DESCRIPTOR_ID_UNKNOWN;
-		uav_id_ = DESCRIPTOR_ID_UNKNOWN;
-		rtv_id_ = Get::RtvHeap().CreateRenderTargetView(resource_, nullptr);
+		srv_id_ = BLOWBOX_DESCRIPTOR_ID_UNKNOWN;
+		uav_id_ = BLOWBOX_DESCRIPTOR_ID_UNKNOWN;
+		rtv_id_ = Get::RtvHeap()->CreateRenderTargetView(resource_, nullptr);
 	}
 
 	//------------------------------------------------------------------------------------------------------
 	void ColorBuffer::CreateFromTexture(ID3D12Resource* texture_resource, int slice)
 	{
-		srv_id_ = DESCRIPTOR_ID_UNKNOWN;
-		uav_id_ = DESCRIPTOR_ID_UNKNOWN;
+		srv_id_ = BLOWBOX_DESCRIPTOR_ID_UNKNOWN;
+		uav_id_ = BLOWBOX_DESCRIPTOR_ID_UNKNOWN;
 
 		if (resource_ != nullptr) {
 			resource_->Release();
@@ -56,7 +56,7 @@ namespace blowbox
 		rtv_desc.Texture2DArray.MipSlice = 0;
 		rtv_desc.Texture2DArray.ArraySize = 1;
 		rtv_desc.Texture2DArray.FirstArraySlice = D3D12CalcSubresource(0, slice, 0, 1, 1);
-		rtv_id_ = Get::RtvHeap().CreateRenderTargetView(resource_, &rtv_desc);
+		rtv_id_ = Get::RtvHeap()->CreateRenderTargetView(resource_, &rtv_desc);
 	}
 
 	//------------------------------------------------------------------------------------------------------
@@ -92,13 +92,13 @@ namespace blowbox
 		rtv_desc.ViewDimension = D3D12_RTV_DIMENSION_TEXTURE2D;
 		rtv_desc.Texture2D.MipSlice = 0;
 		rtv_desc.Texture2D.PlaneSlice = 0;
-		rtv_id_ = Get::RtvHeap().CreateRenderTargetView(resource_, &rtv_desc);
+		rtv_id_ = Get::RtvHeap()->CreateRenderTargetView(resource_, &rtv_desc);
 
 		uav_desc.Format = GetUAVFormat(format);
 		uav_desc.ViewDimension = D3D12_UAV_DIMENSION_TEXTURE2D;
 		uav_desc.Texture2D.MipSlice = 0;
 		uav_desc.Texture2D.PlaneSlice = 0;
-		uav_id_ = Get::CbvSrvUavHeap().CreateUnorderedAccessView(resource_, nullptr, &uav_desc);
+		uav_id_ = Get::CbvSrvUavHeap()->CreateUnorderedAccessView(resource_, nullptr, &uav_desc);
 
 		srv_desc.Format = format;
 		srv_desc.Shader4ComponentMapping = D3D12_DEFAULT_SHADER_4_COMPONENT_MAPPING;
@@ -107,6 +107,6 @@ namespace blowbox
 		srv_desc.Texture2D.MostDetailedMip = 0;
 		srv_desc.Texture2D.PlaneSlice = 0;
 		srv_desc.Texture2D.ResourceMinLODClamp = 0.0f;
-		srv_id_ = Get::CbvSrvUavHeap().CreateShaderResourceView(resource_, &srv_desc);
+		srv_id_ = Get::CbvSrvUavHeap()->CreateShaderResourceView(resource_, &srv_desc);
 	}
 }

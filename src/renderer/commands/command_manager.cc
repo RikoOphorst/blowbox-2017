@@ -1,13 +1,16 @@
 #include "command_manager.h"
 
-#include "device.h"
-#include "command_queue.h"
+#include "renderer/device.h"
+#include "renderer/commands/command_queue.h"
 
 namespace blowbox
 {
 	//------------------------------------------------------------------------------------------------------
 	CommandManager::CommandManager() :
-		device_(nullptr)
+		device_(nullptr),
+        graphics_queue_(nullptr),
+        compute_queue_(nullptr),
+        copy_queue_(nullptr)
 	{
 		
 	}
@@ -21,9 +24,14 @@ namespace blowbox
 	}
 
 	//------------------------------------------------------------------------------------------------------
-	void CommandManager::Startup(Device& device)
+	void CommandManager::Startup(Device* device)
 	{
-		device_ = &device;
+        BLOWBOX_ASSERT(device_ == nullptr);
+        BLOWBOX_ASSERT(graphics_queue_ == nullptr);
+        BLOWBOX_ASSERT(compute_queue_ == nullptr);
+        BLOWBOX_ASSERT(copy_queue_ == nullptr);
+
+		device_ = device;
 		graphics_queue_ = new CommandQueue(D3D12_COMMAND_LIST_TYPE_DIRECT);
 		compute_queue_ = new CommandQueue(D3D12_COMMAND_LIST_TYPE_COMPUTE);
 		copy_queue_ = new CommandQueue(D3D12_COMMAND_LIST_TYPE_COPY);
@@ -32,7 +40,7 @@ namespace blowbox
 	//------------------------------------------------------------------------------------------------------
 	void CommandManager::CreateCommandList(D3D12_COMMAND_LIST_TYPE type, ID3D12GraphicsCommandList** out_list, ID3D12CommandAllocator** out_allocator)
 	{
-		assert(type != D3D12_COMMAND_LIST_TYPE_BUNDLE);
+		BLOWBOX_ASSERT(type != D3D12_COMMAND_LIST_TYPE_BUNDLE);
 
 		switch (type)
 		{

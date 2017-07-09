@@ -79,14 +79,15 @@ namespace blowbox
 		ID3DBlob* output_blob;
 		ID3DBlob* error_blob;
 
-		if (D3D12SerializeRootSignature(&root_desc, D3D_ROOT_SIGNATURE_VERSION_1, &output_blob, &error_blob) != S_OK)
-		{
-			//DLOG(static_cast<char*>(error_blob->GetBufferPointer()));
-			DebugBreak();
-		}
+        BLOWBOX_ASSERT_HR(D3D12SerializeRootSignature(&root_desc, D3D_ROOT_SIGNATURE_VERSION_1, &output_blob, &error_blob));
 
-		//BLOWBOX_ASSERT_HR(Get::Device().Get()->CreateRootSignature(0, output_blob->GetBufferPointer(), output_blob->GetBufferSize(), IID_PPV_ARGS(&root_signature_)));
-		BLOWBOX_ASSERT_HR(Get::Renderer()->GetDevice().Get()->CreateRootSignature(0, output_blob->GetBufferPointer(), output_blob->GetBufferSize(), IID_PPV_ARGS(&root_signature_)));
+		//if (D3D12SerializeRootSignature(&root_desc, D3D_ROOT_SIGNATURE_VERSION_1, &output_blob, &error_blob) != S_OK)
+		//{
+			//DLOG(static_cast<char*>(error_blob->GetBufferPointer()));
+		//	DebugBreak();
+		//}
+
+		BLOWBOX_ASSERT_HR(Get::Renderer()->GetDevice()->Get()->CreateRootSignature(0, output_blob->GetBufferPointer(), output_blob->GetBufferSize(), IID_PPV_ARGS(&root_signature_)));
 
 		root_signature_->SetName(name.c_str());
 		finalized_ = true;

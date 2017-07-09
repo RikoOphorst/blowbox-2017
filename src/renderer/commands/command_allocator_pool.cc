@@ -1,8 +1,8 @@
 #include "command_allocator_pool.h"
 
-#include "../get.h"
-#include "device.h"
-#include "renderer.h"
+#include "core/get.h"
+#include "renderer/device.h"
+#include "renderer/renderer.h"
 
 namespace blowbox
 {
@@ -43,7 +43,7 @@ namespace blowbox
 
 		if (allocator == nullptr)
 		{
-			BLOWBOX_ASSERT_HR(Get::Renderer()->GetDevice().Get()->CreateCommandAllocator(type_, IID_PPV_ARGS(&allocator)));
+			BLOWBOX_ASSERT_HR(Get::Renderer()->GetDevice()->Get()->CreateCommandAllocator(type_, IID_PPV_ARGS(&allocator)));
 			wchar_t AllocatorName[32];
 			swprintf(AllocatorName, 32, L"CommandAllocator %zu", allocator_pool_.size());
 			allocator->SetName(AllocatorName);
@@ -56,6 +56,6 @@ namespace blowbox
 	//------------------------------------------------------------------------------------------------------
 	void CommandAllocatorPool::DiscardAllocator(uint64_t fence_value, ID3D12CommandAllocator* allocator)
 	{
-		available_allocators_.push(std::make_pair(fence_value, allocator));
+		available_allocators_.push(eastl::make_pair(fence_value, allocator));
 	}
 }

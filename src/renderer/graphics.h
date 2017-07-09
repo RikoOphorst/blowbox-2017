@@ -229,7 +229,7 @@ namespace blowbox
 			alpha_blend.RenderTarget[0].SrcBlend = D3D12_BLEND_SRC_ALPHA;
 			blend_state_traditional_additive = alpha_blend;
 
-			root_signature_default.Create(4, 6);
+			root_signature_default.Create(3, 1);
 			root_signature_default[0].InitAsConstantBuffer(0);
 			root_signature_default[1].InitAsConstantBuffer(1);
 			root_signature_default[2].InitAsDescriptorRange(D3D12_DESCRIPTOR_RANGE_TYPE_SRV, 1, 2); // diffuse

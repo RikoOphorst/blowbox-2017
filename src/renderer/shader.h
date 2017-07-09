@@ -25,7 +25,7 @@ namespace blowbox
         const ShaderType& GetShaderType() const;
         const D3D12_SHADER_BYTECODE& GetShaderByteCode() const;
         const void* GetShaderBinary() const;
-        const UINT& GetShaderBinaryLength() const;
+        UINT GetShaderBinaryLength() const;
         const ID3DBlob* GetShaderBlob() const;
 
 	private:

@@ -97,10 +97,9 @@ namespace blowbox
 
 	protected:
 		eastl::wstring name_;
-		void SetName(const eastl::wstring& name) { name_ = name; }
+        void SetName(const eastl::wstring& name) { list_->SetName(name.c_str()); name_ = name; }
 
 	protected:
-
 		D3D12_COMMAND_LIST_TYPE type_;
 		ID3D12GraphicsCommandList* list_;
 		ID3D12CommandAllocator* allocator_;
@@ -114,6 +113,5 @@ namespace blowbox
 		ID3D12PipelineState* graphics_pipeline_state_;
 		ID3D12RootSignature* compute_root_signature_;
 		ID3D12PipelineState* compute_pipeline_state_;
-
 	};
 }

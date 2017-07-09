@@ -55,12 +55,12 @@ namespace blowbox
 
         main_window_ = new Window(config_->window_resolution, config_->window_title);
         getter_->SetMainWindow(main_window_);
+        getter_->SetDevice(renderer_->GetDevice());
+        getter_->SetRtvHeap(renderer_->GetRtvHeap());
+        getter_->SetDsvHeap(renderer_->GetDsvHeap());
+        getter_->SetCbvSrvUavHeap(renderer_->GetCbvSrvUavHeap());
         
         renderer_->Startup();
-        getter_->SetDevice(renderer_->GetDevice());
-
-        command_manager_->Startup();
-        command_context_manager_->Startup();
 
         if (user_procedure_run_)
         {
@@ -85,6 +85,8 @@ namespace blowbox
             {
                 user_procedure_render_();
             }
+
+            renderer_->Draw();
 
             if (user_procedure_post_render_)
             {

@@ -1,10 +1,10 @@
 #include "command_queue.h"
 
-#include "device.h"
-#include "renderer.h"
-#include "command_manager.h"
-#include "command_allocator_pool.h"
-#include "../get.h"
+#include "renderer/device.h"
+#include "renderer/renderer.h"
+#include "renderer/commands/command_manager.h"
+#include "renderer/commands/command_allocator_pool.h"
+#include "core/get.h"
 
 #undef max
 #undef min
@@ -15,7 +15,7 @@ namespace blowbox
 	CommandQueue::CommandQueue(D3D12_COMMAND_LIST_TYPE type) :
 		type_(type)
 	{
-		ID3D12Device* device = Get::Renderer()->GetDevice().Get();
+		ID3D12Device* device = Get::Renderer()->GetDevice()->Get();
 
 		D3D12_COMMAND_QUEUE_DESC queue_desc;
 		queue_desc.Flags = D3D12_COMMAND_QUEUE_FLAG_NONE;
@@ -49,7 +49,7 @@ namespace blowbox
 	bool CommandQueue::IsFenceComplete(uint64_t fence_value)
 	{
 		if (fence_value > last_completed_fence_value_)
-			last_completed_fence_value_ = std::max(last_completed_fence_value_, fence_->GetCompletedValue());
+			last_completed_fence_value_ = eastl::max(last_completed_fence_value_, fence_->GetCompletedValue());
 
 		return fence_value <= last_completed_fence_value_;
 	}

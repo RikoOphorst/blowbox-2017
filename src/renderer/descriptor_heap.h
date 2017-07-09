@@ -2,8 +2,12 @@
 
 #include "d3d12_includes.h"
 
+#define BLOWBOX_DESCRIPTOR_ID_UNKNOWN ~(0u)
+
 namespace blowbox
 {
+    typedef unsigned int DescriptorId;
+
 	class Device;
 
 	class DescriptorHeap
