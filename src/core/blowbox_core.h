@@ -26,6 +26,7 @@ namespace blowbox
     class DescriptorHeap;
     class ForwardRenderer;
     class DeferredRenderer;
+    class ImGuiManager;
 
     /**
     * @class blowbox::BlowboxCore
@@ -113,6 +114,9 @@ namespace blowbox
         */
         void ShutdownRenderer();
 
+        void Update();
+        void Render();
+
     public:
         /**
         * @brief Set a function that gets called whenever the Run step happens in the game loop
@@ -178,6 +182,10 @@ namespace blowbox
 
         ForwardRenderer* render_forward_renderer_; //!< The ForwardRenderer instance
         DeferredRenderer* render_deferred_renderer_; //!< The DeferredRenderer instance
+
+        ImGuiManager* render_imgui_manager_; //!< The ImGuiManager instance
+
+        bool show_test_window_;
 
         // content stuff
         // nothing yet

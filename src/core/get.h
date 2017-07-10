@@ -17,6 +17,7 @@ namespace blowbox
     class Device;
     class SwapChain;
     class DescriptorHeap;
+    class ImGuiManager;
 
     /**
     * @class blowbox::Get
@@ -117,6 +118,12 @@ namespace blowbox
         * @author Riko Ophorst
         */
         static SwapChain* SwapChain();
+
+        /**
+        * @brief Returns the ImGuiManager instance
+        * @author Riko Ophorst
+        */
+        static ImGuiManager* ImGuiManager();
         
     protected:
         /**
@@ -199,9 +206,16 @@ namespace blowbox
         /**
         * @brief Sets the SwapChain instance. Only accessible to BlowboxCore.
         * @author Riko Ophorst
-        * @param[in] swap_chain       The instance of the SwapChain 
+        * @param[in] swap_chain       The instance of the SwapChain
         */
         void SetSwapChain(blowbox::SwapChain* swap_chain);
+
+        /**
+        * @brief Sets the ImGuiManager instance. Only accessible to BlowboxCore.
+        * @author Riko Ophorst
+        * @param[in] ImGuiManager       The instance of the ImGuiManager
+        */
+        void SetImGuiManager(blowbox::ImGuiManager* imgui_manager);
 
         static Get* instance_; //!< The instance of the Get class
 
@@ -219,5 +233,6 @@ namespace blowbox
         blowbox::DescriptorHeap* dsv_descriptor_heap_; //!< DescriptorHeap for dsvs
         blowbox::DescriptorHeap* cbv_srv_uav_descriptor_heap_; //!< DescriptorHeap for cbv/srv/uavs
         blowbox::SwapChain* swap_chain_; //!< The SwapChain instance
+        blowbox::ImGuiManager* imgui_manager_; //!< The ImGuiManager instance
     };
 }

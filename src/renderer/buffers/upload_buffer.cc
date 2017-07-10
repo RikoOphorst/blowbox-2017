@@ -116,4 +116,10 @@ namespace blowbox
 
 		return address;
 	}
+    
+    //------------------------------------------------------------------------------------------------------
+    BYTE* UploadBuffer::GetMappedData()
+    {
+        return mapped_data_;
+    }
 }

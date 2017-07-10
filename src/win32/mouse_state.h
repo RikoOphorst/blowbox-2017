@@ -11,6 +11,7 @@ namespace blowbox
     {
         friend class Window;
         friend class GLFWManager;
+        friend class ImGuiManager;
     public:
         struct MouseButtonState
         {

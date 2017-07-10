@@ -15,6 +15,8 @@
 #include "renderer/descriptor_heap.h"
 #include "renderer/commands/command_context_manager.h"
 #include "renderer/commands/command_manager.h"
+#include "renderer/commands/graphics_context.h"
+#include "renderer/imgui/imgui_manager.h"
 
 namespace blowbox
 {
@@ -39,7 +41,9 @@ namespace blowbox
         render_dsv_heap_(nullptr),
         render_cbv_srv_uav_heap_(nullptr),
         render_forward_renderer_(nullptr),
-        render_deferred_renderer_(nullptr)
+        render_deferred_renderer_(nullptr),
+        render_imgui_manager_(nullptr),
+        show_test_window_(true)
     {
         BLOWBOX_ASSERT(config_ != nullptr);
 
@@ -58,6 +62,8 @@ namespace blowbox
 
         render_forward_renderer_ = new ForwardRenderer();
         render_deferred_renderer_ = new DeferredRenderer();
+
+        render_imgui_manager_ = new ImGuiManager();
 
         // Create Getter
         getter_ = new Get();
@@ -84,28 +90,11 @@ namespace blowbox
         while (IsBlowboxAlive())
         {
             win32_glfw_manager_->Update();
+            render_imgui_manager_->NewFrame();
 
-            if (user_procedure_update_)
-            {
-                user_procedure_update_();
-            }
+            Update();
 
-            if (user_procedure_post_update_)
-            {
-                user_procedure_post_update_();
-            }
-
-            if (user_procedure_render_)
-            {
-                user_procedure_render_();
-            }
-
-            render_forward_renderer_->Render();
-
-            if (user_procedure_post_render_)
-            {
-                user_procedure_post_render_();
-            }
+            Render();
         }
 
         if (user_procedure_shutdown_)
@@ -162,6 +151,7 @@ namespace blowbox
         getter_->SetSwapChain(render_swap_chain_);
         getter_->SetForwardRenderer(render_forward_renderer_);
         getter_->SetDeferredRenderer(render_deferred_renderer_);
+        getter_->SetImGuiManager(render_imgui_manager_);
 
         getter_->Finalize();
     }
@@ -202,6 +192,8 @@ namespace blowbox
         );
 
         render_forward_renderer_->Startup();
+
+        render_imgui_manager_->Init();
     }
 
     //------------------------------------------------------------------------------------------------------
@@ -221,7 +213,9 @@ namespace blowbox
     void BlowboxCore::ShutdownRenderer()
     {
         render_command_manager_->WaitForIdleGPU();
+        render_imgui_manager_->Shutdown();
 
+        BLOWBOX_DELETE(render_imgui_manager_);
         BLOWBOX_DELETE(render_forward_renderer_);
         BLOWBOX_DELETE(render_deferred_renderer_);
         BLOWBOX_DELETE(render_swap_chain_);
@@ -231,6 +225,57 @@ namespace blowbox
         BLOWBOX_DELETE(render_command_context_manager_);
         BLOWBOX_DELETE(render_command_manager_);
         BLOWBOX_DELETE(render_device_);
+    }
+
+    //------------------------------------------------------------------------------------------------------
+    void BlowboxCore::Update()
+    {
+        if (user_procedure_update_)
+            user_procedure_update_();
+
+        ImGui::ShowTestWindow(&show_test_window_);
+
+        if (user_procedure_post_update_)
+            user_procedure_post_update_();
+    }
+
+    //------------------------------------------------------------------------------------------------------
+    void BlowboxCore::Render()
+    {
+        // Pre render user procedure
+        if (user_procedure_render_)
+            user_procedure_render_();
+
+        // Frame start
+        {
+            GraphicsContext& context_frame_start = GraphicsContext::Begin(L"CommandListFrameStart");
+
+            ID3D12DescriptorHeap* heaps[1] = { render_cbv_srv_uav_heap_->Get() };
+            D3D12_DESCRIPTOR_HEAP_TYPE heap_types[1] = { D3D12_DESCRIPTOR_HEAP_TYPE_CBV_SRV_UAV };
+            context_frame_start.SetDescriptorHeaps(1, heap_types, heaps);
+            context_frame_start.TransitionResource(render_swap_chain_->GetBackBuffer(), D3D12_RESOURCE_STATE_RENDER_TARGET);
+            context_frame_start.Finish();
+        }
+
+        // Do actual rendering
+        {
+            render_forward_renderer_->Render();
+            render_imgui_manager_->Render();
+        }
+
+        // Frame end
+        {
+            GraphicsContext& context_frame_end = GraphicsContext::Begin(L"CommandListFrameEnd");
+
+            context_frame_end.TransitionResource(render_swap_chain_->GetBackBuffer(), D3D12_RESOURCE_STATE_PRESENT);
+            context_frame_end.Finish(true);
+
+            render_swap_chain_->Present(false);
+        }
+
+        // Post render user procedure
+        if (user_procedure_post_render_)
+            user_procedure_post_render_();
     }
 
     //------------------------------------------------------------------------------------------------------

@@ -68,6 +68,7 @@ namespace blowbox
 	{
 	public:
 		ComputePSO();
+        ~ComputePSO();
 
 	public:
 		static ComputePSO& Get(const eastl::string& name);

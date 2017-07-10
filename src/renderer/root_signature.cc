@@ -78,7 +78,14 @@ namespace blowbox
 		ID3DBlob* output_blob;
 		ID3DBlob* error_blob;
 
-        BLOWBOX_ASSERT_HR(D3D12SerializeRootSignature(&root_desc, D3D_ROOT_SIGNATURE_VERSION_1, &output_blob, &error_blob));
+        if (D3D12SerializeRootSignature(&root_desc, D3D_ROOT_SIGNATURE_VERSION_1, &output_blob, &error_blob) != S_OK)
+        {
+            eastl::string str = static_cast<const char*>(error_blob->GetBufferPointer());
+
+            int i = 0;
+
+            BLOWBOX_ASSERT(false);
+        }
 
 		//if (D3D12SerializeRootSignature(&root_desc, D3D_ROOT_SIGNATURE_VERSION_1, &output_blob, &error_blob) != S_OK)
 		//{

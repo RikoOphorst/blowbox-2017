@@ -63,6 +63,12 @@ namespace blowbox
 		* @param[in] element_id The index (id) of the element you want the address of
 		*/
 		D3D12_GPU_VIRTUAL_ADDRESS GetAddressByElement(UINT element_id);
+
+        /**
+        * @brief Returns the mapped data pointer.
+        * @author Riko Ophorst
+        */
+        BYTE* GetMappedData();
 	private:
 		bool is_mapped_ = false; //!< Is the buffer currently mapped to CPU memory?
 		BYTE* mapped_data_ = nullptr; //!< The data that is mapped to CPU memory - can be freely written to and read from when it is mapped

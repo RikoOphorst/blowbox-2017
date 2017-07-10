@@ -11,6 +11,7 @@ namespace blowbox
     {
         friend class GLFWManager;
         friend class Window;
+        friend class ImGuiManager;
     public:
         struct KeyState
         {

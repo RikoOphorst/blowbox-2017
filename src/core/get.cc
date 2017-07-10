@@ -20,7 +20,8 @@ namespace blowbox
         rtv_descriptor_heap_(nullptr),
         dsv_descriptor_heap_(nullptr),
         cbv_srv_uav_descriptor_heap_(nullptr),
-        swap_chain_(nullptr)
+        swap_chain_(nullptr),
+        imgui_manager_(nullptr)
     {
         BLOWBOX_ASSERT(instance_ == nullptr);
         instance_ = this;
@@ -47,6 +48,7 @@ namespace blowbox
         BLOWBOX_ASSERT(dsv_descriptor_heap_         != nullptr);
         BLOWBOX_ASSERT(cbv_srv_uav_descriptor_heap_ != nullptr);
         BLOWBOX_ASSERT(swap_chain_                  != nullptr);
+        BLOWBOX_ASSERT(imgui_manager_               != nullptr);
 
         finalized_ = true;
     }
@@ -134,6 +136,13 @@ namespace blowbox
         BLOWBOX_ASSERT(Get::instance_->finalized_ == true);
         return Get::instance_->swap_chain_;
     }
+
+    //------------------------------------------------------------------------------------------------------
+    ImGuiManager* Get::ImGuiManager()
+    {
+        BLOWBOX_ASSERT(Get::instance_->finalized_ == true);
+        return Get::instance_->imgui_manager_;
+    }
     
     //------------------------------------------------------------------------------------------------------
     void Get::SetBlowboxCore(blowbox::BlowboxCore* blowbox_core)
@@ -205,5 +214,11 @@ namespace blowbox
     void Get::SetSwapChain(blowbox::SwapChain * swap_chain)
     {
         swap_chain_ = swap_chain;
+    }
+    
+    //------------------------------------------------------------------------------------------------------
+    void Get::SetImGuiManager(blowbox::ImGuiManager * imgui_manager)
+    {
+        imgui_manager_ = imgui_manager;
     }
 }

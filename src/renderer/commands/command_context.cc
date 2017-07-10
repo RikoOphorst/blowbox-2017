@@ -78,9 +78,10 @@ namespace blowbox
 			)
 		);
 
+        context.TransitionResource(dest_resource, D3D12_RESOURCE_STATE_COPY_DEST, true);
 		// copy data to the intermediate upload heap and then schedule a copy from the upload heap to the default texture
 		UpdateSubresources(context.list_, dest_resource.Get(), upload_buffer, 0, 0, num_subresources, subresource_data);
-		context.TransitionResource(dest_resource, D3D12_RESOURCE_STATE_GENERIC_READ);
+		context.TransitionResource(dest_resource, D3D12_RESOURCE_STATE_GENERIC_READ, true);
 
 		// Execute the command list and wait for it to finish so we can release the upload buffer
 		context.Finish(true);

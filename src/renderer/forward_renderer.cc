@@ -28,16 +28,9 @@ namespace blowbox
     //------------------------------------------------------------------------------------------------------
     void ForwardRenderer::Render()
     {
-        GraphicsContext& context = GraphicsContext::Begin(L"SceneRender");
-
-        ID3D12DescriptorHeap* heaps[1] = { Get::CbvSrvUavHeap()->Get() };
-        D3D12_DESCRIPTOR_HEAP_TYPE heap_types[1] = { D3D12_DESCRIPTOR_HEAP_TYPE_CBV_SRV_UAV };
-
-        context.SetDescriptorHeaps(1, heap_types, heaps);
+        GraphicsContext& context = GraphicsContext::Begin(L"CommandListForwardRendering");
 
         ColorBuffer& back_buffer = Get::SwapChain()->GetBackBuffer();
-        context.TransitionResource(back_buffer, D3D12_RESOURCE_STATE_RENDER_TARGET, true);
-
         context.SetRenderTarget(back_buffer.GetRTV(), depth_buffer_.GetDSV());
         context.ClearColor(back_buffer);
 
@@ -46,12 +39,6 @@ namespace blowbox
 
         context.SetViewportAndScissor(0, 0, Get::SwapChain()->GetBufferWidth(), Get::SwapChain()->GetBufferHeight());
 
-        context.FlushResourceBarriers();
-
-        context.TransitionResource(Get::SwapChain()->GetBackBuffer(), D3D12_RESOURCE_STATE_PRESENT);
-
-        context.Finish(true);
-
-        Get::SwapChain()->Present(false);
+        context.Finish();
     }
 }
