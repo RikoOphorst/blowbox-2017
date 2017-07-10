@@ -31,6 +31,7 @@ namespace blowbox
         for (auto it = windows_.begin(); it != windows_.end(); it++)
         {
             it->second->GetKeyboardState().ResetKeys();
+            it->second->GetMouseState().Update();
         }
 
         glfwPollEvents();

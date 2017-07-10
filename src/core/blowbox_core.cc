@@ -26,7 +26,7 @@ namespace blowbox
     
     //------------------------------------------------------------------------------------------------------
     BlowboxCore::BlowboxCore(BlowboxConfig* config) :
-        alive_(true),
+        shutdown_requested_by_external_(true),
         config_(config),
         getter_(nullptr),
         win32_glfw_manager_(nullptr),
@@ -121,13 +121,13 @@ namespace blowbox
     //------------------------------------------------------------------------------------------------------
     void BlowboxCore::Shutdown()
     {
-        alive_ = false;
+        shutdown_requested_by_external_ = false;
     }
 
     //------------------------------------------------------------------------------------------------------
     bool BlowboxCore::IsBlowboxAlive()
     {
-        if (alive_ == false)
+        if (shutdown_requested_by_external_ == false)
         {
             return false;
         }

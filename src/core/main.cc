@@ -19,6 +19,8 @@ using namespace blowbox;
 BlowboxCore* blowbox_instance;
 Window* main_window;
 
+bool clicked = false;
+
 void Run()
 {
     main_window = Get::MainWindow();
@@ -27,7 +29,15 @@ void Run()
 
 void Update()
 {
-    
+    if (main_window->GetMouseState().GetButtonPressed(MouseButton_4))
+    {
+        clicked = true;
+    }
+
+    if (clicked && main_window->GetMouseState().GetScrollDelta().y > 0.1f)
+    {
+        blowbox_instance->Shutdown();
+    }
 }
 
 void PostUpdate()

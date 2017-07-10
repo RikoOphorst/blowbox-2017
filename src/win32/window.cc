@@ -38,6 +38,11 @@ namespace blowbox
         glfwSetKeyCallback(window_, GlfwKeyCallback);
         glfwSetCursorPosCallback(window_, GlfwCursorPosCallback);
         glfwSetMouseButtonCallback(window_, GlfwMouseButtonCallback);
+        glfwSetScrollCallback(window_, GlfwScrollCallback);
+        glfwSetCursorEnterCallback(window_, GlfwMouseEnterCallback);
+        glfwSetWindowFocusCallback(window_, GlfwFocusCallback);
+
+        Focus();
     }
 
     //------------------------------------------------------------------------------------------------------
@@ -81,6 +86,12 @@ namespace blowbox
     }
 
     //------------------------------------------------------------------------------------------------------
+    void Window::Focus()
+    {
+        glfwFocusWindow(window_);
+    }
+
+    //------------------------------------------------------------------------------------------------------
     Resolution Window::GetWindowResolution() const
     {
         Resolution resolution;
@@ -115,6 +126,12 @@ namespace blowbox
     }
 
     //------------------------------------------------------------------------------------------------------
+    bool Window::GetWindowFocused() const
+    {
+        return focused_;
+    }
+
+    //------------------------------------------------------------------------------------------------------
     HWND Window::GetWindowHandle() const
     {
         return glfwGetWin32Window(window_);
@@ -130,6 +147,12 @@ namespace blowbox
     KeyboardState& Window::GetKeyboardState()
     {
         return keyboard_state_;
+    }
+
+    //------------------------------------------------------------------------------------------------------
+    MouseState& Window::GetMouseState()
+    {
+        return mouse_state_;
     }
 
     //------------------------------------------------------------------------------------------------------
@@ -157,12 +180,46 @@ namespace blowbox
     //------------------------------------------------------------------------------------------------------
     void Window::GlfwCursorPosCallback(GLFWwindow* window, double x, double y)
     {
-        
+        MouseState& mouse_state = Get::GLFWManager()->FindCorrespondingWindow(window)->GetMouseState();
+        mouse_state.SetMousePosition(DirectX::XMFLOAT2(static_cast<float>(x), static_cast<float>(y)));
     }
     
     //------------------------------------------------------------------------------------------------------
     void Window::GlfwMouseButtonCallback(GLFWwindow* window, int button, int action, int modifiers)
     {
+        MouseState& mouse_state = Get::GLFWManager()->FindCorrespondingWindow(window)->GetMouseState();
 
+        if (action == GLFW_PRESS)
+        {
+            mouse_state.SetMouseButtonPressed(GlfwMouseButtonToBlowboxMouseButton(button));
+        }
+
+        if (action == GLFW_RELEASE)
+        {
+            mouse_state.SetMouseButtonReleased(GlfwMouseButtonToBlowboxMouseButton(button));
+        }
+    }
+    
+    //------------------------------------------------------------------------------------------------------
+    void Window::GlfwScrollCallback(GLFWwindow* window, double x, double y)
+    {
+        MouseState& mouse_state = Get::GLFWManager()->FindCorrespondingWindow(window)->GetMouseState();
+
+        mouse_state.SetScrollDelta(DirectX::XMFLOAT2(static_cast<float>(x), static_cast<float>(y)));
+    }
+    
+    //------------------------------------------------------------------------------------------------------
+    void Window::GlfwMouseEnterCallback(GLFWwindow* window, int entered)
+    {
+        MouseState& mouse_state = Get::GLFWManager()->FindCorrespondingWindow(window)->GetMouseState();
+
+        mouse_state.SetMouseInWindow(entered == 1);
+    }
+    
+    //------------------------------------------------------------------------------------------------------
+    void Window::GlfwFocusCallback(GLFWwindow* window, int focused)
+    {
+        Window* blowbox_window = Get::GLFWManager()->FindCorrespondingWindow(window);
+        blowbox_window->focused_ = focused == 1;
     }
 }

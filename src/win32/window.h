@@ -11,6 +11,7 @@
 
 #include "win32/key_code.h"
 #include "win32/keyboard_state.h"
+#include "win32/mouse_state.h"
 #include "util/resolution.h"
 
 #include <DirectXMath.h>
@@ -92,6 +93,12 @@ namespace blowbox
         void SetWindowIcon(Image* window_icon);
 
         /**
+        * @brief Makes the window the focus of the input
+        * @author Riko Ophorst
+        */
+        void Focus();
+
+        /**
         * @brief Returns the resolution of the window's client area
         * @author Riko Ophorst
         */
@@ -122,6 +129,12 @@ namespace blowbox
         Image* GetWindowIcon() const;
 
         /**
+        * @brief Returns whether the window is in focus
+        * @author Riko Ophorst
+        */
+        bool GetWindowFocused() const;
+
+        /**
         * @brief Returns this window's HWND (handle)
         * @author Riko Ophorst
         */
@@ -138,6 +151,12 @@ namespace blowbox
         * @author Riko Ophorst
         */
         KeyboardState& GetKeyboardState();
+
+        /**
+        * @brief Returns this window's MouseState
+        * @author Riko Ophorst
+        */
+        MouseState& GetMouseState();
 
         /**
         * @brief Returns whether this Window should be closed. Can be triggered by the user.
@@ -175,6 +194,31 @@ namespace blowbox
         */
         static void GlfwMouseButtonCallback(GLFWwindow* window, int button, int action, int modifiers);
 
+        /**
+        * @brief This is the callback function that is used for mouse scroll input
+        * @author Riko Ophorst
+        * @param[in] window     The window that the callback function is associated with
+        * @param[in] x          The scroll offset on the x axis
+        * @param[in] y          The scroll offset on the y axis
+        */
+        static void GlfwScrollCallback(GLFWwindow* window, double x, double y);
+
+        /**
+        * @brief This is the callback function that is used for when the mouse enters/leaves the window
+        * @author Riko Ophorst
+        * @param[in] window     The window that the callback function is associated with
+        * @param[in] entered    Whether the mouse entered or left the window
+        */
+        static void GlfwMouseEnterCallback(GLFWwindow* window, int entered);
+
+        /**
+        * @brief This is the callback function that is used for when the mouse enters/leaves the window
+        * @author Riko Ophorst
+        * @param[in] window     The window that the callback function is associated with
+        * @param[in] focused    Whether the window is focused or not
+        */
+        static void GlfwFocusCallback(GLFWwindow* window, int focused);
+
     private:
         GLFWwindow* window_; //!< The underlying window that GLFW uses
         Image* window_icon_; //!< The currently bound icon
@@ -183,5 +227,8 @@ namespace blowbox
         Resolution max_resolution_; //!< The maximum resolution of the window
 
         KeyboardState keyboard_state_; //!< The state of the keyboard for this window
+        MouseState mouse_state_; //!< The state of the mouse for this window
+
+        bool focused_;
     };
 }

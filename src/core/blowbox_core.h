@@ -152,7 +152,7 @@ namespace blowbox
 
     private:
         BlowboxConfig* config_; //!< The configuration of blowbox
-        bool alive_; //!< Tracks whether the engine should still be alive
+        bool shutdown_requested_by_external_; //!< Tracks whether the engine should still be alive
 
         eastl::function<void(void)> user_procedure_run_; //!< The procedure that is defined by the user for the Run step
         eastl::function<void(void)> user_procedure_update_; //!< The procedure that is defined by the user for the Update step
