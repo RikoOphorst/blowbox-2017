@@ -38,7 +38,11 @@ namespace blowbox
 	//------------------------------------------------------------------------------------------------------
 	CommandQueue::~CommandQueue()
 	{
-		CloseHandle(fence_event_handle_);
+        IncrementFence();
+        WaitForIdle();
+        delete allocator_pool_;
+		
+        CloseHandle(fence_event_handle_);
 
 		fence_->Release();
 		queue_->Release();

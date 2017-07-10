@@ -140,6 +140,12 @@ namespace blowbox
         KeyboardState& GetKeyboardState();
 
         /**
+        * @brief Returns whether this Window should be closed. Can be triggered by the user.
+        * @author Riko Ophorst
+        */
+        bool GetWindowShouldClose();
+
+        /**
         * @brief This is the callback function that is used for key input
         * @author Riko Ophorst
         * @param[in] window     The window that the callback function is associated with

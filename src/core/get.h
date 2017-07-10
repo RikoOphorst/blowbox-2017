@@ -39,6 +39,12 @@ namespace blowbox
         */
         ~Get();
 
+        /**
+        * @brief Checks if all systems are set.
+        * @author Riko Ophorst
+        */
+        void Finalize();
+
     public:
         /**
         * @brief Returns the BlowboxCore instance
@@ -200,6 +206,7 @@ namespace blowbox
         static Get* instance_; //!< The instance of the Get class
 
     private:
+        bool finalized_; //!< Whether the Get system has been finalized
         blowbox::BlowboxCore* blowbox_core_; //!< The BlowboxCore instance
         blowbox::GLFWManager* glfw_manager_; //!< The GLFWManager instance
         blowbox::Window* main_window_; //!< The main Window instance

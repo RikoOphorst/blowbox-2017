@@ -58,8 +58,6 @@ int main(int argc, char** argv)
 
     blowbox_instance = new BlowboxCore(&config);
 
-    std::cout << Get::GLFWManager() << std::endl;
-
     blowbox_instance->SetRunProcedure(Run);
     blowbox_instance->SetUpdateProcedure(Update);
     blowbox_instance->SetPostUpdateProcedure(PostUpdate);

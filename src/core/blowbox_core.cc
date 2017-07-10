@@ -1,6 +1,7 @@
 #include "blowbox_core.h"
 
 #include "util/assert.h"
+#include "util/delete.h"
 #include "core/blowbox_config.h"
 #include "core/get.h"
 
@@ -26,7 +27,19 @@ namespace blowbox
     //------------------------------------------------------------------------------------------------------
     BlowboxCore::BlowboxCore(BlowboxConfig* config) :
         alive_(true),
-        config_(config)
+        config_(config),
+        getter_(nullptr),
+        win32_glfw_manager_(nullptr),
+        win32_main_window_(nullptr),
+        render_device_(nullptr),
+        render_swap_chain_(nullptr),
+        render_command_manager_(nullptr),
+        render_command_context_manager_(nullptr),
+        render_rtv_heap_(nullptr),
+        render_dsv_heap_(nullptr),
+        render_cbv_srv_uav_heap_(nullptr),
+        render_forward_renderer_(nullptr),
+        render_deferred_renderer_(nullptr)
     {
         BLOWBOX_ASSERT(config_ != nullptr);
 
@@ -46,46 +59,20 @@ namespace blowbox
         render_forward_renderer_ = new ForwardRenderer();
         render_deferred_renderer_ = new DeferredRenderer();
 
-        // Create & configure getters
+        // Create Getter
         getter_ = new Get();
-
-        getter_->SetBlowboxCore(this);
-
-        getter_->SetGLFWManager(win32_glfw_manager_);
-        getter_->SetMainWindow(win32_main_window_);
-
-        getter_->SetDevice(render_device_);
-        getter_->SetCommandManager(render_command_manager_);
-        getter_->SetCommandContextManager(render_command_context_manager_);
-        getter_->SetRtvHeap(render_rtv_heap_);
-        getter_->SetDsvHeap(render_dsv_heap_);
-        getter_->SetCbvSrvUavHeap(render_cbv_srv_uav_heap_);
-        getter_->SetSwapChain(render_swap_chain_);
-        getter_->SetForwardRenderer(render_forward_renderer_);
     }
 
     //------------------------------------------------------------------------------------------------------
     BlowboxCore::~BlowboxCore()
     {
-        delete render_forward_renderer_;
-        delete render_deferred_renderer_;
-        delete render_cbv_srv_uav_heap_;
-        delete render_dsv_heap_;
-        delete render_rtv_heap_;
-        delete render_command_context_manager_;
-        delete render_command_manager_;
-        delete render_swap_chain_;
-        delete render_device_;
 
-        delete win32_main_window_;
-        delete win32_glfw_manager_;
-        
-        delete getter_;
     }
 
     //------------------------------------------------------------------------------------------------------
     void BlowboxCore::Run()
     {
+        StartupGetter();
         StartupWin32();
         StartupRenderer();
 
@@ -126,7 +113,9 @@ namespace blowbox
             user_procedure_shutdown_();
         }
 
-        win32_glfw_manager_->Shutdown();
+        ShutdownRenderer();
+        ShutdownWin32();
+        ShutdownGetter();
     }
 
     //------------------------------------------------------------------------------------------------------
@@ -138,7 +127,43 @@ namespace blowbox
     //------------------------------------------------------------------------------------------------------
     bool BlowboxCore::IsBlowboxAlive()
     {
-        return alive_;
+        if (alive_ == false)
+        {
+            return false;
+        }
+        
+        if (win32_main_window_->GetWindowShouldClose())
+        {
+            return false;
+        }
+
+        if (win32_main_window_->GetKeyboardState().GetKeyPressed(KeyCode_ESCAPE))
+        {
+            return false;
+        }
+
+        return true;
+    }
+
+    //------------------------------------------------------------------------------------------------------
+    void BlowboxCore::StartupGetter()
+    {
+        getter_->SetBlowboxCore(this);
+
+        getter_->SetGLFWManager(win32_glfw_manager_);
+        getter_->SetMainWindow(win32_main_window_);
+
+        getter_->SetDevice(render_device_);
+        getter_->SetCommandManager(render_command_manager_);
+        getter_->SetCommandContextManager(render_command_context_manager_);
+        getter_->SetRtvHeap(render_rtv_heap_);
+        getter_->SetDsvHeap(render_dsv_heap_);
+        getter_->SetCbvSrvUavHeap(render_cbv_srv_uav_heap_);
+        getter_->SetSwapChain(render_swap_chain_);
+        getter_->SetForwardRenderer(render_forward_renderer_);
+        getter_->SetDeferredRenderer(render_deferred_renderer_);
+
+        getter_->Finalize();
     }
 
     //------------------------------------------------------------------------------------------------------
@@ -161,9 +186,9 @@ namespace blowbox
         render_command_context_manager_->Startup();
 
         // Render descriptor heap creation
-        render_rtv_heap_->Create(           D3D12_DESCRIPTOR_HEAP_TYPE_RTV,         D3D12_DESCRIPTOR_HEAP_FLAG_NONE,            BLOWBOX_DESCRIPTOR_HEAP_MAX_RTV_COUNT);
-		render_dsv_heap_->Create(           D3D12_DESCRIPTOR_HEAP_TYPE_DSV,         D3D12_DESCRIPTOR_HEAP_FLAG_NONE,            BLOWBOX_DESCRIPTOR_HEAP_MAX_DSV_COUNT);
-		render_cbv_srv_uav_heap_->Create(   D3D12_DESCRIPTOR_HEAP_TYPE_CBV_SRV_UAV, D3D12_DESCRIPTOR_HEAP_FLAG_SHADER_VISIBLE,  BLOWBOX_DESCRIPTOR_HEAP_MAX_CBV_SRV_UAV_COUNT);
+        render_rtv_heap_->Create(           L"DescriptorHeapRTV",           D3D12_DESCRIPTOR_HEAP_TYPE_RTV,         D3D12_DESCRIPTOR_HEAP_FLAG_NONE,            BLOWBOX_DESCRIPTOR_HEAP_MAX_RTV_COUNT);
+		render_dsv_heap_->Create(           L"DescriptorHeapDSV",           D3D12_DESCRIPTOR_HEAP_TYPE_DSV,         D3D12_DESCRIPTOR_HEAP_FLAG_NONE,            BLOWBOX_DESCRIPTOR_HEAP_MAX_DSV_COUNT);
+		render_cbv_srv_uav_heap_->Create(   L"DescriptorHeapCBV_SRV_UAV",   D3D12_DESCRIPTOR_HEAP_TYPE_CBV_SRV_UAV, D3D12_DESCRIPTOR_HEAP_FLAG_SHADER_VISIBLE,  BLOWBOX_DESCRIPTOR_HEAP_MAX_CBV_SRV_UAV_COUNT);
 
         // Render swap chain creation
         render_swap_chain_->Create(
@@ -177,6 +202,35 @@ namespace blowbox
         );
 
         render_forward_renderer_->Startup();
+    }
+
+    //------------------------------------------------------------------------------------------------------
+    void BlowboxCore::ShutdownGetter()
+    {
+        BLOWBOX_DELETE(getter_);
+    }
+
+    //------------------------------------------------------------------------------------------------------
+    void BlowboxCore::ShutdownWin32()
+    {
+        BLOWBOX_DELETE(win32_main_window_);
+        BLOWBOX_DELETE(win32_glfw_manager_);
+    }
+
+    //------------------------------------------------------------------------------------------------------
+    void BlowboxCore::ShutdownRenderer()
+    {
+        render_command_manager_->WaitForIdleGPU();
+
+        BLOWBOX_DELETE(render_forward_renderer_);
+        BLOWBOX_DELETE(render_deferred_renderer_);
+        BLOWBOX_DELETE(render_swap_chain_);
+        BLOWBOX_DELETE(render_cbv_srv_uav_heap_);
+        BLOWBOX_DELETE(render_dsv_heap_);
+        BLOWBOX_DELETE(render_rtv_heap_);
+        BLOWBOX_DELETE(render_command_context_manager_);
+        BLOWBOX_DELETE(render_command_manager_);
+        BLOWBOX_DELETE(render_device_);
     }
 
     //------------------------------------------------------------------------------------------------------

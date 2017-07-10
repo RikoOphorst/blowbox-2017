@@ -2,6 +2,9 @@
 
 #include "d3d12_includes.h"
 
+#include "core/eastl_required.h"
+#include <EASTL/string.h>
+
 #define BLOWBOX_DESCRIPTOR_ID_UNKNOWN ~(0u)
 
 namespace blowbox
@@ -16,7 +19,7 @@ namespace blowbox
 		DescriptorHeap();
 		~DescriptorHeap();
 
-		void Create(D3D12_DESCRIPTOR_HEAP_TYPE heap_type, D3D12_DESCRIPTOR_HEAP_FLAGS flags = D3D12_DESCRIPTOR_HEAP_FLAG_SHADER_VISIBLE, UINT descriptor_count = 4096U);
+		void Create(const eastl::wstring& name, D3D12_DESCRIPTOR_HEAP_TYPE heap_type, D3D12_DESCRIPTOR_HEAP_FLAGS flags = D3D12_DESCRIPTOR_HEAP_FLAG_SHADER_VISIBLE, UINT descriptor_count = 4096U);
 
 		/**
 		* @brief Creates a DepthStencilView (descriptor)

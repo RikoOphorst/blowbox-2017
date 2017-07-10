@@ -9,6 +9,7 @@ namespace blowbox
 {
     class KeyboardState
     {
+        friend class GLFWManager;
         friend class Window;
     public:
         struct KeyState

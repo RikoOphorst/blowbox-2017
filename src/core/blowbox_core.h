@@ -78,6 +78,12 @@ namespace blowbox
         bool IsBlowboxAlive();
 
         /**
+        * @brief Starts up the Getter system.
+        * @author Riko Ophorst
+        */
+        void StartupGetter();
+
+        /**
         * @brief Starts up the Win32 subsystems
         * @author Riko Ophorst
         */
@@ -88,6 +94,24 @@ namespace blowbox
         * @author Riko Ophorst
         */
         void StartupRenderer();
+
+        /**
+        * @brief Shuts down the Getter system
+        * @author Riko Ophorst
+        */
+        void ShutdownGetter();
+
+        /**
+        * @brief Shuts down the Win32 subsystems
+        * @author Riko Ophorst
+        */
+        void ShutdownWin32();
+
+        /**
+        * @brief Shuts down the Renderer subsystems
+        * @author Riko Ophorst
+        */
+        void ShutdownRenderer();
 
     public:
         /**
@@ -129,7 +153,6 @@ namespace blowbox
     private:
         BlowboxConfig* config_; //!< The configuration of blowbox
         bool alive_; //!< Tracks whether the engine should still be alive
-        Get* getter_; //!< The Get instance that is used in the entire engine
 
         eastl::function<void(void)> user_procedure_run_; //!< The procedure that is defined by the user for the Run step
         eastl::function<void(void)> user_procedure_update_; //!< The procedure that is defined by the user for the Update step
@@ -137,6 +160,8 @@ namespace blowbox
         eastl::function<void(void)> user_procedure_render_; //!< The procedure that is defined by the user for the Render step
         eastl::function<void(void)> user_procedure_post_render_; //!< The procedure that is defined by the user for the PostRender step
         eastl::function<void(void)> user_procedure_shutdown_; //!< The procedure that is defined by the user for the Shutdown step
+
+        Get* getter_; //!< The Get instance that is used in the entire engine
         
         // win32 stuff
         GLFWManager* win32_glfw_manager_; //!< The GLFWManager instance is stored here

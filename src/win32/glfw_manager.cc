@@ -18,7 +18,7 @@ namespace blowbox
     {
 
     }
-    
+
     //------------------------------------------------------------------------------------------------------
     void GLFWManager::Init()
     {
@@ -28,6 +28,11 @@ namespace blowbox
     //------------------------------------------------------------------------------------------------------
     void GLFWManager::Update()
     {
+        for (auto it = windows_.begin(); it != windows_.end(); it++)
+        {
+            it->second->GetKeyboardState().ResetKeys();
+        }
+
         glfwPollEvents();
     }
 

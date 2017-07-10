@@ -133,6 +133,12 @@ namespace blowbox
     }
 
     //------------------------------------------------------------------------------------------------------
+    bool Window::GetWindowShouldClose()
+    {
+        return glfwWindowShouldClose(window_) == GLFW_TRUE;
+    }
+
+    //------------------------------------------------------------------------------------------------------
     void Window::GlfwKeyCallback(GLFWwindow* window, int key, int scancode, int action, int modifiers)
     {
         KeyboardState& keyboard_state = Get::GLFWManager()->FindCorrespondingWindow(window)->GetKeyboardState();
@@ -151,7 +157,7 @@ namespace blowbox
     //------------------------------------------------------------------------------------------------------
     void Window::GlfwCursorPosCallback(GLFWwindow* window, double x, double y)
     {
-
+        
     }
     
     //------------------------------------------------------------------------------------------------------

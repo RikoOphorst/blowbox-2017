@@ -23,7 +23,7 @@ namespace blowbox
 	}
 
 	//------------------------------------------------------------------------------------------------------
-	void DescriptorHeap::Create(D3D12_DESCRIPTOR_HEAP_TYPE heap_type, D3D12_DESCRIPTOR_HEAP_FLAGS flags, UINT descriptor_count)
+	void DescriptorHeap::Create(const eastl::wstring& name, D3D12_DESCRIPTOR_HEAP_TYPE heap_type, D3D12_DESCRIPTOR_HEAP_FLAGS flags, UINT descriptor_count)
 	{
 		device_ = Get::Device();
 
@@ -33,6 +33,8 @@ namespace blowbox
 		heap_desc_.Type = heap_type;
 
 		BLOWBOX_ASSERT_HR(device_->Get()->CreateDescriptorHeap(&heap_desc_, IID_PPV_ARGS(&heap_)));
+
+        heap_->SetName(name.c_str());
 
 		descriptor_size_ = device_->Get()->GetDescriptorHandleIncrementSize(heap_type);
 	}
