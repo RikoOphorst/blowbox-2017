@@ -39,8 +39,8 @@ namespace blowbox
 	//------------------------------------------------------------------------------------------------------
 	void DepthBuffer::CreateDerivedViews(DXGI_FORMAT format)
 	{
-		DescriptorHeap* dsv_heap = Get::DsvHeap();
-		DescriptorHeap* srv_heap = Get::CbvSrvUavHeap();
+		eastl::shared_ptr<DescriptorHeap> dsv_heap = Get::DsvHeap();
+		eastl::shared_ptr<DescriptorHeap> srv_heap = Get::CbvSrvUavHeap();
 
 		D3D12_DEPTH_STENCIL_VIEW_DESC dsv_desc = {};
 		dsv_desc.Format = GetDSVFormat(format);

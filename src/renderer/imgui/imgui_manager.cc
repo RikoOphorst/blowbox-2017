@@ -63,9 +63,11 @@ namespace blowbox
 
         ImGuiIO& io = ImGui::GetIO();
 
+		eastl::shared_ptr<Window> main_window = Get::MainWindow();
+
         io.DisplaySize = ImVec2(
-            static_cast<float>(Get::MainWindow()->GetWindowResolution().width), 
-            static_cast<float>(Get::MainWindow()->GetWindowResolution().height)
+            static_cast<float>(main_window->GetWindowResolution().width), 
+            static_cast<float>(main_window->GetWindowResolution().height)
         );
 
         INT64 current_time;
@@ -78,8 +80,6 @@ namespace blowbox
         io.KeyAlt = (GetKeyState(VK_MENU) & 0x8000) != 0;
         io.KeySuper = false;
 
-
-        Window* main_window = Get::MainWindow();
         KeyboardState& keyboard_state = main_window->GetKeyboardState();
         MouseState& mouse_state = main_window->GetMouseState();
 
@@ -122,7 +122,7 @@ namespace blowbox
     //------------------------------------------------------------------------------------------------------
     void ImGuiManager::ImGuiRenderDrawLists(ImDrawData* draw_data)
     {
-        ImGuiManager* imgui_manager = Get::ImGuiManager();
+        eastl::shared_ptr<ImGuiManager> imgui_manager = Get::ImGuiManager();
         
         BYTE* mapped_data = imgui_manager->upload_buffer_.GetMappedData();
         

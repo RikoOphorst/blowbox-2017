@@ -10,7 +10,6 @@ namespace blowbox
 	DescriptorHeap::DescriptorHeap() :
 		current_allocations_(0),
 		descriptor_size_(0),
-		device_(nullptr),
 		heap_(nullptr)
 	{
 		

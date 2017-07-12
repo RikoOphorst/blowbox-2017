@@ -23,8 +23,8 @@ bool clicked = false;
 
 void Run()
 {
-    main_window = Get::MainWindow();
-    main_window->SetWindowIcon(new Image("icon.png"));
+    main_window = Get::MainWindow().get();
+    //main_window->SetWindowIcon(new Image("icon.png"));
 }
 
 void Update()

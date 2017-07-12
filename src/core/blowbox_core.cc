@@ -2,8 +2,10 @@
 
 #include "util/assert.h"
 #include "util/delete.h"
+
 #include "core/blowbox_config.h"
 #include "core/get.h"
+#include "core/scene_manager.h"
 
 #include "win32/glfw_manager.h"
 #include "win32/window.h"
@@ -48,25 +50,27 @@ namespace blowbox
         BLOWBOX_ASSERT(config_ != nullptr);
 
         // Create win32 stuff
-        win32_glfw_manager_ = new GLFWManager();
-        win32_main_window_ = new Window();
+        win32_glfw_manager_ = eastl::make_shared<GLFWManager>();
+        win32_main_window_ = eastl::make_shared<Window>();
 
         // Create render stuff
-        render_device_ = new Device();
-        render_swap_chain_ = new SwapChain();
-        render_command_manager_ = new CommandManager();
-        render_command_context_manager_ = new CommandContextManager();
-        render_rtv_heap_ = new DescriptorHeap();
-        render_dsv_heap_ = new DescriptorHeap();
-        render_cbv_srv_uav_heap_ = new DescriptorHeap();
+		render_device_ = eastl::make_shared<Device>();
+        render_swap_chain_ = eastl::make_shared<SwapChain>();
+        render_command_manager_ = eastl::make_shared<CommandManager>();
+        render_command_context_manager_ = eastl::make_shared<CommandContextManager>();
+        render_rtv_heap_ = eastl::make_shared<DescriptorHeap>();
+        render_dsv_heap_ = eastl::make_shared<DescriptorHeap>();
+        render_cbv_srv_uav_heap_ = eastl::make_shared<DescriptorHeap>();
 
-        render_forward_renderer_ = new ForwardRenderer();
-        render_deferred_renderer_ = new DeferredRenderer();
+        render_forward_renderer_ = eastl::make_shared<ForwardRenderer>();
+        render_deferred_renderer_ = eastl::make_shared<DeferredRenderer>();
 
-        render_imgui_manager_ = new ImGuiManager();
+        render_imgui_manager_ = eastl::make_shared<ImGuiManager>();
+
+		scene_manager_ = eastl::make_shared<SceneManager>();
 
         // Create Getter
-        getter_ = new Get();
+		getter_ = new Get();
     }
 
     //------------------------------------------------------------------------------------------------------
@@ -152,6 +156,7 @@ namespace blowbox
         getter_->SetForwardRenderer(render_forward_renderer_);
         getter_->SetDeferredRenderer(render_deferred_renderer_);
         getter_->SetImGuiManager(render_imgui_manager_);
+		getter_->SetSceneManager(scene_manager_);
 
         getter_->Finalize();
     }
@@ -199,14 +204,13 @@ namespace blowbox
     //------------------------------------------------------------------------------------------------------
     void BlowboxCore::ShutdownGetter()
     {
-        BLOWBOX_DELETE(getter_);
+		BLOWBOX_DELETE(getter_);
     }
 
     //------------------------------------------------------------------------------------------------------
     void BlowboxCore::ShutdownWin32()
     {
-        BLOWBOX_DELETE(win32_main_window_);
-        BLOWBOX_DELETE(win32_glfw_manager_);
+        
     }
 
     //------------------------------------------------------------------------------------------------------
@@ -214,17 +218,6 @@ namespace blowbox
     {
         render_command_manager_->WaitForIdleGPU();
         render_imgui_manager_->Shutdown();
-
-        BLOWBOX_DELETE(render_imgui_manager_);
-        BLOWBOX_DELETE(render_forward_renderer_);
-        BLOWBOX_DELETE(render_deferred_renderer_);
-        BLOWBOX_DELETE(render_swap_chain_);
-        BLOWBOX_DELETE(render_cbv_srv_uav_heap_);
-        BLOWBOX_DELETE(render_dsv_heap_);
-        BLOWBOX_DELETE(render_rtv_heap_);
-        BLOWBOX_DELETE(render_command_context_manager_);
-        BLOWBOX_DELETE(render_command_manager_);
-        BLOWBOX_DELETE(render_device_);
     }
 
     //------------------------------------------------------------------------------------------------------
@@ -233,10 +226,17 @@ namespace blowbox
         if (user_procedure_update_)
             user_procedure_update_();
 
-        ImGui::ShowTestWindow(&show_test_window_);
+		if (show_test_window_)
+		{
+			ImGui::ShowTestWindow(&show_test_window_);
+		}
+
+		scene_manager_->Update();
 
         if (user_procedure_post_update_)
             user_procedure_post_update_();
+
+		scene_manager_->PostUpdate();
     }
 
     //------------------------------------------------------------------------------------------------------

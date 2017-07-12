@@ -2,6 +2,7 @@
 
 #include "core/eastl.h"
 #include <EASTL/functional.h>
+#include <EASTL/shared_ptr.h>
 
 #define BLOWBOX_SWAP_CHAIN_BUFFER_COUNT 2
 #define BLOWBOX_DESCRIPTOR_HEAP_MAX_RTV_COUNT 1024U
@@ -27,6 +28,7 @@ namespace blowbox
     class ForwardRenderer;
     class DeferredRenderer;
     class ImGuiManager;
+	class SceneManager;
 
     /**
     * @class blowbox::BlowboxCore
@@ -165,25 +167,26 @@ namespace blowbox
         eastl::function<void(void)> user_procedure_post_render_; //!< The procedure that is defined by the user for the PostRender step
         eastl::function<void(void)> user_procedure_shutdown_; //!< The procedure that is defined by the user for the Shutdown step
 
-        Get* getter_; //!< The Get instance that is used in the entire engine
+		Get* getter_; //!< The Get instance that is used in the entire engine
         
         // win32 stuff
-        GLFWManager* win32_glfw_manager_; //!< The GLFWManager instance is stored here
-        Window* win32_main_window_; //!< The main Window instance
+		eastl::shared_ptr<GLFWManager> win32_glfw_manager_; //!< The GLFWManager instance is stored here
+		eastl::shared_ptr<Window> win32_main_window_; //!< The main Window instance
 
         // render stuff
-        Device* render_device_; //!< The Device used by the renderers
-        SwapChain* render_swap_chain_; //!< The SwapChain used by the renderers
-        CommandManager* render_command_manager_; //!< The CommandManager instance
-        CommandContextManager* render_command_context_manager_; //!< The CommandContextManager instance
-        DescriptorHeap* render_rtv_heap_; //!< DescriptorHeap for render target views
-        DescriptorHeap* render_dsv_heap_; //!< DescriptorHeap for depth stencil views
-        DescriptorHeap* render_cbv_srv_uav_heap_; //!< DescriptorHeap for cbv/srv/uavs
+        eastl::shared_ptr<Device> render_device_; //!< The Device used by the renderers
+		eastl::shared_ptr<SwapChain> render_swap_chain_; //!< The SwapChain used by the renderers
+        eastl::shared_ptr<CommandManager> render_command_manager_; //!< The CommandManager instance
+        eastl::shared_ptr<CommandContextManager> render_command_context_manager_; //!< The CommandContextManager instance
+        eastl::shared_ptr<DescriptorHeap> render_rtv_heap_; //!< DescriptorHeap for render target views
+        eastl::shared_ptr<DescriptorHeap> render_dsv_heap_; //!< DescriptorHeap for depth stencil views
+        eastl::shared_ptr<DescriptorHeap> render_cbv_srv_uav_heap_; //!< DescriptorHeap for cbv/srv/uavs
 
-        ForwardRenderer* render_forward_renderer_; //!< The ForwardRenderer instance
-        DeferredRenderer* render_deferred_renderer_; //!< The DeferredRenderer instance
+		eastl::shared_ptr<ForwardRenderer> render_forward_renderer_; //!< The ForwardRenderer instance
+		eastl::shared_ptr<DeferredRenderer> render_deferred_renderer_; //!< The DeferredRenderer instance
 
-        ImGuiManager* render_imgui_manager_; //!< The ImGuiManager instance
+        eastl::shared_ptr<ImGuiManager> render_imgui_manager_; //!< The ImGuiManager instance
+		eastl::shared_ptr<SceneManager> scene_manager_; //!< The SceneManager instance
 
         bool show_test_window_;
 

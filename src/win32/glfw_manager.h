@@ -23,18 +23,20 @@ namespace blowbox
     {
         friend class BlowboxCore;
         friend class Window;
-    protected:
+	public:
         /**
-        * @brief Constructor for the GLFWManager. Only accessible to BlowboxCore.
+        * @brief Constructor for the GLFWManager.
         * @author Riko Ophorst
         */
         GLFWManager();
-        /**
-        * @brief Destructor for the GLFWManager. Only accessible to BlowboxCore.
+
+		/**
+        * @brief Destructor for the GLFWManager.
         * @author Riko Ophorst
         */
         ~GLFWManager();
 
+	protected:
         /**
         * @brief Initializes the GLFW environment. This is to be called as one of the first steps in BlowboxCore::Run().
         * @author Riko Ophorst

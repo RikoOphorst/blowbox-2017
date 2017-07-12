@@ -4,6 +4,7 @@
 
 #include "core/eastl.h"
 #include <EASTL/string.h>
+#include <EASTL/weak_ptr.h>
 
 #define BLOWBOX_DESCRIPTOR_ID_UNKNOWN ~(0u)
 
@@ -83,7 +84,7 @@ namespace blowbox
 	private:
 		ID3D12DescriptorHeap* heap_;
 		D3D12_DESCRIPTOR_HEAP_DESC heap_desc_;
-		Device* device_;
+		eastl::shared_ptr<Device> device_;
 
 		// @todo Make the descriptor heap use a pool strategy instead of linear strategy
 		UINT current_allocations_; 

@@ -22,7 +22,8 @@ namespace blowbox
     //------------------------------------------------------------------------------------------------------
     void ForwardRenderer::Startup()
     {
-        depth_buffer_.Create(L"DepthBuffer", Get::SwapChain()->GetBufferWidth(), Get::SwapChain()->GetBufferHeight(), DXGI_FORMAT_D32_FLOAT);
+		eastl::shared_ptr<SwapChain> swap_chain = Get::SwapChain();
+        depth_buffer_.Create(L"DepthBuffer", swap_chain->GetBufferWidth(), swap_chain->GetBufferHeight(), DXGI_FORMAT_D32_FLOAT);
     }
 
     //------------------------------------------------------------------------------------------------------
@@ -30,14 +31,16 @@ namespace blowbox
     {
         GraphicsContext& context = GraphicsContext::Begin(L"CommandListForwardRendering");
 
-        ColorBuffer& back_buffer = Get::SwapChain()->GetBackBuffer();
+		eastl::shared_ptr<SwapChain> swap_chain = Get::SwapChain();
+
+        ColorBuffer& back_buffer = swap_chain->GetBackBuffer();
         context.SetRenderTarget(back_buffer.GetRTV(), depth_buffer_.GetDSV());
         context.ClearColor(back_buffer);
 
         context.TransitionResource(depth_buffer_, D3D12_RESOURCE_STATE_DEPTH_WRITE, true);
         context.ClearDepth(depth_buffer_);
 
-        context.SetViewportAndScissor(0, 0, Get::SwapChain()->GetBufferWidth(), Get::SwapChain()->GetBufferHeight());
+        context.SetViewportAndScissor(0, 0, swap_chain->GetBufferWidth(), swap_chain->GetBufferHeight());
 
         context.Finish();
     }

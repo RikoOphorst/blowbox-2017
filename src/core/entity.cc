@@ -31,36 +31,54 @@ namespace blowbox
 
     }
 
-    void Entity::SetPosition(const DirectX::XMFLOAT3 & position)
+	//------------------------------------------------------------------------------------------------------
+	void Entity::SetLocalPosition(const DirectX::XMFLOAT3& position)
     {
+		position_ = position;
+		transform_dirty_ = true;
     }
 
-    void Entity::SetRotation(const DirectX::XMFLOAT3 & rotation)
+	//------------------------------------------------------------------------------------------------------
+	void Entity::SetLocalRotation(const DirectX::XMFLOAT3& rotation)
     {
+		rotation_ = rotation;
+		transform_dirty_ = true;
     }
 
-    void Entity::SetScaling(const DirectX::XMFLOAT3 & scaling)
+	//------------------------------------------------------------------------------------------------------
+	void Entity::SetLocalScaling(const DirectX::XMFLOAT3& scaling)
     {
+		scaling_ = scaling;
+		transform_dirty_ = true;
     }
 
-    const DirectX::XMFLOAT3 & Entity::GetPosition() const
+	//------------------------------------------------------------------------------------------------------
+	const DirectX::XMFLOAT3& Entity::GetLocalPosition() const
     {
-        // TODO: insert return statement here
+		return position_;
     }
 
-    const DirectX::XMFLOAT3 & Entity::GetRotation() const
+	//------------------------------------------------------------------------------------------------------
+	const DirectX::XMFLOAT3& Entity::GetLocalRotation() const
     {
-        // TODO: insert return statement here
+		return rotation_;
     }
 
-    const DirectX::XMFLOAT3 & Entity::GetScaling() const
+	//------------------------------------------------------------------------------------------------------
+	const DirectX::XMFLOAT3& Entity::GetLocalScaling() const
     {
-        // TODO: insert return statement here
+		return scaling_;
     }
 
-    const DirectX::XMMATRIX & Entity::GetWorldTransform() const
+	//------------------------------------------------------------------------------------------------------
+	const DirectX::XMMATRIX& Entity::GetWorldTransform()
     {
-        // TODO: insert return statement here
+		if (transform_dirty_)
+		{
+			UpdateWorldTransform();
+		}
+
+		return world_transform_;
     }
 
     //------------------------------------------------------------------------------------------------------
@@ -72,7 +90,10 @@ namespace blowbox
     //------------------------------------------------------------------------------------------------------
     void Entity::Update()
     {
-
+		if (transform_dirty_)
+		{
+			UpdateWorldTransform();
+		}
     }
 
     //------------------------------------------------------------------------------------------------------
@@ -80,4 +101,20 @@ namespace blowbox
     {
 
     }
+	
+	//------------------------------------------------------------------------------------------------------
+	bool Entity::IsTransformDirty()
+	{
+		return transform_dirty_;
+	}
+	
+	//------------------------------------------------------------------------------------------------------
+	void Entity::UpdateWorldTransform()
+	{
+		world_transform_ =
+			(parent_ != nullptr ? parent_->GetWorldTransform() : DirectX::XMMatrixIdentity()) *
+			DirectX::XMMatrixScaling(scaling_.x, scaling_.y, scaling_.z) *
+			DirectX::XMMatrixRotationRollPitchYaw(rotation_.x, rotation_.y, rotation_.z) *
+			DirectX::XMMatrixTranslation(position_.x, position_.y, position_.z);
+	}
 }

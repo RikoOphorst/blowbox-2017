@@ -15,18 +15,22 @@ namespace blowbox
         Entity(eastl::shared_ptr<Entity> parent);
         ~Entity();
 
-        void SetPosition(const DirectX::XMFLOAT3& position);
-        void SetRotation(const DirectX::XMFLOAT3& rotation);
-        void SetScaling(const DirectX::XMFLOAT3& scaling);
-        const DirectX::XMFLOAT3& GetPosition() const;
-        const DirectX::XMFLOAT3& GetRotation() const;
-        const DirectX::XMFLOAT3& GetScaling() const;
-        const DirectX::XMMATRIX& GetWorldTransform() const;
+        void SetLocalPosition(const DirectX::XMFLOAT3& position);
+        void SetLocalRotation(const DirectX::XMFLOAT3& rotation);
+        void SetLocalScaling(const DirectX::XMFLOAT3& scaling);
+        const DirectX::XMFLOAT3& GetLocalPosition() const;
+        const DirectX::XMFLOAT3& GetLocalRotation() const;
+        const DirectX::XMFLOAT3& GetLocalScaling() const;
+        const DirectX::XMMATRIX& GetWorldTransform();
 
     protected:
         void Init();
         void Update();
         void Shutdown();
+
+	protected:
+		bool IsTransformDirty();
+		void UpdateWorldTransform();
 
     private:
         eastl::shared_ptr<Entity> parent_;

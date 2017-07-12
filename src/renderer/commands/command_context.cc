@@ -64,11 +64,13 @@ namespace blowbox
 
 		CommandContext& context = CommandContext::Begin();
 
+		eastl::shared_ptr<Device> device = Get::Device();
+
 		UINT64 texture_upload_buffer_size;
-		Get::Device()->Get()->GetCopyableFootprints(&dest_resource->GetDesc(), 0, 1, 0, nullptr, nullptr, nullptr, &texture_upload_buffer_size);
+		device->Get()->GetCopyableFootprints(&dest_resource->GetDesc(), 0, 1, 0, nullptr, nullptr, nullptr, &texture_upload_buffer_size);
 
 		BLOWBOX_ASSERT_HR(
-			Get::Device()->Get()->CreateCommittedResource(
+			device->Get()->CreateCommittedResource(
 				&CD3DX12_HEAP_PROPERTIES(D3D12_HEAP_TYPE_UPLOAD),
 				D3D12_HEAP_FLAG_NONE,
 				&CD3DX12_RESOURCE_DESC::Buffer(texture_upload_buffer_size),
@@ -231,11 +233,13 @@ namespace blowbox
 	//------------------------------------------------------------------------------------------------------
 	uint64_t CommandContext::Flush(bool wait_for_completion)
 	{
-		uint64_t fence_value = Get::CommandManager()->GetQueue(type_)->ExecuteCommandList(list_);
+		eastl::shared_ptr<CommandManager> command_manager = Get::CommandManager();
+
+		uint64_t fence_value = command_manager->GetQueue(type_)->ExecuteCommandList(list_);
 		
 		if (wait_for_completion)
 		{
-			Get::CommandManager()->WaitForFence(fence_value);
+			command_manager->WaitForFence(fence_value);
 		}
 
 		list_->Reset(allocator_, nullptr);
@@ -250,7 +254,10 @@ namespace blowbox
 
 		FlushResourceBarriers();
 
-		auto queue = Get::CommandManager()->GetQueue(type_);
+		eastl::shared_ptr<CommandContextManager> command_context_manager = Get::CommandContextManager();
+		eastl::shared_ptr<CommandManager> command_manager = Get::CommandManager();
+
+		auto queue = command_manager->GetQueue(type_);
 
 		uint64_t fence_value = queue->ExecuteCommandList(list_);
 
@@ -259,10 +266,10 @@ namespace blowbox
 
 		if (wait_for_completion)
 		{
-			Get::CommandManager()->WaitForFence(fence_value);
+			command_manager->WaitForFence(fence_value);
 		}
 
-		Get::CommandContextManager()->DiscardContext(this);
+		command_context_manager->DiscardContext(this);
 
 		return fence_value;
 	}

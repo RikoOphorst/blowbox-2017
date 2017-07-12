@@ -25,7 +25,9 @@ namespace blowbox
 		srv_desc.Buffer.StructureByteStride = element_size_;
 		srv_desc.Buffer.Flags = D3D12_BUFFER_SRV_FLAG_NONE;
 
-		srv_id_ = Get::CbvSrvUavHeap()->CreateShaderResourceView(resource_, &srv_desc);
+		eastl::shared_ptr<DescriptorHeap> cbv_srv_uav_heap = Get::CbvSrvUavHeap();
+
+		srv_id_ = cbv_srv_uav_heap->CreateShaderResourceView(resource_, &srv_desc);
 
 		D3D12_UNORDERED_ACCESS_VIEW_DESC uav_desc = {};
 		uav_desc.ViewDimension = D3D12_UAV_DIMENSION_BUFFER;
@@ -37,7 +39,7 @@ namespace blowbox
 
 		counter_buffer_.Create(L"StructuredBuffer::Counter", 1, 4);
 
-		uav_id_ = Get::CbvSrvUavHeap()->CreateUnorderedAccessView(resource_, counter_buffer_, &uav_desc);
+		uav_id_ = cbv_srv_uav_heap->CreateUnorderedAccessView(resource_, counter_buffer_, &uav_desc);
 	}
 
 	//------------------------------------------------------------------------------------------------------

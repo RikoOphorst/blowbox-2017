@@ -12,10 +12,11 @@ namespace blowbox
     {
         friend class BlowboxCore;
         friend class EntityFactory;
-    protected:
+    public:
         SceneManager();
         ~SceneManager();
 
+	protected:
         void Update();
         void PostUpdate();
 
