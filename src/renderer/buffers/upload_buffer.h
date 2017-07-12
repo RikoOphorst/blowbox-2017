@@ -5,7 +5,7 @@
 #include "renderer/buffers/gpu_buffer.h"
 #include "renderer/buffers/byte_address_buffer.h"
 
-#include "core/eastl_required.h"
+#include "core/eastl.h"
 #include "EASTL/string.h"
 
 namespace blowbox

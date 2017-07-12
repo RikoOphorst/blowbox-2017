@@ -1,6 +1,6 @@
 #pragma once
 
-#include "core/eastl_required.h"
+#include "core/eastl.h"
 #include <EASTL/functional.h>
 
 #define BLOWBOX_SWAP_CHAIN_BUFFER_COUNT 2

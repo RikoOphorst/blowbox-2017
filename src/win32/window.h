@@ -2,7 +2,7 @@
 
 #define GLFW_EXPOSE_NATIVE_WIN32
 
-#include "core/eastl_required.h"
+#include "core/eastl.h"
 #include <EASTL/string.h>
 #include <EASTL/tuple.h>
 

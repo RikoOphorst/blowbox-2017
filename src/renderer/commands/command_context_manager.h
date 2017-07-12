@@ -1,6 +1,6 @@
 #pragma once
 
-#include "core/eastl_required.h"
+#include "core/eastl.h"
 #include <EASTL/vector.h>
 #include <EASTL/queue.h>
 #include "renderer/d3d12_includes.h"

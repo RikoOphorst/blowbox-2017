@@ -7,7 +7,7 @@
 #include "win32/window.h"
 #include "content/image.h"
 
-#include "core/eastl_required.h"
+#include "core/eastl.h"
 #include <EASTL/string.h>
 
 #include <d3d12.h>

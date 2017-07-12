@@ -2,7 +2,7 @@
 
 #include "d3d12_includes.h"
 
-#include "core/eastl_required.h"
+#include "core/eastl.h"
 #include <EASTL/string.h>
 
 #define BLOWBOX_DESCRIPTOR_ID_UNKNOWN ~(0u)

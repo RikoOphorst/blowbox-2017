@@ -1,6 +1,6 @@
 #pragma once
 
-#include "core/eastl_required.h"
+#include "core/eastl.h"
 #include <EASTL/map.h>
 
 struct GLFWwindow;

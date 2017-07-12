@@ -1,7 +1,7 @@
 #pragma once
 
 #include "win32/mouse_button.h"
-#include "core/eastl_required.h"
+#include "core/eastl.h"
 #include <EASTL/map.h>
 #include <DirectXMath.h>
 

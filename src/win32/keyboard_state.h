@@ -2,7 +2,7 @@
 
 #include "win32/key_code.h"
 
-#include "core/eastl_required.h"
+#include "core/eastl.h"
 #include <EASTL/map.h>
 
 namespace blowbox

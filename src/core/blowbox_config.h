@@ -2,7 +2,7 @@
 
 #include "util/resolution.h"
 
-#include "core/eastl_required.h"
+#include "core/eastl.h"
 #include <EASTL/string.h>
 
 /**

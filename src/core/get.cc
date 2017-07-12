@@ -21,7 +21,8 @@ namespace blowbox
         dsv_descriptor_heap_(nullptr),
         cbv_srv_uav_descriptor_heap_(nullptr),
         swap_chain_(nullptr),
-        imgui_manager_(nullptr)
+        imgui_manager_(nullptr),
+        scene_manager_(nullptr)
     {
         BLOWBOX_ASSERT(instance_ == nullptr);
         instance_ = this;
@@ -49,6 +50,7 @@ namespace blowbox
         BLOWBOX_ASSERT(cbv_srv_uav_descriptor_heap_ != nullptr);
         BLOWBOX_ASSERT(swap_chain_                  != nullptr);
         BLOWBOX_ASSERT(imgui_manager_               != nullptr);
+        BLOWBOX_ASSERT(scene_manager_               != nullptr);
 
         finalized_ = true;
     }
@@ -143,6 +145,12 @@ namespace blowbox
         BLOWBOX_ASSERT(Get::instance_->finalized_ == true);
         return Get::instance_->imgui_manager_;
     }
+
+    //------------------------------------------------------------------------------------------------------
+    SceneManager* Get::SceneManager()
+    {
+        return Get::instance_->scene_manager_;
+    }
     
     //------------------------------------------------------------------------------------------------------
     void Get::SetBlowboxCore(blowbox::BlowboxCore* blowbox_core)
@@ -211,14 +219,20 @@ namespace blowbox
     }
 
     //------------------------------------------------------------------------------------------------------
-    void Get::SetSwapChain(blowbox::SwapChain * swap_chain)
+    void Get::SetSwapChain(blowbox::SwapChain* swap_chain)
     {
         swap_chain_ = swap_chain;
     }
     
     //------------------------------------------------------------------------------------------------------
-    void Get::SetImGuiManager(blowbox::ImGuiManager * imgui_manager)
+    void Get::SetImGuiManager(blowbox::ImGuiManager* imgui_manager)
     {
         imgui_manager_ = imgui_manager;
+    }
+    
+    //------------------------------------------------------------------------------------------------------
+    void Get::SetSceneManager(blowbox::SceneManager* scene_manager)
+    {
+        scene_manager_ = scene_manager;
     }
 }
