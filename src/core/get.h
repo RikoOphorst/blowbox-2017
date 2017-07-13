@@ -2,6 +2,7 @@
 
 #include "core/eastl.h"
 #include <EASTL/shared_ptr.h>
+#include <EASTL/weak_ptr.h>
 
 /**
 * @namespace blowbox
@@ -239,18 +240,18 @@ namespace blowbox
     private:
         bool finalized_; //!< Whether the Get system has been finalized
         blowbox::BlowboxCore* blowbox_core_; //!< The BlowboxCore instance
-        eastl::shared_ptr<blowbox::GLFWManager> glfw_manager_; //!< The GLFWManager instance
-        eastl::shared_ptr<blowbox::Window> main_window_; //!< The main Window instance
-        eastl::shared_ptr<blowbox::ForwardRenderer> forward_renderer_; //!< The ForwardRenderer that is used to render stuff to the main Window
-        eastl::shared_ptr<blowbox::DeferredRenderer> deferred_renderer_; //!< The DeferredRenderer that is used to render stuff to the main Window
-        eastl::shared_ptr<blowbox::CommandContextManager> command_context_manager_; //!< The CommandContextManager instance
-        eastl::shared_ptr<blowbox::CommandManager> command_manager_; //!< The CommandManager instance
-        eastl::shared_ptr<blowbox::Device> device_; //!< The render Device instance
-        eastl::shared_ptr<blowbox::DescriptorHeap> rtv_descriptor_heap_; //!< DescriptorHeap for rtvs
-        eastl::shared_ptr<blowbox::DescriptorHeap> dsv_descriptor_heap_; //!< DescriptorHeap for dsvs
-        eastl::shared_ptr<blowbox::DescriptorHeap> cbv_srv_uav_descriptor_heap_; //!< DescriptorHeap for cbv/srv/uavs
-        eastl::shared_ptr<blowbox::SwapChain> swap_chain_; //!< The SwapChain instance
-        eastl::shared_ptr<blowbox::ImGuiManager> imgui_manager_; //!< The ImGuiManager instance
-        eastl::shared_ptr<blowbox::SceneManager> scene_manager_; //!< The SceneManager instance
+        eastl::weak_ptr<blowbox::GLFWManager> glfw_manager_; //!< The GLFWManager instance
+        eastl::weak_ptr<blowbox::Window> main_window_; //!< The main Window instance
+        eastl::weak_ptr<blowbox::ForwardRenderer> forward_renderer_; //!< The ForwardRenderer that is used to render stuff to the main Window
+        eastl::weak_ptr<blowbox::DeferredRenderer> deferred_renderer_; //!< The DeferredRenderer that is used to render stuff to the main Window
+        eastl::weak_ptr<blowbox::CommandContextManager> command_context_manager_; //!< The CommandContextManager instance
+        eastl::weak_ptr<blowbox::CommandManager> command_manager_; //!< The CommandManager instance
+        eastl::weak_ptr<blowbox::Device> device_; //!< The render Device instance
+        eastl::weak_ptr<blowbox::DescriptorHeap> rtv_descriptor_heap_; //!< DescriptorHeap for rtvs
+        eastl::weak_ptr<blowbox::DescriptorHeap> dsv_descriptor_heap_; //!< DescriptorHeap for dsvs
+        eastl::weak_ptr<blowbox::DescriptorHeap> cbv_srv_uav_descriptor_heap_; //!< DescriptorHeap for cbv/srv/uavs
+        eastl::weak_ptr<blowbox::SwapChain> swap_chain_; //!< The SwapChain instance
+        eastl::weak_ptr<blowbox::ImGuiManager> imgui_manager_; //!< The ImGuiManager instance
+        eastl::weak_ptr<blowbox::SceneManager> scene_manager_; //!< The SceneManager instance
     };
 }

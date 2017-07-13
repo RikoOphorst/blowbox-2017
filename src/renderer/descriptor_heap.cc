@@ -31,11 +31,11 @@ namespace blowbox
 		heap_desc_.NumDescriptors = descriptor_count;
 		heap_desc_.Type = heap_type;
 
-		BLOWBOX_ASSERT_HR(device_->Get()->CreateDescriptorHeap(&heap_desc_, IID_PPV_ARGS(&heap_)));
+		BLOWBOX_ASSERT_HR(device_.lock()->Get()->CreateDescriptorHeap(&heap_desc_, IID_PPV_ARGS(&heap_)));
 
         heap_->SetName(name.c_str());
 
-		descriptor_size_ = device_->Get()->GetDescriptorHandleIncrementSize(heap_type);
+		descriptor_size_ = device_.lock()->Get()->GetDescriptorHandleIncrementSize(heap_type);
 	}
 
 	//------------------------------------------------------------------------------------------------------
@@ -44,7 +44,7 @@ namespace blowbox
 		assert(current_allocations_ + 1 <= heap_desc_.NumDescriptors);
 		assert(heap_desc_.Type == D3D12_DESCRIPTOR_HEAP_TYPE_DSV);
 
-		device_->Get()->CreateDepthStencilView(dsv_buffer, desc, GetCPUDescriptorById(current_allocations_));
+		device_.lock()->Get()->CreateDepthStencilView(dsv_buffer, desc, GetCPUDescriptorById(current_allocations_));
 		current_allocations_ += 1;
 		return current_allocations_ - 1;
 	}
@@ -55,7 +55,7 @@ namespace blowbox
 		assert(current_allocations_ + 1 <= heap_desc_.NumDescriptors);
 		assert(heap_desc_.Type == D3D12_DESCRIPTOR_HEAP_TYPE_RTV);
 
-		device_->Get()->CreateRenderTargetView(rtv_buffer, desc, GetCPUDescriptorById(current_allocations_));
+		device_.lock()->Get()->CreateRenderTargetView(rtv_buffer, desc, GetCPUDescriptorById(current_allocations_));
 		current_allocations_ += 1;
 		return current_allocations_ - 1;
 	}
@@ -66,7 +66,7 @@ namespace blowbox
 		assert(current_allocations_ + 1 <= heap_desc_.NumDescriptors);
 		assert(heap_desc_.Type == D3D12_DESCRIPTOR_HEAP_TYPE_CBV_SRV_UAV);
 
-		device_->Get()->CreateConstantBufferView(desc, GetCPUDescriptorById(current_allocations_));
+		device_.lock()->Get()->CreateConstantBufferView(desc, GetCPUDescriptorById(current_allocations_));
 		current_allocations_ += 1;
 		return current_allocations_ - 1;
 	}
@@ -77,7 +77,7 @@ namespace blowbox
 		assert(current_allocations_ + 1 <= heap_desc_.NumDescriptors);
 		assert(heap_desc_.Type == D3D12_DESCRIPTOR_HEAP_TYPE_CBV_SRV_UAV);
 
-		device_->Get()->CreateShaderResourceView(srv_buffer, desc, GetCPUDescriptorById(current_allocations_));
+		device_.lock()->Get()->CreateShaderResourceView(srv_buffer, desc, GetCPUDescriptorById(current_allocations_));
 		current_allocations_ += 1;
 		return current_allocations_ - 1;
 	}
@@ -88,7 +88,7 @@ namespace blowbox
 		assert(current_allocations_ + 1 <= heap_desc_.NumDescriptors);
 		assert(heap_desc_.Type == D3D12_DESCRIPTOR_HEAP_TYPE_CBV_SRV_UAV);
 
-		device_->Get()->CreateUnorderedAccessView(buffer, counter_buffer, desc, GetCPUDescriptorById(current_allocations_));
+		device_.lock()->Get()->CreateUnorderedAccessView(buffer, counter_buffer, desc, GetCPUDescriptorById(current_allocations_));
 		current_allocations_ += 1;
 		return current_allocations_ - 1;
 	}
@@ -99,7 +99,7 @@ namespace blowbox
 		assert(current_allocations_ + 1 <= heap_desc_.NumDescriptors);
 		assert(heap_desc_.Type == D3D12_DESCRIPTOR_HEAP_TYPE_SAMPLER);
 
-		device_->Get()->CreateSampler(desc, GetCPUDescriptorById(current_allocations_));
+		device_.lock()->Get()->CreateSampler(desc, GetCPUDescriptorById(current_allocations_));
 		current_allocations_ += 1;
 		return current_allocations_ - 1;
 	}
@@ -129,6 +129,6 @@ namespace blowbox
 	{
 		BLOWBOX_RELEASE(heap_);
 		current_allocations_ = 0;
-		BLOWBOX_ASSERT_HR(device_->Get()->CreateDescriptorHeap(&heap_desc_, IID_PPV_ARGS(&heap_)));
+		BLOWBOX_ASSERT_HR(device_.lock()->Get()->CreateDescriptorHeap(&heap_desc_, IID_PPV_ARGS(&heap_)));
 	}
 }

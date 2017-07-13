@@ -84,7 +84,7 @@ namespace blowbox
 	private:
 		ID3D12DescriptorHeap* heap_;
 		D3D12_DESCRIPTOR_HEAP_DESC heap_desc_;
-		eastl::shared_ptr<Device> device_;
+		eastl::weak_ptr<Device> device_;
 
 		// @todo Make the descriptor heap use a pool strategy instead of linear strategy
 		UINT current_allocations_; 

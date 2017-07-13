@@ -3,7 +3,7 @@
 #include "renderer/d3d12_includes.h"
 
 #include "core/eastl.h"
-#include <EASTL/shared_ptr.h>
+#include <EASTL/weak_ptr.h>
 
 namespace blowbox
 {
@@ -32,7 +32,7 @@ namespace blowbox
 		void WaitForFence(uint64_t fence_value);
 
 	private:
-		eastl::shared_ptr<Device> device_;
+		eastl::weak_ptr<Device> device_;
 
 		CommandQueue* graphics_queue_;
 		CommandQueue* compute_queue_;

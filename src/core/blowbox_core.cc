@@ -210,7 +210,11 @@ namespace blowbox
     //------------------------------------------------------------------------------------------------------
     void BlowboxCore::ShutdownWin32()
     {
-        
+        BLOWBOX_ASSERT(win32_main_window_.use_count() == 1);
+        BLOWBOX_ASSERT(win32_glfw_manager_.use_count() == 1);
+
+        win32_main_window_.reset();
+        win32_glfw_manager_.reset();
     }
 
     //------------------------------------------------------------------------------------------------------
@@ -218,6 +222,28 @@ namespace blowbox
     {
         render_command_manager_->WaitForIdleGPU();
         render_imgui_manager_->Shutdown();
+
+        BLOWBOX_ASSERT(render_imgui_manager_.use_count() == 1);
+        BLOWBOX_ASSERT(render_forward_renderer_.use_count() == 1);
+        BLOWBOX_ASSERT(render_deferred_renderer_.use_count() == 1);
+        BLOWBOX_ASSERT(render_swap_chain_.use_count() == 1);
+        BLOWBOX_ASSERT(render_cbv_srv_uav_heap_.use_count() == 1);
+        BLOWBOX_ASSERT(render_dsv_heap_.use_count() == 1);
+        BLOWBOX_ASSERT(render_rtv_heap_.use_count() == 1);
+        BLOWBOX_ASSERT(render_command_context_manager_.use_count() == 1);
+        BLOWBOX_ASSERT(render_command_manager_.use_count() == 1);
+        BLOWBOX_ASSERT(render_device_.use_count() == 1);
+
+        render_imgui_manager_.reset();
+        render_forward_renderer_.reset();
+        render_deferred_renderer_.reset();
+        render_swap_chain_.reset();
+        render_cbv_srv_uav_heap_.reset();
+        render_dsv_heap_.reset();
+        render_rtv_heap_.reset();
+        render_command_context_manager_.reset();
+        render_command_manager_.reset();
+        render_device_.reset();
     }
 
     //------------------------------------------------------------------------------------------------------

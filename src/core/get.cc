@@ -9,20 +9,7 @@ namespace blowbox
     //------------------------------------------------------------------------------------------------------
     Get::Get() :
         finalized_(false),
-        blowbox_core_(nullptr),
-        glfw_manager_(nullptr),
-        main_window_(nullptr),
-        forward_renderer_(nullptr),
-        deferred_renderer_(nullptr),
-        command_context_manager_(nullptr),
-        command_manager_(nullptr),
-        device_(nullptr),
-        rtv_descriptor_heap_(nullptr),
-        dsv_descriptor_heap_(nullptr),
-        cbv_srv_uav_descriptor_heap_(nullptr),
-        swap_chain_(nullptr),
-        imgui_manager_(nullptr),
-        scene_manager_(nullptr)
+        blowbox_core_(nullptr)
     {
         BLOWBOX_ASSERT(instance_ == nullptr);
         instance_ = this;
@@ -37,20 +24,20 @@ namespace blowbox
     //------------------------------------------------------------------------------------------------------
     void Get::Finalize()
     {
-        BLOWBOX_ASSERT(blowbox_core_                != nullptr);
-        BLOWBOX_ASSERT(glfw_manager_                != nullptr);
-        BLOWBOX_ASSERT(main_window_                 != nullptr);
-        BLOWBOX_ASSERT(forward_renderer_            != nullptr);
-        BLOWBOX_ASSERT(deferred_renderer_           != nullptr);
-        BLOWBOX_ASSERT(command_context_manager_     != nullptr);
-        BLOWBOX_ASSERT(command_manager_             != nullptr);
-        BLOWBOX_ASSERT(device_                      != nullptr);
-        BLOWBOX_ASSERT(rtv_descriptor_heap_         != nullptr);
-        BLOWBOX_ASSERT(dsv_descriptor_heap_         != nullptr);
-        BLOWBOX_ASSERT(cbv_srv_uav_descriptor_heap_ != nullptr);
-        BLOWBOX_ASSERT(swap_chain_                  != nullptr);
-        BLOWBOX_ASSERT(imgui_manager_               != nullptr);
-        BLOWBOX_ASSERT(scene_manager_               != nullptr);
+        BLOWBOX_ASSERT(blowbox_core_                            != nullptr);
+        BLOWBOX_ASSERT(glfw_manager_.use_count()                > 0);
+        BLOWBOX_ASSERT(main_window_.use_count()                 > 0);
+        BLOWBOX_ASSERT(forward_renderer_.use_count()            > 0);
+        BLOWBOX_ASSERT(deferred_renderer_.use_count()           > 0);
+        BLOWBOX_ASSERT(command_context_manager_.use_count()     > 0);
+        BLOWBOX_ASSERT(command_manager_.use_count()             > 0);
+        BLOWBOX_ASSERT(device_.use_count()                      > 0);
+        BLOWBOX_ASSERT(rtv_descriptor_heap_.use_count()         > 0);
+        BLOWBOX_ASSERT(dsv_descriptor_heap_.use_count()         > 0);
+        BLOWBOX_ASSERT(cbv_srv_uav_descriptor_heap_.use_count() > 0);
+        BLOWBOX_ASSERT(swap_chain_.use_count()                  > 0);
+        BLOWBOX_ASSERT(imgui_manager_.use_count()               > 0);
+        BLOWBOX_ASSERT(scene_manager_.use_count()               > 0);
 
         finalized_ = true;
     }
@@ -66,90 +53,90 @@ namespace blowbox
 	eastl::shared_ptr<GLFWManager> Get::GLFWManager()
     {
         BLOWBOX_ASSERT(Get::instance_->finalized_ == true);
-        return Get::instance_->glfw_manager_;
+        return Get::instance_->glfw_manager_.lock();
     }
 
     //------------------------------------------------------------------------------------------------------
 	eastl::shared_ptr< Window> Get::MainWindow()
     {
         BLOWBOX_ASSERT(Get::instance_->finalized_ == true);
-        return Get::instance_->main_window_;
+        return Get::instance_->main_window_.lock();
     }
 
     //------------------------------------------------------------------------------------------------------
 	eastl::shared_ptr<ForwardRenderer> Get::ForwardRenderer()
     {
         BLOWBOX_ASSERT(Get::instance_->finalized_ == true);
-        return Get::instance_->forward_renderer_;
+        return Get::instance_->forward_renderer_.lock();
     }
 
     //------------------------------------------------------------------------------------------------------
 	eastl::shared_ptr<DeferredRenderer> Get::DeferredRenderer()
     {
         BLOWBOX_ASSERT(Get::instance_->finalized_ == true);
-        return Get::instance_->deferred_renderer_;
+        return Get::instance_->deferred_renderer_.lock();
     }
 
     //------------------------------------------------------------------------------------------------------
 	eastl::shared_ptr<CommandContextManager> Get::CommandContextManager()
     {
         BLOWBOX_ASSERT(Get::instance_->finalized_ == true);
-        return Get::instance_->command_context_manager_;
+        return Get::instance_->command_context_manager_.lock();
     }
 
     //------------------------------------------------------------------------------------------------------
 	eastl::shared_ptr<CommandManager> Get::CommandManager()
     {
         BLOWBOX_ASSERT(Get::instance_->finalized_ == true);
-        return Get::instance_->command_manager_;
+        return Get::instance_->command_manager_.lock();
     }
 
     //------------------------------------------------------------------------------------------------------
 	eastl::shared_ptr<Device> Get::Device()
     {
         BLOWBOX_ASSERT(Get::instance_->finalized_ == true);
-        return Get::instance_->device_;
+        return Get::instance_->device_.lock();
     }
 
     //------------------------------------------------------------------------------------------------------
 	eastl::shared_ptr<DescriptorHeap> Get::RtvHeap()
     {
         BLOWBOX_ASSERT(Get::instance_->finalized_ == true);
-        return Get::instance_->rtv_descriptor_heap_;
+        return Get::instance_->rtv_descriptor_heap_.lock();
     }
 
     //------------------------------------------------------------------------------------------------------
 	eastl::shared_ptr<DescriptorHeap> Get::DsvHeap()
     {
         BLOWBOX_ASSERT(Get::instance_->finalized_ == true);
-        return Get::instance_->dsv_descriptor_heap_;
+        return Get::instance_->dsv_descriptor_heap_.lock();
     }
 
     //------------------------------------------------------------------------------------------------------
 	eastl::shared_ptr<DescriptorHeap> Get::CbvSrvUavHeap()
     {
         BLOWBOX_ASSERT(Get::instance_->finalized_ == true);
-        return Get::instance_->cbv_srv_uav_descriptor_heap_;
+        return Get::instance_->cbv_srv_uav_descriptor_heap_.lock();
     }
 
     //------------------------------------------------------------------------------------------------------
 	eastl::shared_ptr<SwapChain> Get::SwapChain()
     {
         BLOWBOX_ASSERT(Get::instance_->finalized_ == true);
-        return Get::instance_->swap_chain_;
+        return Get::instance_->swap_chain_.lock();
     }
 
     //------------------------------------------------------------------------------------------------------
 	eastl::shared_ptr<ImGuiManager> Get::ImGuiManager()
     {
         BLOWBOX_ASSERT(Get::instance_->finalized_ == true);
-        return Get::instance_->imgui_manager_;
+        return Get::instance_->imgui_manager_.lock();
     }
 
     //------------------------------------------------------------------------------------------------------
 	eastl::shared_ptr<SceneManager> Get::SceneManager()
     {
-        return Get::instance_->scene_manager_;
+        return Get::instance_->scene_manager_.lock();
     }
     
     //------------------------------------------------------------------------------------------------------

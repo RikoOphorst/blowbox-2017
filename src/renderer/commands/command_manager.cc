@@ -7,7 +7,6 @@ namespace blowbox
 {
 	//------------------------------------------------------------------------------------------------------
 	CommandManager::CommandManager() :
-		device_(nullptr),
         graphics_queue_(nullptr),
         compute_queue_(nullptr),
         copy_queue_(nullptr)
@@ -26,7 +25,6 @@ namespace blowbox
 	//------------------------------------------------------------------------------------------------------
 	void CommandManager::Startup(eastl::shared_ptr<Device> device)
 	{
-        BLOWBOX_ASSERT(device_ == nullptr);
         BLOWBOX_ASSERT(graphics_queue_ == nullptr);
         BLOWBOX_ASSERT(compute_queue_ == nullptr);
         BLOWBOX_ASSERT(copy_queue_ == nullptr);
@@ -57,7 +55,7 @@ namespace blowbox
 			break;
 		}
 
-		device_->Get()->CreateCommandList(0, type, *out_allocator, nullptr, IID_PPV_ARGS(out_list));
+		device_.lock()->Get()->CreateCommandList(0, type, *out_allocator, nullptr, IID_PPV_ARGS(out_list));
 		(*out_list)->SetName(L"CommandList");
 	}
 
