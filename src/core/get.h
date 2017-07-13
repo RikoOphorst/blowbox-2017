@@ -1,8 +1,7 @@
 #pragma once
 
-#include "core/eastl.h"
-#include <EASTL/shared_ptr.h>
-#include <EASTL/weak_ptr.h>
+#include "util/shared_ptr.h"
+#include "util/weak_ptr.h"
 
 /**
 * @namespace blowbox
@@ -62,79 +61,79 @@ namespace blowbox
         * @brief Returns the GLFW manager instance
         * @author Riko Ophorst
         */
-        static eastl::shared_ptr<GLFWManager> GLFWManager();
+        static SharedPtr<GLFWManager> GLFWManager();
 
         /**
         * @brief Returns the main Window instance
         * @author Riko Ophorst
         */
-        static eastl::shared_ptr<Window> MainWindow();
+        static SharedPtr<Window> MainWindow();
 
         /**
         * @brief Returns the ForwardRenderer instance
         * @author Riko Ophorst
         */
-        static eastl::shared_ptr<ForwardRenderer> ForwardRenderer();
+        static SharedPtr<ForwardRenderer> ForwardRenderer();
 
         /**
         * @brief Returns the DeferredRenderer instance
         * @author Riko Ophorst
         */
-        static eastl::shared_ptr<DeferredRenderer> DeferredRenderer();
+        static SharedPtr<DeferredRenderer> DeferredRenderer();
 
         /**
         * @brief Returns the CommandContextManager instance
         * @author Riko Ophorst
         */
-        static eastl::shared_ptr<CommandContextManager> CommandContextManager();
+        static SharedPtr<CommandContextManager> CommandContextManager();
 
         /**
         * @brief Returns the CommandManager instance
         * @author Riko Ophorst
         */
-        static eastl::shared_ptr<CommandManager> CommandManager();
+        static SharedPtr<CommandManager> CommandManager();
 
         /**
         * @brief Returns the Device instance
         * @author Riko Ophorst
         */
-        static eastl::shared_ptr<Device> Device();
+        static SharedPtr<Device> Device();
 
         /**
         * @brief Returns the DescriptorHeap instance for render target views
         * @author Riko Ophorst
         */
-        static eastl::shared_ptr<DescriptorHeap> RtvHeap();
+        static SharedPtr<DescriptorHeap> RtvHeap();
 
         /**
         * @brief Returns the DescriptorHeap instance for depth stencil views
         * @author Riko Ophorst
         */
-        static eastl::shared_ptr<DescriptorHeap> DsvHeap();
+        static SharedPtr<DescriptorHeap> DsvHeap();
 
         /**
         * @brief Returns the DescriptorHeap instance for cbv/srv/uavs
         * @author Riko Ophorst
         */
-        static eastl::shared_ptr<DescriptorHeap> CbvSrvUavHeap();
+        static SharedPtr<DescriptorHeap> CbvSrvUavHeap();
 
         /**
         * @brief Returns the SwapChain instance
         * @author Riko Ophorst
         */
-        static eastl::shared_ptr<SwapChain> SwapChain();
+        static SharedPtr<SwapChain> SwapChain();
 
         /**
         * @brief Returns the ImGuiManager instance
         * @author Riko Ophorst
         */
-        static eastl::shared_ptr<ImGuiManager> ImGuiManager();
+        static SharedPtr<ImGuiManager> ImGuiManager();
 
         /**
         * @brief Returns the SceneManager instance
         * @author Riko Ophorst
         */
-        static eastl::shared_ptr<SceneManager> SceneManager();
+        static SharedPtr<SceneManager> SceneManager();
         
     protected:
         /**
@@ -149,109 +148,109 @@ namespace blowbox
         * @author Riko Ophorst
         * @param[in] glfw_manager   The instance of GLFWManager
         */
-        void SetGLFWManager(eastl::shared_ptr<blowbox::GLFWManager> glfw_manager);
+        void SetGLFWManager(SharedPtr<blowbox::GLFWManager> glfw_manager);
 
         /**
         * @brief Sets the main Window instance. Only accessible to BlowboxCore.
         * @author Riko Ophorst
         * @param[in] main_window   The instance of Window
         */
-        void SetMainWindow(eastl::shared_ptr<blowbox::Window> main_window);
+        void SetMainWindow(SharedPtr<blowbox::Window> main_window);
 
         /**
         * @brief Sets the ForwardRenderer instance. Only accessible to BlowboxCore.
         * @author Riko Ophorst
         * @param[in] forward_renderer       The instance of ForwardRenderer
         */
-        void SetForwardRenderer(eastl::shared_ptr<blowbox::ForwardRenderer> forward_renderer);
+        void SetForwardRenderer(SharedPtr<blowbox::ForwardRenderer> forward_renderer);
 
         /**
         * @brief Sets the DeferredRenderer instance. Only accessible to BlowboxCore.
         * @author Riko Ophorst
         * @param[in] deferred_renderer       The instance of DeferredRenderer
         */
-        void SetDeferredRenderer(eastl::shared_ptr<blowbox::DeferredRenderer> deferred_renderer);
+        void SetDeferredRenderer(SharedPtr<blowbox::DeferredRenderer> deferred_renderer);
 
         /**
         * @brief Sets the CommandContextManager instance. Only accessible to BlowboxCore.
         * @author Riko Ophorst
         * @param[in] command_context_manager       The instance of CommandContextManager
         */
-        void SetCommandContextManager(eastl::shared_ptr<blowbox::CommandContextManager> command_context_manager);
+        void SetCommandContextManager(SharedPtr<blowbox::CommandContextManager> command_context_manager);
 
         /**
         * @brief Sets the CommandManager instance. Only accessible to BlowboxCore.
         * @author Riko Ophorst
         * @param[in] command_manager       The instance of CommandManager
         */
-        void SetCommandManager(eastl::shared_ptr<blowbox::CommandManager> command_manager);
+        void SetCommandManager(SharedPtr<blowbox::CommandManager> command_manager);
 
         /**
         * @brief Sets the Device instance. Only accessible to BlowboxCore.
         * @author Riko Ophorst
         * @param[in] device       The instance of Device
         */
-        void SetDevice(eastl::shared_ptr<blowbox::Device> device);
+        void SetDevice(SharedPtr<blowbox::Device> device);
 
         /**
         * @brief Sets the DescriptorHeap instance for render target views. Only accessible to BlowboxCore.
         * @author Riko Ophorst
         * @param[in] heap       The instance of DescriptorHeap for render target views
         */
-        void SetRtvHeap(eastl::shared_ptr<blowbox::DescriptorHeap> heap);
+        void SetRtvHeap(SharedPtr<blowbox::DescriptorHeap> heap);
 
         /**
         * @brief Sets the DescriptorHeap instance for depth stencil views. Only accessible to BlowboxCore.
         * @author Riko Ophorst
         * @param[in] heap       The instance of DescriptorHeap for depth stencil views
         */
-        void SetDsvHeap(eastl::shared_ptr<blowbox::DescriptorHeap> heap);
+        void SetDsvHeap(SharedPtr<blowbox::DescriptorHeap> heap);
 
         /**
         * @brief Sets the DescriptorHeap instance for cbv/srv/uavs. Only accessible to BlowboxCore.
         * @author Riko Ophorst
         * @param[in] heap       The instance of DescriptorHeap for cbv/srv/uavs
         */
-        void SetCbvSrvUavHeap(eastl::shared_ptr<blowbox::DescriptorHeap> heap);
+        void SetCbvSrvUavHeap(SharedPtr<blowbox::DescriptorHeap> heap);
 
         /**
         * @brief Sets the SwapChain instance. Only accessible to BlowboxCore.
         * @author Riko Ophorst
         * @param[in] swap_chain       The instance of the SwapChain
         */
-        void SetSwapChain(eastl::shared_ptr<blowbox::SwapChain> swap_chain);
+        void SetSwapChain(SharedPtr<blowbox::SwapChain> swap_chain);
 
         /**
         * @brief Sets the ImGuiManager instance. Only accessible to BlowboxCore.
         * @author Riko Ophorst
         * @param[in] imgui_manager       The instance of the ImGuiManager
         */
-        void SetImGuiManager(eastl::shared_ptr<blowbox::ImGuiManager> imgui_manager);
+        void SetImGuiManager(SharedPtr<blowbox::ImGuiManager> imgui_manager);
 
         /**
         * @brief Sets the SceneManager instance. Only accessible to BlowboxCore.
         * @author Riko Ophorst
         * @param[in] scene_manager       The instance of the scene_manager
         */
-        void SetSceneManager(eastl::shared_ptr<blowbox::SceneManager> scene_manager);
+        void SetSceneManager(SharedPtr<blowbox::SceneManager> scene_manager);
 
         static Get* instance_; //!< The instance of the Get class
 
     private:
         bool finalized_; //!< Whether the Get system has been finalized
         blowbox::BlowboxCore* blowbox_core_; //!< The BlowboxCore instance
-        eastl::weak_ptr<blowbox::GLFWManager> glfw_manager_; //!< The GLFWManager instance
-        eastl::weak_ptr<blowbox::Window> main_window_; //!< The main Window instance
-        eastl::weak_ptr<blowbox::ForwardRenderer> forward_renderer_; //!< The ForwardRenderer that is used to render stuff to the main Window
-        eastl::weak_ptr<blowbox::DeferredRenderer> deferred_renderer_; //!< The DeferredRenderer that is used to render stuff to the main Window
-        eastl::weak_ptr<blowbox::CommandContextManager> command_context_manager_; //!< The CommandContextManager instance
-        eastl::weak_ptr<blowbox::CommandManager> command_manager_; //!< The CommandManager instance
-        eastl::weak_ptr<blowbox::Device> device_; //!< The render Device instance
-        eastl::weak_ptr<blowbox::DescriptorHeap> rtv_descriptor_heap_; //!< DescriptorHeap for rtvs
-        eastl::weak_ptr<blowbox::DescriptorHeap> dsv_descriptor_heap_; //!< DescriptorHeap for dsvs
-        eastl::weak_ptr<blowbox::DescriptorHeap> cbv_srv_uav_descriptor_heap_; //!< DescriptorHeap for cbv/srv/uavs
-        eastl::weak_ptr<blowbox::SwapChain> swap_chain_; //!< The SwapChain instance
-        eastl::weak_ptr<blowbox::ImGuiManager> imgui_manager_; //!< The ImGuiManager instance
-        eastl::weak_ptr<blowbox::SceneManager> scene_manager_; //!< The SceneManager instance
+        WeakPtr<blowbox::GLFWManager> glfw_manager_; //!< The GLFWManager instance
+        WeakPtr<blowbox::Window> main_window_; //!< The main Window instance
+        WeakPtr<blowbox::ForwardRenderer> forward_renderer_; //!< The ForwardRenderer that is used to render stuff to the main Window
+        WeakPtr<blowbox::DeferredRenderer> deferred_renderer_; //!< The DeferredRenderer that is used to render stuff to the main Window
+        WeakPtr<blowbox::CommandContextManager> command_context_manager_; //!< The CommandContextManager instance
+        WeakPtr<blowbox::CommandManager> command_manager_; //!< The CommandManager instance
+        WeakPtr<blowbox::Device> device_; //!< The render Device instance
+        WeakPtr<blowbox::DescriptorHeap> rtv_descriptor_heap_; //!< DescriptorHeap for rtvs
+        WeakPtr<blowbox::DescriptorHeap> dsv_descriptor_heap_; //!< DescriptorHeap for dsvs
+        WeakPtr<blowbox::DescriptorHeap> cbv_srv_uav_descriptor_heap_; //!< DescriptorHeap for cbv/srv/uavs
+        WeakPtr<blowbox::SwapChain> swap_chain_; //!< The SwapChain instance
+        WeakPtr<blowbox::ImGuiManager> imgui_manager_; //!< The ImGuiManager instance
+        WeakPtr<blowbox::SceneManager> scene_manager_; //!< The SceneManager instance
     };
 }

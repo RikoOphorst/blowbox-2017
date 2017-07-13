@@ -7,7 +7,7 @@
 namespace blowbox
 {
 	//------------------------------------------------------------------------------------------------------
-	void UploadBuffer::Create(const eastl::wstring& name, UINT num_elements, UINT element_size, void* initial_data)
+	void UploadBuffer::Create(const WString& name, UINT num_elements, UINT element_size, void* initial_data)
 	{
 		element_count_ = num_elements;
 		element_size_ = element_size;

@@ -1,8 +1,7 @@
 #pragma once
 
 #include "util/resolution.h"
-#include "core/eastl.h"
-#include <EASTL/string.h>
+#include "util/string.h"
 
 /**
 * @namespace blowbox
@@ -38,7 +37,7 @@ namespace blowbox
         * @author Riko Ophorst
         * @param[in] image_file_path    The file path to the image you want to be loaded
         */
-        Image(const eastl::string& image_file_path);
+        Image(const String& image_file_path);
         
         /**
         * @brief Destructs the Image object.

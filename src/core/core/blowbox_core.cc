@@ -3,9 +3,9 @@
 #include "util/assert.h"
 #include "util/delete.h"
 
-#include "core/blowbox_config.h"
 #include "core/get.h"
-#include "core/scene_manager.h"
+#include "core/core/blowbox_config.h"
+#include "core/scene/scene_manager.h"
 
 #include "win32/glfw_manager.h"
 #include "win32/window.h"

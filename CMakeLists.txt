@@ -65,6 +65,14 @@ file(GLOB CoreFiles
     src/core/*.cc 
     src/core/*.h 
 )
+file(GLOB CoreCoreFiles
+    src/core/core/*.cc 
+    src/core/core/*.h 
+)
+file(GLOB CoreSceneFiles
+    src/core/scene/*.cc 
+    src/core/scene/*.h 
+)
 file(GLOB UtilFiles
     src/util/*.cc 
     src/util/*.h 
@@ -79,6 +87,8 @@ source_group("renderer\\commands"   FILES       ${RendererCommandsFiles})
 source_group("content"              FILES       ${ContentFiles})
 source_group("content\\stb"         FILES       ${ContentStbFiles})
 source_group("core"                 FILES       ${CoreFiles})
+source_group("core\\core"           FILES       ${CoreCoreFiles})
+source_group("core\\scene"          FILES       ${CoreSceneFiles})
 source_group("util"                 FILES       ${UtilFiles})
 
 # Add the libraries and executables to the main solution
@@ -86,7 +96,7 @@ add_library(blowbox_win32           STATIC      ${Win32Files})
 add_library(blowbox_renderer        STATIC      ${RendererFiles} ${RendererImguiFiles} ${RendererBuffersFiles} ${RendererCommandsFiles})
 add_library(blowbox_content         STATIC      ${ContentFiles} ${ContentStbFiles})
 add_library(blowbox_util            STATIC      ${UtilFiles})
-add_executable(blowbox_core                     ${CoreFiles})
+add_executable(blowbox_core                     ${CoreFiles} ${CoreCoreFiles} ${CoreSceneFiles})
 
 set_target_properties(blowbox_core PROPERTIES LINK_FLAGS "/SUBSYSTEM:WINDOWS /ENTRY:mainCRTStartup")
 

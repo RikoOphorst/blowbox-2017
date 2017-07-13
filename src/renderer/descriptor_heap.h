@@ -2,9 +2,8 @@
 
 #include "d3d12_includes.h"
 
-#include "core/eastl.h"
-#include <EASTL/string.h>
-#include <EASTL/weak_ptr.h>
+#include "util/string.h"
+#include "util/weak_ptr.h"
 
 #define BLOWBOX_DESCRIPTOR_ID_UNKNOWN ~(0u)
 
@@ -20,7 +19,7 @@ namespace blowbox
 		DescriptorHeap();
 		~DescriptorHeap();
 
-		void Create(const eastl::wstring& name, D3D12_DESCRIPTOR_HEAP_TYPE heap_type, D3D12_DESCRIPTOR_HEAP_FLAGS flags = D3D12_DESCRIPTOR_HEAP_FLAG_SHADER_VISIBLE, UINT descriptor_count = 4096U);
+		void Create(const WString& name, D3D12_DESCRIPTOR_HEAP_TYPE heap_type, D3D12_DESCRIPTOR_HEAP_FLAGS flags = D3D12_DESCRIPTOR_HEAP_FLAG_SHADER_VISIBLE, UINT descriptor_count = 4096U);
 
 		/**
 		* @brief Creates a DepthStencilView (descriptor)
@@ -84,7 +83,7 @@ namespace blowbox
 	private:
 		ID3D12DescriptorHeap* heap_;
 		D3D12_DESCRIPTOR_HEAP_DESC heap_desc_;
-		eastl::weak_ptr<Device> device_;
+		WeakPtr<Device> device_;
 
 		// @todo Make the descriptor heap use a pool strategy instead of linear strategy
 		UINT current_allocations_; 

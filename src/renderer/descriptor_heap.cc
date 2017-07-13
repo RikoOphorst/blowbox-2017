@@ -22,7 +22,7 @@ namespace blowbox
 	}
 
 	//------------------------------------------------------------------------------------------------------
-	void DescriptorHeap::Create(const eastl::wstring& name, D3D12_DESCRIPTOR_HEAP_TYPE heap_type, D3D12_DESCRIPTOR_HEAP_FLAGS flags, UINT descriptor_count)
+	void DescriptorHeap::Create(const WString& name, D3D12_DESCRIPTOR_HEAP_TYPE heap_type, D3D12_DESCRIPTOR_HEAP_FLAGS flags, UINT descriptor_count)
 	{
 		device_ = Get::Device();
 

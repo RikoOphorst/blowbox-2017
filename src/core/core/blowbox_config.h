@@ -2,8 +2,8 @@
 
 #include "util/resolution.h"
 
-#include "core/eastl.h"
-#include <EASTL/string.h>
+#include "util/eastl.h"
+#include "util/string.h"
 
 /**
 * @namespace blowbox
@@ -25,7 +25,7 @@ namespace blowbox
         */
         BlowboxConfig();
 
-        eastl::string window_title; //!< The title of the main Window that the BlowboxCore instantiates
+        String window_title; //!< The title of the main Window that the BlowboxCore instantiates
         Resolution window_resolution; //!< The resolution of the main Window that the BlowboxCore instantiates
     };
 }

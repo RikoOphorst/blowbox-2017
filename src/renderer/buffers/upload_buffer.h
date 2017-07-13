@@ -5,8 +5,7 @@
 #include "renderer/buffers/gpu_buffer.h"
 #include "renderer/buffers/byte_address_buffer.h"
 
-#include "core/eastl.h"
-#include "EASTL/string.h"
+#include "util/string.h"
 
 namespace blowbox
 {
@@ -25,7 +24,7 @@ namespace blowbox
 		* @param[in] element_size The size of each elements that should be able to fit in this buffer
 		* @param[in] initial_data (optional) The data that this buffer should be initialized with
 		*/
-		void Create(const eastl::wstring& name, UINT num_elements, UINT element_size, void* initial_data = nullptr);
+		void Create(const WString& name, UINT num_elements, UINT element_size, void* initial_data = nullptr);
 
 		virtual void CreateDerivedViews() override; //!< Creates any views that this buffer type may have
 		virtual void Destroy() override; //!< Destroys this resource and clears it from GPU memory

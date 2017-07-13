@@ -1,8 +1,7 @@
 #pragma once
 
-#include "core/eastl.h"
-#include <EASTL/unordered_map.h>
-#include <EASTL/string.h>
+#include "util/unordered_map.h"
+#include "util/string.h"
 
 #include "renderer/root_signature.h"
 
@@ -38,7 +37,7 @@ namespace blowbox
         ~GraphicsPSO();
 
 	public:
-		static GraphicsPSO& Get(const eastl::string& name);
+		static GraphicsPSO& Get(const String& name);
 
 		void SetBlendState(const D3D12_BLEND_DESC& blend_desc);
 		void SetRasterizerState(const D3D12_RASTERIZER_DESC& rasterizer_desc);
@@ -58,7 +57,7 @@ namespace blowbox
 
 		void Finalize() override;
 	protected:
-		static eastl::unordered_map<eastl::string, GraphicsPSO> psos_;
+		static UnorderedMap<String, GraphicsPSO> psos_;
 		
 		D3D12_GRAPHICS_PIPELINE_STATE_DESC pso_desc_;
 		D3D12_INPUT_ELEMENT_DESC input_element_descs_[16];
@@ -71,14 +70,14 @@ namespace blowbox
         ~ComputePSO();
 
 	public:
-		static ComputePSO& Get(const eastl::string& name);
+		static ComputePSO& Get(const String& name);
 
 		void SetComputeShader(const void* binary, size_t size) { pso_desc_.CS = CD3DX12_SHADER_BYTECODE(binary, size); }
 		void SetComputeShader(const D3D12_SHADER_BYTECODE& binary) { pso_desc_.CS = binary; }
 
 		void Finalize() override;
 	protected:
-		static eastl::unordered_map<eastl::string, ComputePSO> psos_;
+		static UnorderedMap<String, ComputePSO> psos_;
 
 		D3D12_COMPUTE_PIPELINE_STATE_DESC pso_desc_;
 	};

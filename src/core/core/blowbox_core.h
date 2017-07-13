@@ -1,8 +1,7 @@
 #pragma once
 
-#include "core/eastl.h"
-#include <EASTL/functional.h>
-#include <EASTL/shared_ptr.h>
+#include "util/functional.h"
+#include "util/shared_ptr.h"
 
 #define BLOWBOX_SWAP_CHAIN_BUFFER_COUNT 2
 #define BLOWBOX_DESCRIPTOR_HEAP_MAX_RTV_COUNT 1024U
@@ -160,33 +159,33 @@ namespace blowbox
         BlowboxConfig* config_; //!< The configuration of blowbox
         bool shutdown_requested_by_external_; //!< Tracks whether the engine should still be alive
 
-        eastl::function<void(void)> user_procedure_run_; //!< The procedure that is defined by the user for the Run step
-        eastl::function<void(void)> user_procedure_update_; //!< The procedure that is defined by the user for the Update step
-        eastl::function<void(void)> user_procedure_post_update_; //!< The procedure that is defined by the user for the PostUpdate step
-        eastl::function<void(void)> user_procedure_render_; //!< The procedure that is defined by the user for the Render step
-        eastl::function<void(void)> user_procedure_post_render_; //!< The procedure that is defined by the user for the PostRender step
-        eastl::function<void(void)> user_procedure_shutdown_; //!< The procedure that is defined by the user for the Shutdown step
+        Function<void> user_procedure_run_; //!< The procedure that is defined by the user for the Run step
+        Function<void> user_procedure_update_; //!< The procedure that is defined by the user for the Update step
+        Function<void> user_procedure_post_update_; //!< The procedure that is defined by the user for the PostUpdate step
+        Function<void> user_procedure_render_; //!< The procedure that is defined by the user for the Render step
+        Function<void> user_procedure_post_render_; //!< The procedure that is defined by the user for the PostRender step
+        Function<void> user_procedure_shutdown_; //!< The procedure that is defined by the user for the Shutdown step
 
 		Get* getter_; //!< The Get instance that is used in the entire engine
         
         // win32 stuff
-		eastl::shared_ptr<GLFWManager> win32_glfw_manager_; //!< The GLFWManager instance is stored here
-		eastl::shared_ptr<Window> win32_main_window_; //!< The main Window instance
+		SharedPtr<GLFWManager> win32_glfw_manager_; //!< The GLFWManager instance is stored here
+		SharedPtr<Window> win32_main_window_; //!< The main Window instance
 
         // render stuff
-        eastl::shared_ptr<Device> render_device_; //!< The Device used by the renderers
-		eastl::shared_ptr<SwapChain> render_swap_chain_; //!< The SwapChain used by the renderers
-        eastl::shared_ptr<CommandManager> render_command_manager_; //!< The CommandManager instance
-        eastl::shared_ptr<CommandContextManager> render_command_context_manager_; //!< The CommandContextManager instance
-        eastl::shared_ptr<DescriptorHeap> render_rtv_heap_; //!< DescriptorHeap for render target views
-        eastl::shared_ptr<DescriptorHeap> render_dsv_heap_; //!< DescriptorHeap for depth stencil views
-        eastl::shared_ptr<DescriptorHeap> render_cbv_srv_uav_heap_; //!< DescriptorHeap for cbv/srv/uavs
+        SharedPtr<Device> render_device_; //!< The Device used by the renderers
+		SharedPtr<SwapChain> render_swap_chain_; //!< The SwapChain used by the renderers
+        SharedPtr<CommandManager> render_command_manager_; //!< The CommandManager instance
+        SharedPtr<CommandContextManager> render_command_context_manager_; //!< The CommandContextManager instance
+        SharedPtr<DescriptorHeap> render_rtv_heap_; //!< DescriptorHeap for render target views
+        SharedPtr<DescriptorHeap> render_dsv_heap_; //!< DescriptorHeap for depth stencil views
+        SharedPtr<DescriptorHeap> render_cbv_srv_uav_heap_; //!< DescriptorHeap for cbv/srv/uavs
 
-		eastl::shared_ptr<ForwardRenderer> render_forward_renderer_; //!< The ForwardRenderer instance
-		eastl::shared_ptr<DeferredRenderer> render_deferred_renderer_; //!< The DeferredRenderer instance
+		SharedPtr<ForwardRenderer> render_forward_renderer_; //!< The ForwardRenderer instance
+		SharedPtr<DeferredRenderer> render_deferred_renderer_; //!< The DeferredRenderer instance
 
-        eastl::shared_ptr<ImGuiManager> render_imgui_manager_; //!< The ImGuiManager instance
-		eastl::shared_ptr<SceneManager> scene_manager_; //!< The SceneManager instance
+        SharedPtr<ImGuiManager> render_imgui_manager_; //!< The ImGuiManager instance
+		SharedPtr<SceneManager> scene_manager_; //!< The SceneManager instance
 
         bool show_test_window_;
 

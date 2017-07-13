@@ -1,8 +1,7 @@
 #pragma once
 
-#include "core/eastl.h"
-#include <EASTL/shared_ptr.h>
-#include <EASTL/vector.h>
+#include "util/shared_ptr.h"
+#include "util/vector.h"
 #include <DirectXMath.h>
 
 namespace blowbox
@@ -12,7 +11,7 @@ namespace blowbox
         friend class SceneManager;
     public:
         Entity();
-        Entity(eastl::shared_ptr<Entity> parent);
+        Entity(SharedPtr<Entity> parent);
         ~Entity();
 
         void SetLocalPosition(const DirectX::XMFLOAT3& position);
@@ -33,8 +32,8 @@ namespace blowbox
 		void UpdateWorldTransform();
 
     private:
-        eastl::shared_ptr<Entity> parent_;
-        eastl::vector<eastl::shared_ptr<Entity>> children_;
+        SharedPtr<Entity> parent_;
+        Vector<SharedPtr<Entity>> children_;
 
         // Transform stuff
         DirectX::XMFLOAT3 position_;

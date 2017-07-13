@@ -1,18 +1,10 @@
 #include <iostream>
 
-#include "util/assert.h"
-#include "core/blowbox_core.h"
-#include "core/blowbox_config.h"
+#include "core/core/blowbox_core.h"
+#include "core/core/blowbox_config.h"
 #include "core/get.h"
 #include "win32/window.h"
 #include "content/image.h"
-
-#include "core/eastl.h"
-#include <EASTL/string.h>
-
-#include <d3d12.h>
-#include <d3dcompiler.h>
-#include <dxgi1_6.h>
 
 using namespace blowbox;
 
@@ -24,7 +16,6 @@ bool clicked = false;
 void Run()
 {
     main_window = Get::MainWindow().get();
-    //main_window->SetWindowIcon(new Image("icon.png"));
 }
 
 void Update()

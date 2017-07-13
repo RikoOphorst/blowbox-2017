@@ -23,7 +23,7 @@ namespace blowbox
     }
 
     //------------------------------------------------------------------------------------------------------
-    void Window::Create(const Resolution& resolution, const eastl::string& window_title, Image* window_icon)
+    void Window::Create(const Resolution& resolution, const String& window_title, Image* window_icon)
     {
         window_ = glfwCreateWindow(resolution.width, resolution.height, window_title.c_str(), nullptr, nullptr);
         BLOWBOX_ASSERT(window_ != nullptr);
@@ -52,7 +52,7 @@ namespace blowbox
     }
 
     //------------------------------------------------------------------------------------------------------
-    void Window::SetWindowTitle(const eastl::string& window_title)
+    void Window::SetWindowTitle(const String& window_title)
     {
         window_title_ = window_title;
         glfwSetWindowTitle(window_, window_title.c_str());
@@ -100,15 +100,15 @@ namespace blowbox
     }
 
     //------------------------------------------------------------------------------------------------------
-    eastl::string Window::GetWindowTitle() const
+    String Window::GetWindowTitle() const
     {
         return window_title_;
     }
 
     //------------------------------------------------------------------------------------------------------
-    eastl::tuple<Resolution, Resolution> Window::GetWindowSizeLimits() const
+    Tuple<Resolution, Resolution> Window::GetWindowSizeLimits() const
     {
-        return eastl::tuple<Resolution, Resolution>(min_resolution_, max_resolution_);
+        return Tuple<Resolution, Resolution>(min_resolution_, max_resolution_);
     }
 
     //------------------------------------------------------------------------------------------------------

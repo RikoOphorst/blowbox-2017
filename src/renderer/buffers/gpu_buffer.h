@@ -1,7 +1,6 @@
 #pragma once
 
-#include "core/eastl.h"
-#include <EASTL/string.h>
+#include "util/string.h"
 
 #include "gpu_resource.h"
 
@@ -14,7 +13,7 @@ namespace blowbox
 
 		virtual void Destroy();
 
-		virtual void Create(const eastl::wstring& name, UINT num_elements, UINT element_size, void* initial_data = nullptr, bool create_views = true);
+		virtual void Create(const WString& name, UINT num_elements, UINT element_size, void* initial_data = nullptr, bool create_views = true);
 
 		const UINT& GetUAV() const { return uav_id_; }
 		const UINT& GetSRV() const { return srv_id_; }

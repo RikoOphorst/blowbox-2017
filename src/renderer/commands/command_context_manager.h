@@ -1,8 +1,7 @@
 #pragma once
 
-#include "core/eastl.h"
-#include <EASTL/vector.h>
-#include <EASTL/queue.h>
+#include "util/vector.h"
+#include "util/queue.h"
 #include "renderer/d3d12_includes.h"
 
 namespace blowbox
@@ -20,7 +19,7 @@ namespace blowbox
 		CommandContext* RequestContext(D3D12_COMMAND_LIST_TYPE type);
 		void DiscardContext(CommandContext* context);
 	private:
-		eastl::vector<CommandContext*> contexts_pool_[4];
-        eastl::queue<CommandContext*> available_contexts_[4];
+		Vector<CommandContext*> contexts_pool_[4];
+        Queue<CommandContext*> available_contexts_[4];
 	};
 }

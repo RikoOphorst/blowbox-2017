@@ -1,21 +1,20 @@
 #pragma once
 
-#include "core/eastl.h"
-#include "EASTL/string.h"
+#include "util/string.h"
 
 namespace blowbox
 {
     class TextFile
     {
     public:
-        TextFile(const eastl::string& file_path);
+        TextFile(const String& file_path);
         ~TextFile();
         
-        const eastl::string& GetFilePath() const;
-        const eastl::string& GetFileContent() const;
+        const String& GetFilePath() const;
+        const String& GetFileContent() const;
 
     private:
-        eastl::string file_path_;
-        eastl::string file_content_;
+        String file_path_;
+        String file_content_;
     };
 }

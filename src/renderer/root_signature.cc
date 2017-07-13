@@ -57,7 +57,7 @@ namespace blowbox
 	}
 
 	//------------------------------------------------------------------------------------------------------
-	void RootSignature::Finalize(const eastl::wstring& name, D3D12_ROOT_SIGNATURE_FLAGS flags)
+	void RootSignature::Finalize(const WString& name, D3D12_ROOT_SIGNATURE_FLAGS flags)
 	{
 		assert(!finalized_); // signatures shouldn't be refinalized, this will break PSOs
 

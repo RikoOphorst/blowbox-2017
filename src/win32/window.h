@@ -2,9 +2,8 @@
 
 #define GLFW_EXPOSE_NATIVE_WIN32
 
-#include "core/eastl.h"
-#include <EASTL/string.h>
-#include <EASTL/tuple.h>
+#include "util/string.h"
+#include "util/tuple.h"
 
 #include <GLFW/glfw3.h>
 #include <GLFW/glfw3native.h>
@@ -54,7 +53,7 @@ namespace blowbox
         * @param[in] window_title   The title of the window
         * @param[in] window_icon    The icon that should be used by this window. Usable formats include 16x16, 32x32, 48x48. Optional.
         */
-        void Create(const Resolution& resolution, const eastl::string& window_title, Image* window_icon = nullptr);
+        void Create(const Resolution& resolution, const String& window_title, Image* window_icon = nullptr);
 
         /**
         * @brief Sets the resolution of the window
@@ -68,7 +67,7 @@ namespace blowbox
         * @author Riko Ophorst
         * @param[in] window_title   The title of the window
         */
-        void SetWindowTitle(const eastl::string& window_title);
+        void SetWindowTitle(const String& window_title);
 
         /**
         * @brief Sets the size limits of the window
@@ -108,13 +107,13 @@ namespace blowbox
         * @brief Returns the title of the window
         * @author Riko Ophorst
         */
-        eastl::string GetWindowTitle() const;
+        String GetWindowTitle() const;
 
         /**
         * @brief Returns the size limits of the window as a tuple. First is the minimum, second is the maximum.
         * @author Riko Ophorst
         */
-        eastl::tuple<Resolution, Resolution> GetWindowSizeLimits() const;
+        Tuple<Resolution, Resolution> GetWindowSizeLimits() const;
 
         /**
         * @brief Returns the position of the window's top left position
@@ -222,7 +221,7 @@ namespace blowbox
     private:
         GLFWwindow* window_; //!< The underlying window that GLFW uses
         Image* window_icon_; //!< The currently bound icon
-        eastl::string window_title_; //!< The title of window
+        String window_title_; //!< The title of window
         Resolution min_resolution_; //!< The minimum resolution of the window
         Resolution max_resolution_; //!< The maximum resolution of the window
 

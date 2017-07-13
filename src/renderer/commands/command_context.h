@@ -1,7 +1,6 @@
 #pragma once
 
-#include "core/eastl.h"
-#include <EASTL/string.h>
+#include "util/string.h"
 
 #include "renderer/buffers/gpu_resource.h"
 #include "renderer/buffers/gpu_buffer.h"
@@ -54,7 +53,7 @@ namespace blowbox
 	public:
 		~CommandContext();
 
-		static CommandContext& Begin(const eastl::wstring& name = L"");
+		static CommandContext& Begin(const WString& name = L"");
 		GraphicsContext& GetGraphicsContext();
 		ComputeContext& GetComputeContext();
 
@@ -96,8 +95,8 @@ namespace blowbox
 		void BindDescriptorHeaps();
 
 	protected:
-		eastl::wstring name_;
-        void SetName(const eastl::wstring& name) { list_->SetName(name.c_str()); name_ = name; }
+		WString name_;
+        void SetName(const WString& name) { list_->SetName(name.c_str()); name_ = name; }
 
 	protected:
 		D3D12_COMMAND_LIST_TYPE type_;

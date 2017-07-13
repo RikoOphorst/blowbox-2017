@@ -13,7 +13,7 @@ namespace blowbox
 	}
 	
 	//------------------------------------------------------------------------------------------------------
-	void GpuBuffer::Create(const eastl::wstring& name, UINT num_elements, UINT element_size, void* initial_data, bool create_views)
+	void GpuBuffer::Create(const WString& name, UINT num_elements, UINT element_size, void* initial_data, bool create_views)
 	{
 		element_count_ = num_elements;
 		element_size_ = element_size;

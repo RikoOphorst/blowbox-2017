@@ -50,91 +50,91 @@ namespace blowbox
     }
 
     //------------------------------------------------------------------------------------------------------
-	eastl::shared_ptr<GLFWManager> Get::GLFWManager()
+	SharedPtr<GLFWManager> Get::GLFWManager()
     {
         BLOWBOX_ASSERT(Get::instance_->finalized_ == true);
         return Get::instance_->glfw_manager_.lock();
     }
 
     //------------------------------------------------------------------------------------------------------
-	eastl::shared_ptr< Window> Get::MainWindow()
+	SharedPtr< Window> Get::MainWindow()
     {
         BLOWBOX_ASSERT(Get::instance_->finalized_ == true);
         return Get::instance_->main_window_.lock();
     }
 
     //------------------------------------------------------------------------------------------------------
-	eastl::shared_ptr<ForwardRenderer> Get::ForwardRenderer()
+	SharedPtr<ForwardRenderer> Get::ForwardRenderer()
     {
         BLOWBOX_ASSERT(Get::instance_->finalized_ == true);
         return Get::instance_->forward_renderer_.lock();
     }
 
     //------------------------------------------------------------------------------------------------------
-	eastl::shared_ptr<DeferredRenderer> Get::DeferredRenderer()
+	SharedPtr<DeferredRenderer> Get::DeferredRenderer()
     {
         BLOWBOX_ASSERT(Get::instance_->finalized_ == true);
         return Get::instance_->deferred_renderer_.lock();
     }
 
     //------------------------------------------------------------------------------------------------------
-	eastl::shared_ptr<CommandContextManager> Get::CommandContextManager()
+	SharedPtr<CommandContextManager> Get::CommandContextManager()
     {
         BLOWBOX_ASSERT(Get::instance_->finalized_ == true);
         return Get::instance_->command_context_manager_.lock();
     }
 
     //------------------------------------------------------------------------------------------------------
-	eastl::shared_ptr<CommandManager> Get::CommandManager()
+	SharedPtr<CommandManager> Get::CommandManager()
     {
         BLOWBOX_ASSERT(Get::instance_->finalized_ == true);
         return Get::instance_->command_manager_.lock();
     }
 
     //------------------------------------------------------------------------------------------------------
-	eastl::shared_ptr<Device> Get::Device()
+	SharedPtr<Device> Get::Device()
     {
         BLOWBOX_ASSERT(Get::instance_->finalized_ == true);
         return Get::instance_->device_.lock();
     }
 
     //------------------------------------------------------------------------------------------------------
-	eastl::shared_ptr<DescriptorHeap> Get::RtvHeap()
+	SharedPtr<DescriptorHeap> Get::RtvHeap()
     {
         BLOWBOX_ASSERT(Get::instance_->finalized_ == true);
         return Get::instance_->rtv_descriptor_heap_.lock();
     }
 
     //------------------------------------------------------------------------------------------------------
-	eastl::shared_ptr<DescriptorHeap> Get::DsvHeap()
+	SharedPtr<DescriptorHeap> Get::DsvHeap()
     {
         BLOWBOX_ASSERT(Get::instance_->finalized_ == true);
         return Get::instance_->dsv_descriptor_heap_.lock();
     }
 
     //------------------------------------------------------------------------------------------------------
-	eastl::shared_ptr<DescriptorHeap> Get::CbvSrvUavHeap()
+	SharedPtr<DescriptorHeap> Get::CbvSrvUavHeap()
     {
         BLOWBOX_ASSERT(Get::instance_->finalized_ == true);
         return Get::instance_->cbv_srv_uav_descriptor_heap_.lock();
     }
 
     //------------------------------------------------------------------------------------------------------
-	eastl::shared_ptr<SwapChain> Get::SwapChain()
+	SharedPtr<SwapChain> Get::SwapChain()
     {
         BLOWBOX_ASSERT(Get::instance_->finalized_ == true);
         return Get::instance_->swap_chain_.lock();
     }
 
     //------------------------------------------------------------------------------------------------------
-	eastl::shared_ptr<ImGuiManager> Get::ImGuiManager()
+	SharedPtr<ImGuiManager> Get::ImGuiManager()
     {
         BLOWBOX_ASSERT(Get::instance_->finalized_ == true);
         return Get::instance_->imgui_manager_.lock();
     }
 
     //------------------------------------------------------------------------------------------------------
-	eastl::shared_ptr<SceneManager> Get::SceneManager()
+	SharedPtr<SceneManager> Get::SceneManager()
     {
         return Get::instance_->scene_manager_.lock();
     }
@@ -146,79 +146,79 @@ namespace blowbox
     }
 
     //------------------------------------------------------------------------------------------------------
-    void Get::SetGLFWManager(eastl::shared_ptr<blowbox::GLFWManager> glfw_manager)
+    void Get::SetGLFWManager(SharedPtr<blowbox::GLFWManager> glfw_manager)
     {
         glfw_manager_ = glfw_manager;
     }
     
     //------------------------------------------------------------------------------------------------------
-    void Get::SetMainWindow(eastl::shared_ptr<blowbox::Window> main_window)
+    void Get::SetMainWindow(SharedPtr<blowbox::Window> main_window)
     {
         main_window_ = main_window;
     }
     
     //------------------------------------------------------------------------------------------------------
-    void Get::SetForwardRenderer(eastl::shared_ptr<blowbox::ForwardRenderer> renderer)
+    void Get::SetForwardRenderer(SharedPtr<blowbox::ForwardRenderer> renderer)
     {
         forward_renderer_ = renderer;
     }
 
     //------------------------------------------------------------------------------------------------------
-    void Get::SetDeferredRenderer(eastl::shared_ptr<blowbox::DeferredRenderer> deferred_renderer)
+    void Get::SetDeferredRenderer(SharedPtr<blowbox::DeferredRenderer> deferred_renderer)
     {
         deferred_renderer_ = deferred_renderer;
     }
 
     //------------------------------------------------------------------------------------------------------
-    void Get::SetCommandContextManager(eastl::shared_ptr<blowbox::CommandContextManager> command_context_manager)
+    void Get::SetCommandContextManager(SharedPtr<blowbox::CommandContextManager> command_context_manager)
     {
         command_context_manager_ = command_context_manager;
     }
 
     //------------------------------------------------------------------------------------------------------
-    void Get::SetCommandManager(eastl::shared_ptr<blowbox::CommandManager> command_manager)
+    void Get::SetCommandManager(SharedPtr<blowbox::CommandManager> command_manager)
     {
         command_manager_ = command_manager;
     }
     
     //------------------------------------------------------------------------------------------------------
-    void Get::SetDevice(eastl::shared_ptr<blowbox::Device> device)
+    void Get::SetDevice(SharedPtr<blowbox::Device> device)
     {
         device_ = device;
     }
 
     //------------------------------------------------------------------------------------------------------
-    void Get::SetRtvHeap(eastl::shared_ptr<blowbox::DescriptorHeap> heap)
+    void Get::SetRtvHeap(SharedPtr<blowbox::DescriptorHeap> heap)
     {
         rtv_descriptor_heap_ = heap;
     }
 
     //------------------------------------------------------------------------------------------------------
-    void Get::SetDsvHeap(eastl::shared_ptr<blowbox::DescriptorHeap> heap)
+    void Get::SetDsvHeap(SharedPtr<blowbox::DescriptorHeap> heap)
     {
         dsv_descriptor_heap_ = heap;
     }
 
     //------------------------------------------------------------------------------------------------------
-    void Get::SetCbvSrvUavHeap(eastl::shared_ptr<blowbox::DescriptorHeap> heap)
+    void Get::SetCbvSrvUavHeap(SharedPtr<blowbox::DescriptorHeap> heap)
     {
         cbv_srv_uav_descriptor_heap_ = heap;
     }
 
     //------------------------------------------------------------------------------------------------------
-    void Get::SetSwapChain(eastl::shared_ptr<blowbox::SwapChain> swap_chain)
+    void Get::SetSwapChain(SharedPtr<blowbox::SwapChain> swap_chain)
     {
         swap_chain_ = swap_chain;
     }
     
     //------------------------------------------------------------------------------------------------------
-    void Get::SetImGuiManager(eastl::shared_ptr<blowbox::ImGuiManager> imgui_manager)
+    void Get::SetImGuiManager(SharedPtr<blowbox::ImGuiManager> imgui_manager)
     {
         imgui_manager_ = imgui_manager;
     }
     
     //------------------------------------------------------------------------------------------------------
-    void Get::SetSceneManager(eastl::shared_ptr<blowbox::SceneManager> scene_manager)
+    void Get::SetSceneManager(SharedPtr<blowbox::SceneManager> scene_manager)
     {
         scene_manager_ = scene_manager;
     }

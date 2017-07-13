@@ -6,8 +6,8 @@
 
 namespace blowbox
 {
-	eastl::unordered_map<eastl::string, GraphicsPSO> GraphicsPSO::psos_ = eastl::unordered_map<eastl::string, GraphicsPSO>();
-    eastl::unordered_map<eastl::string, ComputePSO> ComputePSO::psos_ = eastl::unordered_map<eastl::string, ComputePSO>();
+	eastl::unordered_map<String, GraphicsPSO> GraphicsPSO::psos_ = eastl::unordered_map<String, GraphicsPSO>();
+    eastl::unordered_map<String, ComputePSO> ComputePSO::psos_ = eastl::unordered_map<String, ComputePSO>();
 
 	//------------------------------------------------------------------------------------------------------
 	void PSO::Destroy()
@@ -32,7 +32,7 @@ namespace blowbox
     }
 
 	//------------------------------------------------------------------------------------------------------
-	GraphicsPSO& GraphicsPSO::Get(const eastl::string& name)
+	GraphicsPSO& GraphicsPSO::Get(const String& name)
 	{
 		auto& find = psos_.find(name);
 
@@ -132,7 +132,7 @@ namespace blowbox
     }
 
 	//------------------------------------------------------------------------------------------------------
-	ComputePSO& ComputePSO::Get(const eastl::string& name)
+	ComputePSO& ComputePSO::Get(const String& name)
 	{
 		auto& find = psos_.find(name);
 

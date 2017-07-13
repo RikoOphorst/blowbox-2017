@@ -31,7 +31,7 @@ namespace blowbox
 	}
 
 	//------------------------------------------------------------------------------------------------------
-	CommandContext& CommandContext::Begin(const eastl::wstring& name)
+	CommandContext& CommandContext::Begin(const WString& name)
 	{
 		CommandContext* context = Get::CommandContextManager()->RequestContext(D3D12_COMMAND_LIST_TYPE_DIRECT);
 		context->SetName(name);

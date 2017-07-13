@@ -1,7 +1,6 @@
 #pragma once
 
-#include "core/eastl.h"
-#include <EASTL/map.h>
+#include "util/map.h"
 
 struct GLFWwindow;
 
@@ -76,6 +75,6 @@ namespace blowbox
         */
         Window* FindCorrespondingWindow(GLFWwindow* window);
     private:
-        eastl::map<GLFWwindow*, Window*> windows_; //!< All windows in the world
+        Map<GLFWwindow*, Window*> windows_; //!< All windows in the world
     };
 }

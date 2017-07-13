@@ -1,7 +1,6 @@
 #pragma once
 
-#include "core/eastl.h"
-#include <EASTL/string.h>
+#include "util/string.h"
 #include "d3d12_includes.h"
 
 #define ROOT_SIGNATURE_MAX_PARAMETERS 64
@@ -43,7 +42,7 @@ namespace blowbox
 		~RootSignature();
 
 		void Create(UINT num_root_parameters, UINT num_static_samplers);
-		void Finalize(const eastl::wstring& name, D3D12_ROOT_SIGNATURE_FLAGS flags = D3D12_ROOT_SIGNATURE_FLAG_NONE);
+		void Finalize(const WString& name, D3D12_ROOT_SIGNATURE_FLAGS flags = D3D12_ROOT_SIGNATURE_FLAG_NONE);
 
 		RootParameter& operator[](UINT i);
 		const RootParameter& operator[](UINT i) const;

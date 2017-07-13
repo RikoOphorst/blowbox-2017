@@ -39,7 +39,7 @@ namespace blowbox
 	}
 
 	//------------------------------------------------------------------------------------------------------
-	void PixelBuffer::AssociateWithResource(const eastl::wstring& name, ID3D12Resource* resource, const D3D12_RESOURCE_STATES& current_resource_state)
+	void PixelBuffer::AssociateWithResource(const WString& name, ID3D12Resource* resource, const D3D12_RESOURCE_STATES& current_resource_state)
 	{
 		assert(resource != nullptr);
 		if (resource_ != nullptr)
@@ -61,7 +61,7 @@ namespace blowbox
 	}
 
 	//------------------------------------------------------------------------------------------------------
-	void PixelBuffer::CreateTextureResource(const eastl::wstring& name, const D3D12_RESOURCE_DESC& resource_desc, const D3D12_CLEAR_VALUE& clear_value)
+	void PixelBuffer::CreateTextureResource(const WString& name, const D3D12_RESOURCE_DESC& resource_desc, const D3D12_CLEAR_VALUE& clear_value)
 	{
 		BLOWBOX_ASSERT_HR(
 			Get::Device()->Get()->CreateCommittedResource(

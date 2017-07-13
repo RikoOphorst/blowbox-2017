@@ -1,7 +1,6 @@
 #pragma once
 
-#include "core/eastl.h"
-#include <EASTL/string.h>
+#include "util/string.h"
 #include "gpu_resource.h"
 
 namespace blowbox
@@ -18,8 +17,8 @@ namespace blowbox
 	protected:
 		D3D12_RESOURCE_DESC DescribeTex2D(UINT width, UINT height, UINT depth_or_array_size, UINT num_mips, DXGI_FORMAT format, UINT flags);
 
-		void AssociateWithResource(const eastl::wstring& name, ID3D12Resource* resource, const D3D12_RESOURCE_STATES& current_resource_state);
-		void CreateTextureResource(const eastl::wstring& name, const D3D12_RESOURCE_DESC& resource_desc, const D3D12_CLEAR_VALUE& clear_value);
+		void AssociateWithResource(const WString& name, ID3D12Resource* resource, const D3D12_RESOURCE_STATES& current_resource_state);
+		void CreateTextureResource(const WString& name, const D3D12_RESOURCE_DESC& resource_desc, const D3D12_CLEAR_VALUE& clear_value);
 
 	protected:
 

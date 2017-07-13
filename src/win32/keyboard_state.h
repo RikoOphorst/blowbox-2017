@@ -2,8 +2,7 @@
 
 #include "win32/key_code.h"
 
-#include "core/eastl.h"
-#include <EASTL/map.h>
+#include "util/map.h"
 
 namespace blowbox
 {
@@ -39,6 +38,6 @@ namespace blowbox
 
         void ResetKeys();
     private:
-        eastl::map<KeyCode, KeyState> key_states_;
+        Map<KeyCode, KeyState> key_states_;
     };
 }

@@ -1,7 +1,6 @@
 #pragma once
 
-#include "core/eastl.h"
-#include <EASTL/string.h>
+#include "util/string.h"
 
 /**
 * @namespace blowbox
@@ -40,7 +39,7 @@ namespace blowbox
         /**
         * @brief Converts this resolution to a printable string
         */
-        eastl::string ToString();
+        String ToString();
 
         int width; //!< The width of the resolution
         int height; //!< The height of the resolution

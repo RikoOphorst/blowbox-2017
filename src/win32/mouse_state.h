@@ -1,8 +1,8 @@
 #pragma once
 
 #include "win32/mouse_button.h"
-#include "core/eastl.h"
-#include <EASTL/map.h>
+#include "util/map.h"
+
 #include <DirectXMath.h>
 
 namespace blowbox
@@ -56,6 +56,6 @@ namespace blowbox
 
         bool is_mouse_in_window_;
 
-        eastl::map<MouseButton, MouseButtonState> mouse_button_states_;
+        Map<MouseButton, MouseButtonState> mouse_button_states_;
     };
 }

@@ -7,7 +7,7 @@
 namespace blowbox
 {
     //------------------------------------------------------------------------------------------------------
-    TextFile::TextFile(const eastl::string& file_path) :
+    TextFile::TextFile(const String& file_path) :
         file_path_(file_path)
     {
         std::ifstream file(file_path.c_str());
@@ -24,13 +24,13 @@ namespace blowbox
     }
 
     //------------------------------------------------------------------------------------------------------
-    const eastl::string & TextFile::GetFilePath() const
+    const String& TextFile::GetFilePath() const
     {
         return file_path_;
     }
 
     //------------------------------------------------------------------------------------------------------
-    const eastl::string& TextFile::GetFileContent() const
+    const String& TextFile::GetFileContent() const
     {
         return file_content_;
     }

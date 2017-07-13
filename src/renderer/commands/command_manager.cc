@@ -23,7 +23,7 @@ namespace blowbox
 	}
 
 	//------------------------------------------------------------------------------------------------------
-	void CommandManager::Startup(eastl::shared_ptr<Device> device)
+	void CommandManager::Startup(SharedPtr<Device> device)
 	{
         BLOWBOX_ASSERT(graphics_queue_ == nullptr);
         BLOWBOX_ASSERT(compute_queue_ == nullptr);

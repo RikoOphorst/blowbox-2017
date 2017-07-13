@@ -2,8 +2,8 @@
 
 #include "renderer/d3d12_includes.h"
 
-#include "core/eastl.h"
-#include <EASTL/weak_ptr.h>
+#include "util/shared_ptr.h"
+#include "util/weak_ptr.h"
 
 namespace blowbox
 {
@@ -17,7 +17,7 @@ namespace blowbox
 		CommandManager();
 		~CommandManager();
 
-		void Startup(eastl::shared_ptr<Device> device);
+		void Startup(SharedPtr<Device> device);
 
 		void CreateCommandList(D3D12_COMMAND_LIST_TYPE type, ID3D12GraphicsCommandList** out_list, ID3D12CommandAllocator** out_allocator);
 
@@ -32,7 +32,7 @@ namespace blowbox
 		void WaitForFence(uint64_t fence_value);
 
 	private:
-		eastl::weak_ptr<Device> device_;
+		WeakPtr<Device> device_;
 
 		CommandQueue* graphics_queue_;
 		CommandQueue* compute_queue_;

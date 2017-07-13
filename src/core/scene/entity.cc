@@ -14,7 +14,7 @@ namespace blowbox
     }
 
     //------------------------------------------------------------------------------------------------------
-    Entity::Entity(eastl::shared_ptr<Entity> parent) :
+    Entity::Entity(SharedPtr<Entity> parent) :
         position_(DirectX::XMFLOAT3(0.0f, 0.0f, 0.0f)),
         rotation_(DirectX::XMFLOAT3(0.0f, 0.0f, 0.0f)),
         scaling_(DirectX::XMFLOAT3(1.0f, 1.0f, 1.0f)),

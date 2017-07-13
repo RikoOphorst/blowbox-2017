@@ -2,8 +2,7 @@
 
 #include "adapter.h"
 #include "renderer/d3d12_includes.h"
-#include "core/eastl.h"
-#include <EASTL/vector.h>
+#include "util/vector.h"
 
 namespace blowbox
 {
@@ -25,7 +24,7 @@ namespace blowbox
         const Adapter& GetAdapter() const;
         ID3D12Device* Get() const;
 
-        static eastl::vector<Adapter> FindAvailableAdapters(FindAdapterFlag find_adapter_flags);
+        static Vector<Adapter> FindAvailableAdapters(FindAdapterFlag find_adapter_flags);
 
 	private:
 		Adapter adapter_;

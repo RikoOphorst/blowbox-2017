@@ -8,7 +8,7 @@
 namespace blowbox
 {
     //------------------------------------------------------------------------------------------------------
-    Image::Image(const eastl::string& image_file_path) :
+    Image::Image(const String& image_file_path) :
         pixel_data_(nullptr),
         pixel_composition_(PixelComposition_UNKNOWN)
     {

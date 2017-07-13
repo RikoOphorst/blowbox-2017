@@ -25,8 +25,8 @@ namespace blowbox
     }
 
     //------------------------------------------------------------------------------------------------------
-    eastl::string Resolution::ToString()
+    String Resolution::ToString()
     {
-        return eastl::to_string(width) + eastl::string("x") + eastl::to_string(height) + eastl::string(" (") + eastl::to_string(GetAspectRatio()) + eastl::string(")");
+        return eastl::to_string(width) + String("x") + eastl::to_string(height) + String(" (") + eastl::to_string(GetAspectRatio()) + String(")");
     }
 }
