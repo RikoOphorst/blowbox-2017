@@ -91,29 +91,17 @@ namespace blowbox
         /** @brief Figures out whether the BlowboxCore should shutdown based on the state of the engine (window, input, etc) */
         bool IsBlowboxAlive();
 
-        /**
-        * The Get class gets initialized by this function. All subsystems are properly
-        * assigned their place in the Get class.
-        *
-        * @brief Starts up the Getter system.
-        */
+        /** @brief Starts up the Getter system. */
         void StartupGetter();
 
-        /**
-        * Starts up all Win32 subsystems such as the GLFWManager and the main Window
-        * instance. All systems will be configured correctly.
-        *
-        * @brief Starts up the Win32 subsystems.
-        */
+        /** @brief Starts up the Win32 subsystems. */
         void StartupWin32();
 
-        /**
-        * Starts up all Renderer subsystems, such as the Device, SwapChain, DescriptorHeaps, etc.
-        * Everything will be configured according to the BlowboxConfig.
-        *
-        * @brief Starts up the Renderer subsystems.
-        */
+        /** @brief Starts up the Renderer subsystems. */
         void StartupRenderer();
+
+        /** @brief Starts up the Scene subsystems. */
+        void StartupScene();
 
         /** @brief Shuts down the Getter system. */
         void ShutdownGetter();
@@ -123,6 +111,9 @@ namespace blowbox
 
         /** @brief Shuts down the Renderer subsystems. */
         void ShutdownRenderer();
+
+        /** @brief Shuts down the Scene subsystems. */
+        void ShutdownScene();
 
         /**
         * This function updates all subsystems in the engine in the correct order.

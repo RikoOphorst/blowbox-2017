@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['scene_5fmanager_5f',['scene_manager_',['../classblowbox_1_1_blowbox_core.html#a35b861557f79ff1736bf8f3fae27ab10',1,'blowbox::BlowboxCore::scene_manager_()'],['../classblowbox_1_1_get.html#a14d8faa075bff61f51cc48b338d3af4e',1,'blowbox::Get::scene_manager_()']]],
-  ['shutdown_5frequested_5fby_5fexternal_5f',['shutdown_requested_by_external_',['../classblowbox_1_1_blowbox_core.html#ade6504dbc198d3c2523e870b493dcd9c',1,'blowbox::BlowboxCore']]],
-  ['swap_5fchain_5f',['swap_chain_',['../classblowbox_1_1_get.html#a7861516facffd8c47eeb8fd25a8fb049',1,'blowbox::Get']]]
+  ['parent_5f',['parent_',['../classblowbox_1_1_entity.html#a82a387b04fee37e4189f7f3588150e69',1,'blowbox::Entity']]],
+  ['pixel_5fcomposition_5f',['pixel_composition_',['../classblowbox_1_1_image.html#afcdffc3c6e7e6f063d5b760f90166f1a',1,'blowbox::Image']]],
+  ['pixel_5fdata_5f',['pixel_data_',['../classblowbox_1_1_image.html#af68186d12d7deb4b9a0fc109299d2366',1,'blowbox::Image']]],
+  ['position_5f',['position_',['../classblowbox_1_1_entity.html#abb7fe7f77e5278c2c6371c314d876294',1,'blowbox::Entity']]]
 ];

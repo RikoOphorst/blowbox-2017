@@ -10,31 +10,79 @@
 #include "util/unique_ptr.h"
 #include "util/intrusive_ptr.h"
 #include "util/linked_ptr.h"
+#include "core/scene/scene_manager.h"
+#include "core/scene/entity_factory.h"
+#include "core/scene/entity.h"
+#include "renderer/imgui/imgui.h"
 
 using namespace blowbox;
 
 BlowboxCore* blowbox_instance;
 Window* main_window;
 
-bool clicked = false;
+bool show_test_window = true;
+
+SharedPtr<Entity> root_child_entity;
+SharedPtr<Entity> some_entity;
+SharedPtr<Entity> some_child_entity;
+
+double previous_time = 0;
 
 void Run()
 {
     main_window = Get::MainWindow().get();
 
-    LinkedPtr<int> ptr(new int(5));
+    root_child_entity = EntityFactory::CreateEntity("Entity1");
+    EntityFactory::AddChildToParent(Get::SceneManager()->GetRootEntity(), root_child_entity);
+
+    some_entity = EntityFactory::CreateEntity("Entity2");
+    some_child_entity = EntityFactory::CreateEntity("Entity3");
+    EntityFactory::AddChildToParent(some_entity, some_child_entity);
+}
+
+void ImGuiSceneGraph(SharedPtr<Entity> entity)
+{
+    if (ImGui::TreeNode(entity->GetName().c_str()))
+    {
+        for (int i = 0; i < entity->GetChildren().size(); i++)
+        {
+            ImGuiSceneGraph(entity->GetChildren()[i]);
+        }
+
+        ImGui::TreePop();
+    }
 }
 
 void Update()
 {
-    if (main_window->GetMouseState().GetButtonPressed(MouseButton_4))
+    double delta_time = glfwGetTime() - previous_time;
+    previous_time = glfwGetTime();
+
+    ImGui::Begin("SceneGraph");
+
+    ImGuiSceneGraph(Get::SceneManager()->GetRootEntity());
+
+    ImGui::Text("All Entities in SceneManager:");
+
+    Vector<SharedPtr<Entity>>& entities = Get::SceneManager()->GetEntities();
+    for (int i = 0; i < entities.size(); i++)
     {
-        clicked = true;
+        ImGui::BulletText(entities[i]->GetName().c_str());
     }
 
-    if (clicked && main_window->GetMouseState().GetScrollDelta().y > 0.1f)
+    ImGui::Text("Delta time: %f seconds", delta_time);
+    ImGui::Text("FPS: %f", 1.0 / delta_time);
+
+    ImGui::End();
+
+    if (Get::MainWindow()->GetKeyboardState().GetKeyPressed(KeyCode_J))
     {
-        blowbox_instance->Shutdown();
+        EntityFactory::AddChildToParent(Get::SceneManager()->GetRootEntity(), some_entity);
+    }
+
+    if (Get::MainWindow()->GetKeyboardState().GetKeyPressed(KeyCode_K))
+    {
+        EntityFactory::RemoveChildFromParent(Get::SceneManager()->GetRootEntity(), some_entity);
     }
 }
 

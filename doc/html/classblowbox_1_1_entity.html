@@ -99,82 +99,770 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">blowbox::Entity Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="entity_8h_source.html">entity.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a33b67b9c77a75f02ef0832863c69fb9c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a33b67b9c77a75f02ef0832863c69fb9c"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Entity</b> (SharedPtr&lt; <a class="el" href="classblowbox_1_1_entity.html">Entity</a> &gt; parent)</td></tr>
-<tr class="separator:a33b67b9c77a75f02ef0832863c69fb9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a734fc8eadc6c1f881b0801feea081cf8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a734fc8eadc6c1f881b0801feea081cf8"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>SetLocalPosition</b> (const DirectX::XMFLOAT3 &amp;position)</td></tr>
+<tr class="memitem:a18ebbc3b15227c544db827b8fd968445"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_entity.html#a18ebbc3b15227c544db827b8fd968445">Entity</a> (const String &amp;name)</td></tr>
+<tr class="separator:a18ebbc3b15227c544db827b8fd968445"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a627ca90c0962aec073f477aab2937239"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_entity.html#a627ca90c0962aec073f477aab2937239">~Entity</a> ()</td></tr>
+<tr class="separator:a627ca90c0962aec073f477aab2937239"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a177d56a29e72172023a55e7005aef3da"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_entity.html#a177d56a29e72172023a55e7005aef3da">SetName</a> (const String &amp;name)</td></tr>
+<tr class="separator:a177d56a29e72172023a55e7005aef3da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a312e68a0fe45e51ca2dbc021d3459c60"><td class="memItemLeft" align="right" valign="top">const String &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_entity.html#a312e68a0fe45e51ca2dbc021d3459c60">GetName</a> () const </td></tr>
+<tr class="separator:a312e68a0fe45e51ca2dbc021d3459c60"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a734fc8eadc6c1f881b0801feea081cf8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_entity.html#a734fc8eadc6c1f881b0801feea081cf8">SetLocalPosition</a> (const DirectX::XMFLOAT3 &amp;position)</td></tr>
 <tr class="separator:a734fc8eadc6c1f881b0801feea081cf8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab48387ecb2f1b7395e33ef0ee0a834bc"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab48387ecb2f1b7395e33ef0ee0a834bc"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>SetLocalRotation</b> (const DirectX::XMFLOAT3 &amp;rotation)</td></tr>
+<tr class="memitem:ab48387ecb2f1b7395e33ef0ee0a834bc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_entity.html#ab48387ecb2f1b7395e33ef0ee0a834bc">SetLocalRotation</a> (const DirectX::XMFLOAT3 &amp;rotation)</td></tr>
 <tr class="separator:ab48387ecb2f1b7395e33ef0ee0a834bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abecaa51a1446dfde2a016647957f0263"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abecaa51a1446dfde2a016647957f0263"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>SetLocalScaling</b> (const DirectX::XMFLOAT3 &amp;scaling)</td></tr>
+<tr class="memitem:abecaa51a1446dfde2a016647957f0263"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_entity.html#abecaa51a1446dfde2a016647957f0263">SetLocalScaling</a> (const DirectX::XMFLOAT3 &amp;scaling)</td></tr>
 <tr class="separator:abecaa51a1446dfde2a016647957f0263"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a644cb8d78a57997d5ee71158d7f6c859"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a644cb8d78a57997d5ee71158d7f6c859"></a>
-const DirectX::XMFLOAT3 &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>GetLocalPosition</b> () const </td></tr>
+<tr class="memitem:a644cb8d78a57997d5ee71158d7f6c859"><td class="memItemLeft" align="right" valign="top">const DirectX::XMFLOAT3 &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_entity.html#a644cb8d78a57997d5ee71158d7f6c859">GetLocalPosition</a> () const </td></tr>
 <tr class="separator:a644cb8d78a57997d5ee71158d7f6c859"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abd7a1c72238d16af10dde573bbcf3b2b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abd7a1c72238d16af10dde573bbcf3b2b"></a>
-const DirectX::XMFLOAT3 &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>GetLocalRotation</b> () const </td></tr>
+<tr class="memitem:abd7a1c72238d16af10dde573bbcf3b2b"><td class="memItemLeft" align="right" valign="top">const DirectX::XMFLOAT3 &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_entity.html#abd7a1c72238d16af10dde573bbcf3b2b">GetLocalRotation</a> () const </td></tr>
 <tr class="separator:abd7a1c72238d16af10dde573bbcf3b2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1b35162772368aa6f8f0af374c7a6ad5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1b35162772368aa6f8f0af374c7a6ad5"></a>
-const DirectX::XMFLOAT3 &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>GetLocalScaling</b> () const </td></tr>
+<tr class="memitem:a1b35162772368aa6f8f0af374c7a6ad5"><td class="memItemLeft" align="right" valign="top">const DirectX::XMFLOAT3 &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_entity.html#a1b35162772368aa6f8f0af374c7a6ad5">GetLocalScaling</a> () const </td></tr>
 <tr class="separator:a1b35162772368aa6f8f0af374c7a6ad5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9a4b7ae731ab54fb3b48a7a510927509"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9a4b7ae731ab54fb3b48a7a510927509"></a>
-const DirectX::XMMATRIX &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>GetWorldTransform</b> ()</td></tr>
+<tr class="memitem:a9a4b7ae731ab54fb3b48a7a510927509"><td class="memItemLeft" align="right" valign="top">const DirectX::XMMATRIX &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_entity.html#a9a4b7ae731ab54fb3b48a7a510927509">GetWorldTransform</a> ()</td></tr>
 <tr class="separator:a9a4b7ae731ab54fb3b48a7a510927509"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adcdc239d768d06b1a5a29869674ac177"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adcdc239d768d06b1a5a29869674ac177"></a>
+const Vector&lt; SharedPtr&lt; <a class="el" href="classblowbox_1_1_entity.html">Entity</a> &gt; &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>GetChildren</b> () const </td></tr>
+<tr class="separator:adcdc239d768d06b1a5a29869674ac177"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:a89e958f98ef380ac685895fc2c7cbfc7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a89e958f98ef380ac685895fc2c7cbfc7"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>Init</b> ()</td></tr>
+<tr class="memitem:a89e958f98ef380ac685895fc2c7cbfc7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_entity.html#a89e958f98ef380ac685895fc2c7cbfc7">Init</a> ()</td></tr>
 <tr class="separator:a89e958f98ef380ac685895fc2c7cbfc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afe07807c738a15579883e0447c255e37"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afe07807c738a15579883e0447c255e37"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>Update</b> ()</td></tr>
+<tr class="memitem:afe07807c738a15579883e0447c255e37"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_entity.html#afe07807c738a15579883e0447c255e37">Update</a> ()</td></tr>
 <tr class="separator:afe07807c738a15579883e0447c255e37"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa70fae1d85146fd46e523003a4766722"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa70fae1d85146fd46e523003a4766722"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>Shutdown</b> ()</td></tr>
+<tr class="memitem:aa70fae1d85146fd46e523003a4766722"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_entity.html#aa70fae1d85146fd46e523003a4766722">Shutdown</a> ()</td></tr>
 <tr class="separator:aa70fae1d85146fd46e523003a4766722"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac110711ac804fc922eb5463aae741566"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac110711ac804fc922eb5463aae741566"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>IsTransformDirty</b> ()</td></tr>
+<tr class="memitem:ab8049e580ff4cd4b51e10ca5ee7ec321"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_entity.html#ab8049e580ff4cd4b51e10ca5ee7ec321">AddChild</a> (SharedPtr&lt; <a class="el" href="classblowbox_1_1_entity.html">Entity</a> &gt; entity)</td></tr>
+<tr class="separator:ab8049e580ff4cd4b51e10ca5ee7ec321"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae6961b40d7595f7ee57d98a73e72bebf"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_entity.html#ae6961b40d7595f7ee57d98a73e72bebf">RemoveChild</a> (SharedPtr&lt; <a class="el" href="classblowbox_1_1_entity.html">Entity</a> &gt; entity)</td></tr>
+<tr class="separator:ae6961b40d7595f7ee57d98a73e72bebf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae2f85b0d1cd1fe816b3ff2087abef40"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_entity.html#aae2f85b0d1cd1fe816b3ff2087abef40">SetInScene</a> (bool in_scene)</td></tr>
+<tr class="separator:aae2f85b0d1cd1fe816b3ff2087abef40"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a030a370f246b29aa6f6248f4e0adf1b7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_entity.html#a030a370f246b29aa6f6248f4e0adf1b7">GetInScene</a> () const </td></tr>
+<tr class="separator:a030a370f246b29aa6f6248f4e0adf1b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac110711ac804fc922eb5463aae741566"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_entity.html#ac110711ac804fc922eb5463aae741566">IsTransformDirty</a> ()</td></tr>
 <tr class="separator:ac110711ac804fc922eb5463aae741566"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abd7affa1b121de3b7531d03e92377edf"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abd7affa1b121de3b7531d03e92377edf"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>UpdateWorldTransform</b> ()</td></tr>
+<tr class="memitem:abd7affa1b121de3b7531d03e92377edf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_entity.html#abd7affa1b121de3b7531d03e92377edf">UpdateWorldTransform</a> ()</td></tr>
 <tr class="separator:abd7affa1b121de3b7531d03e92377edf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a82a387b04fee37e4189f7f3588150e69"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a82a387b04fee37e4189f7f3588150e69"></a>
-SharedPtr&lt; <a class="el" href="classblowbox_1_1_entity.html">Entity</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>parent_</b></td></tr>
+<tr class="memitem:a030a261ea7ab70d4ba8a9af965355070"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_entity.html#a030a261ea7ab70d4ba8a9af965355070">name_</a></td></tr>
+<tr class="separator:a030a261ea7ab70d4ba8a9af965355070"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a82a387b04fee37e4189f7f3588150e69"><td class="memItemLeft" align="right" valign="top">SharedPtr&lt; <a class="el" href="classblowbox_1_1_entity.html">Entity</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_entity.html#a82a387b04fee37e4189f7f3588150e69">parent_</a></td></tr>
 <tr class="separator:a82a387b04fee37e4189f7f3588150e69"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adde294684e1f2a435c70fe8022cd0d92"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adde294684e1f2a435c70fe8022cd0d92"></a>
-Vector&lt; SharedPtr&lt; <a class="el" href="classblowbox_1_1_entity.html">Entity</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>children_</b></td></tr>
+<tr class="memitem:adde294684e1f2a435c70fe8022cd0d92"><td class="memItemLeft" align="right" valign="top">Vector&lt; SharedPtr&lt; <a class="el" href="classblowbox_1_1_entity.html">Entity</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_entity.html#adde294684e1f2a435c70fe8022cd0d92">children_</a></td></tr>
 <tr class="separator:adde294684e1f2a435c70fe8022cd0d92"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abb7fe7f77e5278c2c6371c314d876294"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abb7fe7f77e5278c2c6371c314d876294"></a>
-DirectX::XMFLOAT3&#160;</td><td class="memItemRight" valign="bottom"><b>position_</b></td></tr>
+<tr class="memitem:abb7fe7f77e5278c2c6371c314d876294"><td class="memItemLeft" align="right" valign="top">DirectX::XMFLOAT3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_entity.html#abb7fe7f77e5278c2c6371c314d876294">position_</a></td></tr>
 <tr class="separator:abb7fe7f77e5278c2c6371c314d876294"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aabb5b2bfb9095b530265df58b2f4186c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aabb5b2bfb9095b530265df58b2f4186c"></a>
-DirectX::XMFLOAT3&#160;</td><td class="memItemRight" valign="bottom"><b>rotation_</b></td></tr>
+<tr class="memitem:aabb5b2bfb9095b530265df58b2f4186c"><td class="memItemLeft" align="right" valign="top">DirectX::XMFLOAT3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_entity.html#aabb5b2bfb9095b530265df58b2f4186c">rotation_</a></td></tr>
 <tr class="separator:aabb5b2bfb9095b530265df58b2f4186c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a706ace6bd1b38ed1a1e3157516cf4f6d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a706ace6bd1b38ed1a1e3157516cf4f6d"></a>
-DirectX::XMFLOAT3&#160;</td><td class="memItemRight" valign="bottom"><b>scaling_</b></td></tr>
+<tr class="memitem:a706ace6bd1b38ed1a1e3157516cf4f6d"><td class="memItemLeft" align="right" valign="top">DirectX::XMFLOAT3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_entity.html#a706ace6bd1b38ed1a1e3157516cf4f6d">scaling_</a></td></tr>
 <tr class="separator:a706ace6bd1b38ed1a1e3157516cf4f6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aac40a0d9fb9a14b8e1c5124901a31467"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aac40a0d9fb9a14b8e1c5124901a31467"></a>
-DirectX::XMMATRIX&#160;</td><td class="memItemRight" valign="bottom"><b>world_transform_</b></td></tr>
+<tr class="memitem:aac40a0d9fb9a14b8e1c5124901a31467"><td class="memItemLeft" align="right" valign="top">DirectX::XMMATRIX&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_entity.html#aac40a0d9fb9a14b8e1c5124901a31467">world_transform_</a></td></tr>
 <tr class="separator:aac40a0d9fb9a14b8e1c5124901a31467"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af5d2e2d91e20ca928f9b98542e644809"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af5d2e2d91e20ca928f9b98542e644809"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>transform_dirty_</b></td></tr>
+<tr class="memitem:af5d2e2d91e20ca928f9b98542e644809"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_entity.html#af5d2e2d91e20ca928f9b98542e644809">transform_dirty_</a></td></tr>
 <tr class="separator:af5d2e2d91e20ca928f9b98542e644809"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc0625383af6c9f3ed4b72a3d92c7e18"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_entity.html#afc0625383af6c9f3ed4b72a3d92c7e18">in_scene_</a></td></tr>
+<tr class="separator:afc0625383af6c9f3ed4b72a3d92c7e18"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
 Friends</h2></td></tr>
 <tr class="memitem:a284464b0561a6f2915f04b0245b987f0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a284464b0561a6f2915f04b0245b987f0"></a>
 class&#160;</td><td class="memItemRight" valign="bottom"><b>SceneManager</b></td></tr>
 <tr class="separator:a284464b0561a6f2915f04b0245b987f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ebd07b4b60153d4b7a405e1fe75419b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6ebd07b4b60153d4b7a405e1fe75419b"></a>
+class&#160;</td><td class="memItemRight" valign="bottom"><b>EntityFactory</b></td></tr>
+<tr class="separator:a6ebd07b4b60153d4b7a405e1fe75419b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>The Blowbox equivalent of a game object. </p>
+<p>An <a class="el" href="classblowbox_1_1_entity.html" title="The Blowbox equivalent of a game object. ">Entity</a> is the Blowbox equivalent of a game object. It has everything in it that you need. There are no components. Every <a class="el" href="classblowbox_1_1_entity.html" title="The Blowbox equivalent of a game object. ">Entity</a> has the same layout and same functionality: it allows you to render something into the scene. It contains a transform, and it is part of a scene graph. It is recommended that you construct an <a class="el" href="classblowbox_1_1_entity.html" title="The Blowbox equivalent of a game object. ">Entity</a> through the <a class="el" href="classblowbox_1_1_entity_factory.html" title="Factory for creating Entity instances and managing Entity children. ">EntityFactory</a> instead of doing it through the <a class="el" href="classblowbox_1_1_entity.html#a18ebbc3b15227c544db827b8fd968445" title="Constructs an Entity. ">Entity::Entity()</a> constructor. However, it is very much possible to create an <a class="el" href="classblowbox_1_1_entity.html" title="The Blowbox equivalent of a game object. ">Entity</a> through its constructor. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a18ebbc3b15227c544db827b8fd968445"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">blowbox::Entity::Entity </td>
+          <td>(</td>
+          <td class="paramtype">const String &amp;&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constructs an <a class="el" href="classblowbox_1_1_entity.html" title="The Blowbox equivalent of a game object. ">Entity</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">name</td><td>The name of this <a class="el" href="classblowbox_1_1_entity.html" title="The Blowbox equivalent of a game object. ">Entity</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a627ca90c0962aec073f477aab2937239"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">blowbox::Entity::~Entity </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Destructs the <a class="el" href="classblowbox_1_1_entity.html" title="The Blowbox equivalent of a game object. ">Entity</a>. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="ab8049e580ff4cd4b51e10ca5ee7ec321"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool blowbox::Entity::AddChild </td>
+          <td>(</td>
+          <td class="paramtype">SharedPtr&lt; <a class="el" href="classblowbox_1_1_entity.html">Entity</a> &gt;&#160;</td>
+          <td class="paramname"><em>entity</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Adds a child <a class="el" href="classblowbox_1_1_entity.html" title="The Blowbox equivalent of a game object. ">Entity</a> to this <a class="el" href="classblowbox_1_1_entity.html" title="The Blowbox equivalent of a game object. ">Entity</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">entity</td><td>The child <a class="el" href="classblowbox_1_1_entity.html" title="The Blowbox equivalent of a game object. ">Entity</a> that should be added to this <a class="el" href="classblowbox_1_1_entity.html" title="The Blowbox equivalent of a game object. ">Entity</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Whether the child <a class="el" href="classblowbox_1_1_entity.html" title="The Blowbox equivalent of a game object. ">Entity</a> was successfully added </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a030a370f246b29aa6f6248f4e0adf1b7"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool blowbox::Entity::GetInScene </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns whether the <a class="el" href="classblowbox_1_1_entity.html" title="The Blowbox equivalent of a game object. ">Entity</a> is present in the <a class="el" href="classblowbox_1_1_scene_manager.html" title="Manages the entire scene. ">SceneManager</a>. </p>
+<dl class="section return"><dt>Returns</dt><dd>Whether the <a class="el" href="classblowbox_1_1_entity.html" title="The Blowbox equivalent of a game object. ">Entity</a> exists in the <a class="el" href="classblowbox_1_1_scene_manager.html" title="Manages the entire scene. ">SceneManager</a>. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a644cb8d78a57997d5ee71158d7f6c859"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const DirectX::XMFLOAT3 &amp; blowbox::Entity::GetLocalPosition </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the local position of this <a class="el" href="classblowbox_1_1_entity.html" title="The Blowbox equivalent of a game object. ">Entity</a>. </p>
+<dl class="section return"><dt>Returns</dt><dd>The local position of this <a class="el" href="classblowbox_1_1_entity.html" title="The Blowbox equivalent of a game object. ">Entity</a>. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="abd7a1c72238d16af10dde573bbcf3b2b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const DirectX::XMFLOAT3 &amp; blowbox::Entity::GetLocalRotation </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the local rotation of this <a class="el" href="classblowbox_1_1_entity.html" title="The Blowbox equivalent of a game object. ">Entity</a>. </p>
+<dl class="section return"><dt>Returns</dt><dd>The local rotation of this <a class="el" href="classblowbox_1_1_entity.html" title="The Blowbox equivalent of a game object. ">Entity</a>. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a1b35162772368aa6f8f0af374c7a6ad5"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const DirectX::XMFLOAT3 &amp; blowbox::Entity::GetLocalScaling </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the local scaling of this <a class="el" href="classblowbox_1_1_entity.html" title="The Blowbox equivalent of a game object. ">Entity</a>. </p>
+<dl class="section return"><dt>Returns</dt><dd>The local scaling of this <a class="el" href="classblowbox_1_1_entity.html" title="The Blowbox equivalent of a game object. ">Entity</a>. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a312e68a0fe45e51ca2dbc021d3459c60"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const String &amp; blowbox::Entity::GetName </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the name of this <a class="el" href="classblowbox_1_1_entity.html" title="The Blowbox equivalent of a game object. ">Entity</a>. </p>
+<dl class="section return"><dt>Returns</dt><dd>The name of this <a class="el" href="classblowbox_1_1_entity.html" title="The Blowbox equivalent of a game object. ">Entity</a>. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a9a4b7ae731ab54fb3b48a7a510927509"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const DirectX::XMMATRIX &amp; blowbox::Entity::GetWorldTransform </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the world transform of this <a class="el" href="classblowbox_1_1_entity.html" title="The Blowbox equivalent of a game object. ">Entity</a>. </p>
+<dl class="section return"><dt>Returns</dt><dd>The world transform of this <a class="el" href="classblowbox_1_1_entity.html" title="The Blowbox equivalent of a game object. ">Entity</a>. </dd></dl>
+<dl class="section remark"><dt>Remarks</dt><dd>This function is not marked const because it might calculate the world transform upon call of this function, depending on whether the current transform is dirty. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a89e958f98ef380ac685895fc2c7cbfc7"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void blowbox::Entity::Init </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Initialises the <a class="el" href="classblowbox_1_1_entity.html" title="The Blowbox equivalent of a game object. ">Entity</a>. </p>
+
+</div>
+</div>
+<a class="anchor" id="ac110711ac804fc922eb5463aae741566"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool blowbox::Entity::IsTransformDirty </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns whether the transform is dirty. </p>
+<dl class="section return"><dt>Returns</dt><dd>Whether the transform is dirty. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ae6961b40d7595f7ee57d98a73e72bebf"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool blowbox::Entity::RemoveChild </td>
+          <td>(</td>
+          <td class="paramtype">SharedPtr&lt; <a class="el" href="classblowbox_1_1_entity.html">Entity</a> &gt;&#160;</td>
+          <td class="paramname"><em>entity</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Removes a child <a class="el" href="classblowbox_1_1_entity.html" title="The Blowbox equivalent of a game object. ">Entity</a> from this <a class="el" href="classblowbox_1_1_entity.html" title="The Blowbox equivalent of a game object. ">Entity</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">entity</td><td>The child <a class="el" href="classblowbox_1_1_entity.html" title="The Blowbox equivalent of a game object. ">Entity</a> that should be removed from this <a class="el" href="classblowbox_1_1_entity.html" title="The Blowbox equivalent of a game object. ">Entity</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Whether the child <a class="el" href="classblowbox_1_1_entity.html" title="The Blowbox equivalent of a game object. ">Entity</a> was successfully removed </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="aae2f85b0d1cd1fe816b3ff2087abef40"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void blowbox::Entity::SetInScene </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>in_scene</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets whether the <a class="el" href="classblowbox_1_1_entity.html" title="The Blowbox equivalent of a game object. ">Entity</a> is present in the <a class="el" href="classblowbox_1_1_scene_manager.html" title="Manages the entire scene. ">SceneManager</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">in_scene</td><td>Whether the <a class="el" href="classblowbox_1_1_entity.html" title="The Blowbox equivalent of a game object. ">Entity</a> exists in the <a class="el" href="classblowbox_1_1_scene_manager.html" title="Manages the entire scene. ">SceneManager</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a734fc8eadc6c1f881b0801feea081cf8"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void blowbox::Entity::SetLocalPosition </td>
+          <td>(</td>
+          <td class="paramtype">const DirectX::XMFLOAT3 &amp;&#160;</td>
+          <td class="paramname"><em>position</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets the local position of this <a class="el" href="classblowbox_1_1_entity.html" title="The Blowbox equivalent of a game object. ">Entity</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">position</td><td>The new local position for this <a class="el" href="classblowbox_1_1_entity.html" title="The Blowbox equivalent of a game object. ">Entity</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ab48387ecb2f1b7395e33ef0ee0a834bc"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void blowbox::Entity::SetLocalRotation </td>
+          <td>(</td>
+          <td class="paramtype">const DirectX::XMFLOAT3 &amp;&#160;</td>
+          <td class="paramname"><em>rotation</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets the local rotation of this <a class="el" href="classblowbox_1_1_entity.html" title="The Blowbox equivalent of a game object. ">Entity</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">rotation</td><td>The new local rotation for this <a class="el" href="classblowbox_1_1_entity.html" title="The Blowbox equivalent of a game object. ">Entity</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="abecaa51a1446dfde2a016647957f0263"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void blowbox::Entity::SetLocalScaling </td>
+          <td>(</td>
+          <td class="paramtype">const DirectX::XMFLOAT3 &amp;&#160;</td>
+          <td class="paramname"><em>scaling</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets the local scaling of this <a class="el" href="classblowbox_1_1_entity.html" title="The Blowbox equivalent of a game object. ">Entity</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">scaling</td><td>The new local scaling for this <a class="el" href="classblowbox_1_1_entity.html" title="The Blowbox equivalent of a game object. ">Entity</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a177d56a29e72172023a55e7005aef3da"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void blowbox::Entity::SetName </td>
+          <td>(</td>
+          <td class="paramtype">const String &amp;&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets the name of this <a class="el" href="classblowbox_1_1_entity.html" title="The Blowbox equivalent of a game object. ">Entity</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">name</td><td>The new name of this <a class="el" href="classblowbox_1_1_entity.html" title="The Blowbox equivalent of a game object. ">Entity</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="aa70fae1d85146fd46e523003a4766722"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void blowbox::Entity::Shutdown </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Shuts down the <a class="el" href="classblowbox_1_1_entity.html" title="The Blowbox equivalent of a game object. ">Entity</a>. </p>
+
+</div>
+</div>
+<a class="anchor" id="afe07807c738a15579883e0447c255e37"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void blowbox::Entity::Update </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Updates the <a class="el" href="classblowbox_1_1_entity.html" title="The Blowbox equivalent of a game object. ">Entity</a>. </p>
+
+</div>
+</div>
+<a class="anchor" id="abd7affa1b121de3b7531d03e92377edf"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void blowbox::Entity::UpdateWorldTransform </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Updates the world transform based on current position, rotation and scaling. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="adde294684e1f2a435c70fe8022cd0d92"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Vector&lt;SharedPtr&lt;<a class="el" href="classblowbox_1_1_entity.html">Entity</a>&gt; &gt; blowbox::Entity::children_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>All the children of this <a class="el" href="classblowbox_1_1_entity.html" title="The Blowbox equivalent of a game object. ">Entity</a>. </p>
+
+</div>
+</div>
+<a class="anchor" id="afc0625383af6c9f3ed4b72a3d92c7e18"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool blowbox::Entity::in_scene_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Flag that determines whether this <a class="el" href="classblowbox_1_1_entity.html" title="The Blowbox equivalent of a game object. ">Entity</a> exists in the <a class="el" href="classblowbox_1_1_scene_manager.html" title="Manages the entire scene. ">SceneManager</a>. </p>
+
+</div>
+</div>
+<a class="anchor" id="a030a261ea7ab70d4ba8a9af965355070"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">String blowbox::Entity::name_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The name of this <a class="el" href="classblowbox_1_1_entity.html" title="The Blowbox equivalent of a game object. ">Entity</a>. </p>
+
+</div>
+</div>
+<a class="anchor" id="a82a387b04fee37e4189f7f3588150e69"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">SharedPtr&lt;<a class="el" href="classblowbox_1_1_entity.html">Entity</a>&gt; blowbox::Entity::parent_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The parent of this <a class="el" href="classblowbox_1_1_entity.html" title="The Blowbox equivalent of a game object. ">Entity</a>. </p>
+
+</div>
+</div>
+<a class="anchor" id="abb7fe7f77e5278c2c6371c314d876294"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">DirectX::XMFLOAT3 blowbox::Entity::position_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The local position of this <a class="el" href="classblowbox_1_1_entity.html" title="The Blowbox equivalent of a game object. ">Entity</a>. </p>
+
+</div>
+</div>
+<a class="anchor" id="aabb5b2bfb9095b530265df58b2f4186c"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">DirectX::XMFLOAT3 blowbox::Entity::rotation_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The local rotation of this <a class="el" href="classblowbox_1_1_entity.html" title="The Blowbox equivalent of a game object. ">Entity</a>. </p>
+
+</div>
+</div>
+<a class="anchor" id="a706ace6bd1b38ed1a1e3157516cf4f6d"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">DirectX::XMFLOAT3 blowbox::Entity::scaling_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The local scaling of this <a class="el" href="classblowbox_1_1_entity.html" title="The Blowbox equivalent of a game object. ">Entity</a>. </p>
+
+</div>
+</div>
+<a class="anchor" id="af5d2e2d91e20ca928f9b98542e644809"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool blowbox::Entity::transform_dirty_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Whether the current world_transform_ is dirty (i.e. position/rotation/scaling changed). </p>
+
+</div>
+</div>
+<a class="anchor" id="aac40a0d9fb9a14b8e1c5124901a31467"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">DirectX::XMMATRIX blowbox::Entity::world_transform_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The world transform of this <a class="el" href="classblowbox_1_1_entity.html" title="The Blowbox equivalent of a game object. ">Entity</a>. </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>E:/Projects/blowbox-2017/src/core/scene/<a class="el" href="entity_8h_source.html">entity.h</a></li>
 <li>E:/Projects/blowbox-2017/src/core/scene/entity.cc</li>
@@ -182,7 +870,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>SceneManager</b></td
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jul 14 2017 13:53:55 for Blowbox 2017 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Jul 14 2017 19:10:30 for Blowbox 2017 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

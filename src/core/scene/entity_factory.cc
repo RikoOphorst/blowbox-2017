@@ -7,20 +7,39 @@
 namespace blowbox
 {
     //------------------------------------------------------------------------------------------------------
-    SharedPtr<Entity> EntityFactory::CreateEntity()
+    SharedPtr<Entity> EntityFactory::CreateEntity(const String& name)
     {
-        SharedPtr<Entity> entity(new Entity());
-        Get::SceneManager()->AddEntity(entity);
-
-        return entity;
+        return eastl::make_shared<Entity>(name);
     }
 
     //------------------------------------------------------------------------------------------------------
-    SharedPtr<Entity> EntityFactory::CreateEntity(SharedPtr<Entity> parent)
+    SharedPtr<Entity> EntityFactory::CreateEntity(const String& name, SharedPtr<Entity> parent)
     {
-        SharedPtr<Entity> entity(new Entity(parent));
-        Get::SceneManager()->AddEntity(entity);
+        SharedPtr<Entity> new_entity = eastl::make_shared<Entity>(name);
+        AddChildToEntity(parent, new_entity);
 
-        return entity;
+        return new_entity;
+    }
+    
+    //------------------------------------------------------------------------------------------------------
+    void EntityFactory::AddChildToEntity(SharedPtr<Entity> entity, SharedPtr<Entity> child)
+    {
+        bool add_succeeded = entity->AddChild(child);
+
+        if (entity->GetInScene() == true && child->GetInScene() == false)
+        {
+            Get::SceneManager()->AddEntity(child);
+        }
+    }
+    
+    //------------------------------------------------------------------------------------------------------
+    void EntityFactory::RemoveChildFromEntity(SharedPtr<Entity> entity, SharedPtr<Entity> child)
+    {
+        bool remove_succeeded = entity->RemoveChild(child);
+
+        if (remove_succeeded == true && child->GetInScene() == true)
+        {
+            Get::SceneManager()->RemoveEntity(child);
+        }
     }
 }

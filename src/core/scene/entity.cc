@@ -1,34 +1,39 @@
 #include "entity.h"
 
+#include "core/scene/scene_manager.h"
+#include "core/get.h"
+
 namespace blowbox
 {
     //------------------------------------------------------------------------------------------------------
-    Entity::Entity() :
-        position_(DirectX::XMFLOAT3(0.0f, 0.0f, 0.0f)),
-        rotation_(DirectX::XMFLOAT3(0.0f, 0.0f, 0.0f)),
-        scaling_(DirectX::XMFLOAT3(1.0f, 1.0f, 1.0f)),
-        world_transform_(DirectX::XMMatrixIdentity()),
-        transform_dirty_(true)
-    {
-
-    }
-
-    //------------------------------------------------------------------------------------------------------
-    Entity::Entity(SharedPtr<Entity> parent) :
+    Entity::Entity(const String& name) :
         position_(DirectX::XMFLOAT3(0.0f, 0.0f, 0.0f)),
         rotation_(DirectX::XMFLOAT3(0.0f, 0.0f, 0.0f)),
         scaling_(DirectX::XMFLOAT3(1.0f, 1.0f, 1.0f)),
         world_transform_(DirectX::XMMatrixIdentity()),
         transform_dirty_(true),
-        parent_(parent)
+        in_scene_(false),
+        name_(name)
     {
-        parent_ = parent;
+
     }
     
     //------------------------------------------------------------------------------------------------------
     Entity::~Entity()
     {
 
+    }
+
+    //------------------------------------------------------------------------------------------------------
+    void Entity::SetName(const String& name)
+    {
+        name_ = name;
+    }
+
+    //------------------------------------------------------------------------------------------------------
+    const String& Entity::GetName() const
+    {
+        return name_;
     }
 
 	//------------------------------------------------------------------------------------------------------
@@ -82,6 +87,12 @@ namespace blowbox
     }
 
     //------------------------------------------------------------------------------------------------------
+    const Vector<SharedPtr<Entity>>& Entity::GetChildren() const
+    {
+        return children_;
+    }
+
+    //------------------------------------------------------------------------------------------------------
     void Entity::Init()
     {
 
@@ -100,6 +111,55 @@ namespace blowbox
     void Entity::Shutdown()
     {
 
+    }
+
+    //------------------------------------------------------------------------------------------------------
+    bool Entity::AddChild(SharedPtr<Entity> entity)
+    {
+#ifdef _DEBUG
+        for (int i = 0; i < children_.size(); i++)
+        {
+            if (children_[i] == entity)
+            {
+                return false;
+            }
+        }
+#endif
+
+        children_.push_back(entity);
+        return true;
+    }
+
+    //------------------------------------------------------------------------------------------------------
+    bool Entity::RemoveChild(SharedPtr<Entity> entity)
+    {
+        for (int i = 0; i < children_.size(); i++)
+        {
+            if (children_[i] == entity)
+            {
+                children_.erase(children_.begin() + i);
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    //------------------------------------------------------------------------------------------------------
+    void Entity::SetInScene(bool in_scene)
+    {
+        in_scene_ = in_scene;
+
+        for (int i = 0; i < children_.size(); i++)
+        {
+            children_[i]->SetInScene(in_scene);
+        }
+    }
+
+    //------------------------------------------------------------------------------------------------------
+    bool Entity::GetInScene() const
+    {
+        return in_scene_;
     }
 	
 	//------------------------------------------------------------------------------------------------------

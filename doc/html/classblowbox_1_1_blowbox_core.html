@@ -138,12 +138,16 @@ Protected Member Functions</h2></td></tr>
 <tr class="separator:a0366b583ba6b47baa742332f29c15181"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa1ec5ad781bf68f025f80a7c0a5f3605"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_blowbox_core.html#aa1ec5ad781bf68f025f80a7c0a5f3605">StartupRenderer</a> ()</td></tr>
 <tr class="separator:aa1ec5ad781bf68f025f80a7c0a5f3605"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad2db07b68b94cfcbb35e81bed792140f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_blowbox_core.html#ad2db07b68b94cfcbb35e81bed792140f">StartupScene</a> ()</td></tr>
+<tr class="separator:ad2db07b68b94cfcbb35e81bed792140f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9591e961af54514c96fae637bb44bdb9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_blowbox_core.html#a9591e961af54514c96fae637bb44bdb9">ShutdownGetter</a> ()</td></tr>
 <tr class="separator:a9591e961af54514c96fae637bb44bdb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4655a2c211c0c5a409cf67dd4cbabbbc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_blowbox_core.html#a4655a2c211c0c5a409cf67dd4cbabbbc">ShutdownWin32</a> ()</td></tr>
 <tr class="separator:a4655a2c211c0c5a409cf67dd4cbabbbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa361b88c78e195c7bbf8d9710d4a84cc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_blowbox_core.html#aa361b88c78e195c7bbf8d9710d4a84cc">ShutdownRenderer</a> ()</td></tr>
 <tr class="separator:aa361b88c78e195c7bbf8d9710d4a84cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7963f5148eae6b77f6d2ea8908fd0aa8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_blowbox_core.html#a7963f5148eae6b77f6d2ea8908fd0aa8">ShutdownScene</a> ()</td></tr>
+<tr class="separator:a7963f5148eae6b77f6d2ea8908fd0aa8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad6fb87b904a1bb97f7fb70ecd2bb47b6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_blowbox_core.html#ad6fb87b904a1bb97f7fb70ecd2bb47b6">Update</a> ()</td></tr>
 <tr class="separator:ad6fb87b904a1bb97f7fb70ecd2bb47b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af4f2e59912b6c9e191dac8b84faf3636"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_blowbox_core.html#af4f2e59912b6c9e191dac8b84faf3636">Render</a> ()</td></tr>
@@ -575,6 +579,31 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a7963f5148eae6b77f6d2ea8908fd0aa8"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void blowbox::BlowboxCore::ShutdownScene </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Shuts down the Scene subsystems. </p>
+
+</div>
+</div>
 <a class="anchor" id="a4655a2c211c0c5a409cf67dd4cbabbbc"></a>
 <div class="memitem">
 <div class="memproto">
@@ -622,7 +651,6 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Starts up the Getter system. </p>
-<p>The <a class="el" href="classblowbox_1_1_get.html" title="This class is meant to provide simple access to all managers in engine. ">Get</a> class gets initialized by this function. All subsystems are properly assigned their place in the <a class="el" href="classblowbox_1_1_get.html" title="This class is meant to provide simple access to all managers in engine. ">Get</a> class. </p>
 
 </div>
 </div>
@@ -648,7 +676,31 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Starts up the Renderer subsystems. </p>
-<p>Starts up all Renderer subsystems, such as the <a class="el" href="classblowbox_1_1_device.html">Device</a>, <a class="el" href="classblowbox_1_1_swap_chain.html">SwapChain</a>, DescriptorHeaps, etc. Everything will be configured according to the <a class="el" href="structblowbox_1_1_blowbox_config.html" title="Configuration of Blowbox. ">BlowboxConfig</a>. </p>
+
+</div>
+</div>
+<a class="anchor" id="ad2db07b68b94cfcbb35e81bed792140f"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void blowbox::BlowboxCore::StartupScene </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Starts up the Scene subsystems. </p>
 
 </div>
 </div>
@@ -674,7 +726,6 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Starts up the Win32 subsystems. </p>
-<p>Starts up all Win32 subsystems such as the <a class="el" href="classblowbox_1_1_g_l_f_w_manager.html" title="Manages all GLFW state such as global initialization / termination, event polling, etc. ">GLFWManager</a> and the main <a class="el" href="classblowbox_1_1_window.html" title="A window is meant to create a window that can be used for rendering. It opens a GUI window...">Window</a> instance. All systems will be configured correctly. </p>
 
 </div>
 </div>
@@ -987,7 +1038,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>The <a class="el" href="classblowbox_1_1_scene_manager.html">SceneManager</a> instance. </p>
+<p>The <a class="el" href="classblowbox_1_1_scene_manager.html" title="Manages the entire scene. ">SceneManager</a> instance. </p>
 
 </div>
 </div>
@@ -1196,7 +1247,7 @@ Private Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jul 14 2017 13:53:55 for Blowbox 2017 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Jul 14 2017 19:10:30 for Blowbox 2017 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

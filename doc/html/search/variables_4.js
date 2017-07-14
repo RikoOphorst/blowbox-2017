@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['file_5fcontent_5f',['file_content_',['../classblowbox_1_1_text_file.html#a65ef4c992da11417f3d919a072394aad',1,'blowbox::TextFile']]],
-  ['file_5fpath_5f',['file_path_',['../classblowbox_1_1_text_file.html#ae477a9a79b422bba7ea63b4814fbce5c',1,'blowbox::TextFile']]],
-  ['finalized_5f',['finalized_',['../classblowbox_1_1_get.html#adeb761026ed282e06cc6295c2330b64c',1,'blowbox::Get']]],
-  ['forward_5frenderer_5f',['forward_renderer_',['../classblowbox_1_1_get.html#a020dc7a4adf73147a4327192ff8e13c1',1,'blowbox::Get']]]
+  ['enable_5fimgui',['enable_imgui',['../structblowbox_1_1_blowbox_config.html#a80a2bf374c164b8ef1e0f2fa4dc7eeee',1,'blowbox::BlowboxConfig']]],
+  ['entities_5fto_5fbe_5fadded_5f',['entities_to_be_added_',['../classblowbox_1_1_scene_manager.html#a33127a36af0eeffa719e7edb9c1b4380',1,'blowbox::SceneManager']]],
+  ['entities_5fto_5fbe_5fremoved_5f',['entities_to_be_removed_',['../classblowbox_1_1_scene_manager.html#a6f7172aa4384edadf26623ed26c331eb',1,'blowbox::SceneManager']]]
 ];

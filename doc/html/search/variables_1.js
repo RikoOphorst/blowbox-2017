@@ -1,7 +1,4 @@
 var searchData=
 [
-  ['cbv_5fsrv_5fuav_5fdescriptor_5fheap_5f',['cbv_srv_uav_descriptor_heap_',['../classblowbox_1_1_get.html#a3a6909c5c7d586191fd34382d4898648',1,'blowbox::Get']]],
-  ['command_5fcontext_5fmanager_5f',['command_context_manager_',['../classblowbox_1_1_get.html#a8359d0e3975104092897ec9e32538899',1,'blowbox::Get']]],
-  ['command_5fmanager_5f',['command_manager_',['../classblowbox_1_1_get.html#a80cd3e5e33e19a9e9b9c42ec4cee0c7a',1,'blowbox::Get']]],
-  ['config_5f',['config_',['../classblowbox_1_1_blowbox_core.html#a0378f38e66c1b6809853e93eb5e1d589',1,'blowbox::BlowboxCore']]]
+  ['blowbox_5fcore_5f',['blowbox_core_',['../classblowbox_1_1_get.html#a149ae9a4c0bf69b52c8643995cb3d90a',1,'blowbox::Get']]]
 ];

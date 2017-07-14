@@ -1,5 +1,7 @@
 #include "scene_manager.h"
 
+#include "core/scene/entity_factory.h"
+
 namespace blowbox
 {
     //------------------------------------------------------------------------------------------------------
@@ -14,6 +16,14 @@ namespace blowbox
 
     }
     
+    //------------------------------------------------------------------------------------------------------
+    void SceneManager::Startup()
+    {
+        root_entity_ = EntityFactory::CreateEntity("RootEntity");
+        root_entity_->SetInScene(true);
+        all_entities_.push_back(root_entity_);
+    }
+
     //------------------------------------------------------------------------------------------------------
     void SceneManager::Update()
     {
@@ -34,6 +44,7 @@ namespace blowbox
             {
                 if (all_entities_[i] == entity)
                 {
+                    all_entities_[i]->SetInScene(false);
                     all_entities_.erase(all_entities_.begin() + i);
                     break;
                 }
@@ -44,32 +55,43 @@ namespace blowbox
 
         while (!entities_to_be_added_.empty())
         {
-            SharedPtr<Entity> entity = entities_to_be_removed_.front();
+            SharedPtr<Entity> entity = entities_to_be_added_.front();
+            entity->SetInScene(true);
             all_entities_.push_back(entity);
             entities_to_be_added_.pop();
         }
     }
 
     //------------------------------------------------------------------------------------------------------
+    void SceneManager::Shutdown()
+    {
+
+    }
+
+    //------------------------------------------------------------------------------------------------------
     void SceneManager::AddEntity(SharedPtr<Entity> entity)
     {
         entities_to_be_added_.push(entity);
+
+        for (int i = 0; i < entity->children_.size(); i++)
+        {
+            AddEntity(entity->children_[i]);
+        }
     }
 
     //------------------------------------------------------------------------------------------------------
     void SceneManager::RemoveEntity(SharedPtr<Entity> entity)
     {
         entities_to_be_removed_.push(entity);
+
+        for (int i = 0; i < entity->children_.size(); i++)
+        {
+            RemoveEntity(entity->children_[i]);
+        }
     }
     
     //------------------------------------------------------------------------------------------------------
-    SharedPtr<Entity>& SceneManager::GetRootEntity()
-    {
-        return root_entity_;
-    }
-    
-    //------------------------------------------------------------------------------------------------------
-    const SharedPtr<Entity>& SceneManager::GetRootEntity() const
+    SharedPtr<Entity> SceneManager::GetRootEntity()
     {
         return root_entity_;
     }

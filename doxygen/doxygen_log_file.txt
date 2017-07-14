@@ -11,7 +11,6 @@ E:/Projects/blowbox-2017/src/renderer/descriptor_heap.h:17: warning: Compound bl
 E:/Projects/blowbox-2017/src/renderer/commands/command_context.h:46: warning: Compound blowbox::CommandContext is not documented.
 E:/Projects/blowbox-2017/src/renderer/shader.h:18: warning: Compound blowbox::Shader is not documented.
 E:/Projects/blowbox-2017/src/renderer/swap_chain.h:13: warning: Compound blowbox::SwapChain is not documented.
-E:/Projects/blowbox-2017/src/core/scene/entity_factory.h:10: warning: Compound blowbox::EntityFactory is not documented.
 E:/Projects/blowbox-2017/src/renderer/material.h:10: warning: Compound blowbox::Material is not documented.
 E:/Projects/blowbox-2017/src/renderer/root_signature.h:38: warning: Compound blowbox::RootSignature is not documented.
 E:/Projects/blowbox-2017/src/win32/mouse_state.h:11: warning: Compound blowbox::MouseState is not documented.
@@ -39,9 +38,8 @@ E:/Projects/blowbox-2017/src/win32/keyboard_state.h:10: warning: Compound blowbo
 E:/Projects/blowbox-2017/src/renderer/buffers/dynamic_upload_buffer.h:10: warning: Compound blowbox::DynamicUploadBuffer::BufferData is not documented.
 E:/Projects/blowbox-2017/src/win32/mouse_state.h:17: warning: Compound blowbox::MouseState::MouseButtonState is not documented.
 E:/Projects/blowbox-2017/src/renderer/buffers/typed_buffer.h:8: warning: Compound blowbox::TypedBuffer is not documented.
-E:/Projects/blowbox-2017/src/core/scene/entity.h:10: warning: Compound blowbox::Entity is not documented.
-E:/Projects/blowbox-2017/src/core/scene/scene_manager.h:11: warning: Compound blowbox::SceneManager is not documented.
 E:/Projects/blowbox-2017/src/renderer/device.h:16: warning: Compound blowbox::Device is not documented.
+E:/Projects/blowbox-2017/src/core/scene/entity_factory.h:21: warning: Found unknown command `\parent'
 E:/Projects/blowbox-2017/src/renderer/descriptor_heap.h:12: warning: Member DescriptorId (typedef) of namespace blowbox is not documented.
 E:/Projects/blowbox-2017/src/util/deque.h:9: warning: Member Deque (typedef) of namespace blowbox is not documented.
 E:/Projects/blowbox-2017/src/util/functional.h:9: warning: Member FunctionWithArguments (typedef) of namespace blowbox is not documented.
@@ -333,28 +331,8 @@ E:/Projects/blowbox-2017/src/renderer/buffers/dynamic_upload_buffer.h:116: warni
 E:/Projects/blowbox-2017/src/renderer/buffers/dynamic_upload_buffer.h:117: warning: Member is_constant_buffer_ (variable) of class blowbox::DynamicUploadBuffer is not documented.
 E:/Projects/blowbox-2017/src/renderer/buffers/dynamic_upload_buffer.h:11: warning: Member buffer (variable) of class blowbox::DynamicUploadBuffer::BufferData is not documented.
 E:/Projects/blowbox-2017/src/renderer/buffers/dynamic_upload_buffer.h:12: warning: Member mapped_data (variable) of class blowbox::DynamicUploadBuffer::BufferData is not documented.
-E:/Projects/blowbox-2017/src/core/scene/entity.h:14: warning: Member Entity(SharedPtr< Entity > parent) (function) of class blowbox::Entity is not documented.
-E:/Projects/blowbox-2017/src/core/scene/entity.h:17: warning: Member SetLocalPosition(const DirectX::XMFLOAT3 &position) (function) of class blowbox::Entity is not documented.
-E:/Projects/blowbox-2017/src/core/scene/entity.h:18: warning: Member SetLocalRotation(const DirectX::XMFLOAT3 &rotation) (function) of class blowbox::Entity is not documented.
-E:/Projects/blowbox-2017/src/core/scene/entity.h:19: warning: Member SetLocalScaling(const DirectX::XMFLOAT3 &scaling) (function) of class blowbox::Entity is not documented.
-E:/Projects/blowbox-2017/src/core/scene/entity.h:20: warning: Member GetLocalPosition() const  (function) of class blowbox::Entity is not documented.
-E:/Projects/blowbox-2017/src/core/scene/entity.h:21: warning: Member GetLocalRotation() const  (function) of class blowbox::Entity is not documented.
-E:/Projects/blowbox-2017/src/core/scene/entity.h:22: warning: Member GetLocalScaling() const  (function) of class blowbox::Entity is not documented.
-E:/Projects/blowbox-2017/src/core/scene/entity.h:23: warning: Member GetWorldTransform() (function) of class blowbox::Entity is not documented.
-E:/Projects/blowbox-2017/src/core/scene/entity.h:26: warning: Member Init() (function) of class blowbox::Entity is not documented.
-E:/Projects/blowbox-2017/src/core/scene/entity.h:27: warning: Member Update() (function) of class blowbox::Entity is not documented.
-E:/Projects/blowbox-2017/src/core/scene/entity.h:28: warning: Member Shutdown() (function) of class blowbox::Entity is not documented.
-E:/Projects/blowbox-2017/src/core/scene/entity.h:31: warning: Member IsTransformDirty() (function) of class blowbox::Entity is not documented.
-E:/Projects/blowbox-2017/src/core/scene/entity.h:32: warning: Member UpdateWorldTransform() (function) of class blowbox::Entity is not documented.
-E:/Projects/blowbox-2017/src/core/scene/entity.h:35: warning: Member parent_ (variable) of class blowbox::Entity is not documented.
-E:/Projects/blowbox-2017/src/core/scene/entity.h:36: warning: Member children_ (variable) of class blowbox::Entity is not documented.
-E:/Projects/blowbox-2017/src/core/scene/entity.h:39: warning: Member position_ (variable) of class blowbox::Entity is not documented.
-E:/Projects/blowbox-2017/src/core/scene/entity.h:40: warning: Member rotation_ (variable) of class blowbox::Entity is not documented.
-E:/Projects/blowbox-2017/src/core/scene/entity.h:41: warning: Member scaling_ (variable) of class blowbox::Entity is not documented.
-E:/Projects/blowbox-2017/src/core/scene/entity.h:42: warning: Member world_transform_ (variable) of class blowbox::Entity is not documented.
-E:/Projects/blowbox-2017/src/core/scene/entity.h:43: warning: Member transform_dirty_ (variable) of class blowbox::Entity is not documented.
-E:/Projects/blowbox-2017/src/core/scene/entity_factory.h:12: warning: Member CreateEntity() (function) of class blowbox::EntityFactory is not documented.
-E:/Projects/blowbox-2017/src/core/scene/entity_factory.h:13: warning: Member CreateEntity(SharedPtr< Entity > parent) (function) of class blowbox::EntityFactory is not documented.
+E:/Projects/blowbox-2017/src/core/scene/entity.h:92: warning: Member GetChildren() const  (function) of class blowbox::Entity is not documented.
+E:/Projects/blowbox-2017/src/core/scene/entity_factory.h:21: warning: Found unknown command `\parent'
 E:/Projects/blowbox-2017/src/renderer/forward_renderer.h:14: warning: Member Startup() (function) of class blowbox::ForwardRenderer is not documented.
 E:/Projects/blowbox-2017/src/renderer/forward_renderer.h:15: warning: Member Render() (function) of class blowbox::ForwardRenderer is not documented.
 E:/Projects/blowbox-2017/src/renderer/forward_renderer.h:17: warning: Member depth_buffer_ (variable) of class blowbox::ForwardRenderer is not documented.
@@ -662,18 +640,6 @@ E:/Projects/blowbox-2017/src/renderer/root_signature.h:65: warning: Member num_i
 E:/Projects/blowbox-2017/src/renderer/root_signature.h:66: warning: Member root_signature_ (variable) of class blowbox::RootSignature is not documented.
 E:/Projects/blowbox-2017/src/renderer/root_signature.h:67: warning: Member root_parameters_[ROOT_SIGNATURE_MAX_PARAMETERS] (variable) of class blowbox::RootSignature is not documented.
 E:/Projects/blowbox-2017/src/renderer/root_signature.h:68: warning: Member static_samplers_[ROOT_SIGNATURE_MAX_STATIC_SAMPLERS] (variable) of class blowbox::RootSignature is not documented.
-E:/Projects/blowbox-2017/src/core/scene/scene_manager.h:23: warning: Member AddEntity(SharedPtr< Entity > entity) (function) of class blowbox::SceneManager is not documented.
-E:/Projects/blowbox-2017/src/core/scene/scene_manager.h:24: warning: Member RemoveEntity(SharedPtr< Entity > entity) (function) of class blowbox::SceneManager is not documented.
-E:/Projects/blowbox-2017/src/core/scene/scene_manager.h:26: warning: Member GetRootEntity() (function) of class blowbox::SceneManager is not documented.
-E:/Projects/blowbox-2017/src/core/scene/scene_manager.h:27: warning: Member GetRootEntity() const  (function) of class blowbox::SceneManager is not documented.
-E:/Projects/blowbox-2017/src/core/scene/scene_manager.h:28: warning: Member GetEntities() (function) of class blowbox::SceneManager is not documented.
-E:/Projects/blowbox-2017/src/core/scene/scene_manager.h:29: warning: Member GetEntities() const  (function) of class blowbox::SceneManager is not documented.
-E:/Projects/blowbox-2017/src/core/scene/scene_manager.h:19: warning: Member Update() (function) of class blowbox::SceneManager is not documented.
-E:/Projects/blowbox-2017/src/core/scene/scene_manager.h:20: warning: Member PostUpdate() (function) of class blowbox::SceneManager is not documented.
-E:/Projects/blowbox-2017/src/core/scene/scene_manager.h:32: warning: Member root_entity_ (variable) of class blowbox::SceneManager is not documented.
-E:/Projects/blowbox-2017/src/core/scene/scene_manager.h:33: warning: Member all_entities_ (variable) of class blowbox::SceneManager is not documented.
-E:/Projects/blowbox-2017/src/core/scene/scene_manager.h:35: warning: Member entities_to_be_added_ (variable) of class blowbox::SceneManager is not documented.
-E:/Projects/blowbox-2017/src/core/scene/scene_manager.h:36: warning: Member entities_to_be_removed_ (variable) of class blowbox::SceneManager is not documented.
 E:/Projects/blowbox-2017/src/renderer/shader.h:23: warning: Member Create(TextFile *shader_file, const ShaderType &shader_type) (function) of class blowbox::Shader is not documented.
 E:/Projects/blowbox-2017/src/renderer/shader.h:25: warning: Member GetShaderType() const  (function) of class blowbox::Shader is not documented.
 E:/Projects/blowbox-2017/src/renderer/shader.h:26: warning: Member GetShaderByteCode() const  (function) of class blowbox::Shader is not documented.

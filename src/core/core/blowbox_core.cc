@@ -84,6 +84,7 @@ namespace blowbox
         StartupGetter();
         StartupWin32();
         StartupRenderer();
+        StartupScene();
 
         if (user_procedure_run_)
         {
@@ -105,6 +106,7 @@ namespace blowbox
             user_procedure_shutdown_();
         }
 
+        ShutdownScene();
         ShutdownRenderer();
         ShutdownWin32();
         ShutdownGetter();
@@ -201,6 +203,12 @@ namespace blowbox
     }
 
     //------------------------------------------------------------------------------------------------------
+    void BlowboxCore::StartupScene()
+    {
+        scene_manager_->Startup();
+    }
+
+    //------------------------------------------------------------------------------------------------------
     void BlowboxCore::ShutdownGetter()
     {
 		BLOWBOX_DELETE(getter_);
@@ -243,6 +251,15 @@ namespace blowbox
         render_command_context_manager_.reset();
         render_command_manager_.reset();
         render_device_.reset();
+    }
+
+    //------------------------------------------------------------------------------------------------------
+    void BlowboxCore::ShutdownScene()
+    {
+        scene_manager_->Shutdown();
+
+        BLOWBOX_ASSERT(scene_manager_.use_count() == 1);
+        scene_manager_.reset();
     }
 
     //------------------------------------------------------------------------------------------------------

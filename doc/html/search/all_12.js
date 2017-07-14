@@ -11,5 +11,6 @@ var searchData=
   ['window_5fresolution',['window_resolution',['../structblowbox_1_1_blowbox_config.html#a55d68f97567713266c8ea8eed7bf2cc4',1,'blowbox::BlowboxConfig']]],
   ['window_5ftitle',['window_title',['../structblowbox_1_1_blowbox_config.html#a52164a69d332f62d3f49c607771b5a5e',1,'blowbox::BlowboxConfig']]],
   ['window_5ftitle_5f',['window_title_',['../classblowbox_1_1_window.html#a2206c4e5ce268dbb851b7767f92a0ceb',1,'blowbox::Window']]],
-  ['windows_5f',['windows_',['../classblowbox_1_1_g_l_f_w_manager.html#a1a9672c2ad450e172d15f8db9b74fc45',1,'blowbox::GLFWManager']]]
+  ['windows_5f',['windows_',['../classblowbox_1_1_g_l_f_w_manager.html#a1a9672c2ad450e172d15f8db9b74fc45',1,'blowbox::GLFWManager']]],
+  ['world_5ftransform_5f',['world_transform_',['../classblowbox_1_1_entity.html#aac40a0d9fb9a14b8e1c5124901a31467',1,'blowbox::Entity']]]
 ];
