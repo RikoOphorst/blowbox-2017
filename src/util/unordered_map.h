@@ -5,6 +5,11 @@
 
 namespace blowbox
 {
+    /**
+    * Wraps the EASTL unordered_map. Refer to EASTL documentation for more information.
+    *
+    * @brief Typedef for wrapping the EASTL unordered_map.
+    */
 	template<typename Key, typename T>
 	using UnorderedMap = eastl::unordered_map<Key, T>;
 }

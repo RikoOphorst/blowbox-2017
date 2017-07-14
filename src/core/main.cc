@@ -33,11 +33,11 @@ void Run()
     main_window = Get::MainWindow().get();
 
     root_child_entity = EntityFactory::CreateEntity("Entity1");
-    EntityFactory::AddChildToParent(Get::SceneManager()->GetRootEntity(), root_child_entity);
+    EntityFactory::AddChildToEntity(Get::SceneManager()->GetRootEntity(), root_child_entity);
 
     some_entity = EntityFactory::CreateEntity("Entity2");
     some_child_entity = EntityFactory::CreateEntity("Entity3");
-    EntityFactory::AddChildToParent(some_entity, some_child_entity);
+    EntityFactory::AddChildToEntity(some_entity, some_child_entity);
 }
 
 void ImGuiSceneGraph(SharedPtr<Entity> entity)
@@ -77,12 +77,12 @@ void Update()
 
     if (Get::MainWindow()->GetKeyboardState().GetKeyPressed(KeyCode_J))
     {
-        EntityFactory::AddChildToParent(Get::SceneManager()->GetRootEntity(), some_entity);
+        EntityFactory::AddChildToEntity(Get::SceneManager()->GetRootEntity(), some_entity);
     }
 
     if (Get::MainWindow()->GetKeyboardState().GetKeyPressed(KeyCode_K))
     {
-        EntityFactory::RemoveChildFromParent(Get::SceneManager()->GetRootEntity(), some_entity);
+        EntityFactory::RemoveChildFromEntity(Get::SceneManager()->GetRootEntity(), some_entity);
     }
 }
 

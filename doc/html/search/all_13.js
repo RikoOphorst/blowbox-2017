@@ -1,11 +1,17 @@
 var searchData=
 [
-  ['_7eblowboxcore',['~BlowboxCore',['../classblowbox_1_1_blowbox_core.html#adfe04183cda42eed8d27493dfe7947d2',1,'blowbox::BlowboxCore']]],
-  ['_7eentity',['~Entity',['../classblowbox_1_1_entity.html#a627ca90c0962aec073f477aab2937239',1,'blowbox::Entity']]],
-  ['_7eget',['~Get',['../classblowbox_1_1_get.html#a0178abdbad01bbd727a9cd550aadb973',1,'blowbox::Get']]],
-  ['_7eglfwmanager',['~GLFWManager',['../classblowbox_1_1_g_l_f_w_manager.html#a4ace25878afea7105012eb0d0f8a63e1',1,'blowbox::GLFWManager']]],
-  ['_7eimage',['~Image',['../classblowbox_1_1_image.html#ac477232d3275f5dbd2755808e49358fe',1,'blowbox::Image']]],
-  ['_7escenemanager',['~SceneManager',['../classblowbox_1_1_scene_manager.html#a47ddda41301201372ae669b93638700b',1,'blowbox::SceneManager']]],
-  ['_7etextfile',['~TextFile',['../classblowbox_1_1_text_file.html#a7a6fb2446b1a60e8676776f00a6458d2',1,'blowbox::TextFile']]],
-  ['_7ewindow',['~Window',['../classblowbox_1_1_window.html#af6d34007edfaa42da3c43715f1a4766c',1,'blowbox::Window']]]
+  ['uav_5fid_5f',['uav_id_',['../classblowbox_1_1_color_buffer.html#a30cf6cbf1a2c5ba320e9d08c69e87052',1,'blowbox::ColorBuffer::uav_id_()'],['../classblowbox_1_1_gpu_buffer.html#a4da1ba90c6aadbc9dfd7491b1e73cd79',1,'blowbox::GpuBuffer::uav_id_()']]],
+  ['uniqueptr',['UniquePtr',['../namespaceblowbox.html#a89fb00e70ed6a3a58847e6dfe76c425e',1,'blowbox']]],
+  ['unmap',['Unmap',['../classblowbox_1_1_upload_buffer.html#a67fd4a09eff65a201d17e31034b43fec',1,'blowbox::UploadBuffer']]],
+  ['unorderedmap',['UnorderedMap',['../namespaceblowbox.html#af7bbcacbf7a4daa2ee54b6661cafe294',1,'blowbox']]],
+  ['update',['Update',['../classblowbox_1_1_blowbox_core.html#ad6fb87b904a1bb97f7fb70ecd2bb47b6',1,'blowbox::BlowboxCore::Update()'],['../classblowbox_1_1_entity.html#afe07807c738a15579883e0447c255e37',1,'blowbox::Entity::Update()'],['../classblowbox_1_1_scene_manager.html#abd3654433c27a75eabac15bed952f236',1,'blowbox::SceneManager::Update()'],['../classblowbox_1_1_g_l_f_w_manager.html#afce2d12ae854a3713478641c0d291585',1,'blowbox::GLFWManager::Update()']]],
+  ['updateworldtransform',['UpdateWorldTransform',['../classblowbox_1_1_entity.html#abd7affa1b121de3b7531d03e92377edf',1,'blowbox::Entity']]],
+  ['uploadbuffer',['UploadBuffer',['../classblowbox_1_1_upload_buffer.html',1,'blowbox']]],
+  ['usage_5fstate_5f',['usage_state_',['../classblowbox_1_1_gpu_resource.html#adb2c0dde544b06c181034d13882a3cbe',1,'blowbox::GpuResource']]],
+  ['user_5fprocedure_5fpost_5frender_5f',['user_procedure_post_render_',['../classblowbox_1_1_blowbox_core.html#a44d03c79d8ee39f09d4746360a38216e',1,'blowbox::BlowboxCore']]],
+  ['user_5fprocedure_5fpost_5fupdate_5f',['user_procedure_post_update_',['../classblowbox_1_1_blowbox_core.html#aa01800f48afd7113e516b69c4ac49c90',1,'blowbox::BlowboxCore']]],
+  ['user_5fprocedure_5frender_5f',['user_procedure_render_',['../classblowbox_1_1_blowbox_core.html#ab9e9bbf13c2a3e8a294fc7e045a0dea9',1,'blowbox::BlowboxCore']]],
+  ['user_5fprocedure_5frun_5f',['user_procedure_run_',['../classblowbox_1_1_blowbox_core.html#a97b755c9012bca776f0a2b247d96de6d',1,'blowbox::BlowboxCore']]],
+  ['user_5fprocedure_5fshutdown_5f',['user_procedure_shutdown_',['../classblowbox_1_1_blowbox_core.html#a25ea9727e47623156228dddddd65c460',1,'blowbox::BlowboxCore']]],
+  ['user_5fprocedure_5fupdate_5f',['user_procedure_update_',['../classblowbox_1_1_blowbox_core.html#a5f79141f1415932abeeda035ce680565',1,'blowbox::BlowboxCore']]]
 ];

@@ -2,67 +2,35 @@ E:/Projects/blowbox-2017/src/util/eastl.h:27: warning: Found ';' while parsing i
 E:/Projects/blowbox-2017/src/util/eastl.h:30: warning: Found ';' while parsing initializer list! (doxygen could be confused by a macro call without semicolon)
 E:/Projects/blowbox-2017/src/util/eastl.h:38: warning: Found ';' while parsing initializer list! (doxygen could be confused by a macro call without semicolon)
 E:/Projects/blowbox-2017/src/util/eastl.h:41: warning: Found ';' while parsing initializer list! (doxygen could be confused by a macro call without semicolon)
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:10: warning: Compound blowbox::GpuResource is not documented.
 E:/Projects/blowbox-2017/src/renderer/pipeline_state.h:34: warning: Compound blowbox::GraphicsPSO is not documented.
 E:/Projects/blowbox-2017/src/renderer/commands/command_context.h:39: warning: Compound blowbox::NonCopyable is not documented.
 E:/Projects/blowbox-2017/src/renderer/commands/command_allocator_pool.h:11: warning: Compound blowbox::CommandAllocatorPool is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/color_buffer.h:8: warning: Compound blowbox::ColorBuffer is not documented.
 E:/Projects/blowbox-2017/src/renderer/descriptor_heap.h:17: warning: Compound blowbox::DescriptorHeap is not documented.
 E:/Projects/blowbox-2017/src/renderer/commands/command_context.h:46: warning: Compound blowbox::CommandContext is not documented.
 E:/Projects/blowbox-2017/src/renderer/shader.h:18: warning: Compound blowbox::Shader is not documented.
 E:/Projects/blowbox-2017/src/renderer/swap_chain.h:13: warning: Compound blowbox::SwapChain is not documented.
-E:/Projects/blowbox-2017/src/renderer/material.h:10: warning: Compound blowbox::Material is not documented.
 E:/Projects/blowbox-2017/src/renderer/root_signature.h:38: warning: Compound blowbox::RootSignature is not documented.
 E:/Projects/blowbox-2017/src/win32/mouse_state.h:11: warning: Compound blowbox::MouseState is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/depth_buffer.h:8: warning: Compound blowbox::DepthBuffer is not documented.
 E:/Projects/blowbox-2017/src/renderer/pipeline_state.h:67: warning: Compound blowbox::ComputePSO is not documented.
 E:/Projects/blowbox-2017/src/win32/keyboard_state.h:16: warning: Compound blowbox::KeyboardState::KeyState is not documented.
 E:/Projects/blowbox-2017/src/renderer/buffers/structured_buffer.h:11: warning: Compound blowbox::StructuredBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/dynamic_upload_buffer.h:7: warning: Compound blowbox::DynamicUploadBuffer is not documented.
 E:/Projects/blowbox-2017/src/renderer/forward_renderer.h:9: warning: Compound blowbox::ForwardRenderer is not documented.
 E:/Projects/blowbox-2017/src/renderer/commands/command_context.h:18: warning: Compound blowbox::Param32Bit is not documented.
 E:/Projects/blowbox-2017/src/renderer/root_signature.h:14: warning: Compound blowbox::RootParameter is not documented.
 E:/Projects/blowbox-2017/src/renderer/adapter.h:9: warning: Compound blowbox::Adapter is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_buffer.h:10: warning: Compound blowbox::GpuBuffer is not documented.
 E:/Projects/blowbox-2017/src/renderer/imgui/imgui_manager.h:16: warning: Compound blowbox::ImGuiManager is not documented.
 E:/Projects/blowbox-2017/src/renderer/commands/command_queue.h:10: warning: Compound blowbox::CommandQueue is not documented.
 E:/Projects/blowbox-2017/src/renderer/deferred_renderer.h:6: warning: Compound blowbox::DeferredRenderer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/pixel_buffer.h:9: warning: Compound blowbox::PixelBuffer is not documented.
 E:/Projects/blowbox-2017/src/renderer/commands/command_context_manager.h:12: warning: Compound blowbox::CommandContextManager is not documented.
 E:/Projects/blowbox-2017/src/renderer/commands/graphics_context.h:9: warning: Compound blowbox::GraphicsContext is not documented.
 E:/Projects/blowbox-2017/src/renderer/pipeline_state.h:13: warning: Compound blowbox::PSO is not documented.
 E:/Projects/blowbox-2017/src/renderer/commands/command_manager.h:15: warning: Compound blowbox::CommandManager is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/byte_address_buffer.h:8: warning: Compound blowbox::ByteAddressBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/vertex.h:6: warning: Compound blowbox::Vertex is not documented.
 E:/Projects/blowbox-2017/src/win32/keyboard_state.h:10: warning: Compound blowbox::KeyboardState is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/dynamic_upload_buffer.h:10: warning: Compound blowbox::DynamicUploadBuffer::BufferData is not documented.
 E:/Projects/blowbox-2017/src/win32/mouse_state.h:17: warning: Compound blowbox::MouseState::MouseButtonState is not documented.
 E:/Projects/blowbox-2017/src/renderer/buffers/typed_buffer.h:8: warning: Compound blowbox::TypedBuffer is not documented.
 E:/Projects/blowbox-2017/src/renderer/device.h:16: warning: Compound blowbox::Device is not documented.
 E:/Projects/blowbox-2017/src/core/scene/entity_factory.h:21: warning: Found unknown command `\parent'
 E:/Projects/blowbox-2017/src/renderer/descriptor_heap.h:12: warning: Member DescriptorId (typedef) of namespace blowbox is not documented.
-E:/Projects/blowbox-2017/src/util/deque.h:9: warning: Member Deque (typedef) of namespace blowbox is not documented.
-E:/Projects/blowbox-2017/src/util/functional.h:9: warning: Member FunctionWithArguments (typedef) of namespace blowbox is not documented.
-E:/Projects/blowbox-2017/src/util/functional.h:12: warning: Member FunctionWithArgument (typedef) of namespace blowbox is not documented.
-E:/Projects/blowbox-2017/src/util/functional.h:15: warning: Member Function (typedef) of namespace blowbox is not documented.
-E:/Projects/blowbox-2017/src/util/intrusive_ptr.h:9: warning: Member IntrusivePtr (typedef) of namespace blowbox is not documented.
-E:/Projects/blowbox-2017/src/util/linked_ptr.h:9: warning: Member LinkedPtr (typedef) of namespace blowbox is not documented.
-E:/Projects/blowbox-2017/src/util/map.h:9: warning: Member Map (typedef) of namespace blowbox is not documented.
-E:/Projects/blowbox-2017/src/util/priority_queue.h:9: warning: Member PriorityQueue (typedef) of namespace blowbox is not documented.
-E:/Projects/blowbox-2017/src/util/queue.h:9: warning: Member Queue (typedef) of namespace blowbox is not documented.
-E:/Projects/blowbox-2017/src/util/ring_buffer.h:9: warning: Member RingBuffer (typedef) of namespace blowbox is not documented.
-E:/Projects/blowbox-2017/src/util/safe_ptr.h:9: warning: Member SafePtr (typedef) of namespace blowbox is not documented.
-E:/Projects/blowbox-2017/src/util/scoped_ptr.h:9: warning: Member ScopedPtr (typedef) of namespace blowbox is not documented.
-E:/Projects/blowbox-2017/src/util/shared_ptr.h:9: warning: Member SharedPtr (typedef) of namespace blowbox is not documented.
-E:/Projects/blowbox-2017/src/util/stack.h:9: warning: Member Stack (typedef) of namespace blowbox is not documented.
-E:/Projects/blowbox-2017/src/util/string.h:8: warning: Member String (typedef) of namespace blowbox is not documented.
-E:/Projects/blowbox-2017/src/util/string.h:9: warning: Member WString (typedef) of namespace blowbox is not documented.
-E:/Projects/blowbox-2017/src/util/tuple.h:9: warning: Member Tuple (typedef) of namespace blowbox is not documented.
-E:/Projects/blowbox-2017/src/util/unique_ptr.h:9: warning: Member UniquePtr (typedef) of namespace blowbox is not documented.
-E:/Projects/blowbox-2017/src/util/unordered_map.h:9: warning: Member UnorderedMap (typedef) of namespace blowbox is not documented.
-E:/Projects/blowbox-2017/src/util/utility.h:9: warning: Member Pair (typedef) of namespace blowbox is not documented.
-E:/Projects/blowbox-2017/src/util/vector.h:9: warning: Member Vector (typedef) of namespace blowbox is not documented.
-E:/Projects/blowbox-2017/src/util/weak_ptr.h:9: warning: Member WeakPtr (typedef) of namespace blowbox is not documented.
 E:/Projects/blowbox-2017/src/renderer/device.h:10: warning: Member FindAdapterFlag (enumeration) of namespace blowbox is not documented.
 E:/Projects/blowbox-2017/src/renderer/shader.h:9: warning: Member ShaderType (enumeration) of namespace blowbox is not documented.
 E:/Projects/blowbox-2017/src/win32/mouse_button.h:31: warning: argument 'key' of command @param is not found in the argument list of blowbox::BlowboxMouseButtonToGlfwMouseButton(MouseButton mouse_button)
@@ -79,80 +47,6 @@ E:/Projects/blowbox-2017/src/renderer/adapter.h:16: warning: Member video_memory
 E:/Projects/blowbox-2017/src/renderer/adapter.h:17: warning: Member system_memory (variable) of class blowbox::Adapter is not documented.
 E:/Projects/blowbox-2017/src/renderer/adapter.h:18: warning: Member shared_system_memory (variable) of class blowbox::Adapter is not documented.
 E:/Projects/blowbox-2017/src/renderer/adapter.h:19: warning: Member adapter_luid (variable) of class blowbox::Adapter is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/byte_address_buffer.h:10: warning: Member CreateDerivedViews() override (function) of class blowbox::ByteAddressBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_buffer.h:14: warning: Member Destroy() (function) of class blowbox::GpuBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_buffer.h:16: warning: Member Create(const WString &name, UINT num_elements, UINT element_size, void *initial_data=nullptr, bool create_views=true) (function) of class blowbox::GpuBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_buffer.h:18: warning: Member GetUAV() const  (function) of class blowbox::GpuBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_buffer.h:19: warning: Member GetSRV() const  (function) of class blowbox::GpuBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_buffer.h:20: warning: Member GetRootCBV() const  (function) of class blowbox::GpuBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_buffer.h:21: warning: Member GetRootCBV() (function) of class blowbox::GpuBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_buffer.h:23: warning: Member GetVertexBufferView(UINT offset, UINT size, UINT stride) const  (function) of class blowbox::GpuBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_buffer.h:24: warning: Member GetVertexBufferView(UINT base_vertex_index=0) const  (function) of class blowbox::GpuBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_buffer.h:25: warning: Member GetIndexBufferView(UINT offset, UINT size, bool is_32_bit=false) const  (function) of class blowbox::GpuBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_buffer.h:26: warning: Member GetIndexBufferView(UINT start_index=0) const  (function) of class blowbox::GpuBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:14: warning: Member GpuResource(ID3D12Resource *resource, D3D12_RESOURCE_STATES current_state) (function) of class blowbox::GpuResource is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:17: warning: Member Associate(ID3D12Resource *resource, D3D12_RESOURCE_STATES current_state) (function) of class blowbox::GpuResource is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:19: warning: Member Destroy() (function) of class blowbox::GpuResource is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:21: warning: Member operator->() (function) of class blowbox::GpuResource is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:22: warning: Member operator->() const  (function) of class blowbox::GpuResource is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:24: warning: Member operator ID3D12Resource *() (function) of class blowbox::GpuResource is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:26: warning: Member Get() (function) of class blowbox::GpuResource is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:28: warning: Member GetState() const  (function) of class blowbox::GpuResource is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:29: warning: Member GetTransitionState() const  (function) of class blowbox::GpuResource is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_buffer.h:31: warning: Member DescribeBuffer() (function) of class blowbox::GpuBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_buffer.h:34: warning: Member uav_id_ (variable) of class blowbox::GpuBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_buffer.h:35: warning: Member srv_id_ (variable) of class blowbox::GpuBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_buffer.h:37: warning: Member element_count_ (variable) of class blowbox::GpuBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_buffer.h:38: warning: Member element_size_ (variable) of class blowbox::GpuBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_buffer.h:39: warning: Member buffer_size_ (variable) of class blowbox::GpuBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_buffer.h:40: warning: Member resource_flags_ (variable) of class blowbox::GpuBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:32: warning: Member resource_ (variable) of class blowbox::GpuResource is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:33: warning: Member usage_state_ (variable) of class blowbox::GpuResource is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:34: warning: Member transition_state_ (variable) of class blowbox::GpuResource is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:35: warning: Member gpu_virtual_address_ (variable) of class blowbox::GpuResource is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/color_buffer.h:11: warning: Member ColorBuffer(float clear_color[4]) (function) of class blowbox::ColorBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/color_buffer.h:13: warning: Member CreateFromSwapChain(const eastl::wstring &name, ID3D12Resource *swap_chain_resource) (function) of class blowbox::ColorBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/color_buffer.h:15: warning: Member CreateFromTexture(ID3D12Resource *texture_resource, int slice=0) (function) of class blowbox::ColorBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/color_buffer.h:17: warning: Member Create(const eastl::wstring &name, UINT width, UINT height, DXGI_FORMAT format) (function) of class blowbox::ColorBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/color_buffer.h:19: warning: Member GetSRV() const  (function) of class blowbox::ColorBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/color_buffer.h:20: warning: Member GetRTV() const  (function) of class blowbox::ColorBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/color_buffer.h:21: warning: Member GetUAV() const  (function) of class blowbox::ColorBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/color_buffer.h:22: warning: Member GetClearColor() const  (function) of class blowbox::ColorBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/color_buffer.h:23: warning: Member GetClearValue() const  (function) of class blowbox::ColorBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/pixel_buffer.h:13: warning: Member GetWidth() const  (function) of class blowbox::PixelBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/pixel_buffer.h:14: warning: Member GetHeight() const  (function) of class blowbox::PixelBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/pixel_buffer.h:15: warning: Member GetFormat() const  (function) of class blowbox::PixelBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:14: warning: Member GpuResource(ID3D12Resource *resource, D3D12_RESOURCE_STATES current_state) (function) of class blowbox::GpuResource is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:17: warning: Member Associate(ID3D12Resource *resource, D3D12_RESOURCE_STATES current_state) (function) of class blowbox::GpuResource is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:19: warning: Member Destroy() (function) of class blowbox::GpuResource is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:21: warning: Member operator->() (function) of class blowbox::GpuResource is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:22: warning: Member operator->() const  (function) of class blowbox::GpuResource is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:24: warning: Member operator ID3D12Resource *() (function) of class blowbox::GpuResource is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:26: warning: Member Get() (function) of class blowbox::GpuResource is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:28: warning: Member GetState() const  (function) of class blowbox::GpuResource is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:29: warning: Member GetTransitionState() const  (function) of class blowbox::GpuResource is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/color_buffer.h:26: warning: Member CreateDerivedViews(DXGI_FORMAT format) (function) of class blowbox::ColorBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/pixel_buffer.h:18: warning: Member DescribeTex2D(UINT width, UINT height, UINT depth_or_array_size, UINT num_mips, DXGI_FORMAT format, UINT flags) (function) of class blowbox::PixelBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/pixel_buffer.h:20: warning: Member AssociateWithResource(const WString &name, ID3D12Resource *resource, const D3D12_RESOURCE_STATES &current_resource_state) (function) of class blowbox::PixelBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/pixel_buffer.h:21: warning: Member CreateTextureResource(const WString &name, const D3D12_RESOURCE_DESC &resource_desc, const D3D12_CLEAR_VALUE &clear_value) (function) of class blowbox::PixelBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/color_buffer.h:29: warning: Member srv_id_ (variable) of class blowbox::ColorBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/color_buffer.h:30: warning: Member rtv_id_ (variable) of class blowbox::ColorBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/color_buffer.h:31: warning: Member uav_id_ (variable) of class blowbox::ColorBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/color_buffer.h:32: warning: Member clear_color_[4] (variable) of class blowbox::ColorBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/color_buffer.h:33: warning: Member clear_value_ (variable) of class blowbox::ColorBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/pixel_buffer.h:25: warning: Member GetBaseFormat(DXGI_FORMAT format) (function) of class blowbox::PixelBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/pixel_buffer.h:26: warning: Member GetUAVFormat(DXGI_FORMAT format) (function) of class blowbox::PixelBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/pixel_buffer.h:27: warning: Member GetDSVFormat(DXGI_FORMAT format) (function) of class blowbox::PixelBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/pixel_buffer.h:28: warning: Member GetDepthFormat(DXGI_FORMAT format) (function) of class blowbox::PixelBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/pixel_buffer.h:29: warning: Member GetStencilFormat(DXGI_FORMAT format) (function) of class blowbox::PixelBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/pixel_buffer.h:32: warning: Member width_ (variable) of class blowbox::PixelBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/pixel_buffer.h:33: warning: Member height_ (variable) of class blowbox::PixelBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/pixel_buffer.h:34: warning: Member array_size_ (variable) of class blowbox::PixelBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/pixel_buffer.h:35: warning: Member format_ (variable) of class blowbox::PixelBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:32: warning: Member resource_ (variable) of class blowbox::GpuResource is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:33: warning: Member usage_state_ (variable) of class blowbox::GpuResource is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:34: warning: Member transition_state_ (variable) of class blowbox::GpuResource is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:35: warning: Member gpu_virtual_address_ (variable) of class blowbox::GpuResource is not documented.
 E:/Projects/blowbox-2017/src/renderer/commands/command_allocator_pool.h:13: warning: Member CommandAllocatorPool(D3D12_COMMAND_LIST_TYPE type) (function) of class blowbox::CommandAllocatorPool is not documented.
 E:/Projects/blowbox-2017/src/renderer/commands/command_allocator_pool.h:29: warning: Member GetPoolSize() (function) of class blowbox::CommandAllocatorPool is not documented.
 E:/Projects/blowbox-2017/src/renderer/commands/command_allocator_pool.h:32: warning: Member type_ (variable) of class blowbox::CommandAllocatorPool is not documented.
@@ -252,53 +146,6 @@ E:/Projects/blowbox-2017/src/renderer/pipeline_state.h:30: warning: Member root_
 E:/Projects/blowbox-2017/src/renderer/pipeline_state.h:80: warning: Member psos_ (variable) of class blowbox::ComputePSO is not documented.
 E:/Projects/blowbox-2017/src/renderer/deferred_renderer.h:11: warning: Member Startup() (function) of class blowbox::DeferredRenderer is not documented.
 E:/Projects/blowbox-2017/src/renderer/deferred_renderer.h:12: warning: Member Render() (function) of class blowbox::DeferredRenderer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/depth_buffer.h:10: warning: Member DepthBuffer(float depth_clear=1.0f, UINT stencil_clear=0) (function) of class blowbox::DepthBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/depth_buffer.h:12: warning: Member Create(const eastl::wstring &name, UINT width, UINT height, DXGI_FORMAT format) (function) of class blowbox::DepthBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/depth_buffer.h:14: warning: Member GetDSV() const  (function) of class blowbox::DepthBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/depth_buffer.h:15: warning: Member GetDSVDepthReadOnly() const  (function) of class blowbox::DepthBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/depth_buffer.h:16: warning: Member GetDSVStencilReadOnly() const  (function) of class blowbox::DepthBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/depth_buffer.h:17: warning: Member GetDSVReadOnly() const  (function) of class blowbox::DepthBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/depth_buffer.h:18: warning: Member GetDepthSRV() const  (function) of class blowbox::DepthBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/depth_buffer.h:19: warning: Member GetStencilSRV() const  (function) of class blowbox::DepthBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/depth_buffer.h:21: warning: Member GetStencilClearValue() const  (function) of class blowbox::DepthBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/depth_buffer.h:22: warning: Member GetDepthClearValue() const  (function) of class blowbox::DepthBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/pixel_buffer.h:13: warning: Member GetWidth() const  (function) of class blowbox::PixelBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/pixel_buffer.h:14: warning: Member GetHeight() const  (function) of class blowbox::PixelBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/pixel_buffer.h:15: warning: Member GetFormat() const  (function) of class blowbox::PixelBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:14: warning: Member GpuResource(ID3D12Resource *resource, D3D12_RESOURCE_STATES current_state) (function) of class blowbox::GpuResource is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:17: warning: Member Associate(ID3D12Resource *resource, D3D12_RESOURCE_STATES current_state) (function) of class blowbox::GpuResource is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:19: warning: Member Destroy() (function) of class blowbox::GpuResource is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:21: warning: Member operator->() (function) of class blowbox::GpuResource is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:22: warning: Member operator->() const  (function) of class blowbox::GpuResource is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:24: warning: Member operator ID3D12Resource *() (function) of class blowbox::GpuResource is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:26: warning: Member Get() (function) of class blowbox::GpuResource is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:28: warning: Member GetState() const  (function) of class blowbox::GpuResource is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:29: warning: Member GetTransitionState() const  (function) of class blowbox::GpuResource is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/depth_buffer.h:25: warning: Member CreateDerivedViews(DXGI_FORMAT format) (function) of class blowbox::DepthBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/pixel_buffer.h:18: warning: Member DescribeTex2D(UINT width, UINT height, UINT depth_or_array_size, UINT num_mips, DXGI_FORMAT format, UINT flags) (function) of class blowbox::PixelBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/pixel_buffer.h:20: warning: Member AssociateWithResource(const WString &name, ID3D12Resource *resource, const D3D12_RESOURCE_STATES &current_resource_state) (function) of class blowbox::PixelBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/pixel_buffer.h:21: warning: Member CreateTextureResource(const WString &name, const D3D12_RESOURCE_DESC &resource_desc, const D3D12_CLEAR_VALUE &clear_value) (function) of class blowbox::PixelBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/depth_buffer.h:28: warning: Member dsv_id_ (variable) of class blowbox::DepthBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/depth_buffer.h:29: warning: Member dsv_depth_read_id_ (variable) of class blowbox::DepthBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/depth_buffer.h:30: warning: Member dsv_stencil_read_id_ (variable) of class blowbox::DepthBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/depth_buffer.h:31: warning: Member dsv_read_id_ (variable) of class blowbox::DepthBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/depth_buffer.h:32: warning: Member srv_depth_id_ (variable) of class blowbox::DepthBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/depth_buffer.h:33: warning: Member srv_stencil_id_ (variable) of class blowbox::DepthBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/depth_buffer.h:34: warning: Member stencil_clear_ (variable) of class blowbox::DepthBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/depth_buffer.h:35: warning: Member depth_clear_ (variable) of class blowbox::DepthBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/pixel_buffer.h:25: warning: Member GetBaseFormat(DXGI_FORMAT format) (function) of class blowbox::PixelBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/pixel_buffer.h:26: warning: Member GetUAVFormat(DXGI_FORMAT format) (function) of class blowbox::PixelBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/pixel_buffer.h:27: warning: Member GetDSVFormat(DXGI_FORMAT format) (function) of class blowbox::PixelBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/pixel_buffer.h:28: warning: Member GetDepthFormat(DXGI_FORMAT format) (function) of class blowbox::PixelBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/pixel_buffer.h:29: warning: Member GetStencilFormat(DXGI_FORMAT format) (function) of class blowbox::PixelBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/pixel_buffer.h:32: warning: Member width_ (variable) of class blowbox::PixelBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/pixel_buffer.h:33: warning: Member height_ (variable) of class blowbox::PixelBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/pixel_buffer.h:34: warning: Member array_size_ (variable) of class blowbox::PixelBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/pixel_buffer.h:35: warning: Member format_ (variable) of class blowbox::PixelBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:32: warning: Member resource_ (variable) of class blowbox::GpuResource is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:33: warning: Member usage_state_ (variable) of class blowbox::GpuResource is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:34: warning: Member transition_state_ (variable) of class blowbox::GpuResource is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:35: warning: Member gpu_virtual_address_ (variable) of class blowbox::GpuResource is not documented.
 E:/Projects/blowbox-2017/src/renderer/descriptor_heap.h:22: warning: Member Create(const WString &name, D3D12_DESCRIPTOR_HEAP_TYPE heap_type, D3D12_DESCRIPTOR_HEAP_FLAGS flags=D3D12_DESCRIPTOR_HEAP_FLAG_SHADER_VISIBLE, UINT descriptor_count=4096U) (function) of class blowbox::DescriptorHeap is not documented.
 E:/Projects/blowbox-2017/src/renderer/descriptor_heap.h:79: warning: Member Get() (function) of class blowbox::DescriptorHeap is not documented.
 E:/Projects/blowbox-2017/src/renderer/descriptor_heap.h:80: warning: Member GetDesc() (function) of class blowbox::DescriptorHeap is not documented.
@@ -317,69 +164,11 @@ E:/Projects/blowbox-2017/src/renderer/device.h:25: warning: Member Get() const  
 E:/Projects/blowbox-2017/src/renderer/device.h:27: warning: Member FindAvailableAdapters(FindAdapterFlag find_adapter_flags) (function) of class blowbox::Device is not documented.
 E:/Projects/blowbox-2017/src/renderer/device.h:30: warning: Member adapter_ (variable) of class blowbox::Device is not documented.
 E:/Projects/blowbox-2017/src/renderer/device.h:31: warning: Member device_ (variable) of class blowbox::Device is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/dynamic_upload_buffer.h:15: warning: Member DynamicUploadBuffer(ID3D12Device *device, UINT element_count, bool is_constant_buffer=false) (function) of class blowbox::DynamicUploadBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/dynamic_upload_buffer.h:45: warning: Member GetBuffers() const  (function) of class blowbox::DynamicUploadBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/dynamic_upload_buffer.h:46: warning: Member GetElementByteSize() const  (function) of class blowbox::DynamicUploadBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/dynamic_upload_buffer.h:48: warning: Member CopyData(ID3D12Device *device, int element_index, const T &data) (function) of class blowbox::DynamicUploadBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/dynamic_upload_buffer.h:64: warning: Member FindBufferIndexAndElementIndex(int idx, int *buffer_index, int *elem_index) (function) of class blowbox::DynamicUploadBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/dynamic_upload_buffer.h:70: warning: Member GetAddressOfElement(int idx) (function) of class blowbox::DynamicUploadBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/dynamic_upload_buffer.h:88: warning: Member CreateNewBuffer(ID3D12Device *device) (function) of class blowbox::DynamicUploadBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/dynamic_upload_buffer.h:112: warning: Member upload_buffers_ (variable) of class blowbox::DynamicUploadBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/dynamic_upload_buffer.h:114: warning: Member element_count_ (variable) of class blowbox::DynamicUploadBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/dynamic_upload_buffer.h:115: warning: Member element_count_per_buffer_ (variable) of class blowbox::DynamicUploadBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/dynamic_upload_buffer.h:116: warning: Member element_byte_size_ (variable) of class blowbox::DynamicUploadBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/dynamic_upload_buffer.h:117: warning: Member is_constant_buffer_ (variable) of class blowbox::DynamicUploadBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/dynamic_upload_buffer.h:11: warning: Member buffer (variable) of class blowbox::DynamicUploadBuffer::BufferData is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/dynamic_upload_buffer.h:12: warning: Member mapped_data (variable) of class blowbox::DynamicUploadBuffer::BufferData is not documented.
 E:/Projects/blowbox-2017/src/core/scene/entity.h:92: warning: Member GetChildren() const  (function) of class blowbox::Entity is not documented.
 E:/Projects/blowbox-2017/src/core/scene/entity_factory.h:21: warning: Found unknown command `\parent'
 E:/Projects/blowbox-2017/src/renderer/forward_renderer.h:14: warning: Member Startup() (function) of class blowbox::ForwardRenderer is not documented.
 E:/Projects/blowbox-2017/src/renderer/forward_renderer.h:15: warning: Member Render() (function) of class blowbox::ForwardRenderer is not documented.
 E:/Projects/blowbox-2017/src/renderer/forward_renderer.h:17: warning: Member depth_buffer_ (variable) of class blowbox::ForwardRenderer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_buffer.h:14: warning: Member Destroy() (function) of class blowbox::GpuBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_buffer.h:16: warning: Member Create(const WString &name, UINT num_elements, UINT element_size, void *initial_data=nullptr, bool create_views=true) (function) of class blowbox::GpuBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_buffer.h:18: warning: Member GetUAV() const  (function) of class blowbox::GpuBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_buffer.h:19: warning: Member GetSRV() const  (function) of class blowbox::GpuBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_buffer.h:20: warning: Member GetRootCBV() const  (function) of class blowbox::GpuBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_buffer.h:21: warning: Member GetRootCBV() (function) of class blowbox::GpuBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_buffer.h:23: warning: Member GetVertexBufferView(UINT offset, UINT size, UINT stride) const  (function) of class blowbox::GpuBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_buffer.h:24: warning: Member GetVertexBufferView(UINT base_vertex_index=0) const  (function) of class blowbox::GpuBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_buffer.h:25: warning: Member GetIndexBufferView(UINT offset, UINT size, bool is_32_bit=false) const  (function) of class blowbox::GpuBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_buffer.h:26: warning: Member GetIndexBufferView(UINT start_index=0) const  (function) of class blowbox::GpuBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:14: warning: Member GpuResource(ID3D12Resource *resource, D3D12_RESOURCE_STATES current_state) (function) of class blowbox::GpuResource is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:17: warning: Member Associate(ID3D12Resource *resource, D3D12_RESOURCE_STATES current_state) (function) of class blowbox::GpuResource is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:19: warning: Member Destroy() (function) of class blowbox::GpuResource is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:21: warning: Member operator->() (function) of class blowbox::GpuResource is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:22: warning: Member operator->() const  (function) of class blowbox::GpuResource is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:24: warning: Member operator ID3D12Resource *() (function) of class blowbox::GpuResource is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:26: warning: Member Get() (function) of class blowbox::GpuResource is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:28: warning: Member GetState() const  (function) of class blowbox::GpuResource is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:29: warning: Member GetTransitionState() const  (function) of class blowbox::GpuResource is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_buffer.h:31: warning: Member DescribeBuffer() (function) of class blowbox::GpuBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_buffer.h:32: warning: Member CreateDerivedViews()=0 (function) of class blowbox::GpuBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_buffer.h:34: warning: Member uav_id_ (variable) of class blowbox::GpuBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_buffer.h:35: warning: Member srv_id_ (variable) of class blowbox::GpuBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_buffer.h:37: warning: Member element_count_ (variable) of class blowbox::GpuBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_buffer.h:38: warning: Member element_size_ (variable) of class blowbox::GpuBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_buffer.h:39: warning: Member buffer_size_ (variable) of class blowbox::GpuBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_buffer.h:40: warning: Member resource_flags_ (variable) of class blowbox::GpuBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:32: warning: Member resource_ (variable) of class blowbox::GpuResource is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:33: warning: Member usage_state_ (variable) of class blowbox::GpuResource is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:34: warning: Member transition_state_ (variable) of class blowbox::GpuResource is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:35: warning: Member gpu_virtual_address_ (variable) of class blowbox::GpuResource is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:14: warning: Member GpuResource(ID3D12Resource *resource, D3D12_RESOURCE_STATES current_state) (function) of class blowbox::GpuResource is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:17: warning: Member Associate(ID3D12Resource *resource, D3D12_RESOURCE_STATES current_state) (function) of class blowbox::GpuResource is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:19: warning: Member Destroy() (function) of class blowbox::GpuResource is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:21: warning: Member operator->() (function) of class blowbox::GpuResource is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:22: warning: Member operator->() const  (function) of class blowbox::GpuResource is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:24: warning: Member operator ID3D12Resource *() (function) of class blowbox::GpuResource is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:26: warning: Member Get() (function) of class blowbox::GpuResource is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:28: warning: Member GetState() const  (function) of class blowbox::GpuResource is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:29: warning: Member GetTransitionState() const  (function) of class blowbox::GpuResource is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:32: warning: Member resource_ (variable) of class blowbox::GpuResource is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:33: warning: Member usage_state_ (variable) of class blowbox::GpuResource is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:34: warning: Member transition_state_ (variable) of class blowbox::GpuResource is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:35: warning: Member gpu_virtual_address_ (variable) of class blowbox::GpuResource is not documented.
 E:/Projects/blowbox-2017/src/renderer/commands/graphics_context.h:13: warning: Member ClearUAV(GpuBuffer &target) (function) of class blowbox::GraphicsContext is not documented.
 E:/Projects/blowbox-2017/src/renderer/commands/graphics_context.h:14: warning: Member ClearUAV(ColorBuffer &target) (function) of class blowbox::GraphicsContext is not documented.
 E:/Projects/blowbox-2017/src/renderer/commands/graphics_context.h:15: warning: Member ClearColor(ColorBuffer &target) (function) of class blowbox::GraphicsContext is not documented.
@@ -523,25 +312,6 @@ E:/Projects/blowbox-2017/src/win32/keyboard_state.h:19: warning: Member released
 E:/Projects/blowbox-2017/src/win32/keyboard_state.h:20: warning: Member modifier_control (variable) of class blowbox::KeyboardState::KeyState is not documented.
 E:/Projects/blowbox-2017/src/win32/keyboard_state.h:21: warning: Member modifier_alt (variable) of class blowbox::KeyboardState::KeyState is not documented.
 E:/Projects/blowbox-2017/src/win32/keyboard_state.h:22: warning: Member modifier_shift (variable) of class blowbox::KeyboardState::KeyState is not documented.
-E:/Projects/blowbox-2017/src/renderer/material.h:12: warning: Member use_emissive_map (variable) of class blowbox::Material is not documented.
-E:/Projects/blowbox-2017/src/renderer/material.h:13: warning: Member emissive (variable) of class blowbox::Material is not documented.
-E:/Projects/blowbox-2017/src/renderer/material.h:14: warning: Member emissive_map (variable) of class blowbox::Material is not documented.
-E:/Projects/blowbox-2017/src/renderer/material.h:16: warning: Member use_diffuse_map (variable) of class blowbox::Material is not documented.
-E:/Projects/blowbox-2017/src/renderer/material.h:17: warning: Member diffuse (variable) of class blowbox::Material is not documented.
-E:/Projects/blowbox-2017/src/renderer/material.h:18: warning: Member diffuse_map (variable) of class blowbox::Material is not documented.
-E:/Projects/blowbox-2017/src/renderer/material.h:20: warning: Member use_specular_map (variable) of class blowbox::Material is not documented.
-E:/Projects/blowbox-2017/src/renderer/material.h:21: warning: Member specular (variable) of class blowbox::Material is not documented.
-E:/Projects/blowbox-2017/src/renderer/material.h:22: warning: Member specular_map (variable) of class blowbox::Material is not documented.
-E:/Projects/blowbox-2017/src/renderer/material.h:24: warning: Member use_normal_map (variable) of class blowbox::Material is not documented.
-E:/Projects/blowbox-2017/src/renderer/material.h:25: warning: Member normal_map (variable) of class blowbox::Material is not documented.
-E:/Projects/blowbox-2017/src/renderer/material.h:27: warning: Member use_shininess_map (variable) of class blowbox::Material is not documented.
-E:/Projects/blowbox-2017/src/renderer/material.h:28: warning: Member shininess (variable) of class blowbox::Material is not documented.
-E:/Projects/blowbox-2017/src/renderer/material.h:29: warning: Member shininess_map (variable) of class blowbox::Material is not documented.
-E:/Projects/blowbox-2017/src/renderer/material.h:31: warning: Member use_ambient_map (variable) of class blowbox::Material is not documented.
-E:/Projects/blowbox-2017/src/renderer/material.h:32: warning: Member ambient_reflectance (variable) of class blowbox::Material is not documented.
-E:/Projects/blowbox-2017/src/renderer/material.h:33: warning: Member ambient_map (variable) of class blowbox::Material is not documented.
-E:/Projects/blowbox-2017/src/renderer/material.h:35: warning: Member renderer_material_cb_id (variable) of class blowbox::Material is not documented.
-E:/Projects/blowbox-2017/src/renderer/material.h:36: warning: Member renderer_material_descriptor_id (variable) of class blowbox::Material is not documented.
 E:/Projects/blowbox-2017/src/win32/mouse_state.h:29: warning: Member GetButton(MouseButton button) (function) of class blowbox::MouseState is not documented.
 E:/Projects/blowbox-2017/src/win32/mouse_state.h:30: warning: Member GetButtonDown(MouseButton button) (function) of class blowbox::MouseState is not documented.
 E:/Projects/blowbox-2017/src/win32/mouse_state.h:31: warning: Member GetButtonPressed(MouseButton button) (function) of class blowbox::MouseState is not documented.
@@ -575,34 +345,6 @@ E:/Projects/blowbox-2017/src/renderer/commands/command_context.h:21: warning: Me
 E:/Projects/blowbox-2017/src/renderer/commands/command_context.h:23: warning: Member operator=(FLOAT f_) (function) of class blowbox::Param32Bit is not documented.
 E:/Projects/blowbox-2017/src/renderer/commands/command_context.h:24: warning: Member operator=(UINT u_) (function) of class blowbox::Param32Bit is not documented.
 E:/Projects/blowbox-2017/src/renderer/commands/command_context.h:25: warning: Member operator=(INT i_) (function) of class blowbox::Param32Bit is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/pixel_buffer.h:13: warning: Member GetWidth() const  (function) of class blowbox::PixelBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/pixel_buffer.h:14: warning: Member GetHeight() const  (function) of class blowbox::PixelBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/pixel_buffer.h:15: warning: Member GetFormat() const  (function) of class blowbox::PixelBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:14: warning: Member GpuResource(ID3D12Resource *resource, D3D12_RESOURCE_STATES current_state) (function) of class blowbox::GpuResource is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:17: warning: Member Associate(ID3D12Resource *resource, D3D12_RESOURCE_STATES current_state) (function) of class blowbox::GpuResource is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:19: warning: Member Destroy() (function) of class blowbox::GpuResource is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:21: warning: Member operator->() (function) of class blowbox::GpuResource is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:22: warning: Member operator->() const  (function) of class blowbox::GpuResource is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:24: warning: Member operator ID3D12Resource *() (function) of class blowbox::GpuResource is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:26: warning: Member Get() (function) of class blowbox::GpuResource is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:28: warning: Member GetState() const  (function) of class blowbox::GpuResource is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:29: warning: Member GetTransitionState() const  (function) of class blowbox::GpuResource is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/pixel_buffer.h:18: warning: Member DescribeTex2D(UINT width, UINT height, UINT depth_or_array_size, UINT num_mips, DXGI_FORMAT format, UINT flags) (function) of class blowbox::PixelBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/pixel_buffer.h:20: warning: Member AssociateWithResource(const WString &name, ID3D12Resource *resource, const D3D12_RESOURCE_STATES &current_resource_state) (function) of class blowbox::PixelBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/pixel_buffer.h:21: warning: Member CreateTextureResource(const WString &name, const D3D12_RESOURCE_DESC &resource_desc, const D3D12_CLEAR_VALUE &clear_value) (function) of class blowbox::PixelBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/pixel_buffer.h:25: warning: Member GetBaseFormat(DXGI_FORMAT format) (function) of class blowbox::PixelBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/pixel_buffer.h:26: warning: Member GetUAVFormat(DXGI_FORMAT format) (function) of class blowbox::PixelBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/pixel_buffer.h:27: warning: Member GetDSVFormat(DXGI_FORMAT format) (function) of class blowbox::PixelBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/pixel_buffer.h:28: warning: Member GetDepthFormat(DXGI_FORMAT format) (function) of class blowbox::PixelBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/pixel_buffer.h:29: warning: Member GetStencilFormat(DXGI_FORMAT format) (function) of class blowbox::PixelBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/pixel_buffer.h:32: warning: Member width_ (variable) of class blowbox::PixelBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/pixel_buffer.h:33: warning: Member height_ (variable) of class blowbox::PixelBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/pixel_buffer.h:34: warning: Member array_size_ (variable) of class blowbox::PixelBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/pixel_buffer.h:35: warning: Member format_ (variable) of class blowbox::PixelBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:32: warning: Member resource_ (variable) of class blowbox::GpuResource is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:33: warning: Member usage_state_ (variable) of class blowbox::GpuResource is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:34: warning: Member transition_state_ (variable) of class blowbox::GpuResource is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:35: warning: Member gpu_virtual_address_ (variable) of class blowbox::GpuResource is not documented.
 E:/Projects/blowbox-2017/src/renderer/pipeline_state.h:17: warning: Member SetRootSignature(RootSignature &root_signature) (function) of class blowbox::PSO is not documented.
 E:/Projects/blowbox-2017/src/renderer/pipeline_state.h:18: warning: Member GetRootSignature() (function) of class blowbox::PSO is not documented.
 E:/Projects/blowbox-2017/src/renderer/pipeline_state.h:20: warning: Member operator->() (function) of class blowbox::PSO is not documented.
@@ -650,42 +392,11 @@ E:/Projects/blowbox-2017/src/renderer/shader.h:32: warning: Member shader_file_ 
 E:/Projects/blowbox-2017/src/renderer/shader.h:33: warning: Member shader_type_ (variable) of class blowbox::Shader is not documented.
 E:/Projects/blowbox-2017/src/renderer/shader.h:34: warning: Member shader_blob_ (variable) of class blowbox::Shader is not documented.
 E:/Projects/blowbox-2017/src/renderer/shader.h:35: warning: Member shader_byte_code_ (variable) of class blowbox::Shader is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/structured_buffer.h:13: warning: Member Destroy() override (function) of class blowbox::StructuredBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/structured_buffer.h:15: warning: Member CreateDerivedViews() override (function) of class blowbox::StructuredBuffer is not documented.
 E:/Projects/blowbox-2017/src/renderer/buffers/structured_buffer.h:17: warning: Member GetCounterBuffer() (function) of class blowbox::StructuredBuffer is not documented.
 E:/Projects/blowbox-2017/src/renderer/buffers/structured_buffer.h:18: warning: Member GetCounterBuffer() const  (function) of class blowbox::StructuredBuffer is not documented.
 E:/Projects/blowbox-2017/src/renderer/buffers/structured_buffer.h:20: warning: Member GetCounterSRV(CommandContext &context) (function) of class blowbox::StructuredBuffer is not documented.
 E:/Projects/blowbox-2017/src/renderer/buffers/structured_buffer.h:21: warning: Member GetCounterUAV(CommandContext &context) (function) of class blowbox::StructuredBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_buffer.h:16: warning: Member Create(const WString &name, UINT num_elements, UINT element_size, void *initial_data=nullptr, bool create_views=true) (function) of class blowbox::GpuBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_buffer.h:18: warning: Member GetUAV() const  (function) of class blowbox::GpuBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_buffer.h:19: warning: Member GetSRV() const  (function) of class blowbox::GpuBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_buffer.h:20: warning: Member GetRootCBV() const  (function) of class blowbox::GpuBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_buffer.h:21: warning: Member GetRootCBV() (function) of class blowbox::GpuBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_buffer.h:23: warning: Member GetVertexBufferView(UINT offset, UINT size, UINT stride) const  (function) of class blowbox::GpuBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_buffer.h:24: warning: Member GetVertexBufferView(UINT base_vertex_index=0) const  (function) of class blowbox::GpuBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_buffer.h:25: warning: Member GetIndexBufferView(UINT offset, UINT size, bool is_32_bit=false) const  (function) of class blowbox::GpuBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_buffer.h:26: warning: Member GetIndexBufferView(UINT start_index=0) const  (function) of class blowbox::GpuBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:14: warning: Member GpuResource(ID3D12Resource *resource, D3D12_RESOURCE_STATES current_state) (function) of class blowbox::GpuResource is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:17: warning: Member Associate(ID3D12Resource *resource, D3D12_RESOURCE_STATES current_state) (function) of class blowbox::GpuResource is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:19: warning: Member Destroy() (function) of class blowbox::GpuResource is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:21: warning: Member operator->() (function) of class blowbox::GpuResource is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:22: warning: Member operator->() const  (function) of class blowbox::GpuResource is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:24: warning: Member operator ID3D12Resource *() (function) of class blowbox::GpuResource is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:26: warning: Member Get() (function) of class blowbox::GpuResource is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:28: warning: Member GetState() const  (function) of class blowbox::GpuResource is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:29: warning: Member GetTransitionState() const  (function) of class blowbox::GpuResource is not documented.
 E:/Projects/blowbox-2017/src/renderer/buffers/structured_buffer.h:24: warning: Member counter_buffer_ (variable) of class blowbox::StructuredBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_buffer.h:31: warning: Member DescribeBuffer() (function) of class blowbox::GpuBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_buffer.h:34: warning: Member uav_id_ (variable) of class blowbox::GpuBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_buffer.h:35: warning: Member srv_id_ (variable) of class blowbox::GpuBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_buffer.h:37: warning: Member element_count_ (variable) of class blowbox::GpuBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_buffer.h:38: warning: Member element_size_ (variable) of class blowbox::GpuBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_buffer.h:39: warning: Member buffer_size_ (variable) of class blowbox::GpuBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_buffer.h:40: warning: Member resource_flags_ (variable) of class blowbox::GpuBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:32: warning: Member resource_ (variable) of class blowbox::GpuResource is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:33: warning: Member usage_state_ (variable) of class blowbox::GpuResource is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:34: warning: Member transition_state_ (variable) of class blowbox::GpuResource is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:35: warning: Member gpu_virtual_address_ (variable) of class blowbox::GpuResource is not documented.
 E:/Projects/blowbox-2017/src/renderer/swap_chain.h:18: warning: Member Create(HWND output_window, UINT width, UINT height, DXGI_FORMAT format, UINT buffer_count, DXGI_SWAP_EFFECT swap_effect, UINT flags, bool disable_alt_enter=true, bool windowed=true) (function) of class blowbox::SwapChain is not documented.
 E:/Projects/blowbox-2017/src/renderer/swap_chain.h:20: warning: Member Present(bool vsync=true) (function) of class blowbox::SwapChain is not documented.
 E:/Projects/blowbox-2017/src/renderer/swap_chain.h:22: warning: Member GetBuffer(UINT buffer_index) (function) of class blowbox::SwapChain is not documented.
@@ -706,77 +417,8 @@ E:/Projects/blowbox-2017/src/renderer/swap_chain.h:44: warning: Member back_buff
 E:/Projects/blowbox-2017/src/renderer/swap_chain.h:45: warning: Member buffer_count_ (variable) of class blowbox::SwapChain is not documented.
 E:/Projects/blowbox-2017/src/renderer/swap_chain.h:46: warning: Member buffers_[SWAP_CHAIN_MAX_BUFFER_COUNT] (variable) of class blowbox::SwapChain is not documented.
 E:/Projects/blowbox-2017/src/renderer/buffers/typed_buffer.h:11: warning: Member TypedBuffer(DXGI_FORMAT format) (function) of class blowbox::TypedBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/typed_buffer.h:12: warning: Member CreateDerivedViews() override (function) of class blowbox::TypedBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_buffer.h:14: warning: Member Destroy() (function) of class blowbox::GpuBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_buffer.h:16: warning: Member Create(const WString &name, UINT num_elements, UINT element_size, void *initial_data=nullptr, bool create_views=true) (function) of class blowbox::GpuBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_buffer.h:18: warning: Member GetUAV() const  (function) of class blowbox::GpuBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_buffer.h:19: warning: Member GetSRV() const  (function) of class blowbox::GpuBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_buffer.h:20: warning: Member GetRootCBV() const  (function) of class blowbox::GpuBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_buffer.h:21: warning: Member GetRootCBV() (function) of class blowbox::GpuBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_buffer.h:23: warning: Member GetVertexBufferView(UINT offset, UINT size, UINT stride) const  (function) of class blowbox::GpuBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_buffer.h:24: warning: Member GetVertexBufferView(UINT base_vertex_index=0) const  (function) of class blowbox::GpuBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_buffer.h:25: warning: Member GetIndexBufferView(UINT offset, UINT size, bool is_32_bit=false) const  (function) of class blowbox::GpuBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_buffer.h:26: warning: Member GetIndexBufferView(UINT start_index=0) const  (function) of class blowbox::GpuBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:14: warning: Member GpuResource(ID3D12Resource *resource, D3D12_RESOURCE_STATES current_state) (function) of class blowbox::GpuResource is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:17: warning: Member Associate(ID3D12Resource *resource, D3D12_RESOURCE_STATES current_state) (function) of class blowbox::GpuResource is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:19: warning: Member Destroy() (function) of class blowbox::GpuResource is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:21: warning: Member operator->() (function) of class blowbox::GpuResource is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:22: warning: Member operator->() const  (function) of class blowbox::GpuResource is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:24: warning: Member operator ID3D12Resource *() (function) of class blowbox::GpuResource is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:26: warning: Member Get() (function) of class blowbox::GpuResource is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:28: warning: Member GetState() const  (function) of class blowbox::GpuResource is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:29: warning: Member GetTransitionState() const  (function) of class blowbox::GpuResource is not documented.
 E:/Projects/blowbox-2017/src/renderer/buffers/typed_buffer.h:14: warning: Member data_format_ (variable) of class blowbox::TypedBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_buffer.h:31: warning: Member DescribeBuffer() (function) of class blowbox::GpuBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_buffer.h:34: warning: Member uav_id_ (variable) of class blowbox::GpuBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_buffer.h:35: warning: Member srv_id_ (variable) of class blowbox::GpuBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_buffer.h:37: warning: Member element_count_ (variable) of class blowbox::GpuBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_buffer.h:38: warning: Member element_size_ (variable) of class blowbox::GpuBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_buffer.h:39: warning: Member buffer_size_ (variable) of class blowbox::GpuBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_buffer.h:40: warning: Member resource_flags_ (variable) of class blowbox::GpuBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:32: warning: Member resource_ (variable) of class blowbox::GpuResource is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:33: warning: Member usage_state_ (variable) of class blowbox::GpuResource is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:34: warning: Member transition_state_ (variable) of class blowbox::GpuResource is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:35: warning: Member gpu_virtual_address_ (variable) of class blowbox::GpuResource is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_buffer.h:16: warning: Member Create(const WString &name, UINT num_elements, UINT element_size, void *initial_data=nullptr, bool create_views=true) (function) of class blowbox::GpuBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_buffer.h:18: warning: Member GetUAV() const  (function) of class blowbox::GpuBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_buffer.h:19: warning: Member GetSRV() const  (function) of class blowbox::GpuBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_buffer.h:20: warning: Member GetRootCBV() const  (function) of class blowbox::GpuBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_buffer.h:21: warning: Member GetRootCBV() (function) of class blowbox::GpuBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_buffer.h:23: warning: Member GetVertexBufferView(UINT offset, UINT size, UINT stride) const  (function) of class blowbox::GpuBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_buffer.h:24: warning: Member GetVertexBufferView(UINT base_vertex_index=0) const  (function) of class blowbox::GpuBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_buffer.h:25: warning: Member GetIndexBufferView(UINT offset, UINT size, bool is_32_bit=false) const  (function) of class blowbox::GpuBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_buffer.h:26: warning: Member GetIndexBufferView(UINT start_index=0) const  (function) of class blowbox::GpuBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:14: warning: Member GpuResource(ID3D12Resource *resource, D3D12_RESOURCE_STATES current_state) (function) of class blowbox::GpuResource is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:17: warning: Member Associate(ID3D12Resource *resource, D3D12_RESOURCE_STATES current_state) (function) of class blowbox::GpuResource is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:19: warning: Member Destroy() (function) of class blowbox::GpuResource is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:21: warning: Member operator->() (function) of class blowbox::GpuResource is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:22: warning: Member operator->() const  (function) of class blowbox::GpuResource is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:24: warning: Member operator ID3D12Resource *() (function) of class blowbox::GpuResource is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:26: warning: Member Get() (function) of class blowbox::GpuResource is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:28: warning: Member GetState() const  (function) of class blowbox::GpuResource is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:29: warning: Member GetTransitionState() const  (function) of class blowbox::GpuResource is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_buffer.h:31: warning: Member DescribeBuffer() (function) of class blowbox::GpuBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_buffer.h:34: warning: Member uav_id_ (variable) of class blowbox::GpuBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_buffer.h:35: warning: Member srv_id_ (variable) of class blowbox::GpuBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_buffer.h:37: warning: Member element_count_ (variable) of class blowbox::GpuBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_buffer.h:38: warning: Member element_size_ (variable) of class blowbox::GpuBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_buffer.h:39: warning: Member buffer_size_ (variable) of class blowbox::GpuBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_buffer.h:40: warning: Member resource_flags_ (variable) of class blowbox::GpuBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:32: warning: Member resource_ (variable) of class blowbox::GpuResource is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:33: warning: Member usage_state_ (variable) of class blowbox::GpuResource is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:34: warning: Member transition_state_ (variable) of class blowbox::GpuResource is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.h:35: warning: Member gpu_virtual_address_ (variable) of class blowbox::GpuResource is not documented.
 E:/Projects/blowbox-2017/src/renderer/buffers/upload_buffer.h:49: warning: argument 'element_id' of command @param is not found in the argument list of blowbox::UploadBuffer::InsertDataByBuffer(void *data, UINT size_of_data_in_bytes)
 E:/Projects/blowbox-2017/src/renderer/buffers/upload_buffer.h:53: warning: The following parameters of blowbox::UploadBuffer::InsertDataByBuffer(void *data, UINT size_of_data_in_bytes) are not documented:
   parameter 'data'
-E:/Projects/blowbox-2017/src/renderer/vertex.h:17: warning: Member operator==(const Vertex &other) (function) of class blowbox::Vertex is not documented.
-E:/Projects/blowbox-2017/src/renderer/vertex.h:7: warning: Member position (variable) of class blowbox::Vertex is not documented.
-E:/Projects/blowbox-2017/src/renderer/vertex.h:8: warning: Member normal (variable) of class blowbox::Vertex is not documented.
-E:/Projects/blowbox-2017/src/renderer/vertex.h:9: warning: Member tangent (variable) of class blowbox::Vertex is not documented.
-E:/Projects/blowbox-2017/src/renderer/vertex.h:10: warning: Member bitangent (variable) of class blowbox::Vertex is not documented.
-E:/Projects/blowbox-2017/src/renderer/vertex.h:11: warning: Member uv (variable) of class blowbox::Vertex is not documented.
-E:/Projects/blowbox-2017/src/renderer/vertex.h:12: warning: Member color (variable) of class blowbox::Vertex is not documented.
-E:/Projects/blowbox-2017/src/renderer/vertex.h:13: warning: Member bone_ids[4] (variable) of class blowbox::Vertex is not documented.
-E:/Projects/blowbox-2017/src/renderer/vertex.h:14: warning: Member bone_weights[4] (variable) of class blowbox::Vertex is not documented.
 E:/Projects/blowbox-2017/src/win32/window.h:226: warning: Member focused_ (variable) of class blowbox::Window is not documented.

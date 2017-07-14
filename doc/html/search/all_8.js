@@ -11,6 +11,7 @@ var searchData=
   ['insertdatabybuffer',['InsertDataByBuffer',['../classblowbox_1_1_upload_buffer.html#a2dd6df216ca0bb4fefcc9d99c42e830c',1,'blowbox::UploadBuffer']]],
   ['insertdatabyelement',['InsertDataByElement',['../classblowbox_1_1_upload_buffer.html#a02f864b494baba668c73e4bdb5ed8047',1,'blowbox::UploadBuffer']]],
   ['instance_5f',['instance_',['../classblowbox_1_1_get.html#a156f36e1ed17f514397577b676a82660',1,'blowbox::Get']]],
+  ['intrusiveptr',['IntrusivePtr',['../namespaceblowbox.html#a61055a0063519cf4ff2979d337d8b048',1,'blowbox']]],
   ['is_5fmapped_5f',['is_mapped_',['../classblowbox_1_1_upload_buffer.html#a5624b1d92a7a079fba2b9935fe8dff78',1,'blowbox::UploadBuffer']]],
   ['isblowboxalive',['IsBlowboxAlive',['../classblowbox_1_1_blowbox_core.html#a56b68dbf03e3b1ae8c1442b956304a7f',1,'blowbox::BlowboxCore']]],
   ['istransformdirty',['IsTransformDirty',['../classblowbox_1_1_entity.html#ac110711ac804fc922eb5463aae741566',1,'blowbox::Entity']]]

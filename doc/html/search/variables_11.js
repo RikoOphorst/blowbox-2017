@@ -1,6 +1,7 @@
 var searchData=
 [
   ['width',['width',['../structblowbox_1_1_resolution.html#a54a27080e865948ce93ae97b2af24550',1,'blowbox::Resolution']]],
+  ['width_5f',['width_',['../classblowbox_1_1_pixel_buffer.html#a20361afcad11d731ad59205bca1f26be',1,'blowbox::PixelBuffer']]],
   ['win32_5fglfw_5fmanager_5f',['win32_glfw_manager_',['../classblowbox_1_1_blowbox_core.html#ad551c2ec54d57529f4d57e74f6cd9f2b',1,'blowbox::BlowboxCore']]],
   ['win32_5fmain_5fwindow_5f',['win32_main_window_',['../classblowbox_1_1_blowbox_core.html#a7610ffe1ff42be021398306bb7fbff56',1,'blowbox::BlowboxCore']]],
   ['window_5f',['window_',['../classblowbox_1_1_window.html#acbd01fbc157de0ade290364da38879b8',1,'blowbox::Window']]],
