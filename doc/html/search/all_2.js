@@ -20,6 +20,7 @@ var searchData=
   ['commandqueue',['CommandQueue',['../classblowbox_1_1_command_queue.html',1,'blowbox']]],
   ['computepso',['ComputePSO',['../classblowbox_1_1_compute_p_s_o.html',1,'blowbox']]],
   ['config_5f',['config_',['../classblowbox_1_1_blowbox_core.html#a0378f38e66c1b6809853e93eb5e1d589',1,'blowbox::BlowboxCore']]],
+  ['counter_5fbuffer_5f',['counter_buffer_',['../classblowbox_1_1_structured_buffer.html#ac1c6e96b4c58c4243379f52a76c1f8a8',1,'blowbox::StructuredBuffer']]],
   ['create',['Create',['../classblowbox_1_1_color_buffer.html#a6864bbb094e2c5abed7d138dc00c55e5',1,'blowbox::ColorBuffer::Create()'],['../classblowbox_1_1_depth_buffer.html#a231f784df3535e762ee497db9d198daa',1,'blowbox::DepthBuffer::Create()'],['../classblowbox_1_1_gpu_buffer.html#a9db784b9adf258da3e762ed13480ceff',1,'blowbox::GpuBuffer::Create()'],['../classblowbox_1_1_upload_buffer.html#a74437fe358e8645ecb171a8ed1907fd7',1,'blowbox::UploadBuffer::Create()'],['../classblowbox_1_1_window.html#acf7f1f413f7d1fe5fd6fa93d66f8ab93',1,'blowbox::Window::Create()']]],
   ['createconstantbufferview',['CreateConstantBufferView',['../classblowbox_1_1_descriptor_heap.html#a70af41007fe2400bfdcee531a9bfe2fc',1,'blowbox::DescriptorHeap']]],
   ['createdepthstencilview',['CreateDepthStencilView',['../classblowbox_1_1_descriptor_heap.html#a85fa326d4b113c03be93de1f868a9830',1,'blowbox::DescriptorHeap']]],

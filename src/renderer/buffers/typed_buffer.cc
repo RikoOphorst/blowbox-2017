@@ -29,7 +29,7 @@ namespace blowbox
 		srv_desc.Buffer.NumElements = element_count_;
 		srv_desc.Buffer.Flags = D3D12_BUFFER_SRV_FLAG_NONE;
 
-		eastl::shared_ptr<DescriptorHeap> cbv_srv_uav_heap = Get::CbvSrvUavHeap();
+		SharedPtr<DescriptorHeap> cbv_srv_uav_heap = Get::CbvSrvUavHeap();
 
 		srv_id_ = cbv_srv_uav_heap->CreateShaderResourceView(resource_, &srv_desc);
 

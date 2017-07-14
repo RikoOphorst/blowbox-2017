@@ -207,8 +207,8 @@ Additional Inherited Members</h2></td></tr>
 <tr class="separator:a885454457e9dc233228dbde307dcdfd8 inherit pro_attribs_classblowbox_1_1_gpu_resource"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>A buffer type which can be used as a way to very easily upload data to the GPU. </p>
-<dl class="section author"><dt>Author</dt><dd>Riko Ophorst </dd></dl>
+<div class="textblock"><p>Wraps upload buffer types, which allow you to upload data to the GPU. </p>
+<p>The <a class="el" href="classblowbox_1_1_upload_buffer.html" title="Wraps upload buffer types, which allow you to upload data to the GPU. ">UploadBuffer</a> enables you to create a buffer that exists in an upload heap, allowing you to upload data to the GPU by having the resource mapped to CPU memory. You can do this by using the various insert methods provided. </p>
 </div><div class="dynheader">
 Inheritance diagram for blowbox::UploadBuffer:</div>
 <div class="dyncontent">
@@ -254,7 +254,7 @@ Inheritance diagram for blowbox::UploadBuffer:</div>
 <p>Clear all data that resides in an element and set it to 0x0. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">element_id</td><td>The index (id) of the element you want to clear </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">element_id</td><td>The index (id) of the element you want to clear. </td></tr>
   </table>
   </dd>
 </dl>
@@ -300,10 +300,10 @@ Inheritance diagram for blowbox::UploadBuffer:</div>
 <p>Creates the upload buffer. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">name</td><td>The name of the buffer you're creating. This will be used internally to easily identify the buffer </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">num_elements</td><td>The number of elements that should be able to fit in this buffer </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">element_size</td><td>The size of each elements that should be able to fit in this buffer </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">initial_data</td><td>(optional) The data that this buffer should be initialized with </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">name</td><td>The name of the buffer you're creating. This will be used internally to easily identify the buffer. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">num_elements</td><td>The number of elements that should be able to fit in this buffer. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">element_size</td><td>The size of each elements that should be able to fit in this buffer. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">initial_data</td><td>(optional) The data that this buffer should be initialized with. </td></tr>
   </table>
   </dd>
 </dl>
@@ -378,7 +378,7 @@ Inheritance diagram for blowbox::UploadBuffer:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Query for the GPU memory address of an element in the <a class="el" href="classblowbox_1_1_upload_buffer.html" title="A buffer type which can be used as a way to very easily upload data to the GPU. ">UploadBuffer</a>. </p>
+<p>Query for the GPU memory address of an element in the <a class="el" href="classblowbox_1_1_upload_buffer.html" title="Wraps upload buffer types, which allow you to upload data to the GPU. ">UploadBuffer</a>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">element_id</td><td>The index (id) of the element you want the address of </td></tr>
@@ -400,9 +400,7 @@ Inheritance diagram for blowbox::UploadBuffer:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Returns the mapped data pointer. </p>
-<dl class="section author"><dt>Author</dt><dd>Riko Ophorst </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns the mapped data pointer. </dd></dl>
 
 </div>
 </div>
@@ -430,11 +428,11 @@ Inheritance diagram for blowbox::UploadBuffer:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Set ALL data in the <a class="el" href="classblowbox_1_1_upload_buffer.html" title="A buffer type which can be used as a way to very easily upload data to the GPU. ">UploadBuffer</a> to what you pass in. Throws an error when (size_of_data_in_bytes != element_size * element_count) </p>
+<p>Set ALL data in the <a class="el" href="classblowbox_1_1_upload_buffer.html" title="Wraps upload buffer types, which allow you to upload data to the GPU. ">UploadBuffer</a> to what you pass in. Throws an error when (size_of_data_in_bytes != element_size * element_count) </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">element_id</td><td>The index (id) of the element you want to clear </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">size_of_data_in_bytes</td><td>The size of the data you are writing into the buffer </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">data</td><td>The data you want to set in the entire buffer. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">size_of_data_in_bytes</td><td>The size of the data you are writing into the buffer. </td></tr>
   </table>
   </dd>
 </dl>
@@ -465,11 +463,11 @@ Inheritance diagram for blowbox::UploadBuffer:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Insert data into the buffer by a certain element index. Make sure the resource has been <a class="el" href="classblowbox_1_1_upload_buffer.html#a8e7b7b8330d71f05946a7747d5368948" title="&quot;Maps&quot; the resource from GPU memory to CPU memory, making it writable &amp; readable (although reading is...">Map()</a>-ed to CPU memory (by default, all UploadBuffers are mapped) </p>
+<p>Insert data into the buffer by a certain element index. Make sure the resource has been <a class="el" href="classblowbox_1_1_upload_buffer.html#a8e7b7b8330d71f05946a7747d5368948" title="&quot;Maps&quot; the resource from GPU memory to CPU memory, making it writable &amp; readable (although reading is...">Map()</a>-ed to CPU memory (by default, all UploadBuffers are mapped). </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">element_id</td><td>The index (id) of the element you want to write to </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">data</td><td>The data you want to write into the element </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">element_id</td><td>The index (id) of the element you want to write to. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">data</td><td>The data you want to write into the element. </td></tr>
   </table>
   </dd>
 </dl>
@@ -562,7 +560,7 @@ Inheritance diagram for blowbox::UploadBuffer:</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jul 14 2017 23:17:59 for Blowbox 2017 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Jul 14 2017 23:39:41 for Blowbox 2017 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

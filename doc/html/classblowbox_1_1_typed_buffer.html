@@ -97,11 +97,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">blowbox::TypedBuffer Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="typed__buffer_8h_source.html">typed_buffer.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:af4cb3e5b0ba008094256009db291bba4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af4cb3e5b0ba008094256009db291bba4"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>TypedBuffer</b> (DXGI_FORMAT format)</td></tr>
+<tr class="memitem:a7260f3daa05794454f06e61015a37fe7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_typed_buffer.html#a7260f3daa05794454f06e61015a37fe7">TypedBuffer</a> ()</td></tr>
+<tr class="separator:a7260f3daa05794454f06e61015a37fe7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af4cb3e5b0ba008094256009db291bba4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_typed_buffer.html#af4cb3e5b0ba008094256009db291bba4">TypedBuffer</a> (DXGI_FORMAT format)</td></tr>
 <tr class="separator:af4cb3e5b0ba008094256009db291bba4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a294fd88ebc599bf3fecebdb1bee9d8fb"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_typed_buffer.html#a294fd88ebc599bf3fecebdb1bee9d8fb">CreateDerivedViews</a> () override</td></tr>
 <tr class="separator:a294fd88ebc599bf3fecebdb1bee9d8fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -154,8 +157,7 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a53eab76b8717f192428f80305f82e966"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a53eab76b8717f192428f80305f82e966"></a>
-DXGI_FORMAT&#160;</td><td class="memItemRight" valign="bottom"><b>data_format_</b></td></tr>
+<tr class="memitem:a53eab76b8717f192428f80305f82e966"><td class="memItemLeft" align="right" valign="top">DXGI_FORMAT&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_typed_buffer.html#a53eab76b8717f192428f80305f82e966">data_format_</a></td></tr>
 <tr class="separator:a53eab76b8717f192428f80305f82e966"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
@@ -188,7 +190,10 @@ Additional Inherited Members</h2></td></tr>
 <tr class="memitem:a885454457e9dc233228dbde307dcdfd8 inherit pro_attribs_classblowbox_1_1_gpu_resource"><td class="memItemLeft" align="right" valign="top">D3D12_GPU_VIRTUAL_ADDRESS&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_gpu_resource.html#a885454457e9dc233228dbde307dcdfd8">gpu_virtual_address_</a></td></tr>
 <tr class="separator:a885454457e9dc233228dbde307dcdfd8 inherit pro_attribs_classblowbox_1_1_gpu_resource"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<div class="dynheader">
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Wrapper for formatted buffer types. </p>
+<p>This type of buffer acts similarly to a <a class="el" href="classblowbox_1_1_structured_buffer.html" title="Wrapper for StructuredBuffer types. ">StructuredBuffer</a>, except every element in the buffer is formatted in the form of a DXGI_FORMAT. </p>
+</div><div class="dynheader">
 Inheritance diagram for blowbox::TypedBuffer:</div>
 <div class="dyncontent">
  <div class="center">
@@ -198,6 +203,48 @@ Inheritance diagram for blowbox::TypedBuffer:</div>
 <area href="classblowbox_1_1_gpu_resource.html" title="Wraps ID3D12Resource objects. " alt="blowbox::GpuResource" shape="rect" coords="0,0,141,24"/>
 </map>
  </div></div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a7260f3daa05794454f06e61015a37fe7"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">blowbox::TypedBuffer::TypedBuffer </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constructs a <a class="el" href="classblowbox_1_1_typed_buffer.html" title="Wrapper for formatted buffer types. ">TypedBuffer</a>. </p>
+
+</div>
+</div>
+<a class="anchor" id="af4cb3e5b0ba008094256009db291bba4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">blowbox::TypedBuffer::TypedBuffer </td>
+          <td>(</td>
+          <td class="paramtype">DXGI_FORMAT&#160;</td>
+          <td class="paramname"><em>format</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constructs a <a class="el" href="classblowbox_1_1_typed_buffer.html" title="Wrapper for formatted buffer types. ">TypedBuffer</a> with a given format. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">format</td><td>The format of each element in the buffer. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="a294fd88ebc599bf3fecebdb1bee9d8fb"></a>
 <div class="memitem">
@@ -220,9 +267,32 @@ Inheritance diagram for blowbox::TypedBuffer:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Creates the descriptors (views) for this <a class="el" href="classblowbox_1_1_gpu_buffer.html" title="Wraps buffer-type GpuResource&#39;s. ">GpuBuffer</a>. </p>
+<p>Creates the descriptor views (descriptors) for this <a class="el" href="classblowbox_1_1_typed_buffer.html" title="Wrapper for formatted buffer types. ">TypedBuffer</a>. </p>
 
 <p>Implements <a class="el" href="classblowbox_1_1_gpu_buffer.html#a30da71a81135eb9034d5abb0a1abcc0e">blowbox::GpuBuffer</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="a53eab76b8717f192428f80305f82e966"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">DXGI_FORMAT blowbox::TypedBuffer::data_format_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The format of each element in the typed buffer. </p>
 
 </div>
 </div>
@@ -233,7 +303,7 @@ Inheritance diagram for blowbox::TypedBuffer:</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jul 14 2017 23:17:59 for Blowbox 2017 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Jul 14 2017 23:39:41 for Blowbox 2017 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

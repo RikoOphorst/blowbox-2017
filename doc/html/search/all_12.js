@@ -7,5 +7,6 @@ var searchData=
   ['transform_5fdirty_5f',['transform_dirty_',['../classblowbox_1_1_entity.html#af5d2e2d91e20ca928f9b98542e644809',1,'blowbox::Entity']]],
   ['transition_5fstate_5f',['transition_state_',['../classblowbox_1_1_gpu_resource.html#af11a559a18bd9ebe5f2a23a99b175843',1,'blowbox::GpuResource']]],
   ['tuple',['Tuple',['../namespaceblowbox.html#a4f030f9b7fa23e1064b8112e42528124',1,'blowbox']]],
-  ['typedbuffer',['TypedBuffer',['../classblowbox_1_1_typed_buffer.html',1,'blowbox']]]
+  ['typedbuffer',['TypedBuffer',['../classblowbox_1_1_typed_buffer.html',1,'blowbox']]],
+  ['typedbuffer',['TypedBuffer',['../classblowbox_1_1_typed_buffer.html#a7260f3daa05794454f06e61015a37fe7',1,'blowbox::TypedBuffer::TypedBuffer()'],['../classblowbox_1_1_typed_buffer.html#af4cb3e5b0ba008094256009db291bba4',1,'blowbox::TypedBuffer::TypedBuffer(DXGI_FORMAT format)']]]
 ];

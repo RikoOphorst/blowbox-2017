@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['data_5fformat_5f',['data_format_',['../classblowbox_1_1_typed_buffer.html#a53eab76b8717f192428f80305f82e966',1,'blowbox::TypedBuffer']]],
   ['deferred_5frenderer_5f',['deferred_renderer_',['../classblowbox_1_1_get.html#ac8575de5652af62d3e63de0b4cba5906',1,'blowbox::Get']]],
   ['deferredrenderer',['DeferredRenderer',['../classblowbox_1_1_deferred_renderer.html',1,'blowbox']]],
   ['deferredrenderer',['DeferredRenderer',['../classblowbox_1_1_get.html#aefaa1f0cf708566e2bdf7fbd5f983644',1,'blowbox::Get']]],

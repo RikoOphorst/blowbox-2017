@@ -13,7 +13,6 @@ E:/Projects/blowbox-2017/src/renderer/root_signature.h:38: warning: Compound blo
 E:/Projects/blowbox-2017/src/win32/mouse_state.h:11: warning: Compound blowbox::MouseState is not documented.
 E:/Projects/blowbox-2017/src/renderer/pipeline_state.h:67: warning: Compound blowbox::ComputePSO is not documented.
 E:/Projects/blowbox-2017/src/win32/keyboard_state.h:16: warning: Compound blowbox::KeyboardState::KeyState is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/structured_buffer.h:11: warning: Compound blowbox::StructuredBuffer is not documented.
 E:/Projects/blowbox-2017/src/renderer/forward_renderer.h:9: warning: Compound blowbox::ForwardRenderer is not documented.
 E:/Projects/blowbox-2017/src/renderer/commands/command_context.h:18: warning: Compound blowbox::Param32Bit is not documented.
 E:/Projects/blowbox-2017/src/renderer/root_signature.h:14: warning: Compound blowbox::RootParameter is not documented.
@@ -27,7 +26,6 @@ E:/Projects/blowbox-2017/src/renderer/pipeline_state.h:13: warning: Compound blo
 E:/Projects/blowbox-2017/src/renderer/commands/command_manager.h:15: warning: Compound blowbox::CommandManager is not documented.
 E:/Projects/blowbox-2017/src/win32/keyboard_state.h:10: warning: Compound blowbox::KeyboardState is not documented.
 E:/Projects/blowbox-2017/src/win32/mouse_state.h:17: warning: Compound blowbox::MouseState::MouseButtonState is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/typed_buffer.h:8: warning: Compound blowbox::TypedBuffer is not documented.
 E:/Projects/blowbox-2017/src/renderer/device.h:16: warning: Compound blowbox::Device is not documented.
 E:/Projects/blowbox-2017/src/core/scene/entity_factory.h:21: warning: Found unknown command `\parent'
 E:/Projects/blowbox-2017/src/renderer/descriptor_heap.h:12: warning: Member DescriptorId (typedef) of namespace blowbox is not documented.
@@ -392,11 +390,6 @@ E:/Projects/blowbox-2017/src/renderer/shader.h:32: warning: Member shader_file_ 
 E:/Projects/blowbox-2017/src/renderer/shader.h:33: warning: Member shader_type_ (variable) of class blowbox::Shader is not documented.
 E:/Projects/blowbox-2017/src/renderer/shader.h:34: warning: Member shader_blob_ (variable) of class blowbox::Shader is not documented.
 E:/Projects/blowbox-2017/src/renderer/shader.h:35: warning: Member shader_byte_code_ (variable) of class blowbox::Shader is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/structured_buffer.h:17: warning: Member GetCounterBuffer() (function) of class blowbox::StructuredBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/structured_buffer.h:18: warning: Member GetCounterBuffer() const  (function) of class blowbox::StructuredBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/structured_buffer.h:20: warning: Member GetCounterSRV(CommandContext &context) (function) of class blowbox::StructuredBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/structured_buffer.h:21: warning: Member GetCounterUAV(CommandContext &context) (function) of class blowbox::StructuredBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/structured_buffer.h:24: warning: Member counter_buffer_ (variable) of class blowbox::StructuredBuffer is not documented.
 E:/Projects/blowbox-2017/src/renderer/swap_chain.h:18: warning: Member Create(HWND output_window, UINT width, UINT height, DXGI_FORMAT format, UINT buffer_count, DXGI_SWAP_EFFECT swap_effect, UINT flags, bool disable_alt_enter=true, bool windowed=true) (function) of class blowbox::SwapChain is not documented.
 E:/Projects/blowbox-2017/src/renderer/swap_chain.h:20: warning: Member Present(bool vsync=true) (function) of class blowbox::SwapChain is not documented.
 E:/Projects/blowbox-2017/src/renderer/swap_chain.h:22: warning: Member GetBuffer(UINT buffer_index) (function) of class blowbox::SwapChain is not documented.
@@ -416,9 +409,4 @@ E:/Projects/blowbox-2017/src/renderer/swap_chain.h:43: warning: Member desc_ (va
 E:/Projects/blowbox-2017/src/renderer/swap_chain.h:44: warning: Member back_buffer_index_ (variable) of class blowbox::SwapChain is not documented.
 E:/Projects/blowbox-2017/src/renderer/swap_chain.h:45: warning: Member buffer_count_ (variable) of class blowbox::SwapChain is not documented.
 E:/Projects/blowbox-2017/src/renderer/swap_chain.h:46: warning: Member buffers_[SWAP_CHAIN_MAX_BUFFER_COUNT] (variable) of class blowbox::SwapChain is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/typed_buffer.h:11: warning: Member TypedBuffer(DXGI_FORMAT format) (function) of class blowbox::TypedBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/typed_buffer.h:14: warning: Member data_format_ (variable) of class blowbox::TypedBuffer is not documented.
-E:/Projects/blowbox-2017/src/renderer/buffers/upload_buffer.h:49: warning: argument 'element_id' of command @param is not found in the argument list of blowbox::UploadBuffer::InsertDataByBuffer(void *data, UINT size_of_data_in_bytes)
-E:/Projects/blowbox-2017/src/renderer/buffers/upload_buffer.h:53: warning: The following parameters of blowbox::UploadBuffer::InsertDataByBuffer(void *data, UINT size_of_data_in_bytes) are not documented:
-  parameter 'data'
 E:/Projects/blowbox-2017/src/win32/window.h:226: warning: Member focused_ (variable) of class blowbox::Window is not documented.
