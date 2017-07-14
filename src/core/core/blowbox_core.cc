@@ -44,8 +44,7 @@ namespace blowbox
         render_cbv_srv_uav_heap_(nullptr),
         render_forward_renderer_(nullptr),
         render_deferred_renderer_(nullptr),
-        render_imgui_manager_(nullptr),
-        show_test_window_(true)
+        render_imgui_manager_(nullptr)
     {
         BLOWBOX_ASSERT(config_ != nullptr);
 
@@ -252,11 +251,6 @@ namespace blowbox
         if (user_procedure_update_)
             user_procedure_update_();
 
-		if (show_test_window_)
-		{
-			ImGui::ShowTestWindow(&show_test_window_);
-		}
-
 		scene_manager_->Update();
 
         if (user_procedure_post_update_)
@@ -305,37 +299,37 @@ namespace blowbox
     }
 
     //------------------------------------------------------------------------------------------------------
-    void BlowboxCore::SetRunProcedure(const eastl::function<void(void)>& run_procedure)
+    void BlowboxCore::SetRunProcedure(const Function<void>& run_procedure)
     {
         user_procedure_run_ = run_procedure;
     }
 
     //------------------------------------------------------------------------------------------------------
-    void BlowboxCore::SetUpdateProcedure(const eastl::function<void(void)>& update_procedure)
+    void BlowboxCore::SetUpdateProcedure(const Function<void>& update_procedure)
     {
         user_procedure_update_ = update_procedure;
     }
 
     //------------------------------------------------------------------------------------------------------
-    void BlowboxCore::SetPostUpdateProcedure(const eastl::function<void(void)>& post_update_procedure)
+    void BlowboxCore::SetPostUpdateProcedure(const Function<void>& post_update_procedure)
     {
         user_procedure_post_update_ = post_update_procedure;
     }
 
     //------------------------------------------------------------------------------------------------------
-    void BlowboxCore::SetRenderProcedure(const eastl::function<void(void)>& render_procedure)
+    void BlowboxCore::SetRenderProcedure(const Function<void>& render_procedure)
     {
         user_procedure_render_ = render_procedure;
     }
 
     //------------------------------------------------------------------------------------------------------
-    void BlowboxCore::SetPostRenderProcedure(const eastl::function<void(void)>& post_render_procedure)
+    void BlowboxCore::SetPostRenderProcedure(const Function<void>& post_render_procedure)
     {
         user_procedure_post_render_ = post_render_procedure;
     }
     
     //------------------------------------------------------------------------------------------------------
-    void BlowboxCore::SetShutdownProcedure(const eastl::function<void(void)>& shutdown_procedure)
+    void BlowboxCore::SetShutdownProcedure(const Function<void>& shutdown_procedure)
     {
         user_procedure_shutdown_ = shutdown_procedure;
     }

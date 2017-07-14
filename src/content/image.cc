@@ -28,7 +28,7 @@ namespace blowbox
     }
 
     //------------------------------------------------------------------------------------------------------
-    unsigned char* Image::GetPixelData() const
+    unsigned char* const Image::GetPixelData() const
     {
         return pixel_data_;
     }

@@ -10,6 +10,6 @@ namespace blowbox
     {
     public:
         static SharedPtr<Entity> CreateEntity();
-        static SharedPtr<Entity> CreateEntity(eastl::shared_ptr<Entity> parent);
+        static SharedPtr<Entity> CreateEntity(SharedPtr<Entity> parent);
     };
 }

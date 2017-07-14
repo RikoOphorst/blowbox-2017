@@ -17,11 +17,6 @@
 
 struct GLFWwindow;
 
-/**
-* @namespace blowbox
-* @author Riko Ophorst
-* @brief The namespace in which all blowbox symbols exist
-*/
 namespace blowbox
 {
     class Image;

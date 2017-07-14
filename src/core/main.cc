@@ -5,6 +5,11 @@
 #include "core/get.h"
 #include "win32/window.h"
 #include "content/image.h"
+#include "util/safe_ptr.h"
+#include "util/shared_ptr.h"
+#include "util/unique_ptr.h"
+#include "util/intrusive_ptr.h"
+#include "util/linked_ptr.h"
 
 using namespace blowbox;
 
@@ -16,6 +21,8 @@ bool clicked = false;
 void Run()
 {
     main_window = Get::MainWindow().get();
+
+    LinkedPtr<int> ptr(new int(5));
 }
 
 void Update()

@@ -3,11 +3,6 @@
 #include "util/shared_ptr.h"
 #include "util/weak_ptr.h"
 
-/**
-* @namespace blowbox
-* @author Riko Ophorst
-* @brief The namespace in which all blowbox symbols exist
-*/
 namespace blowbox
 {
     class GLFWManager;
