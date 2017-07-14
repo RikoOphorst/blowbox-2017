@@ -210,25 +210,6 @@ namespace blowbox
 		FlushResourceBarriers();
 		list_->CopyBufferRegion(dest_resource, dest_offset, source_resource.GetCounterBuffer(), 0, 4);
 	}
-
-	//------------------------------------------------------------------------------------------------------
-	void CommandContext::ResetCounter(StructuredBuffer& buffer, uint32_t value)
-	{
-		FillBuffer(buffer.GetCounterBuffer(), 0, value, sizeof(uint32_t));
-		TransitionResource(buffer.GetCounterBuffer(), D3D12_RESOURCE_STATE_UNORDERED_ACCESS);
-	}
-
-	//------------------------------------------------------------------------------------------------------
-	void CommandContext::WriteBuffer(GpuResource& dest_resource, UINT dest_offset, const void* data, UINT num_bytes)
-	{
-		assert(false); // this function hasn't been implemented yet
-	}
-
-	//------------------------------------------------------------------------------------------------------
-	void CommandContext::FillBuffer(GpuResource& dest_resource, UINT dest_offset, Param32Bit value, UINT num_bytes)
-	{
-		assert(false); // this function hasn't been implemented yet
-	}
 	
 	//------------------------------------------------------------------------------------------------------
 	uint64_t CommandContext::Flush(bool wait_for_completion)
@@ -274,7 +255,8 @@ namespace blowbox
 		return fence_value;
 	}
 
-	void CommandContext::TransitionResource(GpuResource& resource, const D3D12_RESOURCE_STATES& new_state, bool flush_immediate)
+    //------------------------------------------------------------------------------------------------------
+    void CommandContext::TransitionResource(GpuResource& resource, const D3D12_RESOURCE_STATES& new_state, bool flush_immediate)
 	{
 		auto& old_state = resource.GetState();
 
@@ -466,7 +448,7 @@ namespace blowbox
 	//------------------------------------------------------------------------------------------------------
 	void CommandContext::Reset()
 	{
-		assert(list_ != nullptr && allocator_ == nullptr);
+		BLOWBOX_ASSERT(list_ != nullptr && allocator_ == nullptr);
 		allocator_ = Get::CommandManager()->GetQueue(type_)->RequestAllocator();
 		list_->Reset(allocator_, nullptr);
 

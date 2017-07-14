@@ -1,15 +1,11 @@
 var searchData=
 [
-  ['width',['width',['../structblowbox_1_1_resolution.html#a54a27080e865948ce93ae97b2af24550',1,'blowbox::Resolution']]],
-  ['width_5f',['width_',['../classblowbox_1_1_pixel_buffer.html#a20361afcad11d731ad59205bca1f26be',1,'blowbox::PixelBuffer']]],
-  ['win32_5fglfw_5fmanager_5f',['win32_glfw_manager_',['../classblowbox_1_1_blowbox_core.html#ad551c2ec54d57529f4d57e74f6cd9f2b',1,'blowbox::BlowboxCore']]],
-  ['win32_5fmain_5fwindow_5f',['win32_main_window_',['../classblowbox_1_1_blowbox_core.html#a7610ffe1ff42be021398306bb7fbff56',1,'blowbox::BlowboxCore']]],
-  ['window_5f',['window_',['../classblowbox_1_1_window.html#acbd01fbc157de0ade290364da38879b8',1,'blowbox::Window']]],
-  ['window_5ficon_5f',['window_icon_',['../classblowbox_1_1_window.html#a956890f2755192784e693ce4c9e18b49',1,'blowbox::Window']]],
-  ['window_5ficon_5ffile_5fpath',['window_icon_file_path',['../structblowbox_1_1_blowbox_config.html#ac306c5fb1ae93690a548ea48005d67d9',1,'blowbox::BlowboxConfig']]],
-  ['window_5fresolution',['window_resolution',['../structblowbox_1_1_blowbox_config.html#a55d68f97567713266c8ea8eed7bf2cc4',1,'blowbox::BlowboxConfig']]],
-  ['window_5ftitle',['window_title',['../structblowbox_1_1_blowbox_config.html#a52164a69d332f62d3f49c607771b5a5e',1,'blowbox::BlowboxConfig']]],
-  ['window_5ftitle_5f',['window_title_',['../classblowbox_1_1_window.html#a2206c4e5ce268dbb851b7767f92a0ceb',1,'blowbox::Window']]],
-  ['windows_5f',['windows_',['../classblowbox_1_1_g_l_f_w_manager.html#a1a9672c2ad450e172d15f8db9b74fc45',1,'blowbox::GLFWManager']]],
-  ['world_5ftransform_5f',['world_transform_',['../classblowbox_1_1_entity.html#aac40a0d9fb9a14b8e1c5124901a31467',1,'blowbox::Entity']]]
+  ['uav_5fid_5f',['uav_id_',['../classblowbox_1_1_color_buffer.html#a30cf6cbf1a2c5ba320e9d08c69e87052',1,'blowbox::ColorBuffer::uav_id_()'],['../classblowbox_1_1_gpu_buffer.html#a4da1ba90c6aadbc9dfd7491b1e73cd79',1,'blowbox::GpuBuffer::uav_id_()']]],
+  ['usage_5fstate_5f',['usage_state_',['../classblowbox_1_1_gpu_resource.html#adb2c0dde544b06c181034d13882a3cbe',1,'blowbox::GpuResource']]],
+  ['user_5fprocedure_5fpost_5frender_5f',['user_procedure_post_render_',['../classblowbox_1_1_blowbox_core.html#a44d03c79d8ee39f09d4746360a38216e',1,'blowbox::BlowboxCore']]],
+  ['user_5fprocedure_5fpost_5fupdate_5f',['user_procedure_post_update_',['../classblowbox_1_1_blowbox_core.html#aa01800f48afd7113e516b69c4ac49c90',1,'blowbox::BlowboxCore']]],
+  ['user_5fprocedure_5frender_5f',['user_procedure_render_',['../classblowbox_1_1_blowbox_core.html#ab9e9bbf13c2a3e8a294fc7e045a0dea9',1,'blowbox::BlowboxCore']]],
+  ['user_5fprocedure_5frun_5f',['user_procedure_run_',['../classblowbox_1_1_blowbox_core.html#a97b755c9012bca776f0a2b247d96de6d',1,'blowbox::BlowboxCore']]],
+  ['user_5fprocedure_5fshutdown_5f',['user_procedure_shutdown_',['../classblowbox_1_1_blowbox_core.html#a25ea9727e47623156228dddddd65c460',1,'blowbox::BlowboxCore']]],
+  ['user_5fprocedure_5fupdate_5f',['user_procedure_update_',['../classblowbox_1_1_blowbox_core.html#a5f79141f1415932abeeda035ce680565',1,'blowbox::BlowboxCore']]]
 ];

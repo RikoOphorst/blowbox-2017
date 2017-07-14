@@ -10,6 +10,7 @@ var searchData=
   ['deque',['Deque',['../namespaceblowbox.html#adf75080052a7843a05306c8220bede4e',1,'blowbox']]],
   ['describebuffer',['DescribeBuffer',['../classblowbox_1_1_gpu_buffer.html#a64d7b2e0bdb620a7516ac494664027cf',1,'blowbox::GpuBuffer']]],
   ['describetex2d',['DescribeTex2D',['../classblowbox_1_1_pixel_buffer.html#a61eb41425a71134180d38a046e3f1e4b',1,'blowbox::PixelBuffer']]],
+  ['descriptor_5fheaps_5f',['descriptor_heaps_',['../classblowbox_1_1_command_context.html#ac3fa470e8cb0dfff7eb7cc65715a16a4',1,'blowbox::CommandContext']]],
   ['descriptorheap',['DescriptorHeap',['../classblowbox_1_1_descriptor_heap.html',1,'blowbox']]],
   ['destroy',['Destroy',['../classblowbox_1_1_gpu_buffer.html#a0486003368851f43d63cea00b86f6b6a',1,'blowbox::GpuBuffer::Destroy()'],['../classblowbox_1_1_gpu_resource.html#a4896a66721f62f780fe0ecc2135ce22d',1,'blowbox::GpuResource::Destroy()'],['../classblowbox_1_1_structured_buffer.html#a72d63ed905c79025d69dd74f068c40da',1,'blowbox::StructuredBuffer::Destroy()'],['../classblowbox_1_1_upload_buffer.html#a20c9baceb5315d897a8428fcc83825bb',1,'blowbox::UploadBuffer::Destroy()']]],
   ['device',['Device',['../classblowbox_1_1_device.html',1,'blowbox']]],

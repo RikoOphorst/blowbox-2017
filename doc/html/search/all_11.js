@@ -11,6 +11,8 @@ var searchData=
   ['setcommandcontextmanager',['SetCommandContextManager',['../classblowbox_1_1_get.html#ae353c5ad6194abc64a6dfb81adcf189b',1,'blowbox::Get']]],
   ['setcommandmanager',['SetCommandManager',['../classblowbox_1_1_get.html#a183e837de2aa5ee44509e7507109d487',1,'blowbox::Get']]],
   ['setdeferredrenderer',['SetDeferredRenderer',['../classblowbox_1_1_get.html#a5d8b58bcfbdc08a144cc18c6f165d582',1,'blowbox::Get']]],
+  ['setdescriptorheap',['SetDescriptorHeap',['../classblowbox_1_1_command_context.html#a4983b3aa09bf8d95bd79e83c2bf76dd7',1,'blowbox::CommandContext']]],
+  ['setdescriptorheaps',['SetDescriptorHeaps',['../classblowbox_1_1_command_context.html#a921d9cb605b0bfc700e3025946d1323b',1,'blowbox::CommandContext']]],
   ['setdevice',['SetDevice',['../classblowbox_1_1_get.html#ad913b72d0b5a61ea2347480b61deab24',1,'blowbox::Get']]],
   ['setdsvheap',['SetDsvHeap',['../classblowbox_1_1_get.html#aab4b37237f82a8d3e241825c43f41b35',1,'blowbox::Get']]],
   ['setforwardrenderer',['SetForwardRenderer',['../classblowbox_1_1_get.html#add8d42d8bb19ee25acb225cdcebd6fca',1,'blowbox::Get']]],
@@ -21,9 +23,10 @@ var searchData=
   ['setlocalrotation',['SetLocalRotation',['../classblowbox_1_1_entity.html#ab48387ecb2f1b7395e33ef0ee0a834bc',1,'blowbox::Entity']]],
   ['setlocalscaling',['SetLocalScaling',['../classblowbox_1_1_entity.html#abecaa51a1446dfde2a016647957f0263',1,'blowbox::Entity']]],
   ['setmainwindow',['SetMainWindow',['../classblowbox_1_1_get.html#ac798a6da553a42d7015e9c163d5dd07b',1,'blowbox::Get']]],
-  ['setname',['SetName',['../classblowbox_1_1_entity.html#a177d56a29e72172023a55e7005aef3da',1,'blowbox::Entity']]],
+  ['setname',['SetName',['../classblowbox_1_1_entity.html#a177d56a29e72172023a55e7005aef3da',1,'blowbox::Entity::SetName()'],['../classblowbox_1_1_command_context.html#aadc32ba016ed4444296f21034b8e2a26',1,'blowbox::CommandContext::SetName()']]],
   ['setpostrenderprocedure',['SetPostRenderProcedure',['../classblowbox_1_1_blowbox_core.html#adda794fcaf371f53221fda4acdd74998',1,'blowbox::BlowboxCore']]],
   ['setpostupdateprocedure',['SetPostUpdateProcedure',['../classblowbox_1_1_blowbox_core.html#a8ccca434cc4c7d65a07611394c506850',1,'blowbox::BlowboxCore']]],
+  ['setpredication',['SetPredication',['../classblowbox_1_1_command_context.html#aad7dcc63817c3fa3e12f068f3d8478b6',1,'blowbox::CommandContext']]],
   ['setrenderprocedure',['SetRenderProcedure',['../classblowbox_1_1_blowbox_core.html#a6cd9258bc70f4d6c8c2c828505346130',1,'blowbox::BlowboxCore']]],
   ['setrtvheap',['SetRtvHeap',['../classblowbox_1_1_get.html#aa1fb94ec7b4bd84b4a9a440a8321a259',1,'blowbox::Get']]],
   ['setrunprocedure',['SetRunProcedure',['../classblowbox_1_1_blowbox_core.html#ac33d824c9c527bb813050d7fb03568fc',1,'blowbox::BlowboxCore']]],
@@ -57,6 +60,6 @@ var searchData=
   ['string',['String',['../namespaceblowbox.html#aac9c310959d9bc32fc8136203e833bbd',1,'blowbox']]],
   ['structuredbuffer',['StructuredBuffer',['../classblowbox_1_1_structured_buffer.html',1,'blowbox']]],
   ['swap_5fchain_5f',['swap_chain_',['../classblowbox_1_1_get.html#a7861516facffd8c47eeb8fd25a8fb049',1,'blowbox::Get']]],
-  ['swapchain',['SwapChain',['../classblowbox_1_1_get.html#a7b053e94777251b60d3088e9aa2f5382',1,'blowbox::Get']]],
-  ['swapchain',['SwapChain',['../classblowbox_1_1_swap_chain.html',1,'blowbox']]]
+  ['swapchain',['SwapChain',['../classblowbox_1_1_swap_chain.html',1,'blowbox']]],
+  ['swapchain',['SwapChain',['../classblowbox_1_1_get.html#a7b053e94777251b60d3088e9aa2f5382',1,'blowbox::Get']]]
 ];
