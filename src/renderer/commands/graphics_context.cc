@@ -15,6 +15,7 @@ namespace blowbox
 	//------------------------------------------------------------------------------------------------------
 	void GraphicsContext::ClearUAV(GpuBuffer& target)
 	{
+        BLOWBOX_ASSERT(target.GetState() == D3D12_RESOURCE_STATE_UNORDERED_ACCESS);
 		const UINT clear_color[4] = {};
 		list_->ClearUnorderedAccessViewUint(Get::CbvSrvUavHeap()->GetGPUDescriptorById(target.GetUAV()), Get::CbvSrvUavHeap()->GetCPUDescriptorById(target.GetUAV()), target, clear_color, 0, nullptr);
 	}
@@ -22,6 +23,7 @@ namespace blowbox
 	//------------------------------------------------------------------------------------------------------
 	void GraphicsContext::ClearUAV(ColorBuffer& target)
 	{
+        BLOWBOX_ASSERT(target.GetState() == D3D12_RESOURCE_STATE_UNORDERED_ACCESS);
 		const float* clear_color = target.GetClearColor();
 		CD3DX12_RECT clear_rect(0, 0, static_cast<LONG>(target.GetWidth()), static_cast<LONG>(target.GetHeight()));
 		list_->ClearUnorderedAccessViewFloat(Get::CbvSrvUavHeap()->GetGPUDescriptorById(target.GetUAV()), Get::CbvSrvUavHeap()->GetCPUDescriptorById(target.GetUAV()), target, clear_color, 1, &clear_rect);
@@ -30,35 +32,39 @@ namespace blowbox
 	//------------------------------------------------------------------------------------------------------
 	void GraphicsContext::ClearColor(ColorBuffer& target)
 	{
+        BLOWBOX_ASSERT(target.GetState() == D3D12_RESOURCE_STATE_RENDER_TARGET);
 		list_->ClearRenderTargetView(Get::RtvHeap()->GetCPUDescriptorById(target.GetRTV()), target.GetClearColor(), 0, nullptr);
 	}
 	
 	//------------------------------------------------------------------------------------------------------
 	void GraphicsContext::ClearDepth(DepthBuffer& target)
 	{
+        BLOWBOX_ASSERT(target.GetState() == D3D12_RESOURCE_STATE_DEPTH_WRITE);
 		list_->ClearDepthStencilView(Get::DsvHeap()->GetCPUDescriptorById(target.GetDSV()), D3D12_CLEAR_FLAG_DEPTH, target.GetDepthClearValue(), target.GetStencilClearValue(), 0, nullptr);
 	}
 
 	//------------------------------------------------------------------------------------------------------
 	void GraphicsContext::ClearStencil(DepthBuffer& target)
 	{
+        BLOWBOX_ASSERT(target.GetState() == D3D12_RESOURCE_STATE_DEPTH_WRITE);
 		list_->ClearDepthStencilView(Get::DsvHeap()->GetCPUDescriptorById(target.GetDSV()), D3D12_CLEAR_FLAG_STENCIL, target.GetDepthClearValue(), target.GetStencilClearValue(), 0, nullptr);
 	}
 	
 	//------------------------------------------------------------------------------------------------------
 	void GraphicsContext::ClearDepthAndStencil(DepthBuffer& target)
 	{
+        BLOWBOX_ASSERT(target.GetState() == D3D12_RESOURCE_STATE_DEPTH_WRITE);
 		list_->ClearDepthStencilView(Get::DsvHeap()->GetCPUDescriptorById(target.GetDSV()), D3D12_CLEAR_FLAG_DEPTH | D3D12_CLEAR_FLAG_STENCIL, target.GetDepthClearValue(), target.GetStencilClearValue(), 0, nullptr);
 	}
 	
 	//------------------------------------------------------------------------------------------------------
-	void GraphicsContext::BeginQuery(ID3D12QueryHeap * query_heap, D3D12_QUERY_TYPE type, UINT heap_index)
+	void GraphicsContext::BeginQuery(ID3D12QueryHeap* query_heap, D3D12_QUERY_TYPE type, UINT heap_index)
 	{
 		list_->BeginQuery(query_heap, type, heap_index);
 	}
 
 	//------------------------------------------------------------------------------------------------------
-	void GraphicsContext::EndQuery(ID3D12QueryHeap * query_heap, D3D12_QUERY_TYPE type, UINT heap_index)
+	void GraphicsContext::EndQuery(ID3D12QueryHeap* query_heap, D3D12_QUERY_TYPE type, UINT heap_index)
 	{
 		list_->EndQuery(query_heap, type, heap_index);
 	}
@@ -296,6 +302,6 @@ namespace blowbox
 	//------------------------------------------------------------------------------------------------------
 	void GraphicsContext::DrawIndirect(GpuBuffer& argument_buffer, UINT argument_buffer_offset)
 	{
-		assert(false); // functionality not implemented yet
+		BLOWBOX_ASSERT(false); // functionality not implemented yet
 	}
 }

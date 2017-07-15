@@ -3,8 +3,8 @@
 namespace blowbox
 {
     /**
-    * @enum blowbox::KeyCode
-    * @author Riko Ophorst
+    * This enumeration is to enumerate all different key codes that Blowbox supports.
+    *
     * @brief All keycodes
     */
     enum KeyCode
@@ -134,15 +134,13 @@ namespace blowbox
 
     /**
     * @brief Converts a GLFW_KEY_* to a KeyCode_*
-    * @author Riko Ophorst
-    * @param[in] glfw_key A GLFW_KEY_*
+    * @param[in] glfw_key A GLFW_KEY that you want to convert to a blowbox::KeyCode
     */
     KeyCode GlfwKeyToBlowboxKeyCode(int glfw_key);
 
     /**
     * @brief Converts a KeyCode_* to a GLFW_KEY_*
-    * @author Riko Ophorst
-    * @param[in] key A KeyCode_*
+    * @param[in] key A blowbox::KeyCode that should be converted to a GLFW_KEY
     */
     int BlowboxKeyCodeToGlfwKey(KeyCode key);
 }

@@ -89,6 +89,7 @@ namespace blowbox
         */
         const DirectX::XMMATRIX& GetWorldTransform();
 
+        /** @returns The children of this Entity. */
         const Vector<SharedPtr<Entity>>& GetChildren() const;
 
     protected:

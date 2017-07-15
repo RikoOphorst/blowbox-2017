@@ -1,15 +1,10 @@
 var searchData=
 [
-  ['width',['width',['../structblowbox_1_1_resolution.html#a54a27080e865948ce93ae97b2af24550',1,'blowbox::Resolution']]],
-  ['width_5f',['width_',['../classblowbox_1_1_pixel_buffer.html#a20361afcad11d731ad59205bca1f26be',1,'blowbox::PixelBuffer']]],
-  ['win32_5fglfw_5fmanager_5f',['win32_glfw_manager_',['../classblowbox_1_1_blowbox_core.html#ad551c2ec54d57529f4d57e74f6cd9f2b',1,'blowbox::BlowboxCore']]],
-  ['win32_5fmain_5fwindow_5f',['win32_main_window_',['../classblowbox_1_1_blowbox_core.html#a7610ffe1ff42be021398306bb7fbff56',1,'blowbox::BlowboxCore']]],
-  ['window_5f',['window_',['../classblowbox_1_1_window.html#acbd01fbc157de0ade290364da38879b8',1,'blowbox::Window']]],
-  ['window_5ficon_5f',['window_icon_',['../classblowbox_1_1_window.html#a956890f2755192784e693ce4c9e18b49',1,'blowbox::Window']]],
-  ['window_5ficon_5ffile_5fpath',['window_icon_file_path',['../structblowbox_1_1_blowbox_config.html#ac306c5fb1ae93690a548ea48005d67d9',1,'blowbox::BlowboxConfig']]],
-  ['window_5fresolution',['window_resolution',['../structblowbox_1_1_blowbox_config.html#a55d68f97567713266c8ea8eed7bf2cc4',1,'blowbox::BlowboxConfig']]],
-  ['window_5ftitle',['window_title',['../structblowbox_1_1_blowbox_config.html#a52164a69d332f62d3f49c607771b5a5e',1,'blowbox::BlowboxConfig']]],
-  ['window_5ftitle_5f',['window_title_',['../classblowbox_1_1_window.html#a2206c4e5ce268dbb851b7767f92a0ceb',1,'blowbox::Window']]],
-  ['windows_5f',['windows_',['../classblowbox_1_1_g_l_f_w_manager.html#a1a9672c2ad450e172d15f8db9b74fc45',1,'blowbox::GLFWManager']]],
-  ['world_5ftransform_5f',['world_transform_',['../classblowbox_1_1_entity.html#aac40a0d9fb9a14b8e1c5124901a31467',1,'blowbox::Entity']]]
+  ['texture_5fbuffer_5f',['texture_buffer_',['../classblowbox_1_1_im_gui_manager.html#a93fa3bc2883671068a3b1f111fe48528',1,'blowbox::ImGuiManager']]],
+  ['ticks_5fper_5fsecond_5f',['ticks_per_second_',['../classblowbox_1_1_im_gui_manager.html#af0fe9cf8289b2b4a90eaf3b4a39bcafd',1,'blowbox::ImGuiManager']]],
+  ['time_5f',['time_',['../classblowbox_1_1_im_gui_manager.html#a5f22c0399b93794de7fad4c35c82f79e',1,'blowbox::ImGuiManager']]],
+  ['toggle_5fdeferred',['toggle_deferred',['../structblowbox_1_1_blowbox_config.html#a4a5ca8efa1589621e42c2e75ee5dadcf',1,'blowbox::BlowboxConfig']]],
+  ['transform_5fdirty_5f',['transform_dirty_',['../classblowbox_1_1_entity.html#af5d2e2d91e20ca928f9b98542e644809',1,'blowbox::Entity']]],
+  ['transition_5fstate_5f',['transition_state_',['../classblowbox_1_1_gpu_resource.html#af11a559a18bd9ebe5f2a23a99b175843',1,'blowbox::GpuResource']]],
+  ['type_5f',['type_',['../classblowbox_1_1_command_allocator_pool.html#a0bdd7ad1e32a00452ae55a7ce3655b46',1,'blowbox::CommandAllocatorPool::type_()'],['../classblowbox_1_1_command_context.html#abecbb6eb2844fe0bbb172f22977357f2',1,'blowbox::CommandContext::type_()'],['../classblowbox_1_1_command_queue.html#aff37f72afe6ef5f58360800749fbee07',1,'blowbox::CommandQueue::type_()']]]
 ];

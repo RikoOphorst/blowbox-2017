@@ -18,7 +18,7 @@ namespace blowbox
     public:
         /**
         * @brief Creates a parentless Entity instance
-        * @parent[in] name The name of the new Entity.
+        * @param[in] name The name of the new Entity.
         */
         static SharedPtr<Entity> CreateEntity(const String& name);
 

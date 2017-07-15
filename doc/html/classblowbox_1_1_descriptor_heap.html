@@ -97,11 +97,16 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">blowbox::DescriptorHeap Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="descriptor__heap_8h_source.html">descriptor_heap.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:acdb7f204aeecf7b8221ed6b37797ea88"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acdb7f204aeecf7b8221ed6b37797ea88"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>Create</b> (const <a class="el" href="namespaceblowbox.html#a06fd2b1aebfdc8ad2c458f2bf4744963">WString</a> &amp;name, D3D12_DESCRIPTOR_HEAP_TYPE heap_type, D3D12_DESCRIPTOR_HEAP_FLAGS flags=D3D12_DESCRIPTOR_HEAP_FLAG_SHADER_VISIBLE, UINT descriptor_count=4096U)</td></tr>
+<tr class="memitem:a231cd0de872b887657a1704428dbe20e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_descriptor_heap.html#a231cd0de872b887657a1704428dbe20e">DescriptorHeap</a> ()</td></tr>
+<tr class="separator:a231cd0de872b887657a1704428dbe20e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa7de0aac69d99bac1423c9e29359ed65"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_descriptor_heap.html#aa7de0aac69d99bac1423c9e29359ed65">~DescriptorHeap</a> ()</td></tr>
+<tr class="separator:aa7de0aac69d99bac1423c9e29359ed65"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acdb7f204aeecf7b8221ed6b37797ea88"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_descriptor_heap.html#acdb7f204aeecf7b8221ed6b37797ea88">Create</a> (const <a class="el" href="namespaceblowbox.html#a06fd2b1aebfdc8ad2c458f2bf4744963">WString</a> &amp;name, D3D12_DESCRIPTOR_HEAP_TYPE heap_type, D3D12_DESCRIPTOR_HEAP_FLAGS flags=D3D12_DESCRIPTOR_HEAP_FLAG_SHADER_VISIBLE, UINT descriptor_count=4096U)</td></tr>
 <tr class="separator:acdb7f204aeecf7b8221ed6b37797ea88"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a85fa326d4b113c03be93de1f868a9830"><td class="memItemLeft" align="right" valign="top">UINT&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_descriptor_heap.html#a85fa326d4b113c03be93de1f868a9830">CreateDepthStencilView</a> (ID3D12Resource *dsv_buffer, D3D12_DEPTH_STENCIL_VIEW_DESC *desc)</td></tr>
 <tr class="separator:a85fa326d4b113c03be93de1f868a9830"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -119,35 +124,129 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>Create</b> (const <a 
 <tr class="separator:a0d2f979ab3d359ca09c54af4e3728434"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7fe79d1cd6094365a863cff93d6928a3"><td class="memItemLeft" align="right" valign="top">D3D12_GPU_DESCRIPTOR_HANDLE&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_descriptor_heap.html#a7fe79d1cd6094365a863cff93d6928a3">GetGPUDescriptorById</a> (UINT id)</td></tr>
 <tr class="separator:a7fe79d1cd6094365a863cff93d6928a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3be8cde7028d0569942a066d77a693dc"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3be8cde7028d0569942a066d77a693dc"></a>
-ID3D12DescriptorHeap *&#160;</td><td class="memItemRight" valign="bottom"><b>Get</b> ()</td></tr>
+<tr class="memitem:a3be8cde7028d0569942a066d77a693dc"><td class="memItemLeft" align="right" valign="top">ID3D12DescriptorHeap *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_descriptor_heap.html#a3be8cde7028d0569942a066d77a693dc">Get</a> ()</td></tr>
 <tr class="separator:a3be8cde7028d0569942a066d77a693dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a097b51568ee78f2db8bd716634e324be"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a097b51568ee78f2db8bd716634e324be"></a>
-const D3D12_DESCRIPTOR_HEAP_DESC &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>GetDesc</b> ()</td></tr>
+<tr class="memitem:a097b51568ee78f2db8bd716634e324be"><td class="memItemLeft" align="right" valign="top">const D3D12_DESCRIPTOR_HEAP_DESC &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_descriptor_heap.html#a097b51568ee78f2db8bd716634e324be">GetDesc</a> ()</td></tr>
 <tr class="separator:a097b51568ee78f2db8bd716634e324be"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7a93609adfaa2de2b0171b86ae41f4f3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7a93609adfaa2de2b0171b86ae41f4f3"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>Clear</b> ()</td></tr>
+<tr class="memitem:a7a93609adfaa2de2b0171b86ae41f4f3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_descriptor_heap.html#a7a93609adfaa2de2b0171b86ae41f4f3">Clear</a> ()</td></tr>
 <tr class="separator:a7a93609adfaa2de2b0171b86ae41f4f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:ab7a189608f7f728370e9efed0ab64462"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab7a189608f7f728370e9efed0ab64462"></a>
-ID3D12DescriptorHeap *&#160;</td><td class="memItemRight" valign="bottom"><b>heap_</b></td></tr>
+<tr class="memitem:ab7a189608f7f728370e9efed0ab64462"><td class="memItemLeft" align="right" valign="top">ID3D12DescriptorHeap *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_descriptor_heap.html#ab7a189608f7f728370e9efed0ab64462">heap_</a></td></tr>
 <tr class="separator:ab7a189608f7f728370e9efed0ab64462"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abe59b5f34659067efaa6eae7d12bd051"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abe59b5f34659067efaa6eae7d12bd051"></a>
-D3D12_DESCRIPTOR_HEAP_DESC&#160;</td><td class="memItemRight" valign="bottom"><b>heap_desc_</b></td></tr>
+<tr class="memitem:abe59b5f34659067efaa6eae7d12bd051"><td class="memItemLeft" align="right" valign="top">D3D12_DESCRIPTOR_HEAP_DESC&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_descriptor_heap.html#abe59b5f34659067efaa6eae7d12bd051">heap_desc_</a></td></tr>
 <tr class="separator:abe59b5f34659067efaa6eae7d12bd051"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a73fe471064d0740b4a2e52c739889799"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a73fe471064d0740b4a2e52c739889799"></a>
-<a class="el" href="namespaceblowbox.html#acb3dc9c3141598cb9bf4d95680dad0e9">WeakPtr</a>&lt; <a class="el" href="classblowbox_1_1_device.html">Device</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>device_</b></td></tr>
-<tr class="separator:a73fe471064d0740b4a2e52c739889799"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af8b5720fa5653e7363304c5e92846de6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af8b5720fa5653e7363304c5e92846de6"></a>
-UINT&#160;</td><td class="memItemRight" valign="bottom"><b>current_allocations_</b></td></tr>
+<tr class="memitem:af8b5720fa5653e7363304c5e92846de6"><td class="memItemLeft" align="right" valign="top">UINT&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_descriptor_heap.html#af8b5720fa5653e7363304c5e92846de6">current_allocations_</a></td></tr>
 <tr class="separator:af8b5720fa5653e7363304c5e92846de6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a60903f00e5b04fc7965e91aeecfd4631"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a60903f00e5b04fc7965e91aeecfd4631"></a>
-UINT&#160;</td><td class="memItemRight" valign="bottom"><b>descriptor_size_</b></td></tr>
+<tr class="memitem:a60903f00e5b04fc7965e91aeecfd4631"><td class="memItemLeft" align="right" valign="top">UINT&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_descriptor_heap.html#a60903f00e5b04fc7965e91aeecfd4631">descriptor_size_</a></td></tr>
 <tr class="separator:a60903f00e5b04fc7965e91aeecfd4631"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Manages a ID3D12DescriptorHeap of a certain type. </p>
+<p>Helps managing ID3D12DescriptorHeaps. It makes it easy to create and access descriptors for resources. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a231cd0de872b887657a1704428dbe20e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">blowbox::DescriptorHeap::DescriptorHeap </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constructs a <a class="el" href="classblowbox_1_1_descriptor_heap.html" title="Manages a ID3D12DescriptorHeap of a certain type. ">DescriptorHeap</a>. </p>
+
+</div>
+</div>
+<a class="anchor" id="aa7de0aac69d99bac1423c9e29359ed65"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">blowbox::DescriptorHeap::~DescriptorHeap </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Destructs the <a class="el" href="classblowbox_1_1_descriptor_heap.html" title="Manages a ID3D12DescriptorHeap of a certain type. ">DescriptorHeap</a>. </p>
+
+</div>
+</div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a7a93609adfaa2de2b0171b86ae41f4f3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void blowbox::DescriptorHeap::Clear </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Essentially resets the <a class="el" href="classblowbox_1_1_descriptor_heap.html" title="Manages a ID3D12DescriptorHeap of a certain type. ">DescriptorHeap</a>. </p>
+
+</div>
+</div>
+<a class="anchor" id="acdb7f204aeecf7b8221ed6b37797ea88"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void blowbox::DescriptorHeap::Create </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespaceblowbox.html#a06fd2b1aebfdc8ad2c458f2bf4744963">WString</a> &amp;&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">D3D12_DESCRIPTOR_HEAP_TYPE&#160;</td>
+          <td class="paramname"><em>heap_type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">D3D12_DESCRIPTOR_HEAP_FLAGS&#160;</td>
+          <td class="paramname"><em>flags</em> = <code>D3D12_DESCRIPTOR_HEAP_FLAG_SHADER_VISIBLE</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UINT&#160;</td>
+          <td class="paramname"><em>descriptor_count</em> = <code>4096U</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Creates the <a class="el" href="classblowbox_1_1_descriptor_heap.html" title="Manages a ID3D12DescriptorHeap of a certain type. ">DescriptorHeap</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">name</td><td>The name of the <a class="el" href="classblowbox_1_1_descriptor_heap.html" title="Manages a ID3D12DescriptorHeap of a certain type. ">DescriptorHeap</a>. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">heap_type</td><td>The type of <a class="el" href="classblowbox_1_1_descriptor_heap.html" title="Manages a ID3D12DescriptorHeap of a certain type. ">DescriptorHeap</a>. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">flags</td><td>Any flags that should be set on the <a class="el" href="classblowbox_1_1_descriptor_heap.html" title="Manages a ID3D12DescriptorHeap of a certain type. ">DescriptorHeap</a>. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">descriptor_count</td><td>The number of descriptors this <a class="el" href="classblowbox_1_1_descriptor_heap.html" title="Manages a ID3D12DescriptorHeap of a certain type. ">DescriptorHeap</a> should be able to hold. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a class="anchor" id="a70af41007fe2400bfdcee531a9bfe2fc"></a>
 <div class="memitem">
 <div class="memproto">
@@ -199,7 +298,6 @@ UINT&#160;</td><td class="memItemRight" valign="bottom"><b>descriptor_size_</b><
 <p>Creates a DepthStencilView (descriptor) </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">device</td><td>The device used to create the descriptor &amp; heaps with </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">dsv_buffer</td><td>The buffer this descriptor should describe </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">desc</td><td>The description of this descriptor used to describe the resource with </td></tr>
   </table>
@@ -235,7 +333,6 @@ UINT&#160;</td><td class="memItemRight" valign="bottom"><b>descriptor_size_</b><
 <p>Creates a RenderTargetView (descriptor) </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">device</td><td>The device used to create the descriptor &amp; heaps with </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">rtv_buffer</td><td>The buffer this descriptor should describe </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">desc</td><td>The description of this descriptor used to describe the resource with </td></tr>
   </table>
@@ -345,6 +442,30 @@ UINT&#160;</td><td class="memItemRight" valign="bottom"><b>descriptor_size_</b><
 
 </div>
 </div>
+<a class="anchor" id="a3be8cde7028d0569942a066d77a693dc"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ID3D12DescriptorHeap* blowbox::DescriptorHeap::Get </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>The underlying ID3D12DescriptorHeap. </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="a0d2f979ab3d359ca09c54af4e3728434"></a>
 <div class="memitem">
 <div class="memproto">
@@ -366,6 +487,30 @@ UINT&#160;</td><td class="memItemRight" valign="bottom"><b>descriptor_size_</b><
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a class="anchor" id="a097b51568ee78f2db8bd716634e324be"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const D3D12_DESCRIPTOR_HEAP_DESC&amp; blowbox::DescriptorHeap::GetDesc </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>The underlying ID3D12DescriptorHeap. </dd></dl>
 
 </div>
 </div>
@@ -393,6 +538,95 @@ UINT&#160;</td><td class="memItemRight" valign="bottom"><b>descriptor_size_</b><
 
 </div>
 </div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="af8b5720fa5653e7363304c5e92846de6"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">UINT blowbox::DescriptorHeap::current_allocations_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The number of descriptors in the descriptor heap in active use. </p>
+
+</div>
+</div>
+<a class="anchor" id="a60903f00e5b04fc7965e91aeecfd4631"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">UINT blowbox::DescriptorHeap::descriptor_size_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The size of a single descriptor. </p>
+
+</div>
+</div>
+<a class="anchor" id="ab7a189608f7f728370e9efed0ab64462"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ID3D12DescriptorHeap* blowbox::DescriptorHeap::heap_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The underlying descriptor heap. </p>
+
+</div>
+</div>
+<a class="anchor" id="abe59b5f34659067efaa6eae7d12bd051"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">D3D12_DESCRIPTOR_HEAP_DESC blowbox::DescriptorHeap::heap_desc_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The description for the descriptor heap. </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>E:/Projects/blowbox-2017/src/renderer/<a class="el" href="descriptor__heap_8h_source.html">descriptor_heap.h</a></li>
 <li>E:/Projects/blowbox-2017/src/renderer/descriptor_heap.cc</li>
@@ -400,7 +634,7 @@ UINT&#160;</td><td class="memItemRight" valign="bottom"><b>descriptor_size_</b><
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Jul 15 2017 01:01:15 for Blowbox 2017 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Jul 15 2017 18:37:47 for Blowbox 2017 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

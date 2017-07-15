@@ -98,73 +98,649 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">blowbox::SwapChain Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="swap__chain_8h_source.html">swap_chain.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a54616520d386d1367a9f99954892e31b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a54616520d386d1367a9f99954892e31b"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>Create</b> (HWND output_window, UINT width, UINT height, DXGI_FORMAT format, UINT buffer_count, DXGI_SWAP_EFFECT swap_effect, UINT flags, bool disable_alt_enter=true, bool windowed=true)</td></tr>
+<tr class="memitem:a54616520d386d1367a9f99954892e31b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_swap_chain.html#a54616520d386d1367a9f99954892e31b">Create</a> (HWND output_window, UINT width, UINT height, DXGI_FORMAT format, UINT buffer_count, DXGI_SWAP_EFFECT swap_effect, UINT flags, bool disable_alt_enter=true, bool windowed=true)</td></tr>
 <tr class="separator:a54616520d386d1367a9f99954892e31b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a28bc078e207bac5588c6307154475017"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a28bc078e207bac5588c6307154475017"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>Present</b> (bool vsync=true)</td></tr>
+<tr class="memitem:a28bc078e207bac5588c6307154475017"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_swap_chain.html#a28bc078e207bac5588c6307154475017">Present</a> (bool vsync=true)</td></tr>
 <tr class="separator:a28bc078e207bac5588c6307154475017"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a20fae795f43528c8e8360d8c30d0dc75"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a20fae795f43528c8e8360d8c30d0dc75"></a>
-<a class="el" href="classblowbox_1_1_color_buffer.html">ColorBuffer</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>GetBuffer</b> (UINT buffer_index)</td></tr>
+<tr class="memitem:a20fae795f43528c8e8360d8c30d0dc75"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classblowbox_1_1_color_buffer.html">ColorBuffer</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_swap_chain.html#a20fae795f43528c8e8360d8c30d0dc75">GetBuffer</a> (UINT buffer_index)</td></tr>
 <tr class="separator:a20fae795f43528c8e8360d8c30d0dc75"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8e137900a2b89b824732bb0df1a1487c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8e137900a2b89b824732bb0df1a1487c"></a>
-const <a class="el" href="classblowbox_1_1_color_buffer.html">ColorBuffer</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>GetBuffer</b> (UINT buffer_index) const </td></tr>
+<tr class="memitem:a8e137900a2b89b824732bb0df1a1487c"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classblowbox_1_1_color_buffer.html">ColorBuffer</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_swap_chain.html#a8e137900a2b89b824732bb0df1a1487c">GetBuffer</a> (UINT buffer_index) const </td></tr>
 <tr class="separator:a8e137900a2b89b824732bb0df1a1487c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a76157ddca0bb93ae85e8dee9644bc89c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a76157ddca0bb93ae85e8dee9644bc89c"></a>
-<a class="el" href="classblowbox_1_1_color_buffer.html">ColorBuffer</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>GetBackBuffer</b> ()</td></tr>
+<tr class="memitem:a76157ddca0bb93ae85e8dee9644bc89c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classblowbox_1_1_color_buffer.html">ColorBuffer</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_swap_chain.html#a76157ddca0bb93ae85e8dee9644bc89c">GetBackBuffer</a> ()</td></tr>
 <tr class="separator:a76157ddca0bb93ae85e8dee9644bc89c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad3449f94dfa50c81b945c5602d513fb9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad3449f94dfa50c81b945c5602d513fb9"></a>
-const <a class="el" href="classblowbox_1_1_color_buffer.html">ColorBuffer</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>GetBackBuffer</b> () const </td></tr>
+<tr class="memitem:ad3449f94dfa50c81b945c5602d513fb9"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classblowbox_1_1_color_buffer.html">ColorBuffer</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_swap_chain.html#ad3449f94dfa50c81b945c5602d513fb9">GetBackBuffer</a> () const </td></tr>
 <tr class="separator:ad3449f94dfa50c81b945c5602d513fb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9d3932205c6a4b22609e60d4ba0290dc"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9d3932205c6a4b22609e60d4ba0290dc"></a>
-const UINT &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>GetBufferCount</b> () const </td></tr>
+<tr class="memitem:a9d3932205c6a4b22609e60d4ba0290dc"><td class="memItemLeft" align="right" valign="top">const UINT &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_swap_chain.html#a9d3932205c6a4b22609e60d4ba0290dc">GetBufferCount</a> () const </td></tr>
 <tr class="separator:a9d3932205c6a4b22609e60d4ba0290dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a187e398b59c19049dc4d7d1e31e07600"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a187e398b59c19049dc4d7d1e31e07600"></a>
-const UINT &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>GetBackBufferIndex</b> () const </td></tr>
+<tr class="memitem:a187e398b59c19049dc4d7d1e31e07600"><td class="memItemLeft" align="right" valign="top">const UINT &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_swap_chain.html#a187e398b59c19049dc4d7d1e31e07600">GetBackBufferIndex</a> () const </td></tr>
 <tr class="separator:a187e398b59c19049dc4d7d1e31e07600"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2628ad91df3d8f72aafdeec93f56875d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2628ad91df3d8f72aafdeec93f56875d"></a>
-const UINT &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>GetBufferWidth</b> () const </td></tr>
+<tr class="memitem:a2628ad91df3d8f72aafdeec93f56875d"><td class="memItemLeft" align="right" valign="top">const UINT &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_swap_chain.html#a2628ad91df3d8f72aafdeec93f56875d">GetBufferWidth</a> () const </td></tr>
 <tr class="separator:a2628ad91df3d8f72aafdeec93f56875d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a60dd3b414e7b47a8b169643062175aaa"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a60dd3b414e7b47a8b169643062175aaa"></a>
-const UINT &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>GetBufferHeight</b> () const </td></tr>
+<tr class="memitem:a60dd3b414e7b47a8b169643062175aaa"><td class="memItemLeft" align="right" valign="top">const UINT &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_swap_chain.html#a60dd3b414e7b47a8b169643062175aaa">GetBufferHeight</a> () const </td></tr>
 <tr class="separator:a60dd3b414e7b47a8b169643062175aaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a81e8b6639f37dca94d3cef3e0dbb6cc2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a81e8b6639f37dca94d3cef3e0dbb6cc2"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>operator IDXGISwapChain *</b> ()</td></tr>
+<tr class="memitem:a81e8b6639f37dca94d3cef3e0dbb6cc2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_swap_chain.html#a81e8b6639f37dca94d3cef3e0dbb6cc2">operator IDXGISwapChain *</a> ()</td></tr>
 <tr class="separator:a81e8b6639f37dca94d3cef3e0dbb6cc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac7c876a887340f7519279c0be1df2319"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac7c876a887340f7519279c0be1df2319"></a>
-IDXGISwapChain *&#160;</td><td class="memItemRight" valign="bottom"><b>operator-&gt;</b> ()</td></tr>
+<tr class="memitem:ac7c876a887340f7519279c0be1df2319"><td class="memItemLeft" align="right" valign="top">IDXGISwapChain *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_swap_chain.html#ac7c876a887340f7519279c0be1df2319">operator-&gt;</a> ()</td></tr>
 <tr class="separator:ac7c876a887340f7519279c0be1df2319"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae6918362c7cb64871b83db7d7cbe068f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae6918362c7cb64871b83db7d7cbe068f"></a>
-const IDXGISwapChain *&#160;</td><td class="memItemRight" valign="bottom"><b>operator-&gt;</b> () const </td></tr>
+<tr class="memitem:ae6918362c7cb64871b83db7d7cbe068f"><td class="memItemLeft" align="right" valign="top">const IDXGISwapChain *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_swap_chain.html#ae6918362c7cb64871b83db7d7cbe068f">operator-&gt;</a> () const </td></tr>
 <tr class="separator:ae6918362c7cb64871b83db7d7cbe068f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:aceb2bf847ea500878d1c7017bda757d1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aceb2bf847ea500878d1c7017bda757d1"></a>
-DXGI_SWAP_CHAIN_DESC&#160;</td><td class="memItemRight" valign="bottom"><b>DescribeSwapChain</b> (HWND output_window, UINT width, UINT height, DXGI_FORMAT format, UINT buffer_count, DXGI_SWAP_EFFECT swap_effect, UINT flags, bool windowed=true)</td></tr>
+<tr class="memitem:aceb2bf847ea500878d1c7017bda757d1"><td class="memItemLeft" align="right" valign="top">DXGI_SWAP_CHAIN_DESC&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_swap_chain.html#aceb2bf847ea500878d1c7017bda757d1">DescribeSwapChain</a> (HWND output_window, UINT width, UINT height, DXGI_FORMAT format, UINT buffer_count, DXGI_SWAP_EFFECT swap_effect, UINT flags, bool windowed=true)</td></tr>
 <tr class="separator:aceb2bf847ea500878d1c7017bda757d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a3677dc3ac762d9a534478f71fd8f0bbc"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3677dc3ac762d9a534478f71fd8f0bbc"></a>
-IDXGISwapChain *&#160;</td><td class="memItemRight" valign="bottom"><b>swap_chain_</b></td></tr>
+<tr class="memitem:a3677dc3ac762d9a534478f71fd8f0bbc"><td class="memItemLeft" align="right" valign="top">IDXGISwapChain *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_swap_chain.html#a3677dc3ac762d9a534478f71fd8f0bbc">swap_chain_</a></td></tr>
 <tr class="separator:a3677dc3ac762d9a534478f71fd8f0bbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4e24ea52a4dbd58452af0a4a15a7b22d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4e24ea52a4dbd58452af0a4a15a7b22d"></a>
-DXGI_SWAP_CHAIN_DESC&#160;</td><td class="memItemRight" valign="bottom"><b>desc_</b></td></tr>
+<tr class="memitem:a4e24ea52a4dbd58452af0a4a15a7b22d"><td class="memItemLeft" align="right" valign="top">DXGI_SWAP_CHAIN_DESC&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_swap_chain.html#a4e24ea52a4dbd58452af0a4a15a7b22d">desc_</a></td></tr>
 <tr class="separator:a4e24ea52a4dbd58452af0a4a15a7b22d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9c230f35225000f85bb1842996771620"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9c230f35225000f85bb1842996771620"></a>
-UINT&#160;</td><td class="memItemRight" valign="bottom"><b>back_buffer_index_</b></td></tr>
+<tr class="memitem:a9c230f35225000f85bb1842996771620"><td class="memItemLeft" align="right" valign="top">UINT&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_swap_chain.html#a9c230f35225000f85bb1842996771620">back_buffer_index_</a></td></tr>
 <tr class="separator:a9c230f35225000f85bb1842996771620"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2b366d32a378eaf10b2e4f1aec76601c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2b366d32a378eaf10b2e4f1aec76601c"></a>
-UINT&#160;</td><td class="memItemRight" valign="bottom"><b>buffer_count_</b></td></tr>
+<tr class="memitem:a2b366d32a378eaf10b2e4f1aec76601c"><td class="memItemLeft" align="right" valign="top">UINT&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_swap_chain.html#a2b366d32a378eaf10b2e4f1aec76601c">buffer_count_</a></td></tr>
 <tr class="separator:a2b366d32a378eaf10b2e4f1aec76601c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a62e96d43dbe7d55b00df97c278b8fce8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a62e96d43dbe7d55b00df97c278b8fce8"></a>
-<a class="el" href="classblowbox_1_1_color_buffer.html">ColorBuffer</a>&#160;</td><td class="memItemRight" valign="bottom"><b>buffers_</b> [SWAP_CHAIN_MAX_BUFFER_COUNT]</td></tr>
+<tr class="memitem:a62e96d43dbe7d55b00df97c278b8fce8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classblowbox_1_1_color_buffer.html">ColorBuffer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_swap_chain.html#a62e96d43dbe7d55b00df97c278b8fce8">buffers_</a> [SWAP_CHAIN_MAX_BUFFER_COUNT]</td></tr>
 <tr class="separator:a62e96d43dbe7d55b00df97c278b8fce8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Wraps the IDXGISwapChain. </p>
+<p>This class wraps all the functionality of a IDXGISwapChain. It creates the ColorBuffers for the back buffers and makes it easy to swap the buffers via Present calls. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a54616520d386d1367a9f99954892e31b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void blowbox::SwapChain::Create </td>
+          <td>(</td>
+          <td class="paramtype">HWND&#160;</td>
+          <td class="paramname"><em>output_window</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UINT&#160;</td>
+          <td class="paramname"><em>width</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UINT&#160;</td>
+          <td class="paramname"><em>height</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">DXGI_FORMAT&#160;</td>
+          <td class="paramname"><em>format</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UINT&#160;</td>
+          <td class="paramname"><em>buffer_count</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">DXGI_SWAP_EFFECT&#160;</td>
+          <td class="paramname"><em>swap_effect</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UINT&#160;</td>
+          <td class="paramname"><em>flags</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>disable_alt_enter</em> = <code>true</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>windowed</em> = <code>true</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Creates the actual <a class="el" href="classblowbox_1_1_swap_chain.html" title="Wraps the IDXGISwapChain. ">SwapChain</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">output_window</td><td>The output window to which the <a class="el" href="classblowbox_1_1_swap_chain.html" title="Wraps the IDXGISwapChain. ">SwapChain</a> has to bind. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">width</td><td>The width of the output window. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">height</td><td>The height of the output window. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">format</td><td>The formats you want to use for the back buffers. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">buffer_count</td><td>The number of back buffers that should be created. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">swap_effect</td><td>The swap effect that should be used when Presenting to the output window. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">flags</td><td>Any flags that should be attached to the swap chain. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">disable_alt_enter</td><td>Whether alt-enter (for fullscreen stuff) should be disabled. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">windowed</td><td>Whether the swap chain should be windowed or fullscreen. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="aceb2bf847ea500878d1c7017bda757d1"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">DXGI_SWAP_CHAIN_DESC blowbox::SwapChain::DescribeSwapChain </td>
+          <td>(</td>
+          <td class="paramtype">HWND&#160;</td>
+          <td class="paramname"><em>output_window</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UINT&#160;</td>
+          <td class="paramname"><em>width</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UINT&#160;</td>
+          <td class="paramname"><em>height</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">DXGI_FORMAT&#160;</td>
+          <td class="paramname"><em>format</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UINT&#160;</td>
+          <td class="paramname"><em>buffer_count</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">DXGI_SWAP_EFFECT&#160;</td>
+          <td class="paramname"><em>swap_effect</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UINT&#160;</td>
+          <td class="paramname"><em>flags</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>windowed</em> = <code>true</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Creates a DXGI_SWAP_CHAIN_DESC based on input params. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">output_window</td><td>The window that should be output into. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">width</td><td>The width of the of the <a class="el" href="classblowbox_1_1_swap_chain.html" title="Wraps the IDXGISwapChain. ">SwapChain</a> buffers. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">height</td><td>The height of the <a class="el" href="classblowbox_1_1_swap_chain.html" title="Wraps the IDXGISwapChain. ">SwapChain</a> buffers. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">format</td><td>The format for the <a class="el" href="classblowbox_1_1_swap_chain.html" title="Wraps the IDXGISwapChain. ">SwapChain</a> buffers. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">buffer_count</td><td>The number of buffers in the <a class="el" href="classblowbox_1_1_swap_chain.html" title="Wraps the IDXGISwapChain. ">SwapChain</a>. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">swap_effect</td><td>The swap effect that should be used when swapping out presenting buffers. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">flags</td><td>Any flags that should be set on the <a class="el" href="classblowbox_1_1_swap_chain.html" title="Wraps the IDXGISwapChain. ">SwapChain</a>. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">windowed</td><td>Whether the swap chain should be windowed or not. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a76157ddca0bb93ae85e8dee9644bc89c"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classblowbox_1_1_color_buffer.html">ColorBuffer</a>&amp; blowbox::SwapChain::GetBackBuffer </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>A <a class="el" href="classblowbox_1_1_color_buffer.html" title="Buffer-type for buffers with color data in them. ">ColorBuffer</a> that represents the current back buffer in the <a class="el" href="classblowbox_1_1_swap_chain.html" title="Wraps the IDXGISwapChain. ">SwapChain</a>. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ad3449f94dfa50c81b945c5602d513fb9"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classblowbox_1_1_color_buffer.html">ColorBuffer</a>&amp; blowbox::SwapChain::GetBackBuffer </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>A <a class="el" href="classblowbox_1_1_color_buffer.html" title="Buffer-type for buffers with color data in them. ">ColorBuffer</a> that represents the current back buffer in the <a class="el" href="classblowbox_1_1_swap_chain.html" title="Wraps the IDXGISwapChain. ">SwapChain</a>. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a187e398b59c19049dc4d7d1e31e07600"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const UINT&amp; blowbox::SwapChain::GetBackBufferIndex </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>The number of buffers in this <a class="el" href="classblowbox_1_1_swap_chain.html" title="Wraps the IDXGISwapChain. ">SwapChain</a>. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a20fae795f43528c8e8360d8c30d0dc75"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classblowbox_1_1_color_buffer.html">ColorBuffer</a>&amp; blowbox::SwapChain::GetBuffer </td>
+          <td>(</td>
+          <td class="paramtype">UINT&#160;</td>
+          <td class="paramname"><em>buffer_index</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Retrieve a certain buffer from the <a class="el" href="classblowbox_1_1_swap_chain.html" title="Wraps the IDXGISwapChain. ">SwapChain</a> buffers. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">buffer_index</td><td>An index into the <a class="el" href="classblowbox_1_1_swap_chain.html" title="Wraps the IDXGISwapChain. ">SwapChain</a> buffers array. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A <a class="el" href="classblowbox_1_1_color_buffer.html" title="Buffer-type for buffers with color data in them. ">ColorBuffer</a> that represents a <a class="el" href="classblowbox_1_1_swap_chain.html" title="Wraps the IDXGISwapChain. ">SwapChain</a> buffer. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a8e137900a2b89b824732bb0df1a1487c"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classblowbox_1_1_color_buffer.html">ColorBuffer</a>&amp; blowbox::SwapChain::GetBuffer </td>
+          <td>(</td>
+          <td class="paramtype">UINT&#160;</td>
+          <td class="paramname"><em>buffer_index</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Retrieve a certain buffer from the <a class="el" href="classblowbox_1_1_swap_chain.html" title="Wraps the IDXGISwapChain. ">SwapChain</a> buffers. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">buffer_index</td><td>An index into the <a class="el" href="classblowbox_1_1_swap_chain.html" title="Wraps the IDXGISwapChain. ">SwapChain</a> buffers array. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A <a class="el" href="classblowbox_1_1_color_buffer.html" title="Buffer-type for buffers with color data in them. ">ColorBuffer</a> that represents a <a class="el" href="classblowbox_1_1_swap_chain.html" title="Wraps the IDXGISwapChain. ">SwapChain</a> buffer. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a9d3932205c6a4b22609e60d4ba0290dc"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const UINT&amp; blowbox::SwapChain::GetBufferCount </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>The number of buffers in this <a class="el" href="classblowbox_1_1_swap_chain.html" title="Wraps the IDXGISwapChain. ">SwapChain</a>. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a60dd3b414e7b47a8b169643062175aaa"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const UINT&amp; blowbox::SwapChain::GetBufferHeight </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>The height of every buffer in the <a class="el" href="classblowbox_1_1_swap_chain.html" title="Wraps the IDXGISwapChain. ">SwapChain</a>. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a2628ad91df3d8f72aafdeec93f56875d"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const UINT&amp; blowbox::SwapChain::GetBufferWidth </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>The width of every buffer in the <a class="el" href="classblowbox_1_1_swap_chain.html" title="Wraps the IDXGISwapChain. ">SwapChain</a>. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a81e8b6639f37dca94d3cef3e0dbb6cc2"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">blowbox::SwapChain::operator IDXGISwapChain * </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implicit cast to a IDXGISwapChain. </p>
+
+</div>
+</div>
+<a class="anchor" id="ac7c876a887340f7519279c0be1df2319"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">IDXGISwapChain* blowbox::SwapChain::operator-&gt; </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Overloads the pointer operator to return the underlying IDXGISwapChain. </p>
+
+</div>
+</div>
+<a class="anchor" id="ae6918362c7cb64871b83db7d7cbe068f"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const IDXGISwapChain* blowbox::SwapChain::operator-&gt; </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Overloads the pointer operator to return the underlying IDXGISwapChain. </p>
+
+</div>
+</div>
+<a class="anchor" id="a28bc078e207bac5588c6307154475017"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void blowbox::SwapChain::Present </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>vsync</em> = <code>true</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Presents the back buffer to the screen. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">vsync</td><td>Whether the present call should wait for the next V_BLANK. (i.e. whether to use vsync or not) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="a9c230f35225000f85bb1842996771620"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">UINT blowbox::SwapChain::back_buffer_index_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The current back buffer index. </p>
+
+</div>
+</div>
+<a class="anchor" id="a2b366d32a378eaf10b2e4f1aec76601c"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">UINT blowbox::SwapChain::buffer_count_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The number of buffers in use by the <a class="el" href="classblowbox_1_1_swap_chain.html" title="Wraps the IDXGISwapChain. ">SwapChain</a>. </p>
+
+</div>
+</div>
+<a class="anchor" id="a62e96d43dbe7d55b00df97c278b8fce8"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classblowbox_1_1_color_buffer.html">ColorBuffer</a> blowbox::SwapChain::buffers_[SWAP_CHAIN_MAX_BUFFER_COUNT]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>All the different <a class="el" href="classblowbox_1_1_swap_chain.html" title="Wraps the IDXGISwapChain. ">SwapChain</a> buffers. </p>
+
+</div>
+</div>
+<a class="anchor" id="a4e24ea52a4dbd58452af0a4a15a7b22d"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">DXGI_SWAP_CHAIN_DESC blowbox::SwapChain::desc_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The description of the IDXGISwapChain. </p>
+
+</div>
+</div>
+<a class="anchor" id="a3677dc3ac762d9a534478f71fd8f0bbc"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">IDXGISwapChain* blowbox::SwapChain::swap_chain_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The underlying IDXGISwapChain. </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>E:/Projects/blowbox-2017/src/renderer/<a class="el" href="swap__chain_8h_source.html">swap_chain.h</a></li>
 <li>E:/Projects/blowbox-2017/src/renderer/swap_chain.cc</li>
@@ -172,7 +748,7 @@ UINT&#160;</td><td class="memItemRight" valign="bottom"><b>buffer_count_</b></td
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Jul 15 2017 01:01:15 for Blowbox 2017 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Jul 15 2017 18:37:48 for Blowbox 2017 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

@@ -97,22 +97,121 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">blowbox::ForwardRenderer Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="forward__renderer_8h_source.html">forward_renderer.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a815d4590b49e308b352c653645935f2d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a815d4590b49e308b352c653645935f2d"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>Startup</b> ()</td></tr>
+<tr class="memitem:a3641215c993b254f7b1b2eb651379c03"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_forward_renderer.html#a3641215c993b254f7b1b2eb651379c03">ForwardRenderer</a> ()</td></tr>
+<tr class="separator:a3641215c993b254f7b1b2eb651379c03"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad78f8c879129e6d4350479521bd648c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_forward_renderer.html#aad78f8c879129e6d4350479521bd648c">~ForwardRenderer</a> ()</td></tr>
+<tr class="separator:aad78f8c879129e6d4350479521bd648c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a815d4590b49e308b352c653645935f2d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_forward_renderer.html#a815d4590b49e308b352c653645935f2d">Startup</a> ()</td></tr>
 <tr class="separator:a815d4590b49e308b352c653645935f2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8bec56d59333690b0a561b63f85f1f65"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8bec56d59333690b0a561b63f85f1f65"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>Render</b> ()</td></tr>
+<tr class="memitem:a8bec56d59333690b0a561b63f85f1f65"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_forward_renderer.html#a8bec56d59333690b0a561b63f85f1f65">Render</a> ()</td></tr>
 <tr class="separator:a8bec56d59333690b0a561b63f85f1f65"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:af3bc6fa4518b3b58a72b717762fae4a9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af3bc6fa4518b3b58a72b717762fae4a9"></a>
-<a class="el" href="classblowbox_1_1_depth_buffer.html">DepthBuffer</a>&#160;</td><td class="memItemRight" valign="bottom"><b>depth_buffer_</b></td></tr>
+<tr class="memitem:af3bc6fa4518b3b58a72b717762fae4a9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classblowbox_1_1_depth_buffer.html">DepthBuffer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_forward_renderer.html#af3bc6fa4518b3b58a72b717762fae4a9">depth_buffer_</a></td></tr>
 <tr class="separator:af3bc6fa4518b3b58a72b717762fae4a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Implements a forward rendering technique. </p>
+<p>The <a class="el" href="classblowbox_1_1_forward_renderer.html" title="Implements a forward rendering technique. ">ForwardRenderer</a> renders the entire scene in a forward style, often it is called the "painters" algorithm, because everything is kept on being overlaid on top of each other. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a3641215c993b254f7b1b2eb651379c03"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">blowbox::ForwardRenderer::ForwardRenderer </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constructs the <a class="el" href="classblowbox_1_1_forward_renderer.html" title="Implements a forward rendering technique. ">ForwardRenderer</a>. </p>
+
+</div>
+</div>
+<a class="anchor" id="aad78f8c879129e6d4350479521bd648c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">blowbox::ForwardRenderer::~ForwardRenderer </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Destructs the <a class="el" href="classblowbox_1_1_forward_renderer.html" title="Implements a forward rendering technique. ">ForwardRenderer</a>. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a8bec56d59333690b0a561b63f85f1f65"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void blowbox::ForwardRenderer::Render </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Renders the entire scene into the current backbuffer in the <a class="el" href="classblowbox_1_1_swap_chain.html" title="Wraps the IDXGISwapChain. ">SwapChain</a>. </p>
+
+</div>
+</div>
+<a class="anchor" id="a815d4590b49e308b352c653645935f2d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void blowbox::ForwardRenderer::Startup </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Starts up the <a class="el" href="classblowbox_1_1_forward_renderer.html" title="Implements a forward rendering technique. ">ForwardRenderer</a>. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="af3bc6fa4518b3b58a72b717762fae4a9"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classblowbox_1_1_depth_buffer.html">DepthBuffer</a> blowbox::ForwardRenderer::depth_buffer_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The depth buffer that is used to render the scene. </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>E:/Projects/blowbox-2017/src/renderer/<a class="el" href="forward__renderer_8h_source.html">forward_renderer.h</a></li>
 <li>E:/Projects/blowbox-2017/src/renderer/forward_renderer.cc</li>
@@ -120,7 +219,7 @@ Private Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Jul 15 2017 01:01:15 for Blowbox 2017 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Jul 15 2017 18:37:47 for Blowbox 2017 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

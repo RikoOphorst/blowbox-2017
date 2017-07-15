@@ -97,55 +97,364 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">blowbox::CommandManager Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="command__manager_8h_source.html">command_manager.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a82d7e9c1746a83b502f33d6ae6124f30"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a82d7e9c1746a83b502f33d6ae6124f30"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>Startup</b> (<a class="el" href="namespaceblowbox.html#a020fc4943432428d6d842b3c88b45ed1">SharedPtr</a>&lt; <a class="el" href="classblowbox_1_1_device.html">Device</a> &gt; device)</td></tr>
-<tr class="separator:a82d7e9c1746a83b502f33d6ae6124f30"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a459ada0fa191c62620f41c2f53d401af"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a459ada0fa191c62620f41c2f53d401af"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>CreateCommandList</b> (D3D12_COMMAND_LIST_TYPE type, ID3D12GraphicsCommandList **out_list, ID3D12CommandAllocator **out_allocator)</td></tr>
+<tr class="memitem:a39d802717968d69e7a83c50cfb35172e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_command_manager.html#a39d802717968d69e7a83c50cfb35172e">CommandManager</a> ()</td></tr>
+<tr class="separator:a39d802717968d69e7a83c50cfb35172e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e6f03ce9980faf10a2a0146168d18e1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_command_manager.html#a4e6f03ce9980faf10a2a0146168d18e1">~CommandManager</a> ()</td></tr>
+<tr class="separator:a4e6f03ce9980faf10a2a0146168d18e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab0f2409117bf031fb08c3789f99ae083"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_command_manager.html#ab0f2409117bf031fb08c3789f99ae083">Startup</a> ()</td></tr>
+<tr class="separator:ab0f2409117bf031fb08c3789f99ae083"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a459ada0fa191c62620f41c2f53d401af"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_command_manager.html#a459ada0fa191c62620f41c2f53d401af">CreateCommandList</a> (D3D12_COMMAND_LIST_TYPE type, ID3D12GraphicsCommandList **out_list, ID3D12CommandAllocator **out_allocator)</td></tr>
 <tr class="separator:a459ada0fa191c62620f41c2f53d401af"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa230c56b2ca0c83dbdcbc00988290ae5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa230c56b2ca0c83dbdcbc00988290ae5"></a>
-<a class="el" href="classblowbox_1_1_command_queue.html">CommandQueue</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>GetQueue</b> (D3D12_COMMAND_LIST_TYPE type=D3D12_COMMAND_LIST_TYPE_DIRECT)</td></tr>
+<tr class="memitem:aa230c56b2ca0c83dbdcbc00988290ae5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classblowbox_1_1_command_queue.html">CommandQueue</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_command_manager.html#aa230c56b2ca0c83dbdcbc00988290ae5">GetQueue</a> (D3D12_COMMAND_LIST_TYPE type=D3D12_COMMAND_LIST_TYPE_DIRECT)</td></tr>
 <tr class="separator:aa230c56b2ca0c83dbdcbc00988290ae5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac7567f486a46217324e69782531ad0d3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac7567f486a46217324e69782531ad0d3"></a>
-<a class="el" href="classblowbox_1_1_command_queue.html">CommandQueue</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>GetCommandQueue</b> ()</td></tr>
+<tr class="memitem:ac7567f486a46217324e69782531ad0d3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classblowbox_1_1_command_queue.html">CommandQueue</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_command_manager.html#ac7567f486a46217324e69782531ad0d3">GetCommandQueue</a> ()</td></tr>
 <tr class="separator:ac7567f486a46217324e69782531ad0d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a58e5fd2491b431ad3182252ce5ac974b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a58e5fd2491b431ad3182252ce5ac974b"></a>
-<a class="el" href="classblowbox_1_1_command_queue.html">CommandQueue</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>GetGraphicsQueue</b> ()</td></tr>
+<tr class="memitem:a58e5fd2491b431ad3182252ce5ac974b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classblowbox_1_1_command_queue.html">CommandQueue</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_command_manager.html#a58e5fd2491b431ad3182252ce5ac974b">GetGraphicsQueue</a> ()</td></tr>
 <tr class="separator:a58e5fd2491b431ad3182252ce5ac974b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaa1710292445cf754dbb408da0d2c436"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aaa1710292445cf754dbb408da0d2c436"></a>
-<a class="el" href="classblowbox_1_1_command_queue.html">CommandQueue</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>GetComputeQueue</b> ()</td></tr>
+<tr class="memitem:aaa1710292445cf754dbb408da0d2c436"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classblowbox_1_1_command_queue.html">CommandQueue</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_command_manager.html#aaa1710292445cf754dbb408da0d2c436">GetComputeQueue</a> ()</td></tr>
 <tr class="separator:aaa1710292445cf754dbb408da0d2c436"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa2398017b77a39cd44ae7c525c79c5e9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa2398017b77a39cd44ae7c525c79c5e9"></a>
-<a class="el" href="classblowbox_1_1_command_queue.html">CommandQueue</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>GetCopyQueue</b> ()</td></tr>
+<tr class="memitem:aa2398017b77a39cd44ae7c525c79c5e9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classblowbox_1_1_command_queue.html">CommandQueue</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_command_manager.html#aa2398017b77a39cd44ae7c525c79c5e9">GetCopyQueue</a> ()</td></tr>
 <tr class="separator:aa2398017b77a39cd44ae7c525c79c5e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a61ee83677a4c2b73de551a685772058b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a61ee83677a4c2b73de551a685772058b"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>IsFenceComplete</b> (uint64_t fence_value)</td></tr>
+<tr class="memitem:a61ee83677a4c2b73de551a685772058b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_command_manager.html#a61ee83677a4c2b73de551a685772058b">IsFenceComplete</a> (uint64_t fence_value)</td></tr>
 <tr class="separator:a61ee83677a4c2b73de551a685772058b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae59eeac69a498f8ae99a18a1967e9bd6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae59eeac69a498f8ae99a18a1967e9bd6"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>WaitForIdleGPU</b> ()</td></tr>
+<tr class="memitem:ae59eeac69a498f8ae99a18a1967e9bd6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_command_manager.html#ae59eeac69a498f8ae99a18a1967e9bd6">WaitForIdleGPU</a> ()</td></tr>
 <tr class="separator:ae59eeac69a498f8ae99a18a1967e9bd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acb07ac7d7326f8786f7139f5e5349f9e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acb07ac7d7326f8786f7139f5e5349f9e"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>WaitForFence</b> (uint64_t fence_value)</td></tr>
+<tr class="memitem:acb07ac7d7326f8786f7139f5e5349f9e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_command_manager.html#acb07ac7d7326f8786f7139f5e5349f9e">WaitForFence</a> (uint64_t fence_value)</td></tr>
 <tr class="separator:acb07ac7d7326f8786f7139f5e5349f9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a97f4fca5dfb34bc938cc4dbe05f1539b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a97f4fca5dfb34bc938cc4dbe05f1539b"></a>
-<a class="el" href="namespaceblowbox.html#acb3dc9c3141598cb9bf4d95680dad0e9">WeakPtr</a>&lt; <a class="el" href="classblowbox_1_1_device.html">Device</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>device_</b></td></tr>
-<tr class="separator:a97f4fca5dfb34bc938cc4dbe05f1539b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a10ddc918b6864f83b52c7815b860907a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a10ddc918b6864f83b52c7815b860907a"></a>
-<a class="el" href="classblowbox_1_1_command_queue.html">CommandQueue</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>graphics_queue_</b></td></tr>
+<tr class="memitem:a10ddc918b6864f83b52c7815b860907a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classblowbox_1_1_command_queue.html">CommandQueue</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_command_manager.html#a10ddc918b6864f83b52c7815b860907a">graphics_queue_</a></td></tr>
 <tr class="separator:a10ddc918b6864f83b52c7815b860907a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af24e7f6d86d4fe4f1ad591fd1a4f50df"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af24e7f6d86d4fe4f1ad591fd1a4f50df"></a>
-<a class="el" href="classblowbox_1_1_command_queue.html">CommandQueue</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>compute_queue_</b></td></tr>
+<tr class="memitem:af24e7f6d86d4fe4f1ad591fd1a4f50df"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classblowbox_1_1_command_queue.html">CommandQueue</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_command_manager.html#af24e7f6d86d4fe4f1ad591fd1a4f50df">compute_queue_</a></td></tr>
 <tr class="separator:af24e7f6d86d4fe4f1ad591fd1a4f50df"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a26e63df53521405d1a0ca7e0ed4d8a95"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a26e63df53521405d1a0ca7e0ed4d8a95"></a>
-<a class="el" href="classblowbox_1_1_command_queue.html">CommandQueue</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>copy_queue_</b></td></tr>
+<tr class="memitem:a26e63df53521405d1a0ca7e0ed4d8a95"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classblowbox_1_1_command_queue.html">CommandQueue</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_command_manager.html#a26e63df53521405d1a0ca7e0ed4d8a95">copy_queue_</a></td></tr>
 <tr class="separator:a26e63df53521405d1a0ca7e0ed4d8a95"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Manages all the CommandQueues in the application. </p>
+<p>The <a class="el" href="classblowbox_1_1_command_manager.html" title="Manages all the CommandQueues in the application. ">CommandManager</a> manages all the different CommandQueues in the engine. At any time, there are three different queues: a graphics queue, a compute queue and a copy queue. A big convenience that the <a class="el" href="classblowbox_1_1_command_manager.html" title="Manages all the CommandQueues in the application. ">CommandManager</a> offers is the CPU/GPU synchronization features. Fence values are constructed in a unique way. The first (highest order) 8 bits are reserved for data that specifies the type of command queue the fence value is for. So by calling <a class="el" href="classblowbox_1_1_command_manager.html#acb07ac7d7326f8786f7139f5e5349f9e" title="This function is blocking until a given fence point is hit by the corresponding CommandQueue. ">CommandManager::WaitForFence()</a> and passing in a Blowbox generated fence value, it will automatically figure out which command queue needs to be waited on. This way, CPU/GPU synchronization becomes tentalizingly easy. That is the main purpose of the <a class="el" href="classblowbox_1_1_command_manager.html" title="Manages all the CommandQueues in the application. ">CommandManager</a>. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a39d802717968d69e7a83c50cfb35172e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">blowbox::CommandManager::CommandManager </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constructs the <a class="el" href="classblowbox_1_1_command_manager.html" title="Manages all the CommandQueues in the application. ">CommandManager</a>. </p>
+
+</div>
+</div>
+<a class="anchor" id="a4e6f03ce9980faf10a2a0146168d18e1"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">blowbox::CommandManager::~CommandManager </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Destructs the <a class="el" href="classblowbox_1_1_command_manager.html" title="Manages all the CommandQueues in the application. ">CommandManager</a>. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a459ada0fa191c62620f41c2f53d401af"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void blowbox::CommandManager::CreateCommandList </td>
+          <td>(</td>
+          <td class="paramtype">D3D12_COMMAND_LIST_TYPE&#160;</td>
+          <td class="paramname"><em>type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ID3D12GraphicsCommandList **&#160;</td>
+          <td class="paramname"><em>out_list</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ID3D12CommandAllocator **&#160;</td>
+          <td class="paramname"><em>out_allocator</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Creates a ID3D12GraphicsCommandList with an ID3D12CommandAllocator that is ready for use. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">type</td><td>The type of ID3D12GraphicsCommandList that should be created. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">out_list</td><td>The generated ID3D12GraphicsCommandList will be output here. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">out_allocator</td><td>The generated ID3D12CommandAllocator willl be output here. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ac7567f486a46217324e69782531ad0d3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classblowbox_1_1_command_queue.html">CommandQueue</a> * blowbox::CommandManager::GetCommandQueue </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>Returns the main <a class="el" href="classblowbox_1_1_command_queue.html" title="Manages a ID3D12CommandQueue. ">CommandQueue</a>. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="aaa1710292445cf754dbb408da0d2c436"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classblowbox_1_1_command_queue.html">CommandQueue</a> * blowbox::CommandManager::GetComputeQueue </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>Returns the compute <a class="el" href="classblowbox_1_1_command_queue.html" title="Manages a ID3D12CommandQueue. ">CommandQueue</a>. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="aa2398017b77a39cd44ae7c525c79c5e9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classblowbox_1_1_command_queue.html">CommandQueue</a> * blowbox::CommandManager::GetCopyQueue </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>Returns the copy <a class="el" href="classblowbox_1_1_command_queue.html" title="Manages a ID3D12CommandQueue. ">CommandQueue</a>. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a58e5fd2491b431ad3182252ce5ac974b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classblowbox_1_1_command_queue.html">CommandQueue</a> * blowbox::CommandManager::GetGraphicsQueue </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>Returns the graphics <a class="el" href="classblowbox_1_1_command_queue.html" title="Manages a ID3D12CommandQueue. ">CommandQueue</a>. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="aa230c56b2ca0c83dbdcbc00988290ae5"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classblowbox_1_1_command_queue.html">CommandQueue</a> * blowbox::CommandManager::GetQueue </td>
+          <td>(</td>
+          <td class="paramtype">D3D12_COMMAND_LIST_TYPE&#160;</td>
+          <td class="paramname"><em>type</em> = <code>D3D12_COMMAND_LIST_TYPE_DIRECT</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>The <a class="el" href="classblowbox_1_1_command_queue.html" title="Manages a ID3D12CommandQueue. ">CommandQueue</a> of a given type. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">type</td><td>The type of <a class="el" href="classblowbox_1_1_command_queue.html" title="Manages a ID3D12CommandQueue. ">CommandQueue</a> you want. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a61ee83677a4c2b73de551a685772058b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool blowbox::CommandManager::IsFenceComplete </td>
+          <td>(</td>
+          <td class="paramtype">uint64_t&#160;</td>
+          <td class="paramname"><em>fence_value</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks if a given fence value (point in time) has been passed by the corresponding command queue. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">fence_value</td><td>The fence value that you want to check whether it has been passed. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section remark"><dt>Remarks</dt><dd>Remember, a fence_value is in fact two values. The first (highest-order) 8 bits represent the type of <a class="el" href="classblowbox_1_1_command_queue.html" title="Manages a ID3D12CommandQueue. ">CommandQueue</a> that generated the fence value. The remaining 56 bits are the actual value of the fence point. A fence point is essentially a point in time. After a command list is submitted, a fence point is generated for the correct command queue. That means that after every command list submission, a new point in time is "generated". </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ab0f2409117bf031fb08c3789f99ae083"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void blowbox::CommandManager::Startup </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Starts up the <a class="el" href="classblowbox_1_1_command_manager.html" title="Manages all the CommandQueues in the application. ">CommandManager</a>. </p>
+
+</div>
+</div>
+<a class="anchor" id="acb07ac7d7326f8786f7139f5e5349f9e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void blowbox::CommandManager::WaitForFence </td>
+          <td>(</td>
+          <td class="paramtype">uint64_t&#160;</td>
+          <td class="paramname"><em>fence_value</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This function is blocking until a given fence point is hit by the corresponding <a class="el" href="classblowbox_1_1_command_queue.html" title="Manages a ID3D12CommandQueue. ">CommandQueue</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">fence_value</td><td>The fence value that has to be waited for. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section remark"><dt>Remarks</dt><dd>Remember, a fence_value is in fact two values. The first (highest-order) 8 bits represent the type of <a class="el" href="classblowbox_1_1_command_queue.html" title="Manages a ID3D12CommandQueue. ">CommandQueue</a> that generated the fence value. The remaining 56 bits are the actual value of the fence point. A fence point is essentially a point in time. After a command list is submitted, a fence point is generated for the correct command queue. That means that after every command list submission, a new point in time is "generated". </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ae59eeac69a498f8ae99a18a1967e9bd6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void blowbox::CommandManager::WaitForIdleGPU </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This function is blocking until all pending work in the CommandQueues is done executing. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="af24e7f6d86d4fe4f1ad591fd1a4f50df"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classblowbox_1_1_command_queue.html">CommandQueue</a>* blowbox::CommandManager::compute_queue_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The compute <a class="el" href="classblowbox_1_1_command_queue.html" title="Manages a ID3D12CommandQueue. ">CommandQueue</a>. </p>
+
+</div>
+</div>
+<a class="anchor" id="a26e63df53521405d1a0ca7e0ed4d8a95"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classblowbox_1_1_command_queue.html">CommandQueue</a>* blowbox::CommandManager::copy_queue_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The copy <a class="el" href="classblowbox_1_1_command_queue.html" title="Manages a ID3D12CommandQueue. ">CommandQueue</a>. </p>
+
+</div>
+</div>
+<a class="anchor" id="a10ddc918b6864f83b52c7815b860907a"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classblowbox_1_1_command_queue.html">CommandQueue</a>* blowbox::CommandManager::graphics_queue_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The graphics <a class="el" href="classblowbox_1_1_command_queue.html" title="Manages a ID3D12CommandQueue. ">CommandQueue</a>. </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>E:/Projects/blowbox-2017/src/renderer/commands/<a class="el" href="command__manager_8h_source.html">command_manager.h</a></li>
 <li>E:/Projects/blowbox-2017/src/renderer/commands/command_manager.cc</li>
@@ -153,7 +462,7 @@ Private Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Jul 15 2017 01:01:15 for Blowbox 2017 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Jul 15 2017 18:37:47 for Blowbox 2017 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

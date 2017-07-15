@@ -97,67 +97,492 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">blowbox::CommandQueue Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="command__queue_8h_source.html">command_queue.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ae382dbbc7005c082f7428f0baa3869d2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae382dbbc7005c082f7428f0baa3869d2"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>CommandQueue</b> (D3D12_COMMAND_LIST_TYPE type)</td></tr>
+<tr class="memitem:ae382dbbc7005c082f7428f0baa3869d2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_command_queue.html#ae382dbbc7005c082f7428f0baa3869d2">CommandQueue</a> (D3D12_COMMAND_LIST_TYPE type)</td></tr>
 <tr class="separator:ae382dbbc7005c082f7428f0baa3869d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad08e1b23ba941de2ea565550a73ea903"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad08e1b23ba941de2ea565550a73ea903"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>IsFenceComplete</b> (uint64_t fence_value)</td></tr>
+<tr class="memitem:a53e085c263e180854e764b48e6b4cc58"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_command_queue.html#a53e085c263e180854e764b48e6b4cc58">~CommandQueue</a> ()</td></tr>
+<tr class="separator:a53e085c263e180854e764b48e6b4cc58"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad08e1b23ba941de2ea565550a73ea903"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_command_queue.html#ad08e1b23ba941de2ea565550a73ea903">IsFenceComplete</a> (uint64_t fence_value)</td></tr>
 <tr class="separator:ad08e1b23ba941de2ea565550a73ea903"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abfd03413d35fd047c287353874f9e450"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abfd03413d35fd047c287353874f9e450"></a>
-uint64_t&#160;</td><td class="memItemRight" valign="bottom"><b>IncrementFence</b> ()</td></tr>
+<tr class="memitem:abfd03413d35fd047c287353874f9e450"><td class="memItemLeft" align="right" valign="top">uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_command_queue.html#abfd03413d35fd047c287353874f9e450">IncrementFence</a> ()</td></tr>
 <tr class="separator:abfd03413d35fd047c287353874f9e450"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a426684659d70445520f7e77da058dc76"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a426684659d70445520f7e77da058dc76"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>WaitForFence</b> (uint64_t fence_value)</td></tr>
+<tr class="memitem:a426684659d70445520f7e77da058dc76"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_command_queue.html#a426684659d70445520f7e77da058dc76">WaitForFence</a> (uint64_t fence_value)</td></tr>
 <tr class="separator:a426684659d70445520f7e77da058dc76"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a32ab746953f708174d6d5356fc266ac1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a32ab746953f708174d6d5356fc266ac1"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>WaitForIdle</b> ()</td></tr>
+<tr class="memitem:a32ab746953f708174d6d5356fc266ac1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_command_queue.html#a32ab746953f708174d6d5356fc266ac1">WaitForIdle</a> ()</td></tr>
 <tr class="separator:a32ab746953f708174d6d5356fc266ac1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4b686c9059319de4894e0f477d612851"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4b686c9059319de4894e0f477d612851"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>StallForFence</b> (uint64_t fence_value)</td></tr>
+<tr class="memitem:a4b686c9059319de4894e0f477d612851"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_command_queue.html#a4b686c9059319de4894e0f477d612851">StallForFence</a> (uint64_t fence_value)</td></tr>
 <tr class="separator:a4b686c9059319de4894e0f477d612851"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaaa8b0fda663e6406365005c7f07ffe0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aaaa8b0fda663e6406365005c7f07ffe0"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>StallForProducer</b> (<a class="el" href="classblowbox_1_1_command_queue.html">CommandQueue</a> *producer)</td></tr>
+<tr class="memitem:aaaa8b0fda663e6406365005c7f07ffe0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_command_queue.html#aaaa8b0fda663e6406365005c7f07ffe0">StallForProducer</a> (<a class="el" href="classblowbox_1_1_command_queue.html">CommandQueue</a> *producer)</td></tr>
 <tr class="separator:aaaa8b0fda663e6406365005c7f07ffe0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aace1470e592c18439e7240de27d225e7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aace1470e592c18439e7240de27d225e7"></a>
-uint64_t&#160;</td><td class="memItemRight" valign="bottom"><b>ExecuteCommandList</b> (ID3D12CommandList *list)</td></tr>
+<tr class="memitem:aace1470e592c18439e7240de27d225e7"><td class="memItemLeft" align="right" valign="top">uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_command_queue.html#aace1470e592c18439e7240de27d225e7">ExecuteCommandList</a> (ID3D12CommandList *list)</td></tr>
 <tr class="separator:aace1470e592c18439e7240de27d225e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afd9eff3c7c220a88bdd2ab580eab66f7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afd9eff3c7c220a88bdd2ab580eab66f7"></a>
-ID3D12CommandQueue *&#160;</td><td class="memItemRight" valign="bottom"><b>Get</b> ()</td></tr>
+<tr class="memitem:afd9eff3c7c220a88bdd2ab580eab66f7"><td class="memItemLeft" align="right" valign="top">ID3D12CommandQueue *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_command_queue.html#afd9eff3c7c220a88bdd2ab580eab66f7">Get</a> ()</td></tr>
 <tr class="separator:afd9eff3c7c220a88bdd2ab580eab66f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab13035d129932f454259d18d1aa0a503"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab13035d129932f454259d18d1aa0a503"></a>
-ID3D12CommandAllocator *&#160;</td><td class="memItemRight" valign="bottom"><b>RequestAllocator</b> ()</td></tr>
+<tr class="memitem:ab13035d129932f454259d18d1aa0a503"><td class="memItemLeft" align="right" valign="top">ID3D12CommandAllocator *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_command_queue.html#ab13035d129932f454259d18d1aa0a503">RequestAllocator</a> ()</td></tr>
 <tr class="separator:ab13035d129932f454259d18d1aa0a503"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9100d5cf6cbf8e13a01ac76165dfd7f3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9100d5cf6cbf8e13a01ac76165dfd7f3"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>DiscardAllocator</b> (uint64_t fence_value, ID3D12CommandAllocator *allocator)</td></tr>
+<tr class="memitem:a9100d5cf6cbf8e13a01ac76165dfd7f3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_command_queue.html#a9100d5cf6cbf8e13a01ac76165dfd7f3">DiscardAllocator</a> (uint64_t fence_value, ID3D12CommandAllocator *allocator)</td></tr>
 <tr class="separator:a9100d5cf6cbf8e13a01ac76165dfd7f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:aff37f72afe6ef5f58360800749fbee07"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aff37f72afe6ef5f58360800749fbee07"></a>
-D3D12_COMMAND_LIST_TYPE&#160;</td><td class="memItemRight" valign="bottom"><b>type_</b></td></tr>
+<tr class="memitem:aff37f72afe6ef5f58360800749fbee07"><td class="memItemLeft" align="right" valign="top">D3D12_COMMAND_LIST_TYPE&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_command_queue.html#aff37f72afe6ef5f58360800749fbee07">type_</a></td></tr>
 <tr class="separator:aff37f72afe6ef5f58360800749fbee07"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a05db4a8d9b406e823b3dd21e26d416a0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a05db4a8d9b406e823b3dd21e26d416a0"></a>
-ID3D12CommandQueue *&#160;</td><td class="memItemRight" valign="bottom"><b>queue_</b></td></tr>
+<tr class="memitem:a05db4a8d9b406e823b3dd21e26d416a0"><td class="memItemLeft" align="right" valign="top">ID3D12CommandQueue *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_command_queue.html#a05db4a8d9b406e823b3dd21e26d416a0">queue_</a></td></tr>
 <tr class="separator:a05db4a8d9b406e823b3dd21e26d416a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a13b6568b7448dc1805916ac50bf752d8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a13b6568b7448dc1805916ac50bf752d8"></a>
-<a class="el" href="classblowbox_1_1_command_allocator_pool.html">CommandAllocatorPool</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>allocator_pool_</b></td></tr>
+<tr class="memitem:a13b6568b7448dc1805916ac50bf752d8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classblowbox_1_1_command_allocator_pool.html">CommandAllocatorPool</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_command_queue.html#a13b6568b7448dc1805916ac50bf752d8">allocator_pool_</a></td></tr>
 <tr class="separator:a13b6568b7448dc1805916ac50bf752d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6a2e800d89829d830a4841372c5576ba"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6a2e800d89829d830a4841372c5576ba"></a>
-ID3D12Fence *&#160;</td><td class="memItemRight" valign="bottom"><b>fence_</b></td></tr>
+<tr class="memitem:a6a2e800d89829d830a4841372c5576ba"><td class="memItemLeft" align="right" valign="top">ID3D12Fence *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_command_queue.html#a6a2e800d89829d830a4841372c5576ba">fence_</a></td></tr>
 <tr class="separator:a6a2e800d89829d830a4841372c5576ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acc458d20cf079909978c65697eddcf17"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acc458d20cf079909978c65697eddcf17"></a>
-uint64_t&#160;</td><td class="memItemRight" valign="bottom"><b>last_completed_fence_value_</b></td></tr>
+<tr class="memitem:acc458d20cf079909978c65697eddcf17"><td class="memItemLeft" align="right" valign="top">uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_command_queue.html#acc458d20cf079909978c65697eddcf17">last_completed_fence_value_</a></td></tr>
 <tr class="separator:acc458d20cf079909978c65697eddcf17"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8b46e07c3d7c95e3f97f19756fe365a7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8b46e07c3d7c95e3f97f19756fe365a7"></a>
-uint64_t&#160;</td><td class="memItemRight" valign="bottom"><b>next_fence_value_</b></td></tr>
+<tr class="memitem:a8b46e07c3d7c95e3f97f19756fe365a7"><td class="memItemLeft" align="right" valign="top">uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_command_queue.html#a8b46e07c3d7c95e3f97f19756fe365a7">next_fence_value_</a></td></tr>
 <tr class="separator:a8b46e07c3d7c95e3f97f19756fe365a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a20aeca5f7fa0c80a1b2a50759563b2c3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a20aeca5f7fa0c80a1b2a50759563b2c3"></a>
-HANDLE&#160;</td><td class="memItemRight" valign="bottom"><b>fence_event_handle_</b></td></tr>
+<tr class="memitem:a20aeca5f7fa0c80a1b2a50759563b2c3"><td class="memItemLeft" align="right" valign="top">HANDLE&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_command_queue.html#a20aeca5f7fa0c80a1b2a50759563b2c3">fence_event_handle_</a></td></tr>
 <tr class="separator:a20aeca5f7fa0c80a1b2a50759563b2c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Manages a ID3D12CommandQueue. </p>
+<p>The <a class="el" href="classblowbox_1_1_command_queue.html" title="Manages a ID3D12CommandQueue. ">CommandQueue</a> wraps all functionality from a ID3D12CommandQueue. It handles the <a class="el" href="classblowbox_1_1_command_queue.html" title="Manages a ID3D12CommandQueue. ">CommandQueue</a> in a way that allows for smart CPU/GPU synchronization. It generates a fence value specifically for this type of <a class="el" href="classblowbox_1_1_command_queue.html" title="Manages a ID3D12CommandQueue. ">CommandQueue</a>. See remarks for an explanation of fence values. Additionally, the <a class="el" href="classblowbox_1_1_command_queue.html" title="Manages a ID3D12CommandQueue. ">CommandQueue</a> manages a <a class="el" href="classblowbox_1_1_command_allocator_pool.html" title="Controls a pool of allocators of a certain type. ">CommandAllocatorPool</a> for the type of <a class="el" href="classblowbox_1_1_command_queue.html" title="Manages a ID3D12CommandQueue. ">CommandQueue</a> that this is. If you need a CommandAllocator, you should request it through the <a class="el" href="classblowbox_1_1_command_queue.html" title="Manages a ID3D12CommandQueue. ">CommandQueue</a>.</p>
+<dl class="section remark"><dt>Remarks</dt><dd>Remember, a fence_value is in fact two values. The first (highest-order) 8 bits represent the type of <a class="el" href="classblowbox_1_1_command_queue.html" title="Manages a ID3D12CommandQueue. ">CommandQueue</a> that generated the fence value. The remaining 56 bits are the actual value of the fence point. A fence point is essentially a point in time. After a command list is submitted, a fence point is generated for the correct command queue. That means that after every command list submission, a new point in time is "generated". </dd></dl>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="ae382dbbc7005c082f7428f0baa3869d2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">blowbox::CommandQueue::CommandQueue </td>
+          <td>(</td>
+          <td class="paramtype">D3D12_COMMAND_LIST_TYPE&#160;</td>
+          <td class="paramname"><em>type</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constructs a <a class="el" href="classblowbox_1_1_command_queue.html" title="Manages a ID3D12CommandQueue. ">CommandQueue</a> of a certain type. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">type</td><td>The type of command queue that should be created. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a53e085c263e180854e764b48e6b4cc58"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">blowbox::CommandQueue::~CommandQueue </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Destructs the <a class="el" href="classblowbox_1_1_command_queue.html" title="Manages a ID3D12CommandQueue. ">CommandQueue</a>. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a9100d5cf6cbf8e13a01ac76165dfd7f3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void blowbox::CommandQueue::DiscardAllocator </td>
+          <td>(</td>
+          <td class="paramtype">uint64_t&#160;</td>
+          <td class="paramname"><em>fence_value</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ID3D12CommandAllocator *&#160;</td>
+          <td class="paramname"><em>allocator</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Discards a ID3D12CommandAllocator back into the <a class="el" href="classblowbox_1_1_command_allocator_pool.html" title="Controls a pool of allocators of a certain type. ">CommandAllocatorPool</a> as soon as the given fence_value has been passed. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">fence_value</td><td>The fence value that needs to be passed before the ID3D12CommandAllocator can be repurposed. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">allocator</td><td>The allocator that you want to release back into the <a class="el" href="classblowbox_1_1_command_allocator_pool.html" title="Controls a pool of allocators of a certain type. ">CommandAllocatorPool</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section remark"><dt>Remarks</dt><dd>Remember, a fence_value is in fact two values. The first (highest-order) 8 bits represent the type of <a class="el" href="classblowbox_1_1_command_queue.html" title="Manages a ID3D12CommandQueue. ">CommandQueue</a> that generated the fence value. The remaining 56 bits are the actual value of the fence point. A fence point is essentially a point in time. After a command list is submitted, a fence point is generated for the correct command queue. That means that after every command list submission, a new point in time is "generated". </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="aace1470e592c18439e7240de27d225e7"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint64_t blowbox::CommandQueue::ExecuteCommandList </td>
+          <td>(</td>
+          <td class="paramtype">ID3D12CommandList *&#160;</td>
+          <td class="paramname"><em>list</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Submits a command list to the <a class="el" href="classblowbox_1_1_command_queue.html" title="Manages a ID3D12CommandQueue. ">CommandQueue</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">list</td><td>The list you want to submit </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A fence value that, once passed, means that the submitted command list has been completed. </dd></dl>
+<dl class="section remark"><dt>Remarks</dt><dd>Remember, a fence_value is in fact two values. The first (highest-order) 8 bits represent the type of <a class="el" href="classblowbox_1_1_command_queue.html" title="Manages a ID3D12CommandQueue. ">CommandQueue</a> that generated the fence value. The remaining 56 bits are the actual value of the fence point. A fence point is essentially a point in time. After a command list is submitted, a fence point is generated for the correct command queue. That means that after every command list submission, a new point in time is "generated". </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="afd9eff3c7c220a88bdd2ab580eab66f7"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ID3D12CommandQueue* blowbox::CommandQueue::Get </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>The underlying ID3D12CommandQueue. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="abfd03413d35fd047c287353874f9e450"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint64_t blowbox::CommandQueue::IncrementFence </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Increments the current fence and signals the <a class="el" href="classblowbox_1_1_command_queue.html" title="Manages a ID3D12CommandQueue. ">CommandQueue</a>. </p>
+
+</div>
+</div>
+<a class="anchor" id="ad08e1b23ba941de2ea565550a73ea903"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool blowbox::CommandQueue::IsFenceComplete </td>
+          <td>(</td>
+          <td class="paramtype">uint64_t&#160;</td>
+          <td class="paramname"><em>fence_value</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks if a certain fence value has been passed. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">fence_value</td><td>The fence value you want to check if it was passed. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section remark"><dt>Remarks</dt><dd>Remember, a fence_value is in fact two values. The first (highest-order) 8 bits represent the type of <a class="el" href="classblowbox_1_1_command_queue.html" title="Manages a ID3D12CommandQueue. ">CommandQueue</a> that generated the fence value. The remaining 56 bits are the actual value of the fence point. A fence point is essentially a point in time. After a command list is submitted, a fence point is generated for the correct command queue. That means that after every command list submission, a new point in time is "generated". </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ab13035d129932f454259d18d1aa0a503"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ID3D12CommandAllocator * blowbox::CommandQueue::RequestAllocator </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Requests a ID3D12CommandAllocator from the underlying <a class="el" href="classblowbox_1_1_command_allocator_pool.html" title="Controls a pool of allocators of a certain type. ">CommandAllocatorPool</a>. </p>
+<dl class="section return"><dt>Returns</dt><dd>A ID3D12CommandAllocator which is ready for use. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a4b686c9059319de4894e0f477d612851"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void blowbox::CommandQueue::StallForFence </td>
+          <td>(</td>
+          <td class="paramtype">uint64_t&#160;</td>
+          <td class="paramname"><em>fence_value</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Makes this <a class="el" href="classblowbox_1_1_command_queue.html" title="Manages a ID3D12CommandQueue. ">CommandQueue</a> wait with execution until the given fence value is hit. See remarks! </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">fence_value</td><td>The fence value you want this <a class="el" href="classblowbox_1_1_command_queue.html" title="Manages a ID3D12CommandQueue. ">CommandQueue</a> to wait for. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section remark"><dt>Remarks</dt><dd>Remember, a fence_value is in fact two values. The first (highest-order) 8 bits represent the type of <a class="el" href="classblowbox_1_1_command_queue.html" title="Manages a ID3D12CommandQueue. ">CommandQueue</a> that generated the fence value. The remaining 56 bits are the actual value of the fence point. A fence point is essentially a point in time. After a command list is submitted, a fence point is generated for the correct command queue. That means that after every command list submission, a new point in time is "generated". </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="aaaa8b0fda663e6406365005c7f07ffe0"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void blowbox::CommandQueue::StallForProducer </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classblowbox_1_1_command_queue.html">CommandQueue</a> *&#160;</td>
+          <td class="paramname"><em>producer</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Makes this <a class="el" href="classblowbox_1_1_command_queue.html" title="Manages a ID3D12CommandQueue. ">CommandQueue</a> wait with execution until a given <a class="el" href="classblowbox_1_1_command_queue.html" title="Manages a ID3D12CommandQueue. ">CommandQueue</a> is finished executing work. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">producer</td><td>The other <a class="el" href="classblowbox_1_1_command_queue.html" title="Manages a ID3D12CommandQueue. ">CommandQueue</a> that has to be waited on. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a426684659d70445520f7e77da058dc76"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void blowbox::CommandQueue::WaitForFence </td>
+          <td>(</td>
+          <td class="paramtype">uint64_t&#160;</td>
+          <td class="paramname"><em>fence_value</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Makes the <a class="el" href="classblowbox_1_1_command_queue.html" title="Manages a ID3D12CommandQueue. ">CommandQueue</a> wait for a given fence value. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">fence_value</td><td>The fence value you want to wait on. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section remark"><dt>Remarks</dt><dd>Remember, a fence_value is in fact two values. The first (highest-order) 8 bits represent the type of <a class="el" href="classblowbox_1_1_command_queue.html" title="Manages a ID3D12CommandQueue. ">CommandQueue</a> that generated the fence value. The remaining 56 bits are the actual value of the fence point. A fence point is essentially a point in time. After a command list is submitted, a fence point is generated for the correct command queue. That means that after every command list submission, a new point in time is "generated". </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a32ab746953f708174d6d5356fc266ac1"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void blowbox::CommandQueue::WaitForIdle </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Makes the <a class="el" href="classblowbox_1_1_command_queue.html" title="Manages a ID3D12CommandQueue. ">CommandQueue</a> wait for until it is completely empty (i.e. the GPU finished all the work submitted to this <a class="el" href="classblowbox_1_1_command_queue.html" title="Manages a ID3D12CommandQueue. ">CommandQueue</a>). </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="a13b6568b7448dc1805916ac50bf752d8"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classblowbox_1_1_command_allocator_pool.html">CommandAllocatorPool</a>* blowbox::CommandQueue::allocator_pool_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The <a class="el" href="classblowbox_1_1_command_allocator_pool.html" title="Controls a pool of allocators of a certain type. ">CommandAllocatorPool</a> that is controlled by this <a class="el" href="classblowbox_1_1_command_queue.html" title="Manages a ID3D12CommandQueue. ">CommandQueue</a>. </p>
+
+</div>
+</div>
+<a class="anchor" id="a6a2e800d89829d830a4841372c5576ba"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ID3D12Fence* blowbox::CommandQueue::fence_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The ID3D12Fence object that we use to synchronize the CPU with the GPU. </p>
+
+</div>
+</div>
+<a class="anchor" id="a20aeca5f7fa0c80a1b2a50759563b2c3"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">HANDLE blowbox::CommandQueue::fence_event_handle_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>A handle to an event that we use to synchronize the CPU with the GPU. </p>
+
+</div>
+</div>
+<a class="anchor" id="acc458d20cf079909978c65697eddcf17"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint64_t blowbox::CommandQueue::last_completed_fence_value_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The fence value that was most recently completed by the GPU. </p>
+
+</div>
+</div>
+<a class="anchor" id="a8b46e07c3d7c95e3f97f19756fe365a7"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint64_t blowbox::CommandQueue::next_fence_value_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The next fence value that should be used when we want to submit a new unit of work. </p>
+
+</div>
+</div>
+<a class="anchor" id="a05db4a8d9b406e823b3dd21e26d416a0"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ID3D12CommandQueue* blowbox::CommandQueue::queue_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The actual ID3D12CommandQueue. </p>
+
+</div>
+</div>
+<a class="anchor" id="aff37f72afe6ef5f58360800749fbee07"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">D3D12_COMMAND_LIST_TYPE blowbox::CommandQueue::type_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The type of <a class="el" href="classblowbox_1_1_command_queue.html" title="Manages a ID3D12CommandQueue. ">CommandQueue</a> this is. </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>E:/Projects/blowbox-2017/src/renderer/commands/<a class="el" href="command__queue_8h_source.html">command_queue.h</a></li>
 <li>E:/Projects/blowbox-2017/src/renderer/commands/command_queue.cc</li>
@@ -165,7 +590,7 @@ HANDLE&#160;</td><td class="memItemRight" valign="bottom"><b>fence_event_handle_
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Jul 15 2017 01:01:15 for Blowbox 2017 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Jul 15 2017 18:37:47 for Blowbox 2017 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

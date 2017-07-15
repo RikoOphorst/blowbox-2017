@@ -268,7 +268,7 @@ namespace blowbox
 	void RootParameter::InitAsDescriptorRange(D3D12_DESCRIPTOR_RANGE_TYPE type, UINT count, UINT shader_register, D3D12_SHADER_VISIBILITY visibility)
 	{
 		InitAsDescriptorTable(1, visibility);
-		SetTableRange(0, type, shader_register, count);
+		SetDescriptorRangeInTable(0, type, shader_register, count);
 		owning_signature_->ConfirmInitializedParameter();
 	}
 
@@ -282,7 +282,7 @@ namespace blowbox
 	}
 
 	//------------------------------------------------------------------------------------------------------
-	void RootParameter::SetTableRange(UINT range_index, D3D12_DESCRIPTOR_RANGE_TYPE type, UINT shader_register, UINT count, UINT space)
+	void RootParameter::SetDescriptorRangeInTable(UINT range_index, D3D12_DESCRIPTOR_RANGE_TYPE type, UINT shader_register, UINT count, UINT space)
 	{
 		D3D12_DESCRIPTOR_RANGE* range = const_cast<D3D12_DESCRIPTOR_RANGE*>(DescriptorTable.pDescriptorRanges + range_index);
 		range->RangeType = type;

@@ -2,6 +2,7 @@
 
 #include "renderer/device.h"
 #include "renderer/commands/command_queue.h"
+#include "core/get.h"
 
 namespace blowbox
 {
@@ -23,13 +24,12 @@ namespace blowbox
 	}
 
 	//------------------------------------------------------------------------------------------------------
-	void CommandManager::Startup(SharedPtr<Device> device)
+	void CommandManager::Startup()
 	{
         BLOWBOX_ASSERT(graphics_queue_ == nullptr);
         BLOWBOX_ASSERT(compute_queue_ == nullptr);
         BLOWBOX_ASSERT(copy_queue_ == nullptr);
 
-		device_ = device;
 		graphics_queue_ = new CommandQueue(D3D12_COMMAND_LIST_TYPE_DIRECT);
 		compute_queue_ = new CommandQueue(D3D12_COMMAND_LIST_TYPE_COMPUTE);
 		copy_queue_ = new CommandQueue(D3D12_COMMAND_LIST_TYPE_COPY);
@@ -55,7 +55,7 @@ namespace blowbox
 			break;
 		}
 
-		device_.lock()->Get()->CreateCommandList(0, type, *out_allocator, nullptr, IID_PPV_ARGS(out_list));
+		Get::Device()->Get()->CreateCommandList(0, type, *out_allocator, nullptr, IID_PPV_ARGS(out_list));
 		(*out_list)->SetName(L"CommandList");
 	}
 

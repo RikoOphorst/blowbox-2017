@@ -19,19 +19,38 @@ namespace blowbox
     */
 	struct Param32Bit
 	{
+        /** @brief Constructs a float-based Param32Bit */
 		Param32Bit(FLOAT f_) : f(f_) {}
+
+        /** @brief Constructs a uint-based Param32Bit */
 		Param32Bit(UINT u_) : u(u_) {}
+
+        /** @brief Constructs a int-based Param32Bit */
 		Param32Bit(INT i_) : i(i_) {}
 
+        /** 
+        * @brief The assignment operator for floats.
+        * @param[in] f_ The new float value.
+        */
 		void operator=(FLOAT f_) { f = f_; }
+
+        /**
+        * @brief The assignment operator for uints.
+        * @param[in] u_ The new uint value.
+        */
 		void operator=(UINT u_) { u = u_; }
+
+        /**
+        * @brief The assignment operator for ints.
+        * @param[in] i_ The new int value.
+        */
 		void operator=(INT i_) { i = i_; }
 
 		union
 		{
-			FLOAT f;
-			UINT u;
-			INT i;
+			FLOAT f;    //!< The floating point value
+			UINT u;     //!< The uint value
+			INT i;      //!< The int value
 		};
 	};
 
@@ -242,9 +261,6 @@ namespace blowbox
         /** @brief Actually binds the descriptor heaps to the pipeline. */
 		void BindDescriptorHeaps();
 
-	protected:
-		WString name_; //!< The name of the CommandContext.
-
         /**
         * @brief Sets the name of the CommandContext.
         * @param[in] name The name of the CommandContext.
@@ -252,6 +268,7 @@ namespace blowbox
         void SetName(const WString& name) { list_->SetName(name.c_str()); name_ = name; }
 
 	protected:
+        WString name_;                                                                          //!< The name of the CommandContext.
 		D3D12_COMMAND_LIST_TYPE type_;                                                          //!< The type of CommandContext this is.
 		ID3D12GraphicsCommandList* list_;                                                       //!< The actual underlying command list.
 		ID3D12CommandAllocator* allocator_;                                                     //!< The allocator used to allocate the commands.

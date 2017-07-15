@@ -3,8 +3,8 @@
 namespace blowbox
 {
     /**
-    * @enum blowbox::MouseButton
-    * @author Riko Ophorst
+    * Enumerates all the different mouse buttons that blowbox supports.
+    *
     * @brief All mouse buttons
     */
     enum MouseButton
@@ -21,16 +21,16 @@ namespace blowbox
 
 
     /**
-    * @brief Converts a GLFW_MOUSE_BUTTON_* to a MouseButton_*
+    * @brief Converts a GLFW_MOUSE_BUTTON to a blowbox::MouseButton
     * @author Riko Ophorst
-    * @param[in] glfw_key A GLFW_MOUSE_BUTTON_*
+    * @param[in] glfw_mouse_button A GLFW_MOUSE_BUTTON that should be converted to a blowbox::MouseButton
     */
     MouseButton GlfwMouseButtonToBlowboxMouseButton(int glfw_mouse_button);
 
     /**
     * @brief Converts a MouseButton_* to a GLFW_MOUSE_BUTTON_*
     * @author Riko Ophorst
-    * @param[in] key A MouseButton_*
+    * @param[in] mouse_button A blowbox::MouseButton that should be converted to a GLFW_MOUSE_BUTTON
     */
     int BlowboxMouseButtonToGlfwMouseButton(MouseButton mouse_button);
 }

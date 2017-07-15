@@ -24,18 +24,16 @@ namespace blowbox
 	//------------------------------------------------------------------------------------------------------
 	void DescriptorHeap::Create(const WString& name, D3D12_DESCRIPTOR_HEAP_TYPE heap_type, D3D12_DESCRIPTOR_HEAP_FLAGS flags, UINT descriptor_count)
 	{
-		device_ = Get::Device();
-
 		heap_desc_.Flags = flags;
 		heap_desc_.NodeMask = 0;
 		heap_desc_.NumDescriptors = descriptor_count;
 		heap_desc_.Type = heap_type;
 
-		BLOWBOX_ASSERT_HR(device_.lock()->Get()->CreateDescriptorHeap(&heap_desc_, IID_PPV_ARGS(&heap_)));
+		BLOWBOX_ASSERT_HR(Get::Device()->Get()->CreateDescriptorHeap(&heap_desc_, IID_PPV_ARGS(&heap_)));
 
         heap_->SetName(name.c_str());
 
-		descriptor_size_ = device_.lock()->Get()->GetDescriptorHandleIncrementSize(heap_type);
+		descriptor_size_ = Get::Device()->Get()->GetDescriptorHandleIncrementSize(heap_type);
 	}
 
 	//------------------------------------------------------------------------------------------------------
@@ -44,7 +42,7 @@ namespace blowbox
 		assert(current_allocations_ + 1 <= heap_desc_.NumDescriptors);
 		assert(heap_desc_.Type == D3D12_DESCRIPTOR_HEAP_TYPE_DSV);
 
-		device_.lock()->Get()->CreateDepthStencilView(dsv_buffer, desc, GetCPUDescriptorById(current_allocations_));
+        Get::Device()->Get()->CreateDepthStencilView(dsv_buffer, desc, GetCPUDescriptorById(current_allocations_));
 		current_allocations_ += 1;
 		return current_allocations_ - 1;
 	}
@@ -55,7 +53,7 @@ namespace blowbox
 		assert(current_allocations_ + 1 <= heap_desc_.NumDescriptors);
 		assert(heap_desc_.Type == D3D12_DESCRIPTOR_HEAP_TYPE_RTV);
 
-		device_.lock()->Get()->CreateRenderTargetView(rtv_buffer, desc, GetCPUDescriptorById(current_allocations_));
+        Get::Device()->Get()->CreateRenderTargetView(rtv_buffer, desc, GetCPUDescriptorById(current_allocations_));
 		current_allocations_ += 1;
 		return current_allocations_ - 1;
 	}
@@ -66,7 +64,7 @@ namespace blowbox
 		assert(current_allocations_ + 1 <= heap_desc_.NumDescriptors);
 		assert(heap_desc_.Type == D3D12_DESCRIPTOR_HEAP_TYPE_CBV_SRV_UAV);
 
-		device_.lock()->Get()->CreateConstantBufferView(desc, GetCPUDescriptorById(current_allocations_));
+        Get::Device()->Get()->CreateConstantBufferView(desc, GetCPUDescriptorById(current_allocations_));
 		current_allocations_ += 1;
 		return current_allocations_ - 1;
 	}
@@ -77,7 +75,7 @@ namespace blowbox
 		assert(current_allocations_ + 1 <= heap_desc_.NumDescriptors);
 		assert(heap_desc_.Type == D3D12_DESCRIPTOR_HEAP_TYPE_CBV_SRV_UAV);
 
-		device_.lock()->Get()->CreateShaderResourceView(srv_buffer, desc, GetCPUDescriptorById(current_allocations_));
+        Get::Device()->Get()->CreateShaderResourceView(srv_buffer, desc, GetCPUDescriptorById(current_allocations_));
 		current_allocations_ += 1;
 		return current_allocations_ - 1;
 	}
@@ -88,7 +86,7 @@ namespace blowbox
 		assert(current_allocations_ + 1 <= heap_desc_.NumDescriptors);
 		assert(heap_desc_.Type == D3D12_DESCRIPTOR_HEAP_TYPE_CBV_SRV_UAV);
 
-		device_.lock()->Get()->CreateUnorderedAccessView(buffer, counter_buffer, desc, GetCPUDescriptorById(current_allocations_));
+        Get::Device()->Get()->CreateUnorderedAccessView(buffer, counter_buffer, desc, GetCPUDescriptorById(current_allocations_));
 		current_allocations_ += 1;
 		return current_allocations_ - 1;
 	}
@@ -99,7 +97,7 @@ namespace blowbox
 		assert(current_allocations_ + 1 <= heap_desc_.NumDescriptors);
 		assert(heap_desc_.Type == D3D12_DESCRIPTOR_HEAP_TYPE_SAMPLER);
 
-		device_.lock()->Get()->CreateSampler(desc, GetCPUDescriptorById(current_allocations_));
+        Get::Device()->Get()->CreateSampler(desc, GetCPUDescriptorById(current_allocations_));
 		current_allocations_ += 1;
 		return current_allocations_ - 1;
 	}
@@ -129,6 +127,6 @@ namespace blowbox
 	{
 		BLOWBOX_RELEASE(heap_);
 		current_allocations_ = 0;
-		BLOWBOX_ASSERT_HR(device_.lock()->Get()->CreateDescriptorHeap(&heap_desc_, IID_PPV_ARGS(&heap_)));
+		BLOWBOX_ASSERT_HR(Get::Device()->Get()->CreateDescriptorHeap(&heap_desc_, IID_PPV_ARGS(&heap_)));
 	}
 }

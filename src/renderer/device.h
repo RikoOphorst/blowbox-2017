@@ -6,28 +6,40 @@
 
 namespace blowbox
 {
-    enum FindAdapterFlag
-    {
-        FindAdapterFlag_NO_SOFTWARE = 0x1,
-        FindAdapterFlag_NO_INTEL = 0x2
-    };
-
+    /**
+    * This object manages the ID3D12Device object. It automatically creates and deletes it.
+    *
+    * @brief Wraps the ID3D12Device.
+    */
 	class Device
 	{
 	public:
+        /** @brief Constructs a Device. */
 		Device();
+
+        /** @brief Destructs a Device. */
 		~Device();
 
+        /**
+        * @brief Creates the actual Device.
+        * @remarks Because no Adapter has to be provided for this function, the Device will use the default Adapter.
+        */
 		void Create();
+
+        /**
+        * @brief Creates the actual Device.
+        * @param[in] adapter The Adapter the Device should be created with.
+        */
 		void Create(const Adapter& adapter);
 
+        /** @returns The underlying Adapter. */
         const Adapter& GetAdapter() const;
+
+        /** @returns The underlying ID3D12Device. */
         ID3D12Device* Get() const;
 
-        static Vector<Adapter> FindAvailableAdapters(FindAdapterFlag find_adapter_flags);
-
 	private:
-		Adapter adapter_;
-		ID3D12Device* device_;
+		Adapter adapter_;       //!< The underlying Adapter that was used to construct the Device.
+		ID3D12Device* device_;  //!< The underlying ID3D12Device.
 	};
 }

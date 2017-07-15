@@ -25,7 +25,7 @@ namespace blowbox
 	//------------------------------------------------------------------------------------------------------
 	void SwapChain::Create(HWND output_window, UINT width, UINT height, DXGI_FORMAT format, UINT buffer_count, DXGI_SWAP_EFFECT swap_effect, UINT flags, bool disable_alt_enter, bool windowed)
 	{
-		assert(buffer_count <= SWAP_CHAIN_MAX_BUFFER_COUNT);
+		BLOWBOX_ASSERT(buffer_count <= SWAP_CHAIN_MAX_BUFFER_COUNT);
 
 		DXGI_SWAP_CHAIN_DESC desc = DescribeSwapChain(output_window, width, height, format, buffer_count, swap_effect, flags, windowed);
 

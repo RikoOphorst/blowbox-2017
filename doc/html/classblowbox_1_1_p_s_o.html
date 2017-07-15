@@ -97,47 +97,267 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">blowbox::PSO Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="pipeline__state_8h_source.html">pipeline_state.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a00016b281d4899b1742cddec1073d441"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a00016b281d4899b1742cddec1073d441"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>SetRootSignature</b> (<a class="el" href="classblowbox_1_1_root_signature.html">RootSignature</a> &amp;root_signature)</td></tr>
+<tr class="memitem:aebce991fc29bdc173fb4d30d2e672f47"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_p_s_o.html#aebce991fc29bdc173fb4d30d2e672f47">PSO</a> ()</td></tr>
+<tr class="separator:aebce991fc29bdc173fb4d30d2e672f47"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00016b281d4899b1742cddec1073d441"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_p_s_o.html#a00016b281d4899b1742cddec1073d441">SetRootSignature</a> (<a class="el" href="classblowbox_1_1_root_signature.html">RootSignature</a> &amp;root_signature)</td></tr>
 <tr class="separator:a00016b281d4899b1742cddec1073d441"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a289f497468f02863144f2f0783925423"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a289f497468f02863144f2f0783925423"></a>
-<a class="el" href="classblowbox_1_1_root_signature.html">RootSignature</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>GetRootSignature</b> ()</td></tr>
+<tr class="memitem:a289f497468f02863144f2f0783925423"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classblowbox_1_1_root_signature.html">RootSignature</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_p_s_o.html#a289f497468f02863144f2f0783925423">GetRootSignature</a> ()</td></tr>
 <tr class="separator:a289f497468f02863144f2f0783925423"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8735709b06babc0e482a677ff1803e3e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8735709b06babc0e482a677ff1803e3e"></a>
-ID3D12PipelineState *&#160;</td><td class="memItemRight" valign="bottom"><b>operator-&gt;</b> ()</td></tr>
+<tr class="memitem:a8735709b06babc0e482a677ff1803e3e"><td class="memItemLeft" align="right" valign="top">ID3D12PipelineState *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_p_s_o.html#a8735709b06babc0e482a677ff1803e3e">operator-&gt;</a> ()</td></tr>
 <tr class="separator:a8735709b06babc0e482a677ff1803e3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a369c5bfe1ce0332035d31f0931e67e89"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a369c5bfe1ce0332035d31f0931e67e89"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>Finalize</b> ()=0</td></tr>
+<tr class="memitem:a369c5bfe1ce0332035d31f0931e67e89"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_p_s_o.html#a369c5bfe1ce0332035d31f0931e67e89">Finalize</a> ()=0</td></tr>
 <tr class="separator:a369c5bfe1ce0332035d31f0931e67e89"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1c25f5b5c26c509143ceb5ee15236c90"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1c25f5b5c26c509143ceb5ee15236c90"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>Destroy</b> ()</td></tr>
+<tr class="memitem:a1c25f5b5c26c509143ceb5ee15236c90"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_p_s_o.html#a1c25f5b5c26c509143ceb5ee15236c90">Destroy</a> ()</td></tr>
 <tr class="separator:a1c25f5b5c26c509143ceb5ee15236c90"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0222e0acef9d9fa06261b55fdfe37e3c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0222e0acef9d9fa06261b55fdfe37e3c"></a>
-ID3D12PipelineState *&#160;</td><td class="memItemRight" valign="bottom"><b>GetPSO</b> () const </td></tr>
+<tr class="memitem:a0222e0acef9d9fa06261b55fdfe37e3c"><td class="memItemLeft" align="right" valign="top">ID3D12PipelineState *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_p_s_o.html#a0222e0acef9d9fa06261b55fdfe37e3c">GetPSO</a> () const </td></tr>
 <tr class="separator:a0222e0acef9d9fa06261b55fdfe37e3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:a37bc8a39d24100edd8b12fb2139204dc"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a37bc8a39d24100edd8b12fb2139204dc"></a>
-ID3D12PipelineState *&#160;</td><td class="memItemRight" valign="bottom"><b>pso_</b></td></tr>
+<tr class="memitem:a37bc8a39d24100edd8b12fb2139204dc"><td class="memItemLeft" align="right" valign="top">ID3D12PipelineState *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_p_s_o.html#a37bc8a39d24100edd8b12fb2139204dc">pso_</a></td></tr>
 <tr class="separator:a37bc8a39d24100edd8b12fb2139204dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae37ee38850bcc2794d3a42eaca90a888"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae37ee38850bcc2794d3a42eaca90a888"></a>
-<a class="el" href="classblowbox_1_1_root_signature.html">RootSignature</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>root_signature_</b></td></tr>
+<tr class="memitem:ae37ee38850bcc2794d3a42eaca90a888"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classblowbox_1_1_root_signature.html">RootSignature</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_p_s_o.html#ae37ee38850bcc2794d3a42eaca90a888">root_signature_</a></td></tr>
 <tr class="separator:ae37ee38850bcc2794d3a42eaca90a888"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<div class="dynheader">
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>The base PipelineStateObject. </p>
+<p>You actually never directly use this object, it is the base of the <a class="el" href="classblowbox_1_1_graphics_p_s_o.html" title="Wraps the PipelineStateObject for graphics pipelines. ">GraphicsPSO</a> and the <a class="el" href="classblowbox_1_1_compute_p_s_o.html" title="Manages the PipelineStateObject for compute pipelines. ">ComputePSO</a>. The <a class="el" href="classblowbox_1_1_p_s_o.html" title="The base PipelineStateObject. ">PSO</a> only provides functionality that is shared between the other <a class="el" href="classblowbox_1_1_p_s_o.html" title="The base PipelineStateObject. ">PSO</a> types, such as root signatures and destruction. You are supposed to set all data on the pipeline state, and then calling <a class="el" href="classblowbox_1_1_p_s_o.html#a369c5bfe1ce0332035d31f0931e67e89" title="Finalizes the PSO - it actually makes it ready for use. ">PSO::Finalize()</a> on it to actually create the <a class="el" href="classblowbox_1_1_p_s_o.html" title="The base PipelineStateObject. ">PSO</a>. </p>
+</div><div class="dynheader">
 Inheritance diagram for blowbox::PSO:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="classblowbox_1_1_p_s_o.png" usemap="#blowbox::PSO_map" alt=""/>
   <map id="blowbox::PSO_map" name="blowbox::PSO_map">
-<area href="classblowbox_1_1_compute_p_s_o.html" alt="blowbox::ComputePSO" shape="rect" coords="0,56,141,80"/>
-<area href="classblowbox_1_1_graphics_p_s_o.html" alt="blowbox::GraphicsPSO" shape="rect" coords="151,56,292,80"/>
+<area href="classblowbox_1_1_compute_p_s_o.html" title="Manages the PipelineStateObject for compute pipelines. " alt="blowbox::ComputePSO" shape="rect" coords="0,56,141,80"/>
+<area href="classblowbox_1_1_graphics_p_s_o.html" title="Wraps the PipelineStateObject for graphics pipelines. " alt="blowbox::GraphicsPSO" shape="rect" coords="151,56,292,80"/>
 </map>
  </div></div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="aebce991fc29bdc173fb4d30d2e672f47"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">blowbox::PSO::PSO </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructs the <a class="el" href="classblowbox_1_1_p_s_o.html" title="The base PipelineStateObject. ">PSO</a>. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a1c25f5b5c26c509143ceb5ee15236c90"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void blowbox::PSO::Destroy </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Destroys the <a class="el" href="classblowbox_1_1_p_s_o.html" title="The base PipelineStateObject. ">PSO</a>. </p>
+
+</div>
+</div>
+<a class="anchor" id="a369c5bfe1ce0332035d31f0931e67e89"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void blowbox::PSO::Finalize </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Finalizes the <a class="el" href="classblowbox_1_1_p_s_o.html" title="The base PipelineStateObject. ">PSO</a> - it actually makes it ready for use. </p>
+
+<p>Implemented in <a class="el" href="classblowbox_1_1_compute_p_s_o.html#a140e870162795e8a6ea46b5c63df7aed">blowbox::ComputePSO</a>, and <a class="el" href="classblowbox_1_1_graphics_p_s_o.html#a05819dd753562f6ccad842919f4d8676">blowbox::GraphicsPSO</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0222e0acef9d9fa06261b55fdfe37e3c"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ID3D12PipelineState* blowbox::PSO::GetPSO </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>The underlying <a class="el" href="classblowbox_1_1_p_s_o.html" title="The base PipelineStateObject. ">PSO</a>. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a289f497468f02863144f2f0783925423"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classblowbox_1_1_root_signature.html">RootSignature</a>&amp; blowbox::PSO::GetRootSignature </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>The root signature that was set on this <a class="el" href="classblowbox_1_1_p_s_o.html" title="The base PipelineStateObject. ">PSO</a>. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a8735709b06babc0e482a677ff1803e3e"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ID3D12PipelineState* blowbox::PSO::operator-&gt; </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Pointer operator overload which returns the underlying <a class="el" href="classblowbox_1_1_p_s_o.html" title="The base PipelineStateObject. ">PSO</a>. </p>
+
+</div>
+</div>
+<a class="anchor" id="a00016b281d4899b1742cddec1073d441"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void blowbox::PSO::SetRootSignature </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classblowbox_1_1_root_signature.html">RootSignature</a> &amp;&#160;</td>
+          <td class="paramname"><em>root_signature</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets the root signature in the <a class="el" href="classblowbox_1_1_p_s_o.html" title="The base PipelineStateObject. ">PSO</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">root_signature</td><td>The root signature this <a class="el" href="classblowbox_1_1_p_s_o.html" title="The base PipelineStateObject. ">PSO</a> should use. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="a37bc8a39d24100edd8b12fb2139204dc"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ID3D12PipelineState* blowbox::PSO::pso_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The underlying <a class="el" href="classblowbox_1_1_p_s_o.html" title="The base PipelineStateObject. ">PSO</a> object. </p>
+
+</div>
+</div>
+<a class="anchor" id="ae37ee38850bcc2794d3a42eaca90a888"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classblowbox_1_1_root_signature.html">RootSignature</a>* blowbox::PSO::root_signature_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The root signature that is bound to this <a class="el" href="classblowbox_1_1_p_s_o.html" title="The base PipelineStateObject. ">PSO</a>. </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>E:/Projects/blowbox-2017/src/renderer/<a class="el" href="pipeline__state_8h_source.html">pipeline_state.h</a></li>
 <li>E:/Projects/blowbox-2017/src/renderer/pipeline_state.cc</li>
@@ -145,7 +365,7 @@ Inheritance diagram for blowbox::PSO:</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Jul 15 2017 01:01:15 for Blowbox 2017 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Jul 15 2017 18:37:48 for Blowbox 2017 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

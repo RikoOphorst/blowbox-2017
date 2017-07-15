@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['keycode',['KeyCode',['../namespaceblowbox.html#ad500ef77ac0ea50cc191d30db68d5080',1,'blowbox']]]
+  ['findadapterflag',['FindAdapterFlag',['../namespaceblowbox.html#a49450928ef908c3067bfb9bde53b2553',1,'blowbox']]]
 ];

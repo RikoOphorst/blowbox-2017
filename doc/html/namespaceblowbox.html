@@ -184,9 +184,6 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:ab7f66ad6071ecd5b4dbc62bbd98aa847"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab7f66ad6071ecd5b4dbc62bbd98aa847"></a>
-typedef unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>DescriptorId</b></td></tr>
-<tr class="separator:ab7f66ad6071ecd5b4dbc62bbd98aa847"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adf75080052a7843a05306c8220bede4e"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:adf75080052a7843a05306c8220bede4e"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceblowbox.html#adf75080052a7843a05306c8220bede4e">Deque</a> = eastl::deque&lt; T &gt;</td></tr>
 <tr class="separator:adf75080052a7843a05306c8220bede4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -264,17 +261,19 @@ Enumerations</h2></td></tr>
 <br />
  }</td></tr>
 <tr class="separator:afd54e3a12352f3d7556fd001a5bd9a41"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a49450928ef908c3067bfb9bde53b2553"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a49450928ef908c3067bfb9bde53b2553"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>FindAdapterFlag</b> { <b>FindAdapterFlag_NO_SOFTWARE</b> = 0x1, 
+<tr class="memitem:a49450928ef908c3067bfb9bde53b2553"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceblowbox.html#a49450928ef908c3067bfb9bde53b2553">FindAdapterFlag</a> { <b>FindAdapterFlag_NO_SOFTWARE</b> = 0x1, 
 <b>FindAdapterFlag_NO_INTEL</b> = 0x2
  }</td></tr>
 <tr class="separator:a49450928ef908c3067bfb9bde53b2553"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aef90d12f29d3a70a9c585237e7a16e2d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aef90d12f29d3a70a9c585237e7a16e2d"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>ShaderType</b> { <br />
+<tr class="memitem:aef90d12f29d3a70a9c585237e7a16e2d"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceblowbox.html#aef90d12f29d3a70a9c585237e7a16e2d">ShaderType</a> { <br />
 &#160;&#160;<b>ShaderType_VERTEX</b>, 
 <b>ShaderType_PIXEL</b>, 
 <b>ShaderType_GEOMETRY</b>, 
 <b>ShaderType_COMPUTE</b>, 
 <br />
-&#160;&#160;<b>ShaderType_UNKNOWN</b>
+&#160;&#160;<b>ShaderType_HULL</b>, 
+<b>ShaderType_DOMAIN</b>, 
+<b>ShaderType_UNKNOWN</b>
 <br />
  }</td></tr>
 <tr class="separator:aef90d12f29d3a70a9c585237e7a16e2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -833,6 +832,21 @@ template&lt;typename T &gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Enumeration Type Documentation</h2>
+<a class="anchor" id="a49450928ef908c3067bfb9bde53b2553"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="namespaceblowbox.html#a49450928ef908c3067bfb9bde53b2553">blowbox::FindAdapterFlag</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Flags that are provided to <a class="el" href="structblowbox_1_1_adapter.html#a7db2a911938e9231d7482283fc6e40d8" title="Find a list of available adapters. ">Adapter::FindAvailableAdapters()</a> </p>
+<p>These flags are used by the <a class="el" href="structblowbox_1_1_adapter.html#a7db2a911938e9231d7482283fc6e40d8" title="Find a list of available adapters. ">Adapter::FindAvailableAdapters()</a>. They help in specifying what adapter should be used. </p>
+
+</div>
+</div>
 <a class="anchor" id="ad500ef77ac0ea50cc191d30db68d5080"></a>
 <div class="memitem">
 <div class="memproto">
@@ -844,7 +858,7 @@ template&lt;typename T &gt; </div>
 </div><div class="memdoc">
 
 <p>All keycodes. </p>
-<dl class="section author"><dt>Author</dt><dd>Riko Ophorst </dd></dl>
+<p>This enumeration is to enumerate all different key codes that Blowbox supports. </p>
 
 </div>
 </div>
@@ -859,7 +873,7 @@ template&lt;typename T &gt; </div>
 </div><div class="memdoc">
 
 <p>All mouse buttons. </p>
-<dl class="section author"><dt>Author</dt><dd>Riko Ophorst </dd></dl>
+<p>Enumerates all the different mouse buttons that blowbox supports. </p>
 
 </div>
 </div>
@@ -875,6 +889,21 @@ template&lt;typename T &gt; </div>
 
 <p>An enumeration of all different pixel compositions. </p>
 <p>When requesting pixel data from a <a class="el" href="classblowbox_1_1_image.html" title="Load and access image files with the use of blowbox::Image. ">blowbox::Image</a>, you get an array of pixels. The pixels are composed of a number of components that together form the per pixel data. Each component is an unsigned char (8 bits). This enumeration is used to determine what the components are per pixel. Remember, all components are 8 bits (1 byte / 1 unsigned char). So if the PixelComposition is PixelComposition_RGB, that means that each pixel takes up three bytes: the red channel (R), the green channel (G) and blue channel (B) - in that order. </p>
+
+</div>
+</div>
+<a class="anchor" id="aef90d12f29d3a70a9c585237e7a16e2d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="namespaceblowbox.html#aef90d12f29d3a70a9c585237e7a16e2d">blowbox::ShaderType</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Enumeration for all different shader types. </p>
+<p>This enumeration is necessary for the <a class="el" href="classblowbox_1_1_shader.html" title="Wraps Shader objects. ">Shader</a> to understand what it is trying to compile. It enumerates all different shader types. </p>
 
 </div>
 </div>
@@ -894,10 +923,9 @@ template&lt;typename T &gt; </div>
 </div><div class="memdoc">
 
 <p>Converts a KeyCode_* to a GLFW_KEY_*. </p>
-<dl class="section author"><dt>Author</dt><dd>Riko Ophorst </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">key</td><td>A KeyCode_* </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">key</td><td>A <a class="el" href="namespaceblowbox.html#ad500ef77ac0ea50cc191d30db68d5080" title="All keycodes. ">blowbox::KeyCode</a> that should be converted to a GLFW_KEY </td></tr>
   </table>
   </dd>
 </dl>
@@ -922,7 +950,7 @@ template&lt;typename T &gt; </div>
 <dl class="section author"><dt>Author</dt><dd>Riko Ophorst </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">key</td><td>A MouseButton_* </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">mouse_button</td><td>A <a class="el" href="namespaceblowbox.html#aff933570aaf0835a582ea6a50b137e54" title="All mouse buttons. ">blowbox::MouseButton</a> that should be converted to a GLFW_MOUSE_BUTTON </td></tr>
   </table>
   </dd>
 </dl>
@@ -944,10 +972,9 @@ template&lt;typename T &gt; </div>
 </div><div class="memdoc">
 
 <p>Converts a GLFW_KEY_* to a KeyCode_*. </p>
-<dl class="section author"><dt>Author</dt><dd>Riko Ophorst </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">glfw_key</td><td>A GLFW_KEY_* </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">glfw_key</td><td>A GLFW_KEY that you want to convert to a <a class="el" href="namespaceblowbox.html#ad500ef77ac0ea50cc191d30db68d5080" title="All keycodes. ">blowbox::KeyCode</a> </td></tr>
   </table>
   </dd>
 </dl>
@@ -968,11 +995,11 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Converts a GLFW_MOUSE_BUTTON_* to a MouseButton_*. </p>
+<p>Converts a GLFW_MOUSE_BUTTON to a <a class="el" href="namespaceblowbox.html#aff933570aaf0835a582ea6a50b137e54" title="All mouse buttons. ">blowbox::MouseButton</a>. </p>
 <dl class="section author"><dt>Author</dt><dd>Riko Ophorst </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">glfw_key</td><td>A GLFW_MOUSE_BUTTON_* </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">glfw_mouse_button</td><td>A GLFW_MOUSE_BUTTON that should be converted to a <a class="el" href="namespaceblowbox.html#aff933570aaf0835a582ea6a50b137e54" title="All mouse buttons. ">blowbox::MouseButton</a> </td></tr>
   </table>
   </dd>
 </dl>
@@ -982,7 +1009,7 @@ template&lt;typename T &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Jul 15 2017 01:01:15 for Blowbox 2017 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Jul 15 2017 18:37:47 for Blowbox 2017 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

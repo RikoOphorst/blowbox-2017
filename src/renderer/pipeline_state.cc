@@ -6,9 +6,6 @@
 
 namespace blowbox
 {
-	eastl::unordered_map<String, GraphicsPSO> GraphicsPSO::psos_ = eastl::unordered_map<String, GraphicsPSO>();
-    eastl::unordered_map<String, ComputePSO> ComputePSO::psos_ = eastl::unordered_map<String, ComputePSO>();
-
 	//------------------------------------------------------------------------------------------------------
 	void PSO::Destroy()
 	{
@@ -30,19 +27,6 @@ namespace blowbox
     {
         Destroy();
     }
-
-	//------------------------------------------------------------------------------------------------------
-	GraphicsPSO& GraphicsPSO::Get(const String& name)
-	{
-		auto& find = psos_.find(name);
-
-		if (find == psos_.end())
-		{
-			psos_.emplace(eastl::make_pair(name, GraphicsPSO()));
-		}
-
-		return psos_[name];
-	}
 
 	//------------------------------------------------------------------------------------------------------
 	void GraphicsPSO::SetBlendState(const D3D12_BLEND_DESC& blend_desc)
@@ -130,19 +114,6 @@ namespace blowbox
     {
         Destroy();
     }
-
-	//------------------------------------------------------------------------------------------------------
-	ComputePSO& ComputePSO::Get(const String& name)
-	{
-		auto& find = psos_.find(name);
-
-		if (find == psos_.end())
-		{
-			psos_.emplace(eastl::make_pair(name, ComputePSO()));
-		}
-
-		return psos_[name];
-	}
 	
 	//------------------------------------------------------------------------------------------------------
 	void ComputePSO::Finalize()

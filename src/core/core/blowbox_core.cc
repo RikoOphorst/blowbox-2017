@@ -173,12 +173,12 @@ namespace blowbox
     void BlowboxCore::StartupRenderer()
     {
         // Render device creation
-        auto available_adapters = Device::FindAvailableAdapters(static_cast<FindAdapterFlag>(FindAdapterFlag_NO_INTEL | FindAdapterFlag_NO_SOFTWARE));
+        auto available_adapters = Adapter::FindAvailableAdapters(static_cast<FindAdapterFlag>(FindAdapterFlag_NO_INTEL | FindAdapterFlag_NO_SOFTWARE));
         BLOWBOX_ASSERT(available_adapters.size() > 0);
         render_device_->Create(available_adapters[0]);
 
         // Render command object creation
-        render_command_manager_->Startup(render_device_);
+        render_command_manager_->Startup();
         render_command_context_manager_->Startup();
 
         // Render descriptor heap creation

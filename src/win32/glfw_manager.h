@@ -9,8 +9,8 @@ namespace blowbox
     class Window;
 
     /**
-    * @class GLFWManager
-    * @author Riko Ophorst
+    * This class manages all GLFW state. Normally, you would probably not need to interact with this class.
+    *
     * @brief Manages all GLFW state such as global initialization / termination, event polling, etc.
     */
     class GLFWManager
