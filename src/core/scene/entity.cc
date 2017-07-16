@@ -15,7 +15,7 @@ namespace blowbox
         in_scene_(false),
         name_(name)
     {
-
+        constant_buffer_.Create(L"ConstantBuffer", 3, sizeof(DirectX::XMMATRIX));
     }
     
     //------------------------------------------------------------------------------------------------------
@@ -57,7 +57,13 @@ namespace blowbox
 		transform_dirty_ = true;
     }
 
-	//------------------------------------------------------------------------------------------------------
+    //------------------------------------------------------------------------------------------------------
+    void Entity::SetMesh(SharedPtr<Mesh> mesh)
+    {
+        mesh_ = mesh;
+    }
+
+    //------------------------------------------------------------------------------------------------------
 	const DirectX::XMFLOAT3& Entity::GetLocalPosition() const
     {
 		return position_;
@@ -73,6 +79,12 @@ namespace blowbox
 	const DirectX::XMFLOAT3& Entity::GetLocalScaling() const
     {
 		return scaling_;
+    }
+
+    //------------------------------------------------------------------------------------------------------
+    SharedPtr<Mesh> Entity::GetMesh() const
+    {
+        return mesh_;
     }
 
 	//------------------------------------------------------------------------------------------------------
@@ -172,9 +184,11 @@ namespace blowbox
 	void Entity::UpdateWorldTransform()
 	{
 		world_transform_ =
-			(parent_ != nullptr ? parent_->GetWorldTransform() : DirectX::XMMatrixIdentity()) *
+			(parent_.lock() != nullptr ? parent_.lock()->GetWorldTransform() : DirectX::XMMatrixIdentity()) *
 			DirectX::XMMatrixScaling(scaling_.x, scaling_.y, scaling_.z) *
 			DirectX::XMMatrixRotationRollPitchYaw(rotation_.x, rotation_.y, rotation_.z) *
 			DirectX::XMMatrixTranslation(position_.x, position_.y, position_.z);
+
+        //transform_dirty_ = false;
 	}
 }

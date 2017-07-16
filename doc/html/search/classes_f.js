@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['uploadbuffer',['UploadBuffer',['../classblowbox_1_1_upload_buffer.html',1,'blowbox']]]
+  ['textfile',['TextFile',['../classblowbox_1_1_text_file.html',1,'blowbox']]],
+  ['typedbuffer',['TypedBuffer',['../classblowbox_1_1_typed_buffer.html',1,'blowbox']]]
 ];

@@ -2,4 +2,4 @@ E:/Projects/blowbox-2017/src/util/eastl.h:27: warning: Found ';' while parsing i
 E:/Projects/blowbox-2017/src/util/eastl.h:30: warning: Found ';' while parsing initializer list! (doxygen could be confused by a macro call without semicolon)
 E:/Projects/blowbox-2017/src/util/eastl.h:38: warning: Found ';' while parsing initializer list! (doxygen could be confused by a macro call without semicolon)
 E:/Projects/blowbox-2017/src/util/eastl.h:41: warning: Found ';' while parsing initializer list! (doxygen could be confused by a macro call without semicolon)
-E:/Projects/blowbox-2017/src/win32/window.h:226: warning: Member focused_ (variable) of class blowbox::Window is not documented.
+E:/Projects/blowbox-2017/src/renderer/material.h:8: warning: Compound blowbox::Material is not documented.

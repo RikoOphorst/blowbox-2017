@@ -96,6 +96,9 @@ namespace blowbox
 
         /** @brief Essentially resets the DescriptorHeap. */
 		void Clear();
+
+        /** @returns The size of a descriptor of this heap size. */
+        UINT GetDescriptorSize() const { return descriptor_size_; }
 	private:
 		ID3D12DescriptorHeap* heap_;                //!< The underlying descriptor heap.
 		D3D12_DESCRIPTOR_HEAP_DESC heap_desc_;      //!< The description for the descriptor heap.

@@ -9,7 +9,6 @@ var searchData=
   ['win32_5fglfw_5fmanager_5f',['win32_glfw_manager_',['../classblowbox_1_1_blowbox_core.html#ad551c2ec54d57529f4d57e74f6cd9f2b',1,'blowbox::BlowboxCore']]],
   ['win32_5fmain_5fwindow_5f',['win32_main_window_',['../classblowbox_1_1_blowbox_core.html#a7610ffe1ff42be021398306bb7fbff56',1,'blowbox::BlowboxCore']]],
   ['window',['Window',['../classblowbox_1_1_window.html',1,'blowbox']]],
-  ['window',['Window',['../classblowbox_1_1_window.html#a3a3684af14a68149602d533b122c6637',1,'blowbox::Window']]],
   ['window_5f',['window_',['../classblowbox_1_1_window.html#acbd01fbc157de0ade290364da38879b8',1,'blowbox::Window']]],
   ['window_5ficon_5f',['window_icon_',['../classblowbox_1_1_window.html#a956890f2755192784e693ce4c9e18b49',1,'blowbox::Window']]],
   ['window_5ficon_5ffile_5fpath',['window_icon_file_path',['../structblowbox_1_1_blowbox_config.html#ac306c5fb1ae93690a548ea48005d67d9',1,'blowbox::BlowboxConfig']]],

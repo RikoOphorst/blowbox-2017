@@ -2,6 +2,9 @@
 
 #include "renderer/d3d12_includes.h"
 #include "renderer/buffers/depth_buffer.h"
+#include "renderer/pipeline_state.h"
+#include "renderer/root_signature.h"
+#include "renderer/shader.h"
 
 namespace blowbox
 {
@@ -27,6 +30,10 @@ namespace blowbox
         /** @brief Renders the entire scene into the current backbuffer in the SwapChain. */
         void Render();
     private:
-        DepthBuffer depth_buffer_; //!< The depth buffer that is used to render the scene.
+        Shader vertex_shader_;              //!< Vertex shader for the forward rendering.
+        Shader pixel_shader_;               //!< Pixel shader for the forward rendering.
+        RootSignature main_root_signature_; //!< The main root signature for all forward rendering.
+        GraphicsPSO main_pso_;              //!< The main PSO that is used for all forward rendering.
+        DepthBuffer depth_buffer_;          //!< The depth buffer that is used to render the scene.
     };
 }

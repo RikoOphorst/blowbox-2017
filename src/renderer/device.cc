@@ -48,6 +48,8 @@ namespace blowbox
 #endif
 
         BLOWBOX_ASSERT_HR(D3D12CreateDevice(adapter.dxgi_adapter, D3D_FEATURE_LEVEL_11_0, IID_PPV_ARGS(&device_)));
+
+        adapter_ = adapter;
 	}
 
     //------------------------------------------------------------------------------------------------------

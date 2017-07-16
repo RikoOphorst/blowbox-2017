@@ -103,10 +103,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a3a3684af14a68149602d533b122c6637"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_window.html#a3a3684af14a68149602d533b122c6637">Window</a> ()</td></tr>
-<tr class="separator:a3a3684af14a68149602d533b122c6637"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af6d34007edfaa42da3c43715f1a4766c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_window.html#af6d34007edfaa42da3c43715f1a4766c">~Window</a> ()</td></tr>
-<tr class="separator:af6d34007edfaa42da3c43715f1a4766c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acf7f1f413f7d1fe5fd6fa93d66f8ab93"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_window.html#acf7f1f413f7d1fe5fd6fa93d66f8ab93">Create</a> (const <a class="el" href="structblowbox_1_1_resolution.html">Resolution</a> &amp;resolution, const <a class="el" href="namespaceblowbox.html#aac9c310959d9bc32fc8136203e833bbd">String</a> &amp;window_title, <a class="el" href="classblowbox_1_1_image.html">Image</a> *window_icon=nullptr)</td></tr>
 <tr class="separator:acf7f1f413f7d1fe5fd6fa93d66f8ab93"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aad07f70d42e21e5f8ba768ff069ae890"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_window.html#aad07f70d42e21e5f8ba768ff069ae890">SetWindowResolution</a> (const <a class="el" href="structblowbox_1_1_resolution.html">Resolution</a> &amp;resolution)</td></tr>
@@ -175,51 +171,13 @@ Private Attributes</h2></td></tr>
 <tr class="separator:ae953237bbb67aede643f4f840d423db0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac9d707285d02edd4bd80a1ee66653e2b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classblowbox_1_1_mouse_state.html">MouseState</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_window.html#ac9d707285d02edd4bd80a1ee66653e2b">mouse_state_</a></td></tr>
 <tr class="separator:ac9d707285d02edd4bd80a1ee66653e2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a72a2b17340f7ed73b7b4576de5e78bdc"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a72a2b17340f7ed73b7b4576de5e78bdc"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>focused_</b></td></tr>
+<tr class="memitem:a72a2b17340f7ed73b7b4576de5e78bdc"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_window.html#a72a2b17340f7ed73b7b4576de5e78bdc">focused_</a></td></tr>
 <tr class="separator:a72a2b17340f7ed73b7b4576de5e78bdc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>A window is meant to create a window that can be used for rendering. It opens a GUI window, essentially. </p>
-<dl class="section author"><dt>Author</dt><dd>Riko Ophorst </dd></dl>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a3a3684af14a68149602d533b122c6637"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">blowbox::Window::Window </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Constructor for <a class="el" href="classblowbox_1_1_window.html" title="A window is meant to create a window that can be used for rendering. It opens a GUI window...">Window</a>. </p>
-<dl class="section author"><dt>Author</dt><dd>Riko Ophorst </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="af6d34007edfaa42da3c43715f1a4766c"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">blowbox::Window::~Window </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Destructs the window. Note that this does NOT delete the window icon that might have been set. That is your responsibility. </p>
-<dl class="section author"><dt>Author</dt><dd>Riko Ophorst </dd></dl>
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
+<div class="textblock"><p>Class for creating windows. </p>
+<p>A window is meant to create a window that can be used for rendering. Essentially, it opens a window that catches input and enables outputting rendering to the screen. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="acf7f1f413f7d1fe5fd6fa93d66f8ab93"></a>
 <div class="memitem">
 <div class="memproto">
@@ -250,12 +208,11 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>focused_</b></td></tr
       </table>
 </div><div class="memdoc">
 
-<p>Creates the window. <a class="el" href="structblowbox_1_1_resolution.html" title="Stores resolution information in pixels. ">Resolution</a> and window title are required. <a class="el" href="classblowbox_1_1_window.html" title="A window is meant to create a window that can be used for rendering. It opens a GUI window...">Window</a> icon is optional. </p>
-<dl class="section author"><dt>Author</dt><dd>Riko Ophorst </dd></dl>
+<p>Creates the window. <a class="el" href="structblowbox_1_1_resolution.html" title="Stores resolution information in pixels. ">Resolution</a> and window title are required. <a class="el" href="classblowbox_1_1_window.html" title="Class for creating windows. ">Window</a> icon is optional. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">resolution</td><td>The resolution of the usable client area </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">window_title</td><td>The title of the window </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">resolution</td><td>The resolution of the usable client area. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">window_title</td><td>The title of the window. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">window_icon</td><td>The icon that should be used by this window. Usable formats include 16x16, 32x32, 48x48. Optional. </td></tr>
   </table>
   </dd>
@@ -277,7 +234,6 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>focused_</b></td></tr
 </div><div class="memdoc">
 
 <p>Makes the window the focus of the input. </p>
-<dl class="section author"><dt>Author</dt><dd>Riko Ophorst </dd></dl>
 
 </div>
 </div>
@@ -293,9 +249,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>focused_</b></td></tr
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Returns the underlying GLFWwindow. </p>
-<dl class="section author"><dt>Author</dt><dd>Riko Ophorst </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The underlying GLFWwindow. </dd></dl>
 
 </div>
 </div>
@@ -311,9 +265,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>focused_</b></td></tr
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Returns this window's <a class="el" href="classblowbox_1_1_keyboard_state.html" title="Keeps track of the state of the keyboard. ">KeyboardState</a>. </p>
-<dl class="section author"><dt>Author</dt><dd>Riko Ophorst </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>This window's <a class="el" href="classblowbox_1_1_keyboard_state.html" title="Keeps track of the state of the keyboard. ">KeyboardState</a>. </dd></dl>
 
 </div>
 </div>
@@ -329,9 +281,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>focused_</b></td></tr
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Returns this window's <a class="el" href="classblowbox_1_1_mouse_state.html" title="Keeps track of the state of the mouse. ">MouseState</a>. </p>
-<dl class="section author"><dt>Author</dt><dd>Riko Ophorst </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>This window's <a class="el" href="classblowbox_1_1_mouse_state.html" title="Keeps track of the state of the mouse. ">MouseState</a>. </dd></dl>
 
 </div>
 </div>
@@ -347,9 +297,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>focused_</b></td></tr
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Returns whether the window is in focus. </p>
-<dl class="section author"><dt>Author</dt><dd>Riko Ophorst </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Whether the window is in focus. </dd></dl>
 
 </div>
 </div>
@@ -365,9 +313,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>focused_</b></td></tr
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Returns this window's HWND (handle) </p>
-<dl class="section author"><dt>Author</dt><dd>Riko Ophorst </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>This window's HWND (handle). </dd></dl>
 
 </div>
 </div>
@@ -383,9 +329,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>focused_</b></td></tr
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Returns the icon that is used by this window. </p>
-<dl class="section author"><dt>Author</dt><dd>Riko Ophorst </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The icon that is used by this window. </dd></dl>
 
 </div>
 </div>
@@ -401,9 +345,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>focused_</b></td></tr
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Returns the position of the window's top left position. </p>
-<dl class="section author"><dt>Author</dt><dd>Riko Ophorst </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The position of the window's top left position. </dd></dl>
 
 </div>
 </div>
@@ -419,9 +361,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>focused_</b></td></tr
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Returns the resolution of the window's client area. </p>
-<dl class="section author"><dt>Author</dt><dd>Riko Ophorst </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The resolution of the window's client area. </dd></dl>
 
 </div>
 </div>
@@ -437,9 +377,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>focused_</b></td></tr
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Returns whether this <a class="el" href="classblowbox_1_1_window.html" title="A window is meant to create a window that can be used for rendering. It opens a GUI window...">Window</a> should be closed. Can be triggered by the user. </p>
-<dl class="section author"><dt>Author</dt><dd>Riko Ophorst </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Whether this <a class="el" href="classblowbox_1_1_window.html" title="Class for creating windows. ">Window</a> should be closed. Can be triggered by the user. </dd></dl>
 
 </div>
 </div>
@@ -455,9 +393,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>focused_</b></td></tr
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Returns the size limits of the window as a tuple. First is the minimum, second is the maximum. </p>
-<dl class="section author"><dt>Author</dt><dd>Riko Ophorst </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The size limits of the window as a tuple. First is the minimum, second is the maximum. </dd></dl>
 
 </div>
 </div>
@@ -473,9 +409,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>focused_</b></td></tr
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Returns the title of the window. </p>
-<dl class="section author"><dt>Author</dt><dd>Riko Ophorst </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The title of the window. </dd></dl>
 
 </div>
 </div>
@@ -518,12 +452,11 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>focused_</b></td></tr
 </div><div class="memdoc">
 
 <p>This is the callback function that is used for mouse movement input. </p>
-<dl class="section author"><dt>Author</dt><dd>Riko Ophorst </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">window</td><td>The window that the callback function is associated with </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">x</td><td>The position of the cursor on the x-axis </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">y</td><td>The position of the cursor on the y-axis </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">window</td><td>The window that the callback function is associated with. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">x</td><td>The position of the cursor on the x-axis. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">y</td><td>The position of the cursor on the y-axis. </td></tr>
   </table>
   </dd>
 </dl>
@@ -563,11 +496,10 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>focused_</b></td></tr
 </div><div class="memdoc">
 
 <p>This is the callback function that is used for when the mouse enters/leaves the window. </p>
-<dl class="section author"><dt>Author</dt><dd>Riko Ophorst </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">window</td><td>The window that the callback function is associated with </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">focused</td><td>Whether the window is focused or not </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">window</td><td>The window that the callback function is associated with. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">focused</td><td>Whether the window is focused or not. </td></tr>
   </table>
   </dd>
 </dl>
@@ -625,14 +557,13 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>focused_</b></td></tr
 </div><div class="memdoc">
 
 <p>This is the callback function that is used for key input. </p>
-<dl class="section author"><dt>Author</dt><dd>Riko Ophorst </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">window</td><td>The window that the callback function is associated with </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">key</td><td>The key in question </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">window</td><td>The window that the callback function is associated with. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">key</td><td>The key in question. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">scancode</td><td>Don't know what this is. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">action</td><td>What happened with the key in question </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">modifiers</td><td>Whether any modifiers were active when this key was pressed </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">action</td><td>What happened with the key in question. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">modifiers</td><td>Whether any modifiers were active when this key was pressed. </td></tr>
   </table>
   </dd>
 </dl>
@@ -684,13 +615,12 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>focused_</b></td></tr
 </div><div class="memdoc">
 
 <p>This is the callback function that is used for mouse movement input. </p>
-<dl class="section author"><dt>Author</dt><dd>Riko Ophorst </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">window</td><td>The window that the callback function is associated with </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">button</td><td>The button in question </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">action</td><td>The action </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">modifiers</td><td>Whether any modifiers were active when this button was pressed </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">window</td><td>The window that the callback function is associated with. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">button</td><td>The button in question. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">action</td><td>The action. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">modifiers</td><td>Whether any modifiers were active when this button was pressed. </td></tr>
   </table>
   </dd>
 </dl>
@@ -730,11 +660,10 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>focused_</b></td></tr
 </div><div class="memdoc">
 
 <p>This is the callback function that is used for when the mouse enters/leaves the window. </p>
-<dl class="section author"><dt>Author</dt><dd>Riko Ophorst </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">window</td><td>The window that the callback function is associated with </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">entered</td><td>Whether the mouse entered or left the window </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">window</td><td>The window that the callback function is associated with. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">entered</td><td>Whether the mouse entered or left the window. </td></tr>
   </table>
   </dd>
 </dl>
@@ -780,12 +709,11 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>focused_</b></td></tr
 </div><div class="memdoc">
 
 <p>This is the callback function that is used for mouse scroll input. </p>
-<dl class="section author"><dt>Author</dt><dd>Riko Ophorst </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">window</td><td>The window that the callback function is associated with </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">x</td><td>The scroll offset on the x axis </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">y</td><td>The scroll offset on the y axis </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">window</td><td>The window that the callback function is associated with. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">x</td><td>The scroll offset on the x axis. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">y</td><td>The scroll offset on the y axis. </td></tr>
   </table>
   </dd>
 </dl>
@@ -807,10 +735,9 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>focused_</b></td></tr
 </div><div class="memdoc">
 
 <p>Sets the icon of the window. </p>
-<dl class="section author"><dt>Author</dt><dd>Riko Ophorst </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">window_icon</td><td>The icon of the window </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">window_icon</td><td>The icon of the window. </td></tr>
   </table>
   </dd>
 </dl>
@@ -832,10 +759,9 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>focused_</b></td></tr
 </div><div class="memdoc">
 
 <p>Sets the position of the window. </p>
-<dl class="section author"><dt>Author</dt><dd>Riko Ophorst </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">window_position</td><td>The position of the window </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">window_position</td><td>The position of the window. </td></tr>
   </table>
   </dd>
 </dl>
@@ -857,10 +783,9 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>focused_</b></td></tr
 </div><div class="memdoc">
 
 <p>Sets the resolution of the window. </p>
-<dl class="section author"><dt>Author</dt><dd>Riko Ophorst </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">resolution</td><td>The resolution of the window </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">resolution</td><td>The resolution of the window. </td></tr>
   </table>
   </dd>
 </dl>
@@ -892,11 +817,10 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>focused_</b></td></tr
 </div><div class="memdoc">
 
 <p>Sets the size limits of the window. </p>
-<dl class="section author"><dt>Author</dt><dd>Riko Ophorst </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">min_resolution</td><td>The minimum resolution of the window </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">max_resolution</td><td>The maximum resolution of the window </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">min_resolution</td><td>The minimum resolution of the window. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">max_resolution</td><td>The maximum resolution of the window. </td></tr>
   </table>
   </dd>
 </dl>
@@ -918,10 +842,9 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>focused_</b></td></tr
 </div><div class="memdoc">
 
 <p>Sets the title of the window. </p>
-<dl class="section author"><dt>Author</dt><dd>Riko Ophorst </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">window_title</td><td>The title of the window </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">window_title</td><td>The title of the window. </td></tr>
   </table>
   </dd>
 </dl>
@@ -929,6 +852,28 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>focused_</b></td></tr
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="a72a2b17340f7ed73b7b4576de5e78bdc"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool blowbox::Window::focused_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Whether the window is currently in input focus or not. </p>
+
+</div>
+</div>
 <a class="anchor" id="ae953237bbb67aede643f4f840d423db0"></a>
 <div class="memitem">
 <div class="memproto">
@@ -1090,7 +1035,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>focused_</b></td></tr
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Jul 15 2017 18:37:48 for Blowbox 2017 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jul 16 2017 21:59:54 for Blowbox 2017 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

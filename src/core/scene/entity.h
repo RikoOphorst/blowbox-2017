@@ -1,9 +1,12 @@
 #pragma once
 
 #include "util/shared_ptr.h"
+#include "util/weak_ptr.h"
 #include "util/vector.h"
 #include "util/queue.h"
 #include "util/string.h"
+#include "renderer/mesh.h"
+#include "renderer/buffers/upload_buffer.h"
 #include <DirectXMath.h>
 
 namespace blowbox
@@ -65,22 +68,22 @@ namespace blowbox
         void SetLocalScaling(const DirectX::XMFLOAT3& scaling);
 
         /**
-        * @brief Returns the local position of this Entity.
-        * @returns The local position of this Entity.
+        * @brief Sets the Mesh of this Entity.
+        * @param[in] mesh The mesh that you want to bind to this Entity.
         */
+        void SetMesh(SharedPtr<Mesh> mesh);
+
+        /** @returns The local position of this Entity. */
         const DirectX::XMFLOAT3& GetLocalPosition() const;
 
-        /**
-        * @brief Returns the local rotation of this Entity.
-        * @returns The local rotation of this Entity.
-        */
+        /** @returns The local rotation of this Entity. */
         const DirectX::XMFLOAT3& GetLocalRotation() const;
 
-        /**
-        * @brief Returns the local scaling of this Entity.
-        * @returns The local scaling of this Entity.
-        */
+        /** @returns The local scaling of this Entity. */
         const DirectX::XMFLOAT3& GetLocalScaling() const;
+
+        /** @returns The mesh that is bound to this Entity. */
+        SharedPtr<Mesh> GetMesh() const;
 
         /**
         * @brief Returns the world transform of this Entity.
@@ -91,6 +94,9 @@ namespace blowbox
 
         /** @returns The children of this Entity. */
         const Vector<SharedPtr<Entity>>& GetChildren() const;
+
+        /** @returns This Entity's constant buffer. */
+        UploadBuffer& GetConstantBuffer() { return constant_buffer_; };
 
     protected:
         /** @brief Initialises the Entity. */
@@ -140,7 +146,7 @@ namespace blowbox
 
     private:
         String name_;                           //!< The name of this Entity.
-        SharedPtr<Entity> parent_;              //!< The parent of this Entity.
+        WeakPtr<Entity> parent_;                //!< The parent of this Entity.
         Vector<SharedPtr<Entity>> children_;    //!< All the children of this Entity.
 
         // Transform stuff
@@ -151,5 +157,8 @@ namespace blowbox
         bool transform_dirty_;                  //!< Whether the current world_transform_ is dirty (i.e. position/rotation/scaling changed).
 
         bool in_scene_;                         //!< Flag that determines whether this Entity exists in the SceneManager.
+
+        SharedPtr<Mesh> mesh_;                  //!< The Mesh object that is attached to this Entity.
+        UploadBuffer constant_buffer_;          //!< This Entity's constant buffer.
     };
 }

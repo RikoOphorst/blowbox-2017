@@ -4,6 +4,7 @@
 #include "util/vector.h"
 #include "util/queue.h"
 #include "core/scene/entity.h"
+#include "renderer/cameras/camera.h"
 
 namespace blowbox
 {
@@ -74,11 +75,22 @@ namespace blowbox
         */
         const Vector<SharedPtr<Entity>>& GetEntities() const;
 
+        /**
+        * @brief Sets the main Camera of this scene, i.e. the camera from where the scene is rendered.
+        * @param[in] camera The camera that should act as the main Camera for this scene.
+        */
+        void SetMainCamera(SharedPtr<Camera> camera);
+
+        /** @returns The main Camera of this scene. */
+        SharedPtr<Camera> GetMainCamera();
+
     private:
         SharedPtr<Entity> root_entity_;                     //!< The root Entity in the scene.
         Vector<SharedPtr<Entity>> all_entities_;            //!< All Entity instances in the scene.
 
         Queue<SharedPtr<Entity>> entities_to_be_added_;     //!< Queue for Entity instances that need to be added to the scene.
         Queue<SharedPtr<Entity>> entities_to_be_removed_;   //!< Queue for Entity instances that need to be removed from the scene.
+
+        SharedPtr<Camera> main_camera_;                     //!< Stores the main camera for the scene.
     };
 }

@@ -18,7 +18,7 @@ var searchData=
   ['root_5fentity_5f',['root_entity_',['../classblowbox_1_1_scene_manager.html#a6a2b91777e1fc6246511859f1b3ed888',1,'blowbox::SceneManager']]],
   ['root_5fparameters_5f',['root_parameters_',['../classblowbox_1_1_root_signature.html#a1a1e3a0e09be09e2fc529919778d9efd',1,'blowbox::RootSignature']]],
   ['root_5fsignature_5f',['root_signature_',['../classblowbox_1_1_im_gui_manager.html#ae6496a442d273bbe56e60ec678df6798',1,'blowbox::ImGuiManager::root_signature_()'],['../classblowbox_1_1_p_s_o.html#ae37ee38850bcc2794d3a42eaca90a888',1,'blowbox::PSO::root_signature_()'],['../classblowbox_1_1_root_signature.html#ae49cb61d7f6220c2e3bda611e114926a',1,'blowbox::RootSignature::root_signature_()']]],
-  ['rotation_5f',['rotation_',['../classblowbox_1_1_entity.html#aabb5b2bfb9095b530265df58b2f4186c',1,'blowbox::Entity']]],
+  ['rotation_5f',['rotation_',['../classblowbox_1_1_entity.html#aabb5b2bfb9095b530265df58b2f4186c',1,'blowbox::Entity::rotation_()'],['../classblowbox_1_1_camera.html#a7db2fa01939720232a2158ef40e1010d',1,'blowbox::Camera::rotation_()']]],
   ['rtv_5fdescriptor_5fheap_5f',['rtv_descriptor_heap_',['../classblowbox_1_1_get.html#a388300d1b40934b2b6f4e0a0d4e385c8',1,'blowbox::Get']]],
   ['rtv_5fid_5f',['rtv_id_',['../classblowbox_1_1_color_buffer.html#ae8019daa917a676b2cdac5bc1dc4a832',1,'blowbox::ColorBuffer']]]
 ];

@@ -53,6 +53,10 @@ file(GLOB RendererCommandsFiles
     src/renderer/commands/*.cc 
     src/renderer/commands/*.h 
 )
+file(GLOB RendererCamerasFiles
+    src/renderer/cameras/*.cc 
+    src/renderer/cameras/*.h 
+)
 file(GLOB ContentFiles
     src/content/*.cc 
     src/content/*.h 
@@ -84,6 +88,7 @@ source_group("renderer"             FILES       ${RendererFiles})
 source_group("renderer\\imgui"      FILES       ${RendererImguiFiles})
 source_group("renderer\\buffers"    FILES       ${RendererBuffersFiles})
 source_group("renderer\\commands"   FILES       ${RendererCommandsFiles})
+source_group("renderer\\cameras"    FILES       ${RendererCamerasFiles})
 source_group("content"              FILES       ${ContentFiles})
 source_group("content\\stb"         FILES       ${ContentStbFiles})
 source_group("core"                 FILES       ${CoreFiles})
@@ -93,7 +98,7 @@ source_group("util"                 FILES       ${UtilFiles})
 
 # Add the libraries and executables to the main solution
 add_library(blowbox_win32           STATIC      ${Win32Files})
-add_library(blowbox_renderer        STATIC      ${RendererFiles} ${RendererImguiFiles} ${RendererBuffersFiles} ${RendererCommandsFiles})
+add_library(blowbox_renderer        STATIC      ${RendererFiles} ${RendererImguiFiles} ${RendererBuffersFiles} ${RendererCommandsFiles} ${RendererCamerasFiles})
 add_library(blowbox_content         STATIC      ${ContentFiles} ${ContentStbFiles})
 add_library(blowbox_util            STATIC      ${UtilFiles})
 add_executable(blowbox_core                     ${CoreFiles} ${CoreCoreFiles} ${CoreSceneFiles})
@@ -136,6 +141,8 @@ target_link_libraries(blowbox_util      EATest)
 set (BUILD_SHARED_LIBS ${BUILD_SHARED_LIBS_TEMP} CACHE BOOL "whether shared libs should be built by default" FORCE)
 
 # Linking Assimp
+set(CMAKE_CXX_FLAGS_DEBUG_CACHED "${CMAKE_CXX_FLAGS_DEBUG}")
+set(CMAKE_CXX_FLAGS_DEBUG "/MDd /Ob2 /O2 /DNDEBUG")
 add_subdirectory("deps/assimp-3.3.1")
 target_link_libraries(blowbox_core      assimp)
 target_link_libraries(blowbox_renderer  assimp)
@@ -143,6 +150,7 @@ target_link_libraries(blowbox_content   assimp)
 target_link_libraries(blowbox_win32     assimp)
 target_link_libraries(blowbox_util      assimp)
 include_directories("deps/assimp-3.3.1/include")
+set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG_CACHED}")
 
 # Linking GLFW
 add_subdirectory("deps/glfw-3.2.1")

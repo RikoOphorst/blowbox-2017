@@ -114,6 +114,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ab3432bc61af5bcb0f8ce61e26a4c8be0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa789d0c62d40b1e8d9c66b3c20d6d6fc"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="namespaceblowbox.html#a3fc1b3b906e27b22709a811b9599c637">Vector</a>&lt; <a class="el" href="namespaceblowbox.html#a020fc4943432428d6d842b3c88b45ed1">SharedPtr</a>&lt; <a class="el" href="classblowbox_1_1_entity.html">Entity</a> &gt; &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_scene_manager.html#aa789d0c62d40b1e8d9c66b3c20d6d6fc">GetEntities</a> () const </td></tr>
 <tr class="separator:aa789d0c62d40b1e8d9c66b3c20d6d6fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5300cbc4d795e894e81c8fcd06580e5d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_scene_manager.html#a5300cbc4d795e894e81c8fcd06580e5d">SetMainCamera</a> (<a class="el" href="namespaceblowbox.html#a020fc4943432428d6d842b3c88b45ed1">SharedPtr</a>&lt; <a class="el" href="classblowbox_1_1_camera.html">Camera</a> &gt; camera)</td></tr>
+<tr class="separator:a5300cbc4d795e894e81c8fcd06580e5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a066103583705e76a20f4132d1bfa7430"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceblowbox.html#a020fc4943432428d6d842b3c88b45ed1">SharedPtr</a>&lt; <a class="el" href="classblowbox_1_1_camera.html">Camera</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_scene_manager.html#a066103583705e76a20f4132d1bfa7430">GetMainCamera</a> ()</td></tr>
+<tr class="separator:a066103583705e76a20f4132d1bfa7430"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
@@ -140,6 +144,8 @@ Private Attributes</h2></td></tr>
 <tr class="separator:a33127a36af0eeffa719e7edb9c1b4380"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6f7172aa4384edadf26623ed26c331eb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceblowbox.html#a785045299a58e5467db36de461a7c59e">Queue</a>&lt; <a class="el" href="namespaceblowbox.html#a020fc4943432428d6d842b3c88b45ed1">SharedPtr</a>&lt; <a class="el" href="classblowbox_1_1_entity.html">Entity</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_scene_manager.html#a6f7172aa4384edadf26623ed26c331eb">entities_to_be_removed_</a></td></tr>
 <tr class="separator:a6f7172aa4384edadf26623ed26c331eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a890f515ec4c879bbf436462c8d981fad"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceblowbox.html#a020fc4943432428d6d842b3c88b45ed1">SharedPtr</a>&lt; <a class="el" href="classblowbox_1_1_camera.html">Camera</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_scene_manager.html#a890f515ec4c879bbf436462c8d981fad">main_camera_</a></td></tr>
+<tr class="separator:a890f515ec4c879bbf436462c8d981fad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
 Friends</h2></td></tr>
@@ -155,7 +161,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>Entity</b></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Manages the entire scene. </p>
-<p>Manages the entire scene. It keeps a list of all <a class="el" href="classblowbox_1_1_entity.html" title="The Blowbox equivalent of a game object. ">Entity</a> instances and updates them accordingly. It also keeps track of the root of the scene graph. It also stores stuff like all the lights in the scene and it also keeps track of the main Camera. </p>
+<p>Manages the entire scene. It keeps a list of all <a class="el" href="classblowbox_1_1_entity.html" title="The Blowbox equivalent of a game object. ">Entity</a> instances and updates them accordingly. It also keeps track of the root of the scene graph. It also stores stuff like all the lights in the scene and it also keeps track of the main <a class="el" href="classblowbox_1_1_camera.html" title="A camera through which the scene is rendered. ">Camera</a>. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="aca2f2aa2a22b9b8d092d8fa3d90c61e2"></a>
 <div class="memitem">
@@ -261,6 +267,22 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>Entity</b></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a066103583705e76a20f4132d1bfa7430"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespaceblowbox.html#a020fc4943432428d6d842b3c88b45ed1">SharedPtr</a>&lt; <a class="el" href="classblowbox_1_1_camera.html">Camera</a> &gt; blowbox::SceneManager::GetMainCamera </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>The main <a class="el" href="classblowbox_1_1_camera.html" title="A camera through which the scene is rendered. ">Camera</a> of this scene. </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="a296bf271cc6e74f5b2a8505e9adb0921"></a>
 <div class="memitem">
 <div class="memproto">
@@ -330,6 +352,30 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>Entity</b></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">entity</td><td>The entity to remove from the scene. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a5300cbc4d795e894e81c8fcd06580e5d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void blowbox::SceneManager::SetMainCamera </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespaceblowbox.html#a020fc4943432428d6d842b3c88b45ed1">SharedPtr</a>&lt; <a class="el" href="classblowbox_1_1_camera.html">Camera</a> &gt;&#160;</td>
+          <td class="paramname"><em>camera</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets the main <a class="el" href="classblowbox_1_1_camera.html" title="A camera through which the scene is rendered. ">Camera</a> of this scene, i.e. the camera from where the scene is rendered. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">camera</td><td>The camera that should act as the main <a class="el" href="classblowbox_1_1_camera.html" title="A camera through which the scene is rendered. ">Camera</a> for this scene. </td></tr>
   </table>
   </dd>
 </dl>
@@ -478,6 +524,28 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>Entity</b></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a890f515ec4c879bbf436462c8d981fad"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespaceblowbox.html#a020fc4943432428d6d842b3c88b45ed1">SharedPtr</a>&lt;<a class="el" href="classblowbox_1_1_camera.html">Camera</a>&gt; blowbox::SceneManager::main_camera_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Stores the main camera for the scene. </p>
+
+</div>
+</div>
 <a class="anchor" id="a6a2b91777e1fc6246511859f1b3ed888"></a>
 <div class="memitem">
 <div class="memproto">
@@ -507,7 +575,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>Entity</b></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Jul 15 2017 18:37:48 for Blowbox 2017 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jul 16 2017 21:59:54 for Blowbox 2017 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

@@ -26,6 +26,12 @@ namespace blowbox
     {
         bool add_succeeded = entity->AddChild(child);
 
+        if (add_succeeded)
+        {
+            child->parent_ = entity;
+            child->transform_dirty_ = true;
+        }
+
         if (entity->GetInScene() == true && child->GetInScene() == false)
         {
             Get::SceneManager()->AddEntity(child);

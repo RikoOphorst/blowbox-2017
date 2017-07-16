@@ -1,6 +1,7 @@
 var searchData=
 [
   ['f',['f',['../structblowbox_1_1_param32_bit.html#a43ecc0ab22573f69e8433bdb7f91e87c',1,'blowbox::Param32Bit']]],
+  ['far_5fplane_5f',['far_plane_',['../classblowbox_1_1_camera.html#a5fb677edaf72df7c37d3d6156421064a',1,'blowbox::Camera']]],
   ['fence_5f',['fence_',['../classblowbox_1_1_command_queue.html#a6a2e800d89829d830a4841372c5576ba',1,'blowbox::CommandQueue']]],
   ['fence_5fevent_5fhandle_5f',['fence_event_handle_',['../classblowbox_1_1_command_queue.html#a20aeca5f7fa0c80a1b2a50759563b2c3',1,'blowbox::CommandQueue']]],
   ['file_5fcontent_5f',['file_content_',['../classblowbox_1_1_text_file.html#a65ef4c992da11417f3d919a072394aad',1,'blowbox::TextFile']]],
@@ -15,10 +16,12 @@ var searchData=
   ['flush',['Flush',['../classblowbox_1_1_command_context.html#a2634be6f017accc62c57316831007501',1,'blowbox::CommandContext']]],
   ['flushresourcebarriers',['FlushResourceBarriers',['../classblowbox_1_1_command_context.html#a28e6ededd646c99f77022dd5f2965cb6',1,'blowbox::CommandContext']]],
   ['focus',['Focus',['../classblowbox_1_1_window.html#a2c5373e05581bfc56d29326af82fffd7',1,'blowbox::Window']]],
+  ['focused_5f',['focused_',['../classblowbox_1_1_window.html#a72a2b17340f7ed73b7b4576de5e78bdc',1,'blowbox::Window']]],
   ['format_5f',['format_',['../classblowbox_1_1_pixel_buffer.html#aec63e905a8b42d52c24befcf80210c33',1,'blowbox::PixelBuffer']]],
   ['forward_5frenderer_5f',['forward_renderer_',['../classblowbox_1_1_get.html#a020dc7a4adf73147a4327192ff8e13c1',1,'blowbox::Get']]],
   ['forwardrenderer',['ForwardRenderer',['../classblowbox_1_1_forward_renderer.html',1,'blowbox']]],
   ['forwardrenderer',['ForwardRenderer',['../classblowbox_1_1_get.html#a2c9d412fe70e6642bade40f0d44287d4',1,'blowbox::Get::ForwardRenderer()'],['../classblowbox_1_1_forward_renderer.html#a3641215c993b254f7b1b2eb651379c03',1,'blowbox::ForwardRenderer::ForwardRenderer()']]],
+  ['fov_5fin_5fradians_5f',['fov_in_radians_',['../classblowbox_1_1_perspective_camera.html#aad6afc1a588057adf3870b96795369d6',1,'blowbox::PerspectiveCamera']]],
   ['function',['Function',['../namespaceblowbox.html#ad5f5cb286f6b0661fa71744456e057b4',1,'blowbox']]],
   ['functionwithargument',['FunctionWithArgument',['../namespaceblowbox.html#ac2ba86ffb691982472bb3ba8d3daa8bb',1,'blowbox']]],
   ['functionwitharguments',['FunctionWithArguments',['../namespaceblowbox.html#a11391d8f100fd79dc36a86768eb1e26a',1,'blowbox']]]

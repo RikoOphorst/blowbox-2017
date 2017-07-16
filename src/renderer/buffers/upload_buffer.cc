@@ -83,12 +83,18 @@ namespace blowbox
 			is_mapped_ = false;
 		}
 	}
-	
-	//------------------------------------------------------------------------------------------------------
-	void UploadBuffer::InsertDataByElement(UINT element_id, void* data)
-	{
-		memcpy(&mapped_data_[element_id * element_size_], data, element_size_);
-	}
+
+    //------------------------------------------------------------------------------------------------------
+    void UploadBuffer::InsertDataByElement(UINT element_id, void* data)
+    {
+        memcpy(&mapped_data_[element_id * element_size_], data, element_size_);
+    }
+
+    //------------------------------------------------------------------------------------------------------
+    void UploadBuffer::InsertDataByElement(UINT element_id, const void* data)
+    {
+        memcpy(&mapped_data_[element_id * element_size_], data, element_size_);
+    }
 
 	//------------------------------------------------------------------------------------------------------
 	void UploadBuffer::ClearDataByElement(UINT element_id)

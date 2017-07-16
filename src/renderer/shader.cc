@@ -34,24 +34,24 @@ namespace blowbox
 		switch (shader_type_)
 		{
 		case ShaderType_VERTEX:
-			entry_point = "VSMain";
+			entry_point = "main";
 			shader_model = "vs_5_0";
 			break;
 		case ShaderType_GEOMETRY:
-			entry_point = "GSMain";
+			entry_point = "main";
 			shader_model = "gs_5_0";
 			break;
         case ShaderType_PIXEL:
-            entry_point = "PSMain";
+            entry_point = "main";
             shader_model = "ps_5_0";
             break;
         case ShaderType_COMPUTE:
-            entry_point = "CSMain";
+            entry_point = "main";
             shader_model = "cs_5_0";
             break;
 		}
 
-		UINT flags = D3DCOMPILE_PACK_MATRIX_ROW_MAJOR;
+		UINT flags = NULL;
 #if defined(_DEBUG) || defined(DEBUG)
 		flags |= D3DCOMPILE_DEBUG;
 		flags |= D3DCOMPILE_SKIP_OPTIMIZATION;
@@ -76,6 +76,8 @@ namespace blowbox
 		{
 			//DLOG("Shader compile failed:");
 			//DLOG(static_cast<const char*>(error_blob_->GetBufferPointer()));
+
+            OutputDebugStringA(static_cast<char*>(error_blob_intermediate->GetBufferPointer()));
 
             BLOWBOX_ASSERT(false);
             BLOWBOX_RELEASE(error_blob_intermediate);

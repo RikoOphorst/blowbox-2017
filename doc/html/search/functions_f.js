@@ -1,6 +1,8 @@
 var searchData=
 [
-  ['unmap',['Unmap',['../classblowbox_1_1_upload_buffer.html#a67fd4a09eff65a201d17e31034b43fec',1,'blowbox::UploadBuffer']]],
-  ['update',['Update',['../classblowbox_1_1_blowbox_core.html#ad6fb87b904a1bb97f7fb70ecd2bb47b6',1,'blowbox::BlowboxCore::Update()'],['../classblowbox_1_1_entity.html#afe07807c738a15579883e0447c255e37',1,'blowbox::Entity::Update()'],['../classblowbox_1_1_scene_manager.html#abd3654433c27a75eabac15bed952f236',1,'blowbox::SceneManager::Update()'],['../classblowbox_1_1_g_l_f_w_manager.html#afce2d12ae854a3713478641c0d291585',1,'blowbox::GLFWManager::Update()'],['../classblowbox_1_1_mouse_state.html#a13aac6bdf55da16d60cfc7d110e6c97e',1,'blowbox::MouseState::Update()']]],
-  ['updateworldtransform',['UpdateWorldTransform',['../classblowbox_1_1_entity.html#abd7affa1b121de3b7531d03e92377edf',1,'blowbox::Entity']]]
+  ['textfile',['TextFile',['../classblowbox_1_1_text_file.html#a86849198777728f5a5e5c22cf71b3884',1,'blowbox::TextFile']]],
+  ['tostring',['ToString',['../structblowbox_1_1_resolution.html#a47e0de2fd21a47c0f29e9e2a68d2f41f',1,'blowbox::Resolution']]],
+  ['transitionresource',['TransitionResource',['../classblowbox_1_1_command_context.html#af367788afc465d2425eecf06d19d66c1',1,'blowbox::CommandContext']]],
+  ['translate',['Translate',['../classblowbox_1_1_camera.html#a00840e54e2522b81400d8347a3543bdf',1,'blowbox::Camera']]],
+  ['typedbuffer',['TypedBuffer',['../classblowbox_1_1_typed_buffer.html#a7260f3daa05794454f06e61015a37fe7',1,'blowbox::TypedBuffer::TypedBuffer()'],['../classblowbox_1_1_typed_buffer.html#af4cb3e5b0ba008094256009db291bba4',1,'blowbox::TypedBuffer::TypedBuffer(DXGI_FORMAT format)']]]
 ];

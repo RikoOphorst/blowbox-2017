@@ -5,6 +5,7 @@
 #include "core/get.h"
 #include "win32/window.h"
 #include "content/image.h"
+#include "content/model_factory.h"
 #include "util/safe_ptr.h"
 #include "util/shared_ptr.h"
 #include "util/unique_ptr.h"
@@ -14,17 +15,21 @@
 #include "core/scene/entity_factory.h"
 #include "core/scene/entity.h"
 #include "renderer/imgui/imgui.h"
+#include "renderer/device.h"
+#include "renderer/buffers/structured_buffer.h"
+#include "renderer/descriptor_heap.h"
+#include "renderer/cameras/perspective_camera.h"
+#include "renderer/cameras/orthographic_camera.h"
+
+#include <Psapi.h>
 
 using namespace blowbox;
 
 BlowboxCore* blowbox_instance;
 Window* main_window;
 
-bool show_test_window = true;
-
-SharedPtr<Entity> root_child_entity;
-SharedPtr<Entity> some_entity;
-SharedPtr<Entity> some_child_entity;
+SharedPtr<Entity> my_model;
+SharedPtr<PerspectiveCamera> camera;
 
 double previous_time = 0;
 
@@ -32,25 +37,19 @@ void Run()
 {
     main_window = Get::MainWindow().get();
 
-    root_child_entity = EntityFactory::CreateEntity("Entity1");
-    EntityFactory::AddChildToEntity(Get::SceneManager()->GetRootEntity(), root_child_entity);
+    my_model = ModelFactory::LoadModel("./models/crytek-sponza/sponza.obj");
+    my_model->SetLocalScaling(DirectX::XMFLOAT3(0.1f, 0.1f, 0.1f));
+    EntityFactory::AddChildToEntity(Get::SceneManager()->GetRootEntity(), my_model);
 
-    some_entity = EntityFactory::CreateEntity("Entity2");
-    some_child_entity = EntityFactory::CreateEntity("Entity3");
-    EntityFactory::AddChildToEntity(some_entity, some_child_entity);
-}
+    camera = eastl::make_shared<PerspectiveCamera>();
 
-void ImGuiSceneGraph(SharedPtr<Entity> entity)
-{
-    if (ImGui::TreeNode(entity->GetName().c_str()))
-    {
-        for (int i = 0; i < entity->GetChildren().size(); i++)
-        {
-            ImGuiSceneGraph(entity->GetChildren()[i]);
-        }
+    camera->SetPosition(DirectX::XMFLOAT3(0.0f, 20.0f, 0.0f));
+    camera->SetRotation(DirectX::XMFLOAT3(0.0f, 0.0f, 0.0f));
+    camera->SetNearPlane(0.1f);
+    camera->SetFarPlane(2500.0f);
+    camera->SetFovDegrees(90.0f);
 
-        ImGui::TreePop();
-    }
+    Get::SceneManager()->SetMainCamera(camera);
 }
 
 void Update()
@@ -58,32 +57,68 @@ void Update()
     double delta_time = glfwGetTime() - previous_time;
     previous_time = glfwGetTime();
 
-    ImGui::Begin("SceneGraph");
-
-    ImGuiSceneGraph(Get::SceneManager()->GetRootEntity());
-
-    ImGui::Text("All Entities in SceneManager:");
-
-    Vector<SharedPtr<Entity>>& entities = Get::SceneManager()->GetEntities();
-    for (int i = 0; i < entities.size(); i++)
-    {
-        ImGui::BulletText(entities[i]->GetName().c_str());
-    }
-
     ImGui::Text("Delta time: %f seconds", delta_time);
     ImGui::Text("FPS: %f", 1.0 / delta_time);
 
+    DXGI_QUERY_VIDEO_MEMORY_INFO video_memory_info;
+    Get::Device()->GetAdapter().dxgi_adapter->QueryVideoMemoryInfo(0, DXGI_MEMORY_SEGMENT_GROUP_LOCAL, &video_memory_info);
+
+    ImGui::Text(
+        "Process VRAM usage: %g/%g MiB (%i%%)", 
+        static_cast<float>(video_memory_info.CurrentUsage) / (1000000.0f),
+        static_cast<float>(Get::Device()->GetAdapter().video_memory) / 1000000.0f,
+        static_cast<int>( ( static_cast<float>(video_memory_info.CurrentUsage) / static_cast<float>(Get::Device()->GetAdapter().video_memory) ) * 100.0f)
+    );
+
+    MEMORYSTATUSEX statex;
+    statex.dwLength = sizeof(statex);
+    GlobalMemoryStatusEx(&statex);
+
+    PROCESS_MEMORY_COUNTERS counters;
+    counters.cb = sizeof(counters);
+
+    GetProcessMemoryInfo(GetCurrentProcess(), &counters, counters.cb);
+
+    ImGui::Text(
+        "Process RAM usage: %g/%g MiB (%i%%)", 
+        static_cast<float>(counters.WorkingSetSize) / 1000000.0f,
+        static_cast<float>(statex.ullTotalPhys) / 1000000.0f,
+        static_cast<int>(((float)counters.WorkingSetSize / (float)statex.ullTotalPhys) * 100.0f)
+    );
+    ImGui::Text(
+        "Global RAM usage: %g/%g MiB (%i%%)", 
+        static_cast<float>(statex.ullTotalPhys - statex.ullAvailPhys) / 1000000.0f,
+        static_cast<float>(statex.ullTotalPhys) / 1000000.0f, 
+        static_cast<int>( ( (float)(statex.ullTotalPhys - statex.ullAvailPhys) / (float)statex.ullTotalPhys ) * 100.0f )
+    );
+
     ImGui::End();
 
-    if (Get::MainWindow()->GetKeyboardState().GetKeyPressed(KeyCode_J))
-    {
-        EntityFactory::AddChildToEntity(Get::SceneManager()->GetRootEntity(), some_entity);
-    }
+    KeyboardState& keyboard = Get::MainWindow()->GetKeyboardState();
 
-    if (Get::MainWindow()->GetKeyboardState().GetKeyPressed(KeyCode_K))
-    {
-        EntityFactory::RemoveChildFromEntity(Get::SceneManager()->GetRootEntity(), some_entity);
-    }
+    float speed = 5.0f;
+
+    if (keyboard.GetKeyDown(KeyCode_LEFT_SHIFT))
+        speed *= 10.0f;
+
+    if (keyboard.GetKeyDown(KeyCode_W))
+        camera->Translate(DirectX::XMFLOAT3(0.0f, 0.0f, speed * delta_time));
+
+    if (keyboard.GetKeyDown(KeyCode_S))
+        camera->Translate(DirectX::XMFLOAT3(0.0f, 0.0f, -speed * delta_time));
+
+    if (keyboard.GetKeyDown(KeyCode_A))
+        camera->Translate(DirectX::XMFLOAT3(-speed * delta_time, 0.0f, 0.0f));
+
+    if (keyboard.GetKeyDown(KeyCode_D))
+        camera->Translate(DirectX::XMFLOAT3(speed * delta_time, 0.0f, 0.0f));
+
+    MouseState& mouse = Get::MainWindow()->GetMouseState();
+
+    static DirectX::XMFLOAT3 rotation = DirectX::XMFLOAT3(0.0f, 0.0f, 0.0f);
+
+    if (mouse.GetButtonDown(MouseButton_LEFT))
+        camera->Rotate(DirectX::XMFLOAT3(mouse.GetMousePositionDelta().y * 0.005f, mouse.GetMousePositionDelta().x * 0.005f, 0.0f));
 }
 
 void PostUpdate()

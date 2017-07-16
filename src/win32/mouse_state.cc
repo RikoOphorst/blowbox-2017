@@ -5,7 +5,13 @@
 namespace blowbox
 {
     //------------------------------------------------------------------------------------------------------
-    MouseState::MouseState()
+    MouseState::MouseState() :
+        mouse_position_(0.0f, 0.0f),
+        delta_mouse_position_(0.0f, 0.0f),
+        delta_mouse_position_accumulator_(0.0f, 0.0f),
+        delta_scroll_(0.0f, 0.0f),
+        delta_scroll_accumulator_(0.0f, 0.0f),
+        is_mouse_in_window_(false)
     {
         for (int i = 0; i < GLFW_MOUSE_BUTTON_LAST; i++)
         {

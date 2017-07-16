@@ -91,6 +91,18 @@ namespace blowbox
     }
     
     //------------------------------------------------------------------------------------------------------
+    void SceneManager::SetMainCamera(SharedPtr<Camera> camera)
+    {
+        main_camera_ = camera;
+    }
+
+    //------------------------------------------------------------------------------------------------------
+    SharedPtr<Camera> SceneManager::GetMainCamera()
+    {
+        return main_camera_;
+    }
+
+    //------------------------------------------------------------------------------------------------------
     SharedPtr<Entity> SceneManager::GetRootEntity()
     {
         return root_entity_;

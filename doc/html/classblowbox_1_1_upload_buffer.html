@@ -114,6 +114,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a67fd4a09eff65a201d17e31034b43fec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a02f864b494baba668c73e4bdb5ed8047"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_upload_buffer.html#a02f864b494baba668c73e4bdb5ed8047">InsertDataByElement</a> (UINT element_id, void *data)</td></tr>
 <tr class="separator:a02f864b494baba668c73e4bdb5ed8047"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c0ad6eedebe1974103e0e8e2fa500fd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_upload_buffer.html#a7c0ad6eedebe1974103e0e8e2fa500fd">InsertDataByElement</a> (UINT element_id, const void *data)</td></tr>
+<tr class="separator:a7c0ad6eedebe1974103e0e8e2fa500fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a56d481941992d638ff56cff97880a755"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_upload_buffer.html#a56d481941992d638ff56cff97880a755">ClearDataByElement</a> (UINT element_id)</td></tr>
 <tr class="separator:a56d481941992d638ff56cff97880a755"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2dd6df216ca0bb4fefcc9d99c42e830c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_upload_buffer.html#a2dd6df216ca0bb4fefcc9d99c42e830c">InsertDataByBuffer</a> (void *data, UINT size_of_data_in_bytes)</td></tr>
@@ -474,6 +476,41 @@ Inheritance diagram for blowbox::UploadBuffer:</div>
 
 </div>
 </div>
+<a class="anchor" id="a7c0ad6eedebe1974103e0e8e2fa500fd"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void blowbox::UploadBuffer::InsertDataByElement </td>
+          <td>(</td>
+          <td class="paramtype">UINT&#160;</td>
+          <td class="paramname"><em>element_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const void *&#160;</td>
+          <td class="paramname"><em>data</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Insert data into the buffer by a certain element index. Make sure the resource has been <a class="el" href="classblowbox_1_1_upload_buffer.html#a8e7b7b8330d71f05946a7747d5368948" title="&quot;Maps&quot; the resource from GPU memory to CPU memory, making it writable &amp; readable (although reading is...">Map()</a>-ed to CPU memory (by default, all UploadBuffers are mapped). </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">element_id</td><td>The index (id) of the element you want to write to. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">data</td><td>The data you want to write into the element. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a class="anchor" id="a8e7b7b8330d71f05946a7747d5368948"></a>
 <div class="memitem">
 <div class="memproto">
@@ -560,7 +597,7 @@ Inheritance diagram for blowbox::UploadBuffer:</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Jul 15 2017 18:37:48 for Blowbox 2017 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jul 16 2017 21:59:54 for Blowbox 2017 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

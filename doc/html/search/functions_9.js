@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['newframe',['NewFrame',['../classblowbox_1_1_im_gui_manager.html#a2ac131c71b2eece0f175515e33235f74',1,'blowbox::ImGuiManager']]],
-  ['noncopyable',['NonCopyable',['../structblowbox_1_1_non_copyable.html#a566ee5522b6ad16f5bd1d73ea28a86f6',1,'blowbox::NonCopyable::NonCopyable()=default'],['../structblowbox_1_1_non_copyable.html#a4a6f88a0f21e39a00caedd0699b0b4d9',1,'blowbox::NonCopyable::NonCopyable(const NonCopyable &amp;)=delete']]]
+  ['mainwindow',['MainWindow',['../classblowbox_1_1_get.html#ae10e90c3ae003b178b1160b07574eb2e',1,'blowbox::Get']]],
+  ['map',['Map',['../classblowbox_1_1_upload_buffer.html#a8e7b7b8330d71f05946a7747d5368948',1,'blowbox::UploadBuffer']]],
+  ['meshdata',['MeshData',['../classblowbox_1_1_mesh_data.html#abea5296383c142b83d727fd14d758c5e',1,'blowbox::MeshData']]]
 ];

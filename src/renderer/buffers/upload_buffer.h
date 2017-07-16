@@ -44,6 +44,13 @@ namespace blowbox
 		*/
 		void InsertDataByElement(UINT element_id, void* data);
 
+        /**
+        * @brief Insert data into the buffer by a certain element index. Make sure the resource has been Map()-ed to CPU memory (by default, all UploadBuffers are mapped).
+        * @param[in] element_id The index (id) of the element you want to write to.
+        * @param[in] data The data you want to write into the element.
+        */
+        void InsertDataByElement(UINT element_id, const void* data);
+
 		/**
 		* @brief Clear all data that resides in an element and set it to 0x0
 		* @param[in] element_id The index (id) of the element you want to clear.
