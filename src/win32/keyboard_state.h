@@ -3,6 +3,7 @@
 #include "win32/key_code.h"
 
 #include "util/map.h"
+#include "util/queue.h"
 
 namespace blowbox
 {
@@ -74,6 +75,12 @@ namespace blowbox
         */
         const KeyState& GetKeyState(KeyCode key);
 
+        /**
+        * @returns A list of keys that were pressed over the last frame, in the correct order. Every item in the queue is a unicode ID.
+        * @remarks Note that this function reserves a copy of a queue of KeyCodes. This is intentional, so that you can process the queue in whatever way you want.
+        */
+        Queue<unsigned int> GetInputKeys() const;
+
     protected:
         /**
         * @brief Changes the press-state of a key to true.
@@ -94,9 +101,16 @@ namespace blowbox
         */
         void SetKeyModifiers(KeyCode key, int modifiers);
 
+        /**
+        * @brief Adds an input key.
+        * @param[in] key The key that was pressed (as a unicode id)
+        */
+        void AddInputKey(unsigned int key);
+
         /** @brief Resets all keys by changing their press & release states to false. */
         void ResetKeys();
     private:
         Map<KeyCode, KeyState> key_states_; //!< A map of KeyCodes to KeyStates.
+        Queue<unsigned int> input_keys_;    //!< The keys that were pressed over the last frame, in correct order. These are stored in unicode ids.
     };
 }

@@ -92,6 +92,20 @@ namespace blowbox
         io.MouseDown[1] = mouse_state.GetButton(MouseButton_MIDDLE);
         io.MouseDown[2] = mouse_state.GetButton(MouseButton_RIGHT);
 
+        Queue<unsigned int> input_keys = keyboard_state.GetInputKeys();
+
+        while (!input_keys.empty())
+        {
+            unsigned int current = input_keys.front();
+
+            if (current > 0 && current < 0x10000)
+            {
+                io.AddInputCharacter(static_cast<unsigned short>(input_keys.front()));
+            }
+
+            input_keys.pop();
+        }
+
         if (main_window->GetWindowFocused())
         {
             io.MousePos = ImVec2(mouse_state.GetMousePosition().x, mouse_state.GetMousePosition().y);

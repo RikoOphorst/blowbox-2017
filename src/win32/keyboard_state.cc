@@ -48,6 +48,12 @@ namespace blowbox
     {
         return key_states_[key];
     }
+
+    //------------------------------------------------------------------------------------------------------
+    Queue<unsigned int> KeyboardState::GetInputKeys() const
+    {
+        return input_keys_;
+    }
     
     //------------------------------------------------------------------------------------------------------
     void KeyboardState::SetKeyPressed(KeyCode key)
@@ -72,12 +78,23 @@ namespace blowbox
     }
     
     //------------------------------------------------------------------------------------------------------
+    void KeyboardState::AddInputKey(unsigned int key)
+    {
+        input_keys_.push(key);
+    }
+
+    //------------------------------------------------------------------------------------------------------
     void KeyboardState::ResetKeys()
     {
         for (auto it = key_states_.begin(); it != key_states_.end(); it++)
         {
             it->second.pressed = false;
             it->second.released = false;
+        }
+
+        while (!input_keys_.empty())
+        {
+            input_keys_.pop();
         }
     }
 }

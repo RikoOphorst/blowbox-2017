@@ -119,6 +119,13 @@ namespace blowbox
         static void GlfwKeyCallback(GLFWwindow* window, int key, int scancode, int action, int modifiers);
 
         /**
+        * @brief This is the callback function that is used for character input.
+        * @param[in] window     The window that the callback function is associated with.
+        * @param[in] character  The character in question.
+        */
+        static void GlfwCharCallback(GLFWwindow* window, unsigned int unicode_character);
+
+        /**
         * @brief This is the callback function that is used for mouse movement input.
         * @param[in] window     The window that the callback function is associated with.
         * @param[in] x          The position of the cursor on the x-axis.

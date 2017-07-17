@@ -32,6 +32,7 @@ SharedPtr<Entity> my_model;
 SharedPtr<PerspectiveCamera> camera;
 
 double previous_time = 0;
+bool my_window_open = true;
 
 void Run()
 {
@@ -57,42 +58,47 @@ void Update()
     double delta_time = glfwGetTime() - previous_time;
     previous_time = glfwGetTime();
 
-    ImGui::Text("Delta time: %f seconds", delta_time);
-    ImGui::Text("FPS: %f", 1.0 / delta_time);
+    if (my_window_open)
+    {
+        ImGui::Begin("Yo", &my_window_open);
 
-    DXGI_QUERY_VIDEO_MEMORY_INFO video_memory_info;
-    Get::Device()->GetAdapter().dxgi_adapter->QueryVideoMemoryInfo(0, DXGI_MEMORY_SEGMENT_GROUP_LOCAL, &video_memory_info);
+        ImGui::Text("Delta time: %f seconds", delta_time);
+        ImGui::Text("FPS: %f", 1.0 / delta_time);
 
-    ImGui::Text(
-        "Process VRAM usage: %g/%g MiB (%i%%)", 
-        static_cast<float>(video_memory_info.CurrentUsage) / (1000000.0f),
-        static_cast<float>(Get::Device()->GetAdapter().video_memory) / 1000000.0f,
-        static_cast<int>( ( static_cast<float>(video_memory_info.CurrentUsage) / static_cast<float>(Get::Device()->GetAdapter().video_memory) ) * 100.0f)
-    );
+        DXGI_QUERY_VIDEO_MEMORY_INFO video_memory_info;
+        Get::Device()->GetAdapter().dxgi_adapter->QueryVideoMemoryInfo(0, DXGI_MEMORY_SEGMENT_GROUP_LOCAL, &video_memory_info);
 
-    MEMORYSTATUSEX statex;
-    statex.dwLength = sizeof(statex);
-    GlobalMemoryStatusEx(&statex);
+        ImGui::Text(
+            "Process VRAM usage: %g/%g MiB (%i%%)",
+            static_cast<float>(video_memory_info.CurrentUsage) / (1000000.0f),
+            static_cast<float>(Get::Device()->GetAdapter().video_memory) / 1000000.0f,
+            static_cast<int>((static_cast<float>(video_memory_info.CurrentUsage) / static_cast<float>(Get::Device()->GetAdapter().video_memory)) * 100.0f)
+        );
 
-    PROCESS_MEMORY_COUNTERS counters;
-    counters.cb = sizeof(counters);
+        MEMORYSTATUSEX statex;
+        statex.dwLength = sizeof(statex);
+        GlobalMemoryStatusEx(&statex);
 
-    GetProcessMemoryInfo(GetCurrentProcess(), &counters, counters.cb);
+        PROCESS_MEMORY_COUNTERS counters;
+        counters.cb = sizeof(counters);
 
-    ImGui::Text(
-        "Process RAM usage: %g/%g MiB (%i%%)", 
-        static_cast<float>(counters.WorkingSetSize) / 1000000.0f,
-        static_cast<float>(statex.ullTotalPhys) / 1000000.0f,
-        static_cast<int>(((float)counters.WorkingSetSize / (float)statex.ullTotalPhys) * 100.0f)
-    );
-    ImGui::Text(
-        "Global RAM usage: %g/%g MiB (%i%%)", 
-        static_cast<float>(statex.ullTotalPhys - statex.ullAvailPhys) / 1000000.0f,
-        static_cast<float>(statex.ullTotalPhys) / 1000000.0f, 
-        static_cast<int>( ( (float)(statex.ullTotalPhys - statex.ullAvailPhys) / (float)statex.ullTotalPhys ) * 100.0f )
-    );
+        GetProcessMemoryInfo(GetCurrentProcess(), &counters, counters.cb);
 
-    ImGui::End();
+        ImGui::Text(
+            "Process RAM usage: %g/%g MiB (%i%%)",
+            static_cast<float>(counters.WorkingSetSize) / 1000000.0f,
+            static_cast<float>(statex.ullTotalPhys) / 1000000.0f,
+            static_cast<int>(((float)counters.WorkingSetSize / (float)statex.ullTotalPhys) * 100.0f)
+        );
+        ImGui::Text(
+            "Global RAM usage: %g/%g MiB (%i%%)",
+            static_cast<float>(statex.ullTotalPhys - statex.ullAvailPhys) / 1000000.0f,
+            static_cast<float>(statex.ullTotalPhys) / 1000000.0f,
+            static_cast<int>(((float)(statex.ullTotalPhys - statex.ullAvailPhys) / (float)statex.ullTotalPhys) * 100.0f)
+        );
+
+        ImGui::End();
+    }
 
     KeyboardState& keyboard = Get::MainWindow()->GetKeyboardState();
 

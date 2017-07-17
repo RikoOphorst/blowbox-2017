@@ -307,7 +307,7 @@ namespace blowbox
             context_frame_end.TransitionResource(render_swap_chain_->GetBackBuffer(), D3D12_RESOURCE_STATE_PRESENT);
             context_frame_end.Finish(true);
 
-            render_swap_chain_->Present(false);
+            render_swap_chain_->Present(true);
         }
 
         // Post render user procedure

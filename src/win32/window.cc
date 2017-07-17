@@ -36,6 +36,7 @@ namespace blowbox
         Get::GLFWManager()->AddWindow(this);
 
         glfwSetKeyCallback(window_, GlfwKeyCallback);
+        glfwSetCharCallback(window_, GlfwCharCallback);
         glfwSetCursorPosCallback(window_, GlfwCursorPosCallback);
         glfwSetMouseButtonCallback(window_, GlfwMouseButtonCallback);
         glfwSetScrollCallback(window_, GlfwScrollCallback);
@@ -175,6 +176,14 @@ namespace blowbox
         {
             keyboard_state.SetKeyReleased(GlfwKeyToBlowboxKeyCode(key));
         }
+    }
+
+    //------------------------------------------------------------------------------------------------------
+    void Window::GlfwCharCallback(GLFWwindow* window, unsigned int unicode_character)
+    {
+        KeyboardState& keyboard_state = Get::GLFWManager()->FindCorrespondingWindow(window)->GetKeyboardState();
+
+        keyboard_state.AddInputKey(unicode_character);
     }
 
     //------------------------------------------------------------------------------------------------------

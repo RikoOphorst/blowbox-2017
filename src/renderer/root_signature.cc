@@ -196,7 +196,8 @@ namespace blowbox
 	RootParameter::RootParameter(RootSignature* owning_signature) :
 		owning_signature_(owning_signature)
 	{
-
+        ParameterType = (D3D12_ROOT_PARAMETER_TYPE)0xFFFFFFFF;
+        DescriptorTable.pDescriptorRanges = nullptr;
 	}
 
 	//------------------------------------------------------------------------------------------------------
