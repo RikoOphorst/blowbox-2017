@@ -17,6 +17,8 @@ namespace blowbox
     class DescriptorHeap;
     class ImGuiManager;
     class SceneManager;
+    class DebugMenu;
+    class Console;
 
     /**
     * The Get class is essentially a set of getters. It allows
@@ -95,6 +97,12 @@ namespace blowbox
 
         /** @returns The SceneManager instance. */
         static SharedPtr<SceneManager> SceneManager();
+
+        /** @returns The DebugMenu instance. */
+        static SharedPtr<DebugMenu> DebugMenu();
+
+        /** @returns The Console instance. */
+        static SharedPtr<Console> Console();
         
     protected:
         /**
@@ -190,10 +198,24 @@ namespace blowbox
 
         /**
         * @brief Sets the SceneManager instance.
-        * @param[in] scene_manager       The instance of the scene_manager.
+        * @param[in] scene_manager       The instance of the SceneManager.
         * @remarks Only accessible to BlowboxCore.
         */
         void SetSceneManager(SharedPtr<blowbox::SceneManager> scene_manager);
+
+        /**
+        * @brief Sets the DebugMenu instance.
+        * @param[in] debug_menu       The instance of the DebugMenu.
+        * @remarks Only accessible to BlowboxCore.
+        */
+        void SetDebugMenu(SharedPtr<blowbox::DebugMenu> debug_menu);
+
+        /**
+        * @brief Sets the Console instance.
+        * @param[in] console The instance of the Console.
+        * @remarks Only accessible to BlowboxCore.
+        */
+        void SetConsole(SharedPtr<blowbox::Console> console);
 
         static Get* instance_;                                              //!< The instance of the Get class.
 
@@ -213,5 +235,7 @@ namespace blowbox
         WeakPtr<blowbox::SwapChain> swap_chain_;                            //!< The SwapChain instance
         WeakPtr<blowbox::ImGuiManager> imgui_manager_;                      //!< The ImGuiManager instance
         WeakPtr<blowbox::SceneManager> scene_manager_;                      //!< The SceneManager instance
+        WeakPtr<blowbox::DebugMenu> debug_menu_;                            //!< The ImGuiManager instance
+        WeakPtr<blowbox::Console> console_;                                 //!< The SceneManager instance
     };
 }

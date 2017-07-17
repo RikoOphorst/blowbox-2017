@@ -6,6 +6,8 @@
 #include "core/get.h"
 #include "core/core/blowbox_config.h"
 #include "core/scene/scene_manager.h"
+#include "core/debug/debug_menu.h"
+#include "core/debug/console.h"
 
 #include "win32/glfw_manager.h"
 #include "win32/window.h"
@@ -30,7 +32,7 @@ namespace blowbox
     
     //------------------------------------------------------------------------------------------------------
     BlowboxCore::BlowboxCore(BlowboxConfig* config) :
-        shutdown_requested_by_external_(true),
+        shutdown_requested_(false),
         config_(config),
         getter_(nullptr),
         win32_glfw_manager_(nullptr),
@@ -68,6 +70,9 @@ namespace blowbox
 
 		scene_manager_ = eastl::make_shared<SceneManager>();
 
+        debug_menu_ = eastl::make_shared<DebugMenu>();
+        console_ = eastl::make_shared<Console>();
+
         // Create Getter
 		getter_ = new Get();
     }
@@ -85,6 +90,7 @@ namespace blowbox
         StartupWin32();
         StartupRenderer();
         StartupScene();
+        StartupDebug();
 
         if (user_procedure_run_)
         {
@@ -106,6 +112,7 @@ namespace blowbox
             user_procedure_shutdown_();
         }
 
+        ShutdownDebug();
         ShutdownScene();
         ShutdownRenderer();
         ShutdownWin32();
@@ -115,23 +122,18 @@ namespace blowbox
     //------------------------------------------------------------------------------------------------------
     void BlowboxCore::Shutdown()
     {
-        shutdown_requested_by_external_ = false;
+        shutdown_requested_ = true;
     }
 
     //------------------------------------------------------------------------------------------------------
     bool BlowboxCore::IsBlowboxAlive()
     {
-        if (shutdown_requested_by_external_ == false)
+        if (shutdown_requested_ == true)
         {
             return false;
         }
         
         if (win32_main_window_->GetWindowShouldClose())
-        {
-            return false;
-        }
-
-        if (win32_main_window_->GetKeyboardState().GetKeyPressed(KeyCode_ESCAPE))
         {
             return false;
         }
@@ -158,6 +160,8 @@ namespace blowbox
         getter_->SetDeferredRenderer(render_deferred_renderer_);
         getter_->SetImGuiManager(render_imgui_manager_);
 		getter_->SetSceneManager(scene_manager_);
+        getter_->SetDebugMenu(debug_menu_);
+        getter_->SetConsole(console_);
 
         getter_->Finalize();
     }
@@ -206,6 +210,12 @@ namespace blowbox
     void BlowboxCore::StartupScene()
     {
         scene_manager_->Startup();
+    }
+
+    //------------------------------------------------------------------------------------------------------
+    void BlowboxCore::StartupDebug()
+    {
+        debug_menu_->AddDebugWindow(1, console_);
     }
 
     //------------------------------------------------------------------------------------------------------
@@ -263,12 +273,48 @@ namespace blowbox
     }
 
     //------------------------------------------------------------------------------------------------------
+    void BlowboxCore::ShutdownDebug()
+    {
+        BLOWBOX_ASSERT(debug_menu_.use_count() == 1);
+        BLOWBOX_ASSERT(console_.use_count() == 1);
+
+        console_.reset();
+        debug_menu_.reset();
+    }
+
+    //------------------------------------------------------------------------------------------------------
     void BlowboxCore::Update()
     {
         if (user_procedure_update_)
             user_procedure_update_();
 
 		scene_manager_->Update();
+
+        if (ImGui::BeginPopupModal("Exit?", nullptr, ImGuiWindowFlags_AlwaysAutoResize))
+        {
+            ImGui::Text("Are you sure you want to exit?");
+            ImGui::Separator();
+
+            if (ImGui::Button("OK", ImVec2(120, 0)) || Get::MainWindow()->GetKeyboardState().GetKeyPressed(KeyCode_ESCAPE))
+            {
+                ImGui::CloseCurrentPopup();
+                Shutdown();
+            }
+
+            ImGui::SameLine();
+
+            if (ImGui::Button("Cancel", ImVec2(120, 0)))
+            {
+                ImGui::CloseCurrentPopup();
+            }
+
+            ImGui::EndPopup();
+        }
+
+        if (Get::MainWindow()->GetKeyboardState().GetKeyPressed(KeyCode_ESCAPE))
+        {
+            ImGui::OpenPopup("Exit?");
+        }
 
         if (user_procedure_post_update_)
             user_procedure_post_update_();
@@ -297,6 +343,10 @@ namespace blowbox
         // Do actual rendering
         {
             render_forward_renderer_->Render();
+
+            debug_menu_->RenderMenu();
+            debug_menu_->RenderWindows();
+
             render_imgui_manager_->Render();
         }
 

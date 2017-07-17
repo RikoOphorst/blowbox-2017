@@ -31,6 +31,8 @@ namespace blowbox
     class DeferredRenderer;
     class ImGuiManager;
 	class SceneManager;
+    class DebugMenu;
+    class Console;
 
     /**
     * This is the main class that the user has to create upon startup. It sets up everything
@@ -103,6 +105,9 @@ namespace blowbox
         /** @brief Starts up the Scene subsystems. */
         void StartupScene();
 
+        /** @brief Starts up the debug subsystems. */
+        void StartupDebug();
+
         /** @brief Shuts down the Getter system. */
         void ShutdownGetter();
 
@@ -114,6 +119,9 @@ namespace blowbox
 
         /** @brief Shuts down the Scene subsystems. */
         void ShutdownScene();
+
+        /** @brief Shuts down the debug subsystems. */
+        void ShutdownDebug();
 
         /**
         * This function updates all subsystems in the engine in the correct order.
@@ -194,7 +202,7 @@ namespace blowbox
 
     private:
         BlowboxConfig* config_;                                             //!< The configuration of blowbox.
-        bool shutdown_requested_by_external_;                               //!< Tracks whether the engine should still be alive.
+        bool shutdown_requested_;                                           //!< Tracks whether the engine should still be alive.
 
         Function<void> user_procedure_run_;                                 //!< The procedure that is defined by the user for the Run step.
         Function<void> user_procedure_update_;                              //!< The procedure that is defined by the user for the Update step.
@@ -225,5 +233,9 @@ namespace blowbox
 
         // scene stuff
 		SharedPtr<SceneManager> scene_manager_;                             //!< The SceneManager instance.
+
+        // debug stuff
+        SharedPtr<DebugMenu> debug_menu_;                                   //!< The DebugMenu instance.
+        SharedPtr<Console> console_;                                        //!< The Console instance.
     };
 }

@@ -38,6 +38,8 @@ namespace blowbox
         BLOWBOX_ASSERT(swap_chain_.use_count()                  > 0);
         BLOWBOX_ASSERT(imgui_manager_.use_count()               > 0);
         BLOWBOX_ASSERT(scene_manager_.use_count()               > 0);
+        BLOWBOX_ASSERT(debug_menu_.use_count()                  > 0);
+        BLOWBOX_ASSERT(console_.use_count()                     > 0);
 
         finalized_ = true;
     }
@@ -138,6 +140,18 @@ namespace blowbox
     {
         return Get::instance_->scene_manager_.lock();
     }
+
+    //------------------------------------------------------------------------------------------------------
+    SharedPtr<DebugMenu> Get::DebugMenu()
+    {
+        return Get::instance_->debug_menu_.lock();
+    }
+
+    //------------------------------------------------------------------------------------------------------
+    SharedPtr<Console> Get::Console()
+    {
+        return Get::instance_->console_.lock();
+    }
     
     //------------------------------------------------------------------------------------------------------
     void Get::SetBlowboxCore(blowbox::BlowboxCore* blowbox_core)
@@ -221,5 +235,17 @@ namespace blowbox
     void Get::SetSceneManager(SharedPtr<blowbox::SceneManager> scene_manager)
     {
         scene_manager_ = scene_manager;
+    }
+    
+    //------------------------------------------------------------------------------------------------------
+    void Get::SetDebugMenu(SharedPtr<blowbox::DebugMenu> debug_menu)
+    {
+        debug_menu_ = debug_menu;
+    }
+    
+    //------------------------------------------------------------------------------------------------------
+    void Get::SetConsole(SharedPtr<blowbox::Console> console)
+    {
+        console_ = console;
     }
 }

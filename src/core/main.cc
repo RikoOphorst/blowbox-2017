@@ -14,6 +14,7 @@
 #include "core/scene/scene_manager.h"
 #include "core/scene/entity_factory.h"
 #include "core/scene/entity.h"
+#include "core/debug/console.h"
 #include "renderer/imgui/imgui.h"
 #include "renderer/device.h"
 #include "renderer/buffers/structured_buffer.h"
@@ -33,13 +34,14 @@ SharedPtr<PerspectiveCamera> camera;
 
 double previous_time = 0;
 bool my_window_open = true;
+bool show_test_window = true;
 
 void Run()
 {
     main_window = Get::MainWindow().get();
 
-    my_model = ModelFactory::LoadModel("./models/crytek-sponza/sponza.obj");
-    my_model->SetLocalScaling(DirectX::XMFLOAT3(0.1f, 0.1f, 0.1f));
+    my_model = ModelFactory::LoadModel("./models/cube/cube.obj");
+    //my_model->SetLocalScaling(DirectX::XMFLOAT3(0.1f, 0.1f, 0.1f));
     EntityFactory::AddChildToEntity(Get::SceneManager()->GetRootEntity(), my_model);
 
     camera = eastl::make_shared<PerspectiveCamera>();
@@ -119,8 +121,15 @@ void Update()
     if (keyboard.GetKeyDown(KeyCode_D))
         camera->Translate(DirectX::XMFLOAT3(speed * delta_time, 0.0f, 0.0f));
 
-    MouseState& mouse = Get::MainWindow()->GetMouseState();
+    if (keyboard.GetKeyDown(KeyCode_T))
+        Get::Console()->LogStatus("status message");
+    if (keyboard.GetKeyDown(KeyCode_Y))
+        Get::Console()->LogWarning("warning message");
+    if (keyboard.GetKeyDown(KeyCode_U))
+        Get::Console()->LogError("error message");
 
+    MouseState& mouse = Get::MainWindow()->GetMouseState();
+    
     static DirectX::XMFLOAT3 rotation = DirectX::XMFLOAT3(0.0f, 0.0f, 0.0f);
 
     if (mouse.GetButtonDown(MouseButton_LEFT))
