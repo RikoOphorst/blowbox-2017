@@ -1,6 +1,7 @@
 #include "keyboard_state.h"
 
 #include <GLFW/glfw3.h>
+#include "core/debug/profiler.h"
 
 namespace blowbox
 {
@@ -86,6 +87,8 @@ namespace blowbox
     //------------------------------------------------------------------------------------------------------
     void KeyboardState::ResetKeys()
     {
+        Profiler::ProfilerBlock block("KeyboardState::Reset", ProfilerBlockType_CORE);
+
         for (auto it = key_states_.begin(); it != key_states_.end(); it++)
         {
             it->second.pressed = false;

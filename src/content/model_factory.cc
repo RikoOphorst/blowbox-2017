@@ -8,12 +8,20 @@
 #include "core/scene/entity_factory.h"
 #include "util/assert.h"
 #include "util/quaternion.h"
+#include "core/get.h"
+#include "core/debug/console.h"
+
+#include "core/debug/profiler.h"
 
 namespace blowbox
 {
     //------------------------------------------------------------------------------------------------------
     SharedPtr<Entity> ModelFactory::LoadModel(const String& file_path_to_model)
     {
+        char buf[512];
+        sprintf(buf, "ModelFactoryLoad: %s", file_path_to_model.c_str());
+
+        Profiler::ProfilerBlock block(buf, ProfilerBlockType_CONTENT);
         SharedPtr<Entity> root_entity = EntityFactory::CreateEntity("model_root");
 
         Assimp::Importer importer;
@@ -38,6 +46,16 @@ namespace blowbox
 
         ProcessNode(scene->mRootNode, root_entity, meshes);
 
+        int num_indices = 0, num_vertices = 0;
+        for (int i = 0; i < meshes.size(); i++)
+        {
+            num_indices += meshes[i]->GetMeshData().GetIndices().size();
+            num_vertices += meshes[i]->GetMeshData().GetVertices().size();
+        }
+
+        sprintf(buf, "A model (%s) has been loaded.\nMeshes: %i\nVertices: %i\nIndices: %i", file_path_to_model.c_str(), meshes.size(), num_vertices, num_indices);
+        Get::Console()->LogStatus(buf);
+
         return root_entity;
     }
     
@@ -51,6 +69,13 @@ namespace blowbox
 
             ProcessVertices(meshes[i], &vertices);
             ProcessIndices(meshes[i], &indices);
+
+            Index max = 0;
+            max = ~max;
+            if (vertices.size() > max)
+            {
+                Get::Console()->LogWarning(String("A mesh with more than ") + eastl::to_string(max) + " vertices is being loaded while Blowbox is configured to use " + eastl::to_string(sizeof(Index) * 8) + " bit indices which don't support any more vertices than that. This will result in artifacts when rendering the model.");
+            }
 
             SharedPtr<Mesh> mesh = eastl::make_shared<Mesh>();
             mesh->Create(MeshData(vertices, indices, D3D_PRIMITIVE_TOPOLOGY_TRIANGLELIST));

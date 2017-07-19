@@ -33,6 +33,8 @@ namespace blowbox
 
         // As the Adapter, pass in a nullptr. This makes D3D12 look for the first available adapter.
         BLOWBOX_ASSERT_HR(D3D12CreateDevice(nullptr, D3D_FEATURE_LEVEL_11_0, IID_PPV_ARGS(&device_)));
+
+        device_->SetStablePowerState(true);
 	}
 	
 	//------------------------------------------------------------------------------------------------------

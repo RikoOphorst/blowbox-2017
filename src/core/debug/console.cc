@@ -145,9 +145,9 @@ namespace blowbox
     {
         if (show_console_window_)
         {
-            ImGui::SetNextWindowCollapsed(false, ImGuiSetCond_Once);
-            ImGui::SetNextWindowSize(ImVec2(600, 400), ImGuiSetCond_Once);
-            ImGui::SetNextWindowPosCenter(ImGuiSetCond_Once);
+            ImGui::SetNextWindowCollapsed(false, ImGuiSetCond_FirstUseEver);
+            ImGui::SetNextWindowSize(ImVec2(600, 400), ImGuiSetCond_FirstUseEver);
+            ImGui::SetNextWindowPosCenter(ImGuiSetCond_FirstUseEver);
 
             if (ImGui::Begin("Console", &show_console_window_))
             {
@@ -161,7 +161,7 @@ namespace blowbox
                         ImGui::TextUnformatted(message_buffer_[i].time_stamp.c_str());
                         ImGui::SameLine();
                         ImGui::PushStyleColor(ImGuiCol_Text, ImColor(message_buffer_[i].color.x, message_buffer_[i].color.y, message_buffer_[i].color.z, message_buffer_[i].color.w));
-                        ImGui::TextUnformatted(message_buffer_[i].message.c_str());
+                        ImGui::TextWrapped(message_buffer_[i].message.c_str());
                         ImGui::PopStyleColor();
                     }
 

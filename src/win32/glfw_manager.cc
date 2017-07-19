@@ -5,6 +5,8 @@
 
 #include <GLFW/glfw3.h>
 
+#include "core/debug/profiler.h"
+
 namespace blowbox
 {
     //------------------------------------------------------------------------------------------------------
@@ -27,13 +29,14 @@ namespace blowbox
 
     //------------------------------------------------------------------------------------------------------
     void GLFWManager::Update()
-    {
+    {        
         for (auto it = windows_.begin(); it != windows_.end(); it++)
         {
             it->second->GetKeyboardState().ResetKeys();
             it->second->GetMouseState().Update();
         }
 
+        Profiler::ProfilerBlock block("GLFW Poll Events", ProfilerBlockType_CORE);
         glfwPollEvents();
     }
 

@@ -40,6 +40,8 @@ namespace blowbox
         BLOWBOX_ASSERT(scene_manager_.use_count()               > 0);
         BLOWBOX_ASSERT(debug_menu_.use_count()                  > 0);
         BLOWBOX_ASSERT(console_.use_count()                     > 0);
+        BLOWBOX_ASSERT(time_.use_count()                        > 0);
+        BLOWBOX_ASSERT(profiler_.use_count()                    > 0);
 
         finalized_ = true;
     }
@@ -152,6 +154,18 @@ namespace blowbox
     {
         return Get::instance_->console_.lock();
     }
+
+    //------------------------------------------------------------------------------------------------------
+    SharedPtr<Time> Get::Time()
+    {
+        return Get::instance_->time_.lock();
+    }
+
+    //------------------------------------------------------------------------------------------------------
+    SharedPtr<Profiler> Get::Profiler()
+    {
+        return Get::instance_->profiler_.lock();
+    }
     
     //------------------------------------------------------------------------------------------------------
     void Get::SetBlowboxCore(blowbox::BlowboxCore* blowbox_core)
@@ -247,5 +261,17 @@ namespace blowbox
     void Get::SetConsole(SharedPtr<blowbox::Console> console)
     {
         console_ = console;
+    }
+
+    //------------------------------------------------------------------------------------------------------
+    void Get::SetTime(SharedPtr<blowbox::Time> time)
+    {
+        time_ = time;
+    }
+    
+    //------------------------------------------------------------------------------------------------------
+    void Get::SetProfiler(SharedPtr<blowbox::Profiler> profiler)
+    {
+        profiler_ = profiler;
     }
 }

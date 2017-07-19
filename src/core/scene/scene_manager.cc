@@ -1,5 +1,7 @@
 #include "scene_manager.h"
 
+#include "core/debug/profiler.h"
+
 #include "core/scene/entity_factory.h"
 
 namespace blowbox
@@ -27,6 +29,7 @@ namespace blowbox
     //------------------------------------------------------------------------------------------------------
     void SceneManager::Update()
     {
+        Profiler::ProfilerBlock block("SceneManager::Update", ProfilerBlockType_CORE);
         for (int i = 0; i < all_entities_.size(); i++)
         {
             all_entities_[i]->Update();

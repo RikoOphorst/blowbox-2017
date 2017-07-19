@@ -5,6 +5,7 @@
 #include "renderer/descriptor_heap.h"
 #include "renderer/commands/graphics_context.h"
 #include "core/scene/scene_manager.h"
+#include "core/debug/profiler.h"
 
 namespace blowbox
 {
@@ -81,6 +82,8 @@ namespace blowbox
     //------------------------------------------------------------------------------------------------------
     void ForwardRenderer::Render()
     {
+        Profiler::ProfilerBlock profiler_block("FrameForwardSetup", ProfilerBlockType_RENDERER);
+
         GraphicsContext& context = GraphicsContext::Begin(L"CommandListForwardSetup");
 
 		SharedPtr<SwapChain> swap_chain = Get::SwapChain();
@@ -93,6 +96,9 @@ namespace blowbox
         context.ClearDepth(depth_buffer_);
 
         context.SetViewportAndScissor(0, 0, swap_chain->GetBufferWidth(), swap_chain->GetBufferHeight());
+
+        profiler_block.Finish();
+        Profiler::ProfilerBlock profiler_block2("FrameRecordingDrawCalls", ProfilerBlockType_RENDERER);
 
         Vector<SharedPtr<Entity>>& entities = Get::SceneManager()->GetEntities();
 

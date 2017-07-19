@@ -19,6 +19,8 @@ namespace blowbox
     class SceneManager;
     class DebugMenu;
     class Console;
+    class Time;
+    class Profiler;
 
     /**
     * The Get class is essentially a set of getters. It allows
@@ -103,6 +105,12 @@ namespace blowbox
 
         /** @returns The Console instance. */
         static SharedPtr<Console> Console();
+
+        /** @returns The Time instance. */
+        static SharedPtr<Time> Time();
+
+        /** @returns The Profiler instance. */
+        static SharedPtr<Profiler> Profiler();
         
     protected:
         /**
@@ -217,6 +225,20 @@ namespace blowbox
         */
         void SetConsole(SharedPtr<blowbox::Console> console);
 
+        /**
+        * @brief Sets the Time instance.
+        * @param[in] time The instance of the Time.
+        * @remarks Only accessible to BlowboxCore.
+        */
+        void SetTime(SharedPtr<blowbox::Time> time);
+
+        /**
+        * @brief Sets the Profiler instance.
+        * @param[in] profiler The instance of the Profiler.
+        * @remarks Only accessible to BlowboxCore.
+        */
+        void SetProfiler(SharedPtr<blowbox::Profiler> profiler);
+
         static Get* instance_;                                              //!< The instance of the Get class.
 
     private:
@@ -235,7 +257,9 @@ namespace blowbox
         WeakPtr<blowbox::SwapChain> swap_chain_;                            //!< The SwapChain instance
         WeakPtr<blowbox::ImGuiManager> imgui_manager_;                      //!< The ImGuiManager instance
         WeakPtr<blowbox::SceneManager> scene_manager_;                      //!< The SceneManager instance
-        WeakPtr<blowbox::DebugMenu> debug_menu_;                            //!< The ImGuiManager instance
-        WeakPtr<blowbox::Console> console_;                                 //!< The SceneManager instance
+        WeakPtr<blowbox::DebugMenu> debug_menu_;                            //!< The DebugMenu instance
+        WeakPtr<blowbox::Console> console_;                                 //!< The Console instance
+        WeakPtr<blowbox::Time> time_;                                       //!< The Time instance
+        WeakPtr<blowbox::Profiler> profiler_;                               //!< The Profiler instance
     };
 }

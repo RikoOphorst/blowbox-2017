@@ -4,6 +4,7 @@
 #include "core/core/blowbox_config.h"
 #include "core/get.h"
 #include "win32/window.h"
+#include "win32/time.h"
 #include "content/image.h"
 #include "content/model_factory.h"
 #include "util/safe_ptr.h"
@@ -15,12 +16,14 @@
 #include "core/scene/entity_factory.h"
 #include "core/scene/entity.h"
 #include "core/debug/console.h"
+#include "core/debug/profiler.h"
 #include "renderer/imgui/imgui.h"
 #include "renderer/device.h"
 #include "renderer/buffers/structured_buffer.h"
 #include "renderer/descriptor_heap.h"
 #include "renderer/cameras/perspective_camera.h"
 #include "renderer/cameras/orthographic_camera.h"
+#include <algorithm>
 
 #include <Psapi.h>
 
@@ -40,8 +43,8 @@ void Run()
 {
     main_window = Get::MainWindow().get();
 
-    my_model = ModelFactory::LoadModel("./models/cube/cube.obj");
-    //my_model->SetLocalScaling(DirectX::XMFLOAT3(0.1f, 0.1f, 0.1f));
+    my_model = ModelFactory::LoadModel("./models/crytek-sponza/sponza.obj");
+    my_model->SetLocalScaling(DirectX::XMFLOAT3(0.1f, 0.1f, 0.1f));
     EntityFactory::AddChildToEntity(Get::SceneManager()->GetRootEntity(), my_model);
 
     camera = eastl::make_shared<PerspectiveCamera>();
@@ -57,51 +60,6 @@ void Run()
 
 void Update()
 {
-    double delta_time = glfwGetTime() - previous_time;
-    previous_time = glfwGetTime();
-
-    if (my_window_open)
-    {
-        ImGui::Begin("Yo", &my_window_open);
-
-        ImGui::Text("Delta time: %f seconds", delta_time);
-        ImGui::Text("FPS: %f", 1.0 / delta_time);
-
-        DXGI_QUERY_VIDEO_MEMORY_INFO video_memory_info;
-        Get::Device()->GetAdapter().dxgi_adapter->QueryVideoMemoryInfo(0, DXGI_MEMORY_SEGMENT_GROUP_LOCAL, &video_memory_info);
-
-        ImGui::Text(
-            "Process VRAM usage: %g/%g MiB (%i%%)",
-            static_cast<float>(video_memory_info.CurrentUsage) / (1000000.0f),
-            static_cast<float>(Get::Device()->GetAdapter().video_memory) / 1000000.0f,
-            static_cast<int>((static_cast<float>(video_memory_info.CurrentUsage) / static_cast<float>(Get::Device()->GetAdapter().video_memory)) * 100.0f)
-        );
-
-        MEMORYSTATUSEX statex;
-        statex.dwLength = sizeof(statex);
-        GlobalMemoryStatusEx(&statex);
-
-        PROCESS_MEMORY_COUNTERS counters;
-        counters.cb = sizeof(counters);
-
-        GetProcessMemoryInfo(GetCurrentProcess(), &counters, counters.cb);
-
-        ImGui::Text(
-            "Process RAM usage: %g/%g MiB (%i%%)",
-            static_cast<float>(counters.WorkingSetSize) / 1000000.0f,
-            static_cast<float>(statex.ullTotalPhys) / 1000000.0f,
-            static_cast<int>(((float)counters.WorkingSetSize / (float)statex.ullTotalPhys) * 100.0f)
-        );
-        ImGui::Text(
-            "Global RAM usage: %g/%g MiB (%i%%)",
-            static_cast<float>(statex.ullTotalPhys - statex.ullAvailPhys) / 1000000.0f,
-            static_cast<float>(statex.ullTotalPhys) / 1000000.0f,
-            static_cast<int>(((float)(statex.ullTotalPhys - statex.ullAvailPhys) / (float)statex.ullTotalPhys) * 100.0f)
-        );
-
-        ImGui::End();
-    }
-
     KeyboardState& keyboard = Get::MainWindow()->GetKeyboardState();
 
     float speed = 5.0f;
@@ -110,16 +68,23 @@ void Update()
         speed *= 10.0f;
 
     if (keyboard.GetKeyDown(KeyCode_W))
-        camera->Translate(DirectX::XMFLOAT3(0.0f, 0.0f, speed * delta_time));
+        camera->Translate(DirectX::XMFLOAT3(0.0f, 0.0f, speed * Time::GetDeltaTime()));
 
     if (keyboard.GetKeyDown(KeyCode_S))
-        camera->Translate(DirectX::XMFLOAT3(0.0f, 0.0f, -speed * delta_time));
+        camera->Translate(DirectX::XMFLOAT3(0.0f, 0.0f, -speed * Time::GetDeltaTime()));
 
     if (keyboard.GetKeyDown(KeyCode_A))
-        camera->Translate(DirectX::XMFLOAT3(-speed * delta_time, 0.0f, 0.0f));
+        camera->Translate(DirectX::XMFLOAT3(-speed * Time::GetDeltaTime(), 0.0f, 0.0f));
 
     if (keyboard.GetKeyDown(KeyCode_D))
-        camera->Translate(DirectX::XMFLOAT3(speed * delta_time, 0.0f, 0.0f));
+        camera->Translate(DirectX::XMFLOAT3(speed * Time::GetDeltaTime(), 0.0f, 0.0f));
+
+    MouseState& mouse = Get::MainWindow()->GetMouseState();
+    
+    static DirectX::XMFLOAT3 rotation = DirectX::XMFLOAT3(0.0f, 0.0f, 0.0f);
+
+    if (mouse.GetButtonDown(MouseButton_LEFT))
+        camera->Rotate(DirectX::XMFLOAT3(mouse.GetMousePositionDelta().y * 0.005f, mouse.GetMousePositionDelta().x * 0.005f, 0.0f));
 
     if (keyboard.GetKeyDown(KeyCode_T))
         Get::Console()->LogStatus("status message");
@@ -128,12 +93,7 @@ void Update()
     if (keyboard.GetKeyDown(KeyCode_U))
         Get::Console()->LogError("error message");
 
-    MouseState& mouse = Get::MainWindow()->GetMouseState();
-    
-    static DirectX::XMFLOAT3 rotation = DirectX::XMFLOAT3(0.0f, 0.0f, 0.0f);
-
-    if (mouse.GetButtonDown(MouseButton_LEFT))
-        camera->Rotate(DirectX::XMFLOAT3(mouse.GetMousePositionDelta().y * 0.005f, mouse.GetMousePositionDelta().x * 0.005f, 0.0f));
+    my_model->SetLocalPosition(DirectX::XMFLOAT3(std::sin(Time::GetProcessTime()) * 15.0f, 0.0f, std::cos(Time::GetProcessTime()) * 15.0f));
 }
 
 void PostUpdate()

@@ -6,11 +6,14 @@
 #include "core/get.h"
 #include "core/core/blowbox_config.h"
 #include "core/scene/scene_manager.h"
+
 #include "core/debug/debug_menu.h"
 #include "core/debug/console.h"
+#include "core/debug/profiler.h"
 
 #include "win32/glfw_manager.h"
 #include "win32/window.h"
+#include "win32/time.h"
 
 #include "renderer/device.h"
 #include "renderer/swap_chain.h"
@@ -53,6 +56,7 @@ namespace blowbox
         // Create win32 stuff
         win32_glfw_manager_ = eastl::make_shared<GLFWManager>();
         win32_main_window_ = eastl::make_shared<Window>();
+        win32_time_ = eastl::make_shared<Time>();
 
         // Create render stuff
 		render_device_ = eastl::make_shared<Device>();
@@ -68,10 +72,13 @@ namespace blowbox
 
         render_imgui_manager_ = eastl::make_shared<ImGuiManager>();
 
+        // Create Scene stuff
 		scene_manager_ = eastl::make_shared<SceneManager>();
 
+        // Create debug stuff
         debug_menu_ = eastl::make_shared<DebugMenu>();
         console_ = eastl::make_shared<Console>();
+        profiler_ = eastl::make_shared<Profiler>();
 
         // Create Getter
 		getter_ = new Get();
@@ -88,9 +95,9 @@ namespace blowbox
     {
         StartupGetter();
         StartupWin32();
+        StartupDebug();
         StartupRenderer();
         StartupScene();
-        StartupDebug();
 
         if (user_procedure_run_)
         {
@@ -100,6 +107,8 @@ namespace blowbox
         while (IsBlowboxAlive())
         {
             win32_glfw_manager_->Update();
+            win32_time_->NewFrame();
+            profiler_->NewFrame();
             render_imgui_manager_->NewFrame();
 
             Update();
@@ -112,9 +121,9 @@ namespace blowbox
             user_procedure_shutdown_();
         }
 
-        ShutdownDebug();
         ShutdownScene();
         ShutdownRenderer();
+        ShutdownDebug();
         ShutdownWin32();
         ShutdownGetter();
     }
@@ -148,6 +157,7 @@ namespace blowbox
 
         getter_->SetGLFWManager(win32_glfw_manager_);
         getter_->SetMainWindow(win32_main_window_);
+        getter_->SetTime(win32_time_);
 
         getter_->SetDevice(render_device_);
         getter_->SetCommandManager(render_command_manager_);
@@ -159,9 +169,12 @@ namespace blowbox
         getter_->SetForwardRenderer(render_forward_renderer_);
         getter_->SetDeferredRenderer(render_deferred_renderer_);
         getter_->SetImGuiManager(render_imgui_manager_);
+
 		getter_->SetSceneManager(scene_manager_);
+
         getter_->SetDebugMenu(debug_menu_);
         getter_->SetConsole(console_);
+        getter_->SetProfiler(profiler_);
 
         getter_->Finalize();
     }
@@ -216,6 +229,7 @@ namespace blowbox
     void BlowboxCore::StartupDebug()
     {
         debug_menu_->AddDebugWindow(1, console_);
+        debug_menu_->AddDebugWindow(2, profiler_);
     }
 
     //------------------------------------------------------------------------------------------------------
@@ -229,7 +243,9 @@ namespace blowbox
     {
         BLOWBOX_ASSERT(win32_main_window_.use_count() == 1);
         BLOWBOX_ASSERT(win32_glfw_manager_.use_count() == 1);
+        BLOWBOX_ASSERT(win32_time_.use_count() == 1);
 
+        win32_time_.reset();
         win32_main_window_.reset();
         win32_glfw_manager_.reset();
     }
@@ -286,7 +302,10 @@ namespace blowbox
     void BlowboxCore::Update()
     {
         if (user_procedure_update_)
+        {
+            Profiler::ProfilerBlock block("UserProcedure: Update", ProfilerBlockType_CORE);
             user_procedure_update_();
+        }
 
 		scene_manager_->Update();
 
@@ -295,7 +314,7 @@ namespace blowbox
             ImGui::Text("Are you sure you want to exit?");
             ImGui::Separator();
 
-            if (ImGui::Button("OK", ImVec2(120, 0)) || Get::MainWindow()->GetKeyboardState().GetKeyPressed(KeyCode_ESCAPE))
+            if (ImGui::Button("OK", ImVec2(120, 0)) || Get::MainWindow()->GetKeyboardState().GetKeyPressed(KeyCode_ENTER))
             {
                 ImGui::CloseCurrentPopup();
                 Shutdown();
@@ -303,21 +322,30 @@ namespace blowbox
 
             ImGui::SameLine();
 
-            if (ImGui::Button("Cancel", ImVec2(120, 0)))
+            if (ImGui::Button("Cancel", ImVec2(120, 0)) || Get::MainWindow()->GetKeyboardState().GetKeyPressed(KeyCode_ESCAPE))
             {
                 ImGui::CloseCurrentPopup();
             }
 
             ImGui::EndPopup();
         }
-
-        if (Get::MainWindow()->GetKeyboardState().GetKeyPressed(KeyCode_ESCAPE))
+        else
         {
-            ImGui::OpenPopup("Exit?");
+            if (Get::MainWindow()->GetKeyboardState().GetKeyPressed(KeyCode_ESCAPE))
+            {
+                // Make a temp window that catches focus. This is because an imgui window needs to have focus before it can open a modal popup like our exit prompt.
+                ImGui::Begin("Window that fixes a weird ass bug in imgui.");
+                ImGui::SetWindowFocus();
+                ImGui::End();
+                ImGui::OpenPopup("Exit?");
+            }
         }
 
         if (user_procedure_post_update_)
+        {
+            Profiler::ProfilerBlock block("UserProcedure: PostUpdate", ProfilerBlockType_CORE);
             user_procedure_post_update_();
+        }
 
 		scene_manager_->PostUpdate();
     }
@@ -327,10 +355,14 @@ namespace blowbox
     {
         // Pre render user procedure
         if (user_procedure_render_)
+        {
+            Profiler::ProfilerBlock block("UserProcedure: Render", ProfilerBlockType_CORE);
             user_procedure_render_();
+        }
 
         // Frame start
         {
+            Profiler::ProfilerBlock block("FrameStart", ProfilerBlockType_RENDERER);
             GraphicsContext& context_frame_start = GraphicsContext::Begin(L"CommandListFrameStart");
 
             ID3D12DescriptorHeap* heaps[1] = { render_cbv_srv_uav_heap_->Get() };
@@ -352,17 +384,21 @@ namespace blowbox
 
         // Frame end
         {
+            Profiler::ProfilerBlock block("FrameEnd", ProfilerBlockType_RENDERER);
             GraphicsContext& context_frame_end = GraphicsContext::Begin(L"CommandListFrameEnd");
 
             context_frame_end.TransitionResource(render_swap_chain_->GetBackBuffer(), D3D12_RESOURCE_STATE_PRESENT);
             context_frame_end.Finish(true);
 
-            render_swap_chain_->Present(true);
+            render_swap_chain_->Present(false);
         }
 
         // Post render user procedure
         if (user_procedure_post_render_)
+        {
+            Profiler::ProfilerBlock block("UserProcedure: PostRender", ProfilerBlockType_CORE);
             user_procedure_post_render_();
+        }
     }
 
     //------------------------------------------------------------------------------------------------------

@@ -1,5 +1,6 @@
 #include "imgui_manager.h"
 
+#include "core/debug/profiler.h"
 #include "renderer/swap_chain.h"
 #include "renderer/descriptor_heap.h"
 #include "renderer/commands/command_context.h"
@@ -106,14 +107,7 @@ namespace blowbox
             input_keys.pop();
         }
 
-        if (main_window->GetWindowFocused())
-        {
-            io.MousePos = ImVec2(mouse_state.GetMousePosition().x, mouse_state.GetMousePosition().y);
-        }
-        else
-        {
-            io.MousePos = ImVec2(-1, -1);
-        }
+        io.MousePos = ImVec2(mouse_state.GetMousePosition().x, mouse_state.GetMousePosition().y);
 
         io.MouseWheel = mouse_state.GetScrollDelta().y;
 
@@ -123,6 +117,7 @@ namespace blowbox
     //------------------------------------------------------------------------------------------------------
     void ImGuiManager::Render()
     {
+        Profiler::ProfilerBlock block("RenderImGui", ProfilerBlockType_RENDERER);
         ImGui::Render();
     }
     

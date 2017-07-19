@@ -2,6 +2,7 @@
 
 #include "core/scene/scene_manager.h"
 #include "core/get.h"
+#include "core/debug/profiler.h"
 
 namespace blowbox
 {
@@ -90,7 +91,7 @@ namespace blowbox
 	//------------------------------------------------------------------------------------------------------
 	const DirectX::XMMATRIX& Entity::GetWorldTransform()
     {
-		if (transform_dirty_)
+		if (IsTransformDirty())
 		{
 			UpdateWorldTransform();
 		}
@@ -113,7 +114,7 @@ namespace blowbox
     //------------------------------------------------------------------------------------------------------
     void Entity::Update()
     {
-		if (transform_dirty_)
+		if (IsTransformDirty())
 		{
 			UpdateWorldTransform();
 		}
@@ -177,12 +178,14 @@ namespace blowbox
 	//------------------------------------------------------------------------------------------------------
 	bool Entity::IsTransformDirty()
 	{
-		return transform_dirty_;
+		return transform_dirty_ || (parent_.expired() ? false : parent_.lock()->IsTransformDirty());
 	}
 	
 	//------------------------------------------------------------------------------------------------------
 	void Entity::UpdateWorldTransform()
 	{
+        Profiler::ProfilerBlock block("Entity::UpdateWorldTransform", ProfilerBlockType_CORE);
+
 		world_transform_ =
 			(parent_.lock() != nullptr ? parent_.lock()->GetWorldTransform() : DirectX::XMMatrixIdentity()) *
 			DirectX::XMMatrixScaling(scaling_.x, scaling_.y, scaling_.z) *

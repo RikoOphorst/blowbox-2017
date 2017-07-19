@@ -33,6 +33,8 @@ namespace blowbox
 	class SceneManager;
     class DebugMenu;
     class Console;
+    class Time;
+    class Profiler;
 
     /**
     * This is the main class that the user has to create upon startup. It sets up everything
@@ -216,6 +218,7 @@ namespace blowbox
         // win32 stuff
 		SharedPtr<GLFWManager> win32_glfw_manager_;                         //!< The GLFWManager instance is stored here.
 		SharedPtr<Window> win32_main_window_;                               //!< The main Window instance.
+        SharedPtr<Time> win32_time_;                                        //!< The Time instance.
 
         // render stuff
         SharedPtr<Device> render_device_;                                   //!< The Device used by the renderers.
@@ -237,5 +240,8 @@ namespace blowbox
         // debug stuff
         SharedPtr<DebugMenu> debug_menu_;                                   //!< The DebugMenu instance.
         SharedPtr<Console> console_;                                        //!< The Console instance.
+        SharedPtr<Profiler> profiler_;                                      //!< The profiler_ instance.
+
+        bool exit_prompt_;
     };
 }

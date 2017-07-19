@@ -25,6 +25,7 @@ namespace blowbox
     //------------------------------------------------------------------------------------------------------
     void Window::Create(const Resolution& resolution, const String& window_title, Image* window_icon)
     {
+        glfwWindowHint(GLFW_CLIENT_API, GLFW_NO_API);
         window_ = glfwCreateWindow(resolution.width, resolution.height, window_title.c_str(), nullptr, nullptr);
         BLOWBOX_ASSERT(window_ != nullptr);
 
@@ -42,8 +43,6 @@ namespace blowbox
         glfwSetScrollCallback(window_, GlfwScrollCallback);
         glfwSetCursorEnterCallback(window_, GlfwMouseEnterCallback);
         glfwSetWindowFocusCallback(window_, GlfwFocusCallback);
-
-        Focus();
     }
 
     //------------------------------------------------------------------------------------------------------

@@ -3,7 +3,7 @@
 #include "renderer/d3d12_includes.h"
 #include "util/vector.h"
 
-//#define BLOWBOX_USE_32BIT_INDICES
+#define BLOWBOX_USE_32BIT_INDICES
 
 namespace blowbox
 {
