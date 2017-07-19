@@ -22,44 +22,22 @@ namespace blowbox
 	}
 
 	//------------------------------------------------------------------------------------------------------
-	void ColorBuffer::CreateFromSwapChain(const eastl::wstring& name, ID3D12Resource* swap_chain_resource)
+	void ColorBuffer::CreateFromSwapChain(const WString& name, ID3D12Resource* swap_chain_resource, float clear_color[4])
 	{
+        memcpy(clear_color_, clear_color, sizeof(float) * 4);
+
 		AssociateWithResource(name, swap_chain_resource, D3D12_RESOURCE_STATE_PRESENT);
 
 		srv_id_ = BLOWBOX_DESCRIPTOR_ID_UNKNOWN;
 		uav_id_ = BLOWBOX_DESCRIPTOR_ID_UNKNOWN;
 		rtv_id_ = Get::RtvHeap()->CreateRenderTargetView(resource_, nullptr);
+
+        name_ = name;
+        AddToMemoryProfiler();
 	}
 
 	//------------------------------------------------------------------------------------------------------
-	void ColorBuffer::CreateFromTexture(ID3D12Resource* texture_resource, int slice)
-	{
-		srv_id_ = BLOWBOX_DESCRIPTOR_ID_UNKNOWN;
-		uav_id_ = BLOWBOX_DESCRIPTOR_ID_UNKNOWN;
-
-		if (resource_ != nullptr) {
-			resource_->Release();
-		}
-
-		resource_ = texture_resource;
-
-		D3D12_RENDER_TARGET_VIEW_DESC rtv_desc = {};
-		D3D12_UNORDERED_ACCESS_VIEW_DESC uav_desc = {};
-		D3D12_SHADER_RESOURCE_VIEW_DESC srv_desc = {};
-
-		D3D12_RESOURCE_DESC text_desc = texture_resource->GetDesc();
-
-		rtv_desc.Format = text_desc.Format;
-		rtv_desc.ViewDimension = D3D12_RTV_DIMENSION_TEXTURE2DARRAY;
-		rtv_desc.Texture2DArray.PlaneSlice = 0;
-		rtv_desc.Texture2DArray.MipSlice = 0;
-		rtv_desc.Texture2DArray.ArraySize = 1;
-		rtv_desc.Texture2DArray.FirstArraySlice = D3D12CalcSubresource(0, slice, 0, 1, 1);
-		rtv_id_ = Get::RtvHeap()->CreateRenderTargetView(resource_, &rtv_desc);
-	}
-
-	//------------------------------------------------------------------------------------------------------
-	void ColorBuffer::Create(const eastl::wstring& name, UINT width, UINT height, DXGI_FORMAT format)
+	void ColorBuffer::Create(const WString& name, UINT width, UINT height, DXGI_FORMAT format)
 	{
 		D3D12_RESOURCE_DESC desc = DescribeTex2D(
 			width, 
@@ -78,6 +56,9 @@ namespace blowbox
 
 		CreateTextureResource(name, desc, clear_value_);
 		CreateDerivedViews(format);
+
+        name_ = name;
+        AddToMemoryProfiler();
 	}
 
 	//------------------------------------------------------------------------------------------------------

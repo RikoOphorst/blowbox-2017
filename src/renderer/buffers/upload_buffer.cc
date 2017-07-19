@@ -38,6 +38,9 @@ namespace blowbox
 		}
 
 		CreateDerivedViews();
+
+        name_ = name;
+        AddToMemoryProfiler();
 	}
 	
 	//------------------------------------------------------------------------------------------------------

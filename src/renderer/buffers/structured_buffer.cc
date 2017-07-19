@@ -37,7 +37,10 @@ namespace blowbox
 		uav_desc.Buffer.StructureByteStride = element_size_;
 		uav_desc.Buffer.Flags = D3D12_BUFFER_UAV_FLAG_NONE;
 
-		counter_buffer_.Create(L"StructuredBuffer::Counter", 1, 4);
+        wchar_t buf[512];
+
+        swprintf(buf, L"%s::Counter", name_.c_str());
+		counter_buffer_.Create(buf, 1, 4);
 
 		uav_id_ = cbv_srv_uav_heap->CreateUnorderedAccessView(resource_, counter_buffer_, &uav_desc);
 	}

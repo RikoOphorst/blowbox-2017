@@ -48,9 +48,8 @@ namespace blowbox
 			ID3D12Resource* temp_buf = nullptr;
 			BLOWBOX_ASSERT_HR(swap_chain_->GetBuffer(i, IID_PPV_ARGS(&temp_buf)));
 			
-			float bbc[4] = { 0.1f, 0.1f, 0.4f, 1.0f };
-			buffers_[i] = ColorBuffer(bbc);
-			buffers_[i].CreateFromSwapChain(L"SwapChainBuffer", temp_buf);
+			float clear_color[4] = { 0.1f, 0.1f, 0.4f, 1.0f };
+			buffers_[i].CreateFromSwapChain(L"SwapChainBuffer", temp_buf, clear_color);
 		}
 	}
 

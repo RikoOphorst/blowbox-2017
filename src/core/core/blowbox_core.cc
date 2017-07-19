@@ -30,6 +30,8 @@
 
 namespace blowbox
 {
+    bool BlowboxCore::alive = false;
+
     //------------------------------------------------------------------------------------------------------
     BlowboxCore::BlowboxCore()
     {
@@ -99,6 +101,8 @@ namespace blowbox
     //------------------------------------------------------------------------------------------------------
     void BlowboxCore::Run()
     {
+        alive = true;
+
         StartupGetter();
         StartupWin32();
         StartupDebug();
@@ -130,11 +134,15 @@ namespace blowbox
             user_procedure_shutdown_();
         }
 
+        memory_profiler_->Shutdown();
+
         ShutdownScene();
         ShutdownRenderer();
         ShutdownDebug();
         ShutdownWin32();
         ShutdownGetter();
+
+        alive = false;
     }
 
     //------------------------------------------------------------------------------------------------------
@@ -306,9 +314,19 @@ namespace blowbox
     //------------------------------------------------------------------------------------------------------
     void BlowboxCore::ShutdownDebug()
     {
-        BLOWBOX_ASSERT(debug_menu_.use_count() == 1);
-        BLOWBOX_ASSERT(console_.use_count() == 1);
+        memory_profiler_->Shutdown();
 
+        BLOWBOX_ASSERT(performance_profiler_.use_count() == 1);
+        BLOWBOX_ASSERT(frame_stats_.use_count() == 1);
+        BLOWBOX_ASSERT(memory_profiler_.use_count() == 1);
+        BLOWBOX_ASSERT(memory_stats_.use_count() == 1);
+        BLOWBOX_ASSERT(console_.use_count() == 1);
+        BLOWBOX_ASSERT(debug_menu_.use_count() == 1);
+
+        performance_profiler_.reset();
+        frame_stats_.reset();
+        memory_profiler_.reset();
+        memory_stats_.reset();
         console_.reset();
         debug_menu_.reset();
     }

@@ -4,8 +4,8 @@
 #include "util/shared_ptr.h"
 
 #define BLOWBOX_SWAP_CHAIN_BUFFER_COUNT 2
-#define BLOWBOX_DESCRIPTOR_HEAP_MAX_RTV_COUNT 1024U
-#define BLOWBOX_DESCRIPTOR_HEAP_MAX_DSV_COUNT 1024U
+#define BLOWBOX_DESCRIPTOR_HEAP_MAX_RTV_COUNT 256U
+#define BLOWBOX_DESCRIPTOR_HEAP_MAX_DSV_COUNT 256U
 #define BLOWBOX_DESCRIPTOR_HEAP_MAX_CBV_SRV_UAV_COUNT 16384U
 
 /**
@@ -94,9 +94,10 @@ namespace blowbox
         */
         void Shutdown();
 
-    protected:
         /** @brief Figures out whether the BlowboxCore should shutdown based on the state of the engine (window, input, etc) */
         bool IsBlowboxAlive();
+
+    protected:
 
         /** @brief Starts up the Getter system. */
         void StartupGetter();
@@ -249,5 +250,8 @@ namespace blowbox
         SharedPtr<MemoryStats> memory_stats_;                               //!< The MemoryStats instance.
 
         bool exit_prompt_;
+
+    public:
+        static bool alive;
     };
 }

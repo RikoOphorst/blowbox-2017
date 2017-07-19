@@ -1,6 +1,7 @@
 #pragma once
 
 #include "renderer/d3d12_includes.h"
+#include "util/string.h"
 
 #define D3D12_RESOURCE_STATE_INVALID ((D3D12_RESOURCE_STATES)-1)
 
@@ -18,6 +19,13 @@ namespace blowbox
 	class GpuResource
 	{
 		friend class CommandContext;
+        friend class MemoryProfiler;
+        friend class CompareGpuResourceByName;
+        friend class CompareGpuResourceBySize;
+        friend class CompareGpuResourceByFormat;
+        friend class CompareGpuResourceByNameReverted;
+        friend class CompareGpuResourceBySizeReverted;
+        friend class CompareGpuResourceByFormatReverted;
 	public:
         /** @brief Constructs an empty GpuResource. */
 		GpuResource();
@@ -70,7 +78,14 @@ namespace blowbox
         */
 		const D3D12_RESOURCE_STATES& GetTransitionState() const { return transition_state_; }
 
+    protected:
+        /** @brief Adds this GpuResource to the MemoryProfiler. */
+        void AddToMemoryProfiler();
+        /** @brief Removes this GpuResource from the MemoryProfiler. */
+        void RemoveFromMemoryProfiler();
+
 	protected:
+        WString name_;                                   //!< The name of this resource.
 		ID3D12Resource* resource_;                      //!< The ID3D12Resource that is being wrapped by the GpuResource.
 		D3D12_RESOURCE_STATES usage_state_;             //!< The current resource state of the ID3D12Resource.
 		D3D12_RESOURCE_STATES transition_state_;        //!< The current transition state of the GpuResource.

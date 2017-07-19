@@ -27,24 +27,18 @@ namespace blowbox
         * @brief Creates a ColorBuffer from a SwapChain buffer.
         * @param[in] name The name for the ColorBuffer.
         * @param[in] swap_chain_resource The resource you got from the SwapChain.
+        * @param[in] clear_color The clear color that should be used for this buffer when clearing it.
         */
-		void CreateFromSwapChain(const eastl::wstring& name, ID3D12Resource* swap_chain_resource);
+		void CreateFromSwapChain(const WString& name, ID3D12Resource* swap_chain_resource, float clear_color[4]);
 
         /**
-        * @brief Creates a ColorBuffer from a pre-existing texture
-        * @param[in] texture_resource The resource to create this ColorBuffer from
-        * @param[in] slice Fuck if I know, I wrote this shit about a year ago and only documenting it now (Jul 2017)....
-        */
-		void CreateFromTexture(ID3D12Resource* texture_resource, int slice = 0);
-
-        /**
-        * @brief Creates a new ColorBuffer
+        * @brief Creates a new ColorBuffer.
         * @param[in] name The name for the ColorBuffer.
-        * @param[in] width The width of the ColorBuffer in texels
-        * @param[in] height The height of the ColorBuffer in texels
-        * @param[in] format The per-texel data format
+        * @param[in] width The width of the ColorBuffer in texels.
+        * @param[in] height The height of the ColorBuffer in texels.
+        * @param[in] format The per-texel data format.
         */
-		void Create(const eastl::wstring& name, UINT width, UINT height, DXGI_FORMAT format);
+		void Create(const WString& name, UINT width, UINT height, DXGI_FORMAT format);
 
         /** @returns The Shader Resource View for this ColorBuffer. */
 		const UINT& GetSRV() const { return srv_id_; }

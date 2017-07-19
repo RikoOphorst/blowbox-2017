@@ -41,7 +41,7 @@ namespace blowbox
 	//------------------------------------------------------------------------------------------------------
 	void PixelBuffer::AssociateWithResource(const WString& name, ID3D12Resource* resource, const D3D12_RESOURCE_STATES& current_resource_state)
 	{
-		assert(resource != nullptr);
+		BLOWBOX_ASSERT(resource != nullptr);
 		if (resource_ != nullptr)
 		{
 			resource_->Release();

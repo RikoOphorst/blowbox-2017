@@ -99,6 +99,12 @@ namespace blowbox
 
         /** @returns The size of a descriptor of this heap size. */
         UINT GetDescriptorSize() const { return descriptor_size_; }
+
+        /** @returns The amount of descriptors that is currently allocated. */
+        UINT GetDescriptorsAllocated() const { return current_allocations_; }
+
+        /** @returns The maximum amount of descriptors that will fit in this descriptor heap. */
+        UINT GetDescriptorHeapMaxAllocations() const { return heap_->GetDesc().NumDescriptors; }
 	private:
 		ID3D12DescriptorHeap* heap_;                //!< The underlying descriptor heap.
 		D3D12_DESCRIPTOR_HEAP_DESC heap_desc_;      //!< The description for the descriptor heap.

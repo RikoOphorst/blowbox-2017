@@ -39,11 +39,14 @@ namespace blowbox
 		}
 
 		resource_->SetName(name.c_str());
+        name_ = name;
 
 		if (create_views)
 		{
 			CreateDerivedViews();
 		}
+
+        AddToMemoryProfiler();
 	}
 	
 	//------------------------------------------------------------------------------------------------------

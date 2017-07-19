@@ -34,6 +34,9 @@ namespace blowbox
 
 		CreateTextureResource(name, desc, clear_value);
 		CreateDerivedViews(format);
+
+        name_ = name;
+        AddToMemoryProfiler();
 	}
 	
 	//------------------------------------------------------------------------------------------------------

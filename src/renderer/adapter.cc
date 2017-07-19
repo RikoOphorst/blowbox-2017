@@ -21,9 +21,8 @@ namespace blowbox
         DXGI_ADAPTER_DESC3 dxgi_adapter_desc;
         dxgi_adapter->GetDesc3(&dxgi_adapter_desc);
 
-        // Convert the adapter description from a wstring to a string
-        using convert_type = std::codecvt_utf8<wchar_t>;
-        std::wstring_convert<convert_type, wchar_t> converter;
+        // Converter for converting wstring to string
+        std::wstring_convert<std::codecvt_utf8<wchar_t>, wchar_t> converter;
 
         name = converter.to_bytes(dxgi_adapter_desc.Description).c_str();
         flags = dxgi_adapter_desc.Flags;

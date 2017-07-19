@@ -1,5 +1,9 @@
 #include "gpu_resource.h"
 
+#include "core/get.h"
+#include "core/debug/memory_profiler.h"
+#include "core/core/blowbox_core.h"
+
 namespace blowbox
 {
 	//------------------------------------------------------------------------------------------------------
@@ -24,6 +28,7 @@ namespace blowbox
 	//------------------------------------------------------------------------------------------------------
 	GpuResource::~GpuResource()
 	{
+        RemoveFromMemoryProfiler();
 		Destroy();
 	}
 
@@ -41,4 +46,19 @@ namespace blowbox
 	{
 		BLOWBOX_RELEASE(resource_);
 	}
+    
+    //------------------------------------------------------------------------------------------------------
+    void GpuResource::AddToMemoryProfiler()
+    {
+        Get::MemoryProfiler()->AddGpuResource(this);
+    }
+    
+    //------------------------------------------------------------------------------------------------------
+    void GpuResource::RemoveFromMemoryProfiler()
+    {
+        if (BlowboxCore::alive == true)
+        {
+            Get::MemoryProfiler()->RemoveGpuResource(this);
+        }
+    }
 }
