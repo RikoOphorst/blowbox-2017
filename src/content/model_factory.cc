@@ -11,7 +11,7 @@
 #include "core/get.h"
 #include "core/debug/console.h"
 
-#include "core/debug/profiler.h"
+#include "core/debug/performance_profiler.h"
 
 namespace blowbox
 {
@@ -21,7 +21,7 @@ namespace blowbox
         char buf[512];
         sprintf(buf, "ModelFactoryLoad: %s", file_path_to_model.c_str());
 
-        Profiler::ProfilerBlock block(buf, ProfilerBlockType_CONTENT);
+        PerformanceProfiler::ProfilerBlock block(buf, ProfilerBlockType_CONTENT);
         SharedPtr<Entity> root_entity = EntityFactory::CreateEntity("model_root");
 
         Assimp::Importer importer;

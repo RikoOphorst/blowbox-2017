@@ -2,7 +2,7 @@
 
 #include "core/scene/scene_manager.h"
 #include "core/get.h"
-#include "core/debug/profiler.h"
+#include "core/debug/performance_profiler.h"
 
 namespace blowbox
 {
@@ -184,7 +184,7 @@ namespace blowbox
 	//------------------------------------------------------------------------------------------------------
 	void Entity::UpdateWorldTransform()
 	{
-        Profiler::ProfilerBlock block("Entity::UpdateWorldTransform", ProfilerBlockType_CORE);
+        PerformanceProfiler::ProfilerBlock block("Entity::UpdateWorldTransform", ProfilerBlockType_CORE);
 
 		world_transform_ =
 			(parent_.lock() != nullptr ? parent_.lock()->GetWorldTransform() : DirectX::XMMatrixIdentity()) *
@@ -192,6 +192,6 @@ namespace blowbox
 			DirectX::XMMatrixRotationRollPitchYaw(rotation_.x, rotation_.y, rotation_.z) *
 			DirectX::XMMatrixTranslation(position_.x, position_.y, position_.z);
 
-        //transform_dirty_ = false;
+        transform_dirty_ = false;
 	}
 }

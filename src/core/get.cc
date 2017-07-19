@@ -41,7 +41,10 @@ namespace blowbox
         BLOWBOX_ASSERT(debug_menu_.use_count()                  > 0);
         BLOWBOX_ASSERT(console_.use_count()                     > 0);
         BLOWBOX_ASSERT(time_.use_count()                        > 0);
-        BLOWBOX_ASSERT(profiler_.use_count()                    > 0);
+        BLOWBOX_ASSERT(performance_profiler_.use_count()        > 0);
+        BLOWBOX_ASSERT(memory_profiler_.use_count()             > 0);
+        BLOWBOX_ASSERT(frame_stats_.use_count()                 > 0);
+        BLOWBOX_ASSERT(memory_stats_.use_count()                > 0);
 
         finalized_ = true;
     }
@@ -162,55 +165,73 @@ namespace blowbox
     }
 
     //------------------------------------------------------------------------------------------------------
-    SharedPtr<Profiler> Get::Profiler()
+    SharedPtr<PerformanceProfiler> Get::PerformanceProfiler()
     {
-        return Get::instance_->profiler_.lock();
+        return Get::instance_->performance_profiler_.lock();
+    }
+
+    //------------------------------------------------------------------------------------------------------
+    SharedPtr<MemoryProfiler> Get::MemoryProfiler()
+    {
+        return Get::instance_->memory_profiler_.lock();
     }
     
     //------------------------------------------------------------------------------------------------------
-    void Get::SetBlowboxCore(blowbox::BlowboxCore* blowbox_core)
+    SharedPtr<FrameStats> Get::FrameStats()
+    {
+        return Get::instance_->frame_stats_.lock();
+    }
+
+    //------------------------------------------------------------------------------------------------------
+    SharedPtr<MemoryStats> Get::MemoryStats()
+    {
+        return Get::instance_->memory_stats_.lock();
+    }
+
+    //------------------------------------------------------------------------------------------------------
+    void Get::Set(blowbox::BlowboxCore* blowbox_core)
     {
 		blowbox_core_ = blowbox_core;
     }
 
     //------------------------------------------------------------------------------------------------------
-    void Get::SetGLFWManager(SharedPtr<blowbox::GLFWManager> glfw_manager)
+    void Get::Set(SharedPtr<blowbox::GLFWManager> glfw_manager)
     {
         glfw_manager_ = glfw_manager;
     }
     
     //------------------------------------------------------------------------------------------------------
-    void Get::SetMainWindow(SharedPtr<blowbox::Window> main_window)
+    void Get::Set(SharedPtr<blowbox::Window> main_window)
     {
         main_window_ = main_window;
     }
     
     //------------------------------------------------------------------------------------------------------
-    void Get::SetForwardRenderer(SharedPtr<blowbox::ForwardRenderer> renderer)
+    void Get::Set(SharedPtr<blowbox::ForwardRenderer> renderer)
     {
         forward_renderer_ = renderer;
     }
 
     //------------------------------------------------------------------------------------------------------
-    void Get::SetDeferredRenderer(SharedPtr<blowbox::DeferredRenderer> deferred_renderer)
+    void Get::Set(SharedPtr<blowbox::DeferredRenderer> deferred_renderer)
     {
         deferred_renderer_ = deferred_renderer;
     }
 
     //------------------------------------------------------------------------------------------------------
-    void Get::SetCommandContextManager(SharedPtr<blowbox::CommandContextManager> command_context_manager)
+    void Get::Set(SharedPtr<blowbox::CommandContextManager> command_context_manager)
     {
         command_context_manager_ = command_context_manager;
     }
 
     //------------------------------------------------------------------------------------------------------
-    void Get::SetCommandManager(SharedPtr<blowbox::CommandManager> command_manager)
+    void Get::Set(SharedPtr<blowbox::CommandManager> command_manager)
     {
         command_manager_ = command_manager;
     }
     
     //------------------------------------------------------------------------------------------------------
-    void Get::SetDevice(SharedPtr<blowbox::Device> device)
+    void Get::Set(SharedPtr<blowbox::Device> device)
     {
         device_ = device;
     }
@@ -234,44 +255,62 @@ namespace blowbox
     }
 
     //------------------------------------------------------------------------------------------------------
-    void Get::SetSwapChain(SharedPtr<blowbox::SwapChain> swap_chain)
+    void Get::Set(SharedPtr<blowbox::SwapChain> swap_chain)
     {
         swap_chain_ = swap_chain;
     }
     
     //------------------------------------------------------------------------------------------------------
-    void Get::SetImGuiManager(SharedPtr<blowbox::ImGuiManager> imgui_manager)
+    void Get::Set(SharedPtr<blowbox::ImGuiManager> imgui_manager)
     {
         imgui_manager_ = imgui_manager;
     }
     
     //------------------------------------------------------------------------------------------------------
-    void Get::SetSceneManager(SharedPtr<blowbox::SceneManager> scene_manager)
+    void Get::Set(SharedPtr<blowbox::SceneManager> scene_manager)
     {
         scene_manager_ = scene_manager;
     }
     
     //------------------------------------------------------------------------------------------------------
-    void Get::SetDebugMenu(SharedPtr<blowbox::DebugMenu> debug_menu)
+    void Get::Set(SharedPtr<blowbox::DebugMenu> debug_menu)
     {
         debug_menu_ = debug_menu;
     }
     
     //------------------------------------------------------------------------------------------------------
-    void Get::SetConsole(SharedPtr<blowbox::Console> console)
+    void Get::Set(SharedPtr<blowbox::Console> console)
     {
         console_ = console;
     }
 
     //------------------------------------------------------------------------------------------------------
-    void Get::SetTime(SharedPtr<blowbox::Time> time)
+    void Get::Set(SharedPtr<blowbox::Time> time)
     {
         time_ = time;
     }
-    
+
     //------------------------------------------------------------------------------------------------------
-    void Get::SetProfiler(SharedPtr<blowbox::Profiler> profiler)
+    void Get::Set(SharedPtr<blowbox::PerformanceProfiler> instance)
     {
-        profiler_ = profiler;
+        performance_profiler_ = instance;
+    }
+
+    //------------------------------------------------------------------------------------------------------
+    void Get::Set(SharedPtr<blowbox::MemoryProfiler> instance)
+    {
+        memory_profiler_ = instance;
+    }
+
+    //------------------------------------------------------------------------------------------------------
+    void Get::Set(SharedPtr<blowbox::FrameStats> instance)
+    {
+        frame_stats_ = instance;
+    }
+
+    //------------------------------------------------------------------------------------------------------
+    void Get::Set(SharedPtr<blowbox::MemoryStats> instance)
+    {
+        memory_stats_ = instance;
     }
 }

@@ -16,7 +16,7 @@
 #include "core/scene/entity_factory.h"
 #include "core/scene/entity.h"
 #include "core/debug/console.h"
-#include "core/debug/profiler.h"
+#include "core/debug/performance_profiler.h"
 #include "renderer/imgui/imgui.h"
 #include "renderer/device.h"
 #include "renderer/buffers/structured_buffer.h"

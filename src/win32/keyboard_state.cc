@@ -1,7 +1,7 @@
 #include "keyboard_state.h"
 
 #include <GLFW/glfw3.h>
-#include "core/debug/profiler.h"
+#include "core/debug/performance_profiler.h"
 
 namespace blowbox
 {
@@ -87,7 +87,7 @@ namespace blowbox
     //------------------------------------------------------------------------------------------------------
     void KeyboardState::ResetKeys()
     {
-        Profiler::ProfilerBlock block("KeyboardState::Reset", ProfilerBlockType_CORE);
+        PerformanceProfiler::ProfilerBlock block("KeyboardState::Reset", ProfilerBlockType_CORE);
 
         for (auto it = key_states_.begin(); it != key_states_.end(); it++)
         {

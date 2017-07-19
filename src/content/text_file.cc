@@ -4,7 +4,7 @@
 #include <fstream>
 #include <sstream>
 
-#include "core/debug/profiler.h"
+#include "core/debug/performance_profiler.h"
 
 namespace blowbox
 {
@@ -14,7 +14,7 @@ namespace blowbox
     {
         char buf[512];
         sprintf(buf, "TextFile: %s", file_path.c_str());
-        Profiler::ProfilerBlock block(buf, ProfilerBlockType_CONTENT);
+        PerformanceProfiler::ProfilerBlock block(buf, ProfilerBlockType_CONTENT);
 
         std::ifstream file(file_path.c_str());
         std::stringstream buffer;

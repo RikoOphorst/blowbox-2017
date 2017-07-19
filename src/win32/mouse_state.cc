@@ -1,7 +1,7 @@
 #include "mouse_state.h"
 
 #include <GLFW/glfw3.h>
-#include "core/debug/profiler.h"
+#include "core/debug/performance_profiler.h"
 
 namespace blowbox
 {
@@ -124,7 +124,7 @@ namespace blowbox
     //------------------------------------------------------------------------------------------------------
     void MouseState::Update()
     {
-        Profiler::ProfilerBlock block("KeyboardState::Update", ProfilerBlockType_CORE);
+        PerformanceProfiler::ProfilerBlock block("KeyboardState::Update", ProfilerBlockType_CORE);
         for (auto it = mouse_button_states_.begin(); it != mouse_button_states_.end(); it++)
         {
             it->second.pressed = false;

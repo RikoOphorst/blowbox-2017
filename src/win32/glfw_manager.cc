@@ -5,7 +5,7 @@
 
 #include <GLFW/glfw3.h>
 
-#include "core/debug/profiler.h"
+#include "core/debug/performance_profiler.h"
 
 namespace blowbox
 {
@@ -36,7 +36,7 @@ namespace blowbox
             it->second->GetMouseState().Update();
         }
 
-        Profiler::ProfilerBlock block("GLFW Poll Events", ProfilerBlockType_CORE);
+        PerformanceProfiler::ProfilerBlock block("GLFW Poll Events", ProfilerBlockType_CORE);
         glfwPollEvents();
     }
 

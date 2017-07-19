@@ -34,7 +34,10 @@ namespace blowbox
     class DebugMenu;
     class Console;
     class Time;
-    class Profiler;
+    class PerformanceProfiler;
+    class MemoryProfiler;
+    class FrameStats;
+    class MemoryStats;
 
     /**
     * This is the main class that the user has to create upon startup. It sets up everything
@@ -240,7 +243,10 @@ namespace blowbox
         // debug stuff
         SharedPtr<DebugMenu> debug_menu_;                                   //!< The DebugMenu instance.
         SharedPtr<Console> console_;                                        //!< The Console instance.
-        SharedPtr<Profiler> profiler_;                                      //!< The profiler_ instance.
+        SharedPtr<PerformanceProfiler> performance_profiler_;               //!< The PerformanceProfiler instance.
+        SharedPtr<MemoryProfiler> memory_profiler_;                         //!< The MemoryProfiler instance.
+        SharedPtr<FrameStats> frame_stats_;                                 //!< The FrameStats instance.
+        SharedPtr<MemoryStats> memory_stats_;                               //!< The MemoryStats instance.
 
         bool exit_prompt_;
     };

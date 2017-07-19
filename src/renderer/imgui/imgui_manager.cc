@@ -1,6 +1,6 @@
 #include "imgui_manager.h"
 
-#include "core/debug/profiler.h"
+#include "core/debug/performance_profiler.h"
 #include "renderer/swap_chain.h"
 #include "renderer/descriptor_heap.h"
 #include "renderer/commands/command_context.h"
@@ -117,7 +117,7 @@ namespace blowbox
     //------------------------------------------------------------------------------------------------------
     void ImGuiManager::Render()
     {
-        Profiler::ProfilerBlock block("RenderImGui", ProfilerBlockType_RENDERER);
+        PerformanceProfiler::ProfilerBlock block("RenderImGui", ProfilerBlockType_RENDERER);
         ImGui::Render();
     }
     

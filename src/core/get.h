@@ -20,7 +20,10 @@ namespace blowbox
     class DebugMenu;
     class Console;
     class Time;
-    class Profiler;
+    class PerformanceProfiler;
+    class MemoryProfiler;
+    class FrameStats;
+    class MemoryStats;
 
     /**
     * The Get class is essentially a set of getters. It allows
@@ -109,8 +112,17 @@ namespace blowbox
         /** @returns The Time instance. */
         static SharedPtr<Time> Time();
 
-        /** @returns The Profiler instance. */
-        static SharedPtr<Profiler> Profiler();
+        /** @returns The PerformanceProfiler instance. */
+        static SharedPtr<PerformanceProfiler> PerformanceProfiler();
+
+        /** @returns The MemoryProfiler instance. */
+        static SharedPtr<MemoryProfiler> MemoryProfiler();
+
+        /** @returns The FrameStats instance. */
+        static SharedPtr<FrameStats> FrameStats();
+
+        /** @returns The MemoryStats instance. */
+        static SharedPtr<MemoryStats> MemoryStats();
         
     protected:
         /**
@@ -118,56 +130,56 @@ namespace blowbox
         * @param[in] blowbox_core   The instance of BlowboxCore.
         * @remarks Only accessible to BlowboxCore.
         */
-        void SetBlowboxCore(blowbox::BlowboxCore* blowbox_core);
+        void Set(blowbox::BlowboxCore* blowbox_core);
 
         /**
         * @brief Sets the GLFWManager instance.
         * @param[in] glfw_manager   The instance of GLFWManager.
         * @remarks Only accessible to BlowboxCore.
         */
-        void SetGLFWManager(SharedPtr<blowbox::GLFWManager> glfw_manager);
+        void Set(SharedPtr<blowbox::GLFWManager> glfw_manager);
 
         /**
         * @brief Sets the main Window instance.
         * @param[in] main_window   The instance of Window.
         * @remarks Only accessible to BlowboxCore.
         */
-        void SetMainWindow(SharedPtr<blowbox::Window> main_window);
+        void Set(SharedPtr<blowbox::Window> main_window);
 
         /**
         * @brief Sets the ForwardRenderer instance.
         * @param[in] forward_renderer       The instance of ForwardRenderer.
         * @remarks Only accessible to BlowboxCore.
         */
-        void SetForwardRenderer(SharedPtr<blowbox::ForwardRenderer> forward_renderer);
+        void Set(SharedPtr<blowbox::ForwardRenderer> forward_renderer);
 
         /**
         * @brief Sets the DeferredRenderer instance.
         * @param[in] deferred_renderer       The instance of DeferredRenderer.
         * @remarks Only accessible to BlowboxCore.
         */
-        void SetDeferredRenderer(SharedPtr<blowbox::DeferredRenderer> deferred_renderer);
+        void Set(SharedPtr<blowbox::DeferredRenderer> deferred_renderer);
 
         /**
         * @brief Sets the CommandContextManager instance.
         * @param[in] command_context_manager       The instance of CommandContextManager.
         * @remarks Only accessible to BlowboxCore.
         */
-        void SetCommandContextManager(SharedPtr<blowbox::CommandContextManager> command_context_manager);
+        void Set(SharedPtr<blowbox::CommandContextManager> command_context_manager);
 
         /**
         * @brief Sets the CommandManager instance.
         * @param[in] command_manager       The instance of CommandManager.
         * @remarks Only accessible to BlowboxCore.
         */
-        void SetCommandManager(SharedPtr<blowbox::CommandManager> command_manager);
+        void Set(SharedPtr<blowbox::CommandManager> command_manager);
 
         /**
         * @brief Sets the Device instance.
         * @param[in] device       The instance of Device.
         * @remarks Only accessible to BlowboxCore.
         */
-        void SetDevice(SharedPtr<blowbox::Device> device);
+        void Set(SharedPtr<blowbox::Device> device);
 
         /**
         * @brief Sets the DescriptorHeap instance for render target views.
@@ -195,71 +207,95 @@ namespace blowbox
         * @param[in] swap_chain       The instance of the SwapChain.
         * @remarks Only accessible to BlowboxCore.
         */
-        void SetSwapChain(SharedPtr<blowbox::SwapChain> swap_chain);
+        void Set(SharedPtr<blowbox::SwapChain> swap_chain);
 
         /**
         * @brief Sets the ImGuiManager instance.
         * @param[in] imgui_manager       The instance of the ImGuiManager.
         * @remarks Only accessible to BlowboxCore.
         */
-        void SetImGuiManager(SharedPtr<blowbox::ImGuiManager> imgui_manager);
+        void Set(SharedPtr<blowbox::ImGuiManager> imgui_manager);
 
         /**
         * @brief Sets the SceneManager instance.
         * @param[in] scene_manager       The instance of the SceneManager.
         * @remarks Only accessible to BlowboxCore.
         */
-        void SetSceneManager(SharedPtr<blowbox::SceneManager> scene_manager);
+        void Set(SharedPtr<blowbox::SceneManager> scene_manager);
 
         /**
         * @brief Sets the DebugMenu instance.
         * @param[in] debug_menu       The instance of the DebugMenu.
         * @remarks Only accessible to BlowboxCore.
         */
-        void SetDebugMenu(SharedPtr<blowbox::DebugMenu> debug_menu);
+        void Set(SharedPtr<blowbox::DebugMenu> debug_menu);
 
         /**
         * @brief Sets the Console instance.
         * @param[in] console The instance of the Console.
         * @remarks Only accessible to BlowboxCore.
         */
-        void SetConsole(SharedPtr<blowbox::Console> console);
+        void Set(SharedPtr<blowbox::Console> console);
 
         /**
         * @brief Sets the Time instance.
         * @param[in] time The instance of the Time.
         * @remarks Only accessible to BlowboxCore.
         */
-        void SetTime(SharedPtr<blowbox::Time> time);
+        void Set(SharedPtr<blowbox::Time> time);
 
         /**
-        * @brief Sets the Profiler instance.
-        * @param[in] profiler The instance of the Profiler.
+        * @brief Sets the PerformanceProfiler instance.
+        * @param[in] instance The instance of the PerformanceProfiler.
         * @remarks Only accessible to BlowboxCore.
         */
-        void SetProfiler(SharedPtr<blowbox::Profiler> profiler);
+        void Set(SharedPtr<blowbox::PerformanceProfiler> instance);
+
+        /**
+        * @brief Sets the MemoryProfiler instance.
+        * @param[in] instance The instance of the MemoryProfiler.
+        * @remarks Only accessible to BlowboxCore.
+        */
+        void Set(SharedPtr<blowbox::MemoryProfiler> instance);
+
+        /**
+        * @brief Sets the FrameStats instance.
+        * @param[in] instance The instance of the FrameStats.
+        * @remarks Only accessible to BlowboxCore.
+        */
+        void Set(SharedPtr<blowbox::FrameStats> instance);
+
+        /**
+        * @brief Sets the MemoryStats instance.
+        * @param[in] instance The instance of the MemoryStats.
+        * @remarks Only accessible to BlowboxCore.
+        */
+        void Set(SharedPtr<blowbox::MemoryStats> instance);
 
         static Get* instance_;                                              //!< The instance of the Get class.
 
     private:
-        bool finalized_;                                                    //!< Whether the Get system has been finalized
-        blowbox::BlowboxCore* blowbox_core_;                                //!< The BlowboxCore instance
-        WeakPtr<blowbox::GLFWManager> glfw_manager_;                        //!< The GLFWManager instance
-        WeakPtr<blowbox::Window> main_window_;                              //!< The main Window instance
-        WeakPtr<blowbox::ForwardRenderer> forward_renderer_;                //!< The ForwardRenderer that is used to render stuff to the main Window
-        WeakPtr<blowbox::DeferredRenderer> deferred_renderer_;              //!< The DeferredRenderer that is used to render stuff to the main Window
-        WeakPtr<blowbox::CommandContextManager> command_context_manager_;   //!< The CommandContextManager instance
-        WeakPtr<blowbox::CommandManager> command_manager_;                  //!< The CommandManager instance
-        WeakPtr<blowbox::Device> device_;                                   //!< The render Device instance
-        WeakPtr<blowbox::DescriptorHeap> rtv_descriptor_heap_;              //!< DescriptorHeap for rtvs
-        WeakPtr<blowbox::DescriptorHeap> dsv_descriptor_heap_;              //!< DescriptorHeap for dsvs
-        WeakPtr<blowbox::DescriptorHeap> cbv_srv_uav_descriptor_heap_;      //!< DescriptorHeap for cbv/srv/uavs
-        WeakPtr<blowbox::SwapChain> swap_chain_;                            //!< The SwapChain instance
-        WeakPtr<blowbox::ImGuiManager> imgui_manager_;                      //!< The ImGuiManager instance
-        WeakPtr<blowbox::SceneManager> scene_manager_;                      //!< The SceneManager instance
-        WeakPtr<blowbox::DebugMenu> debug_menu_;                            //!< The DebugMenu instance
-        WeakPtr<blowbox::Console> console_;                                 //!< The Console instance
-        WeakPtr<blowbox::Time> time_;                                       //!< The Time instance
-        WeakPtr<blowbox::Profiler> profiler_;                               //!< The Profiler instance
+        bool finalized_;                                                    //!< Whether the Get system has been finalized.
+        blowbox::BlowboxCore* blowbox_core_;                                //!< The BlowboxCore instance.
+        WeakPtr<blowbox::GLFWManager> glfw_manager_;                        //!< The GLFWManager instance.
+        WeakPtr<blowbox::Window> main_window_;                              //!< The main Window instance.
+        WeakPtr<blowbox::ForwardRenderer> forward_renderer_;                //!< The ForwardRenderer that is used to render stuff to the main Window.
+        WeakPtr<blowbox::DeferredRenderer> deferred_renderer_;              //!< The DeferredRenderer that is used to render stuff to the main Window.
+        WeakPtr<blowbox::CommandContextManager> command_context_manager_;   //!< The CommandContextManager instance.
+        WeakPtr<blowbox::CommandManager> command_manager_;                  //!< The CommandManager instance.
+        WeakPtr<blowbox::Device> device_;                                   //!< The render Device instance.
+        WeakPtr<blowbox::DescriptorHeap> rtv_descriptor_heap_;              //!< DescriptorHeap for rtvs.
+        WeakPtr<blowbox::DescriptorHeap> dsv_descriptor_heap_;              //!< DescriptorHeap for dsvs.
+        WeakPtr<blowbox::DescriptorHeap> cbv_srv_uav_descriptor_heap_;      //!< DescriptorHeap for cbv/srv/uavs.
+        WeakPtr<blowbox::SwapChain> swap_chain_;                            //!< The SwapChain instance.
+        WeakPtr<blowbox::ImGuiManager> imgui_manager_;                      //!< The ImGuiManager instance.
+        WeakPtr<blowbox::SceneManager> scene_manager_;                      //!< The SceneManager instance.
+        WeakPtr<blowbox::DebugMenu> debug_menu_;                            //!< The DebugMenu instance.
+        WeakPtr<blowbox::Console> console_;                                 //!< The Console instance.
+        WeakPtr<blowbox::Time> time_;                                       //!< The Time instance.
+        WeakPtr<blowbox::PerformanceProfiler> performance_profiler_;        //!< The PerformanceProfiler instance.
+        WeakPtr<blowbox::MemoryProfiler> memory_profiler_;                  //!< The MemoryProfiler instance.
+        WeakPtr<blowbox::FrameStats> frame_stats_;                          //!< The FrameStats instance.
+        WeakPtr<blowbox::MemoryStats> memory_stats_;                        //!< The MemoryStats instance.
     };
 }

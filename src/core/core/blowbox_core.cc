@@ -9,7 +9,10 @@
 
 #include "core/debug/debug_menu.h"
 #include "core/debug/console.h"
-#include "core/debug/profiler.h"
+#include "core/debug/performance_profiler.h"
+#include "core/debug/memory_profiler.h"
+#include "core/debug/frame_stats.h"
+#include "core/debug/memory_stats.h"
 
 #include "win32/glfw_manager.h"
 #include "win32/window.h"
@@ -78,7 +81,10 @@ namespace blowbox
         // Create debug stuff
         debug_menu_ = eastl::make_shared<DebugMenu>();
         console_ = eastl::make_shared<Console>();
-        profiler_ = eastl::make_shared<Profiler>();
+        performance_profiler_ = eastl::make_shared<PerformanceProfiler>();
+        memory_profiler_ = eastl::make_shared<MemoryProfiler>();
+        frame_stats_ = eastl::make_shared<FrameStats>();
+        memory_stats_ = eastl::make_shared<MemoryStats>();
 
         // Create Getter
 		getter_ = new Get();
@@ -108,7 +114,10 @@ namespace blowbox
         {
             win32_glfw_manager_->Update();
             win32_time_->NewFrame();
-            profiler_->NewFrame();
+            performance_profiler_->NewFrame();
+            memory_profiler_->NewFrame();
+            frame_stats_->NewFrame();
+            memory_stats_->NewFrame();
             render_imgui_manager_->NewFrame();
 
             Update();
@@ -153,28 +162,31 @@ namespace blowbox
     //------------------------------------------------------------------------------------------------------
     void BlowboxCore::StartupGetter()
     {
-        getter_->SetBlowboxCore(this);
+        getter_->Set(this);
 
-        getter_->SetGLFWManager(win32_glfw_manager_);
-        getter_->SetMainWindow(win32_main_window_);
-        getter_->SetTime(win32_time_);
+        getter_->Set(win32_glfw_manager_);
+        getter_->Set(win32_main_window_);
+        getter_->Set(win32_time_);
 
-        getter_->SetDevice(render_device_);
-        getter_->SetCommandManager(render_command_manager_);
-        getter_->SetCommandContextManager(render_command_context_manager_);
+        getter_->Set(render_device_);
+        getter_->Set(render_command_manager_);
+        getter_->Set(render_command_context_manager_);
         getter_->SetRtvHeap(render_rtv_heap_);
         getter_->SetDsvHeap(render_dsv_heap_);
         getter_->SetCbvSrvUavHeap(render_cbv_srv_uav_heap_);
-        getter_->SetSwapChain(render_swap_chain_);
-        getter_->SetForwardRenderer(render_forward_renderer_);
-        getter_->SetDeferredRenderer(render_deferred_renderer_);
-        getter_->SetImGuiManager(render_imgui_manager_);
+        getter_->Set(render_swap_chain_);
+        getter_->Set(render_forward_renderer_);
+        getter_->Set(render_deferred_renderer_);
+        getter_->Set(render_imgui_manager_);
 
-		getter_->SetSceneManager(scene_manager_);
+		getter_->Set(scene_manager_);
 
-        getter_->SetDebugMenu(debug_menu_);
-        getter_->SetConsole(console_);
-        getter_->SetProfiler(profiler_);
+        getter_->Set(debug_menu_);
+        getter_->Set(console_);
+        getter_->Set(performance_profiler_);
+        getter_->Set(memory_profiler_);
+        getter_->Set(frame_stats_);
+        getter_->Set(memory_stats_);
 
         getter_->Finalize();
     }
@@ -229,7 +241,10 @@ namespace blowbox
     void BlowboxCore::StartupDebug()
     {
         debug_menu_->AddDebugWindow(1, console_);
-        debug_menu_->AddDebugWindow(2, profiler_);
+        debug_menu_->AddDebugWindow(2, frame_stats_);
+        debug_menu_->AddDebugWindow(3, memory_stats_);
+        debug_menu_->AddDebugWindow(4, performance_profiler_);
+        debug_menu_->AddDebugWindow(5, memory_profiler_);
     }
 
     //------------------------------------------------------------------------------------------------------
@@ -303,7 +318,7 @@ namespace blowbox
     {
         if (user_procedure_update_)
         {
-            Profiler::ProfilerBlock block("UserProcedure: Update", ProfilerBlockType_CORE);
+            PerformanceProfiler::ProfilerBlock block("UserProcedure: Update", ProfilerBlockType_CORE);
             user_procedure_update_();
         }
 
@@ -343,7 +358,7 @@ namespace blowbox
 
         if (user_procedure_post_update_)
         {
-            Profiler::ProfilerBlock block("UserProcedure: PostUpdate", ProfilerBlockType_CORE);
+            PerformanceProfiler::ProfilerBlock block("UserProcedure: PostUpdate", ProfilerBlockType_CORE);
             user_procedure_post_update_();
         }
 
@@ -356,13 +371,13 @@ namespace blowbox
         // Pre render user procedure
         if (user_procedure_render_)
         {
-            Profiler::ProfilerBlock block("UserProcedure: Render", ProfilerBlockType_CORE);
+            PerformanceProfiler::ProfilerBlock block("UserProcedure: Render", ProfilerBlockType_CORE);
             user_procedure_render_();
         }
 
         // Frame start
         {
-            Profiler::ProfilerBlock block("FrameStart", ProfilerBlockType_RENDERER);
+            PerformanceProfiler::ProfilerBlock block("FrameStart", ProfilerBlockType_RENDERER);
             GraphicsContext& context_frame_start = GraphicsContext::Begin(L"CommandListFrameStart");
 
             ID3D12DescriptorHeap* heaps[1] = { render_cbv_srv_uav_heap_->Get() };
@@ -384,7 +399,7 @@ namespace blowbox
 
         // Frame end
         {
-            Profiler::ProfilerBlock block("FrameEnd", ProfilerBlockType_RENDERER);
+            PerformanceProfiler::ProfilerBlock block("FrameEnd", ProfilerBlockType_RENDERER);
             GraphicsContext& context_frame_end = GraphicsContext::Begin(L"CommandListFrameEnd");
 
             context_frame_end.TransitionResource(render_swap_chain_->GetBackBuffer(), D3D12_RESOURCE_STATE_PRESENT);
@@ -396,7 +411,7 @@ namespace blowbox
         // Post render user procedure
         if (user_procedure_post_render_)
         {
-            Profiler::ProfilerBlock block("UserProcedure: PostRender", ProfilerBlockType_CORE);
+            PerformanceProfiler::ProfilerBlock block("UserProcedure: PostRender", ProfilerBlockType_CORE);
             user_procedure_post_render_();
         }
     }
