@@ -2,6 +2,7 @@
 
 #include <GLFW/glfw3.h>
 #include "core/debug/performance_profiler.h"
+#include "renderer/imgui/imgui.h"
 
 namespace blowbox
 {
@@ -21,33 +22,68 @@ namespace blowbox
     }
     
     //------------------------------------------------------------------------------------------------------
-    bool KeyboardState::GetKey(KeyCode key)
+    bool KeyboardState::GetKey(KeyCode key, bool imgui)
     {
-        return key_states_[key].down;
+        if (imgui || !ImGui::GetIO().WantCaptureKeyboard)
+        {
+            return key_states_[key].down;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     //------------------------------------------------------------------------------------------------------
-    bool KeyboardState::GetKeyDown(KeyCode key)
+    bool KeyboardState::GetKeyDown(KeyCode key, bool imgui)
     {
-        return key_states_[key].down;
+        if (imgui || !ImGui::GetIO().WantCaptureKeyboard)
+        {
+            return key_states_[key].down;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     //------------------------------------------------------------------------------------------------------
-    bool KeyboardState::GetKeyPressed(KeyCode key)
+    bool KeyboardState::GetKeyPressed(KeyCode key, bool imgui)
     {
-        return key_states_[key].pressed;
+        if (imgui || !ImGui::GetIO().WantCaptureKeyboard)
+        {
+            return key_states_[key].pressed;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     //------------------------------------------------------------------------------------------------------
-    bool KeyboardState::GetKeyReleased(KeyCode key)
+    bool KeyboardState::GetKeyReleased(KeyCode key, bool imgui)
     {
-        return key_states_[key].released;
+        if (imgui || !ImGui::GetIO().WantCaptureKeyboard)
+        {
+            return key_states_[key].released;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     //------------------------------------------------------------------------------------------------------
-    const KeyboardState::KeyState& KeyboardState::GetKeyState(KeyCode key)
+    const KeyboardState::KeyState& KeyboardState::GetKeyState(KeyCode key, bool imgui)
     {
-        return key_states_[key];
+        if (imgui || !ImGui::GetIO().WantCaptureKeyboard)
+        {
+            return key_states_[key];
+        }
+        else
+        {
+            return { false, false, false, false, false, false };
+        }
     }
 
     //------------------------------------------------------------------------------------------------------

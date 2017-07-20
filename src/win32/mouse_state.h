@@ -43,37 +43,51 @@ namespace blowbox
         /**
         * @brief Find out whether a button is down or not.
         * @param[in] button The key you want to know the down-state of.
+        * @param[in] imgui Identifies whether the imgui manager requests the input or not.
         * @returns Whether the button is down or not.
         */
-        bool GetButton(MouseButton button);
+        bool GetButton(MouseButton button, bool imgui = false);
 
         /**
         * @brief Find out whether a button is down or not.
         * @param[in] button The key you want to know the down-state of.
+        * @param[in] imgui Identifies whether the imgui manager requests the input or not.
         * @returns Whether the button is down or not.
         */
-        bool GetButtonDown(MouseButton button);
+        bool GetButtonDown(MouseButton button, bool imgui = false);
 
         /**
         * @brief Find out whether a button is pressed or not.
         * @param[in] button The key you want to know the pressed-state of.
+        * @param[in] imgui Identifies whether the imgui manager requests the input or not.
         * @returns Whether the button is pressed or not.
         */
-        bool GetButtonPressed(MouseButton button);
+        bool GetButtonPressed(MouseButton button, bool imgui = false);
 
         /**
         * @brief Find out whether a button is released or not.
         * @param[in] button The key you want to know the released-state of.
+        * @param[in] imgui Identifies whether the imgui manager requests the input or not.
         * @returns Whether the button is released or not.
         */
-        bool GetButtonReleased(MouseButton button);
+        bool GetButtonReleased(MouseButton button, bool imgui = false);
 
-        /** @returns The position of the mouse relative to the window. */
-        const DirectX::XMFLOAT2& GetMousePosition() const;
-        /** @returns The delta position of the mouse relative to the window. (i.e. how much it has moved since the last frame) */
-        const DirectX::XMFLOAT2& GetMousePositionDelta() const;
-        /** @returns The scroll delta of the mouse since last frame. */
-        const DirectX::XMFLOAT2& GetScrollDelta() const;
+        /** 
+        * @param[in] imgui Identifies whether the imgui manager requests the input or not.
+        * @returns The position of the mouse relative to the window. 
+        */
+        const DirectX::XMFLOAT2& GetMousePosition(bool imgui = false) const;
+
+        /** 
+        * @param[in] imgui Identifies whether the imgui manager requests the input or not.
+        * @returns The delta position of the mouse relative to the window. (i.e. how much it has moved since the last frame) 
+        */
+        const DirectX::XMFLOAT2& GetMousePositionDelta(bool imgui = false) const;
+        /** 
+        * @param[in] imgui Identifies whether the imgui manager requests the input or not.
+        * @returns The scroll delta of the mouse since last frame.
+        */
+        const DirectX::XMFLOAT2& GetScrollDelta(bool imgui = false) const;
 
     protected:
         /**

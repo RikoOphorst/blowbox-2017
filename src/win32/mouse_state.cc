@@ -2,6 +2,7 @@
 
 #include <GLFW/glfw3.h>
 #include "core/debug/performance_profiler.h"
+#include "renderer/imgui/imgui.h"
 
 namespace blowbox
 {
@@ -27,45 +28,94 @@ namespace blowbox
     }
 
     //------------------------------------------------------------------------------------------------------
-    bool MouseState::GetButton(MouseButton button)
+    bool MouseState::GetButton(MouseButton button, bool imgui)
     {
-        return mouse_button_states_[button].down;
+        if (imgui || !ImGui::GetIO().WantCaptureMouse)
+        {
+            return mouse_button_states_[button].down;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     //------------------------------------------------------------------------------------------------------
-    bool MouseState::GetButtonDown(MouseButton button)
+    bool MouseState::GetButtonDown(MouseButton button, bool imgui)
     {
-        return mouse_button_states_[button].down;
+        if (imgui || !ImGui::GetIO().WantCaptureMouse)
+        {
+            return mouse_button_states_[button].down;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     //------------------------------------------------------------------------------------------------------
-    bool MouseState::GetButtonPressed(MouseButton button)
+    bool MouseState::GetButtonPressed(MouseButton button, bool imgui)
     {
-        return mouse_button_states_[button].pressed;
+        if (imgui || !ImGui::GetIO().WantCaptureMouse)
+        {
+            return mouse_button_states_[button].pressed;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     //------------------------------------------------------------------------------------------------------
-    bool MouseState::GetButtonReleased(MouseButton button)
+    bool MouseState::GetButtonReleased(MouseButton button, bool imgui)
     {
-        return mouse_button_states_[button].released;
+        if (imgui || !ImGui::GetIO().WantCaptureMouse)
+        {
+            return mouse_button_states_[button].released;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     //------------------------------------------------------------------------------------------------------
-    const DirectX::XMFLOAT2& MouseState::GetMousePosition() const
+    const DirectX::XMFLOAT2& MouseState::GetMousePosition(bool imgui) const
     {
-        return mouse_position_;
+        if (imgui || !ImGui::GetIO().WantCaptureMouse)
+        {
+            return mouse_position_;
+        }
+        else
+        {
+            return DirectX::XMFLOAT2(0.0f, 0.0f);
+        }
     }
 
     //------------------------------------------------------------------------------------------------------
-    const DirectX::XMFLOAT2& MouseState::GetMousePositionDelta() const
+    const DirectX::XMFLOAT2& MouseState::GetMousePositionDelta(bool imgui) const
     {
-        return delta_mouse_position_;
+        if (imgui || !ImGui::GetIO().WantCaptureMouse)
+        {
+            return delta_mouse_position_;
+        }
+        else
+        {
+            return DirectX::XMFLOAT2(0.0f, 0.0f);
+        }
     }
 
     //------------------------------------------------------------------------------------------------------
-    const DirectX::XMFLOAT2& MouseState::GetScrollDelta() const
+    const DirectX::XMFLOAT2& MouseState::GetScrollDelta(bool imgui) const
     {
-        return delta_scroll_;
+        if (imgui || !ImGui::GetIO().WantCaptureMouse)
+        {
+            return delta_scroll_;
+        }
+        else
+        {
+            return DirectX::XMFLOAT2(0.0f, 0.0f);
+        }
     }
 
     //------------------------------------------------------------------------------------------------------

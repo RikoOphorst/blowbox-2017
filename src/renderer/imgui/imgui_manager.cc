@@ -89,9 +89,9 @@ namespace blowbox
             io.KeysDown[it->first] = it->second.down;
         }
 
-        io.MouseDown[0] = mouse_state.GetButton(MouseButton_LEFT);
-        io.MouseDown[1] = mouse_state.GetButton(MouseButton_MIDDLE);
-        io.MouseDown[2] = mouse_state.GetButton(MouseButton_RIGHT);
+        io.MouseDown[0] = mouse_state.GetButton(MouseButton_LEFT, true);
+        io.MouseDown[1] = mouse_state.GetButton(MouseButton_MIDDLE, true);
+        io.MouseDown[2] = mouse_state.GetButton(MouseButton_RIGHT, true);
 
         Queue<unsigned int> input_keys = keyboard_state.GetInputKeys();
 
@@ -107,9 +107,9 @@ namespace blowbox
             input_keys.pop();
         }
 
-        io.MousePos = ImVec2(mouse_state.GetMousePosition().x, mouse_state.GetMousePosition().y);
+        io.MousePos = ImVec2(mouse_state.GetMousePosition(true).x, mouse_state.GetMousePosition(true).y);
 
-        io.MouseWheel = mouse_state.GetScrollDelta().y;
+        io.MouseWheel = mouse_state.GetScrollDelta(true).y;
 
         ImGui::NewFrame();
     }

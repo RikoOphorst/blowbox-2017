@@ -43,37 +43,42 @@ namespace blowbox
         /**
         * @brief Find out whether a key is down or not.
         * @param[in] key The key you want to know the down-state of.
+        * @param[in] imgui Identifies whether the imgui manager requests the input or not.
         * @returns Whether the key is down or not.
         */
-        bool GetKey(KeyCode key);
+        bool GetKey(KeyCode key, bool imgui = false);
 
         /**
         * @brief Find out whether a key is down or not.
         * @param[in] key The key you want to know the down-state of.
+        * @param[in] imgui Identifies whether the imgui manager requests the input or not.
         * @returns Whether the key is down or not.
         */
-        bool GetKeyDown(KeyCode key);
+        bool GetKeyDown(KeyCode key, bool imgui = false);
 
         /**
         * @brief Find out whether a key is pressed or not.
         * @param[in] key The key you want to know the pressed-state of.
+        * @param[in] imgui Identifies whether the imgui manager requests the input or not.
         * @returns Whether the key is pressed or not.
         */
-        bool GetKeyPressed(KeyCode key);
+        bool GetKeyPressed(KeyCode key, bool imgui = false);
 
         /**
         * @brief Find out whether a key is released or not.
         * @param[in] key The key you want to know the released-state of.
+        * @param[in] imgui Identifies whether the imgui manager requests the input or not.
         * @returns Whether the key is released or not.
         */
-        bool GetKeyReleased(KeyCode key);
+        bool GetKeyReleased(KeyCode key, bool imgui = false);
 
         /**
         * @brief Retrieves the full state of a key.
         * @param[in] key The key you want to know the full KeyState of.
+        * @param[in] imgui Identifies whether the imgui manager requests the input or not.
         * @returns The full KeyState of a key.
         */
-        const KeyState& GetKeyState(KeyCode key);
+        const KeyState& GetKeyState(KeyCode key, bool imgui = false);
 
         /**
         * @returns A list of keys that were pressed over the last frame, in the correct order. Every item in the queue is a unicode ID.
