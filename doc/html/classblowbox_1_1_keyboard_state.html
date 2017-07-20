@@ -120,6 +120,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a2da6cbce1101eb04793a3a699978cfd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8eb260820f96020c1134e1dd990831ea"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structblowbox_1_1_keyboard_state_1_1_key_state.html">KeyState</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_keyboard_state.html#a8eb260820f96020c1134e1dd990831ea">GetKeyState</a> (<a class="el" href="namespaceblowbox.html#ad500ef77ac0ea50cc191d30db68d5080">KeyCode</a> key)</td></tr>
 <tr class="separator:a8eb260820f96020c1134e1dd990831ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a90c6cdd13256c1310dafc8820c375bad"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceblowbox.html#a785045299a58e5467db36de461a7c59e">Queue</a>&lt; unsigned int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_keyboard_state.html#a90c6cdd13256c1310dafc8820c375bad">GetInputKeys</a> () const </td></tr>
+<tr class="separator:a90c6cdd13256c1310dafc8820c375bad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
@@ -129,6 +131,8 @@ Protected Member Functions</h2></td></tr>
 <tr class="separator:aa482f767181e944dc9327431c646f3e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2250460ac63b8d51c020ff6c22198f08"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_keyboard_state.html#a2250460ac63b8d51c020ff6c22198f08">SetKeyModifiers</a> (<a class="el" href="namespaceblowbox.html#ad500ef77ac0ea50cc191d30db68d5080">KeyCode</a> key, int modifiers)</td></tr>
 <tr class="separator:a2250460ac63b8d51c020ff6c22198f08"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5dfe37a65d63b920f0e7d846d1824006"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_keyboard_state.html#a5dfe37a65d63b920f0e7d846d1824006">AddInputKey</a> (unsigned int key)</td></tr>
+<tr class="separator:a5dfe37a65d63b920f0e7d846d1824006"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a25b142e326fb9a5c0ac5f23582b1e05e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_keyboard_state.html#a25b142e326fb9a5c0ac5f23582b1e05e">ResetKeys</a> ()</td></tr>
 <tr class="separator:a25b142e326fb9a5c0ac5f23582b1e05e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -136,6 +140,8 @@ Protected Member Functions</h2></td></tr>
 Private Attributes</h2></td></tr>
 <tr class="memitem:a2031511ab26c8c2b33ece58533831b71"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceblowbox.html#aaf6cef6d680dbd77639e8daf78d05933">Map</a>&lt; <a class="el" href="namespaceblowbox.html#ad500ef77ac0ea50cc191d30db68d5080">KeyCode</a>, <a class="el" href="structblowbox_1_1_keyboard_state_1_1_key_state.html">KeyState</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_keyboard_state.html#a2031511ab26c8c2b33ece58533831b71">key_states_</a></td></tr>
 <tr class="separator:a2031511ab26c8c2b33ece58533831b71"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a45ec5a750610066a8870aa9400b9dc3d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceblowbox.html#a785045299a58e5467db36de461a7c59e">Queue</a>&lt; unsigned int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_keyboard_state.html#a45ec5a750610066a8870aa9400b9dc3d">input_keys_</a></td></tr>
+<tr class="separator:a45ec5a750610066a8870aa9400b9dc3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
 Friends</h2></td></tr>
@@ -153,6 +159,55 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>ImGuiManager</b></td
 <div class="textblock"><p>Keeps track of the state of the keyboard. </p>
 <p>This class keeps track of the state of the keyboard. Normally, you would find access to instances of this class through <a class="el" href="classblowbox_1_1_window.html" title="Class for creating windows. ">Window</a> instances, because every <a class="el" href="classblowbox_1_1_window.html" title="Class for creating windows. ">Window</a> has different keyboard states. Access the <a class="el" href="classblowbox_1_1_keyboard_state.html" title="Keeps track of the state of the keyboard. ">KeyboardState</a> by calling <a class="el" href="classblowbox_1_1_window.html#a41e3166dfeb7944a5863eeb6f239f4b9">Window::GetKeyboardState()</a>. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a5dfe37a65d63b920f0e7d846d1824006"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void blowbox::KeyboardState::AddInputKey </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>key</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Adds an input key. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">key</td><td>The key that was pressed (as a unicode id) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a90c6cdd13256c1310dafc8820c375bad"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespaceblowbox.html#a785045299a58e5467db36de461a7c59e">Queue</a>&lt; unsigned int &gt; blowbox::KeyboardState::GetInputKeys </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>A list of keys that were pressed over the last frame, in the correct order. Every item in the queue is a unicode ID. </dd></dl>
+<dl class="section remark"><dt>Remarks</dt><dd>Note that this function reserves a copy of a queue of KeyCodes. This is intentional, so that you can process the queue in whatever way you want. </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="a514af37305c87f4a7c2b7f009994ddf1"></a>
 <div class="memitem">
 <div class="memproto">
@@ -411,6 +466,28 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>ImGuiManager</b></td
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="a45ec5a750610066a8870aa9400b9dc3d"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespaceblowbox.html#a785045299a58e5467db36de461a7c59e">Queue</a>&lt;unsigned int&gt; blowbox::KeyboardState::input_keys_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The keys that were pressed over the last frame, in correct order. These are stored in unicode ids. </p>
+
+</div>
+</div>
 <a class="anchor" id="a2031511ab26c8c2b33ece58533831b71"></a>
 <div class="memitem">
 <div class="memproto">
@@ -434,13 +511,13 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>ImGuiManager</b></td
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>E:/Projects/blowbox-2017/src/win32/<a class="el" href="keyboard__state_8h_source.html">keyboard_state.h</a></li>
-<li>E:/Projects/blowbox-2017/src/win32/keyboard_state.cc</li>
+<li>C:/Projects/blowbox-2017/src/win32/<a class="el" href="keyboard__state_8h_source.html">keyboard_state.h</a></li>
+<li>C:/Projects/blowbox-2017/src/win32/keyboard_state.cc</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jul 16 2017 21:59:54 for Blowbox 2017 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Jul 19 2017 23:46:12 for Blowbox 2017 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

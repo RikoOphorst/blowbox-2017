@@ -91,6 +91,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="#friends">Friends</a> &#124;
 <a href="classblowbox_1_1_gpu_resource-members.html">List of all members</a>  </div>
@@ -126,8 +127,17 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a09e07091684644bfcaf043bcaf6c540a"><td class="memItemLeft" align="right" valign="top">const D3D12_RESOURCE_STATES &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_gpu_resource.html#a09e07091684644bfcaf043bcaf6c540a">GetTransitionState</a> () const </td></tr>
 <tr class="separator:a09e07091684644bfcaf043bcaf6c540a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:a575eb5390d80735c446db102e74af1ff"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_gpu_resource.html#a575eb5390d80735c446db102e74af1ff">AddToMemoryProfiler</a> ()</td></tr>
+<tr class="separator:a575eb5390d80735c446db102e74af1ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a41abd669f87d52649797a5e7b2546c2d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_gpu_resource.html#a41abd669f87d52649797a5e7b2546c2d">RemoveFromMemoryProfiler</a> ()</td></tr>
+<tr class="separator:a41abd669f87d52649797a5e7b2546c2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
+<tr class="memitem:a277275f61958df889385eaabb0757c14"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceblowbox.html#a06fd2b1aebfdc8ad2c458f2bf4744963">WString</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_gpu_resource.html#a277275f61958df889385eaabb0757c14">name_</a></td></tr>
+<tr class="separator:a277275f61958df889385eaabb0757c14"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a139891c8bbf51fffd06cb264e670912e"><td class="memItemLeft" align="right" valign="top">ID3D12Resource *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_gpu_resource.html#a139891c8bbf51fffd06cb264e670912e">resource_</a></td></tr>
 <tr class="separator:a139891c8bbf51fffd06cb264e670912e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adb2c0dde544b06c181034d13882a3cbe"><td class="memItemLeft" align="right" valign="top">D3D12_RESOURCE_STATES&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_gpu_resource.html#adb2c0dde544b06c181034d13882a3cbe">usage_state_</a></td></tr>
@@ -142,6 +152,27 @@ Friends</h2></td></tr>
 <tr class="memitem:a990fdc6259c7d522fcd20024346607dc"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a990fdc6259c7d522fcd20024346607dc"></a>
 class&#160;</td><td class="memItemRight" valign="bottom"><b>CommandContext</b></td></tr>
 <tr class="separator:a990fdc6259c7d522fcd20024346607dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d64c96e63fc20a4f500e039f75dd434"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4d64c96e63fc20a4f500e039f75dd434"></a>
+class&#160;</td><td class="memItemRight" valign="bottom"><b>MemoryProfiler</b></td></tr>
+<tr class="separator:a4d64c96e63fc20a4f500e039f75dd434"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f60fa368c688516b690b35836d06d9b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1f60fa368c688516b690b35836d06d9b"></a>
+class&#160;</td><td class="memItemRight" valign="bottom"><b>CompareGpuResourceByName</b></td></tr>
+<tr class="separator:a1f60fa368c688516b690b35836d06d9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a86dabe394f08e42248653f4965480a9e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a86dabe394f08e42248653f4965480a9e"></a>
+class&#160;</td><td class="memItemRight" valign="bottom"><b>CompareGpuResourceBySize</b></td></tr>
+<tr class="separator:a86dabe394f08e42248653f4965480a9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c0491de8d19a0338dc34991b3ac8c91"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8c0491de8d19a0338dc34991b3ac8c91"></a>
+class&#160;</td><td class="memItemRight" valign="bottom"><b>CompareGpuResourceByFormat</b></td></tr>
+<tr class="separator:a8c0491de8d19a0338dc34991b3ac8c91"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2115dab988a851df6056174b1b62604e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2115dab988a851df6056174b1b62604e"></a>
+class&#160;</td><td class="memItemRight" valign="bottom"><b>CompareGpuResourceByNameReverted</b></td></tr>
+<tr class="separator:a2115dab988a851df6056174b1b62604e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae78ef7aaba834646777d41f980a5ef7e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae78ef7aaba834646777d41f980a5ef7e"></a>
+class&#160;</td><td class="memItemRight" valign="bottom"><b>CompareGpuResourceBySizeReverted</b></td></tr>
+<tr class="separator:ae78ef7aaba834646777d41f980a5ef7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ebab94a1032766e2515e09b411da8fd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1ebab94a1032766e2515e09b411da8fd"></a>
+class&#160;</td><td class="memItemRight" valign="bottom"><b>CompareGpuResourceByFormatReverted</b></td></tr>
+<tr class="separator:a1ebab94a1032766e2515e09b411da8fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Wraps ID3D12Resource objects. </p>
@@ -241,6 +272,31 @@ Inheritance diagram for blowbox::GpuResource:</div>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a575eb5390d80735c446db102e74af1ff"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void blowbox::GpuResource::AddToMemoryProfiler </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Adds this <a class="el" href="classblowbox_1_1_gpu_resource.html" title="Wraps ID3D12Resource objects. ">GpuResource</a> to the <a class="el" href="classblowbox_1_1_memory_profiler.html" title="Provides memory profiling statistics. ">MemoryProfiler</a>. </p>
+
+</div>
+</div>
 <a class="anchor" id="a62e424ee61e80464f0c36e76628eb4c4"></a>
 <div class="memitem">
 <div class="memproto">
@@ -446,6 +502,31 @@ Inheritance diagram for blowbox::GpuResource:</div>
 
 </div>
 </div>
+<a class="anchor" id="a41abd669f87d52649797a5e7b2546c2d"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void blowbox::GpuResource::RemoveFromMemoryProfiler </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Removes this <a class="el" href="classblowbox_1_1_gpu_resource.html" title="Wraps ID3D12Resource objects. ">GpuResource</a> from the <a class="el" href="classblowbox_1_1_memory_profiler.html" title="Provides memory profiling statistics. ">MemoryProfiler</a>. </p>
+
+</div>
+</div>
 <h2 class="groupheader">Member Data Documentation</h2>
 <a class="anchor" id="a885454457e9dc233228dbde307dcdfd8"></a>
 <div class="memitem">
@@ -466,6 +547,28 @@ Inheritance diagram for blowbox::GpuResource:</div>
 </div><div class="memdoc">
 
 <p>The virtual address of the ID3D12Resource in VRAM. </p>
+
+</div>
+</div>
+<a class="anchor" id="a277275f61958df889385eaabb0757c14"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespaceblowbox.html#a06fd2b1aebfdc8ad2c458f2bf4744963">WString</a> blowbox::GpuResource::name_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The name of this resource. </p>
 
 </div>
 </div>
@@ -536,13 +639,13 @@ Inheritance diagram for blowbox::GpuResource:</div>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>E:/Projects/blowbox-2017/src/renderer/buffers/<a class="el" href="gpu__resource_8h_source.html">gpu_resource.h</a></li>
-<li>E:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.cc</li>
+<li>C:/Projects/blowbox-2017/src/renderer/buffers/<a class="el" href="gpu__resource_8h_source.html">gpu_resource.h</a></li>
+<li>C:/Projects/blowbox-2017/src/renderer/buffers/gpu_resource.cc</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jul 16 2017 21:59:54 for Blowbox 2017 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Jul 19 2017 23:46:12 for Blowbox 2017 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

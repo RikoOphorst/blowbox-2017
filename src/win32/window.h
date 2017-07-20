@@ -120,8 +120,8 @@ namespace blowbox
 
         /**
         * @brief This is the callback function that is used for character input.
-        * @param[in] window     The window that the callback function is associated with.
-        * @param[in] character  The character in question.
+        * @param[in] window             The window that the callback function is associated with.
+        * @param[in] unicode_character  The character in question.
         */
         static void GlfwCharCallback(GLFWwindow* window, unsigned int unicode_character);
 

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['shadertype',['ShaderType',['../namespaceblowbox.html#aef90d12f29d3a70a9c585237e7a16e2d',1,'blowbox']]]
+  ['resourcesorttype',['ResourceSortType',['../classblowbox_1_1_memory_profiler.html#a8e9808caf386ac18d31cff8c38bf2742',1,'blowbox::MemoryProfiler']]]
 ];

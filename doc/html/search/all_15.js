@@ -8,6 +8,7 @@ var searchData=
   ['width_5f',['width_',['../classblowbox_1_1_pixel_buffer.html#a20361afcad11d731ad59205bca1f26be',1,'blowbox::PixelBuffer']]],
   ['win32_5fglfw_5fmanager_5f',['win32_glfw_manager_',['../classblowbox_1_1_blowbox_core.html#ad551c2ec54d57529f4d57e74f6cd9f2b',1,'blowbox::BlowboxCore']]],
   ['win32_5fmain_5fwindow_5f',['win32_main_window_',['../classblowbox_1_1_blowbox_core.html#a7610ffe1ff42be021398306bb7fbff56',1,'blowbox::BlowboxCore']]],
+  ['win32_5ftime_5f',['win32_time_',['../classblowbox_1_1_blowbox_core.html#a289a4eb1f0d868a65d9d835fa4ef1ce7',1,'blowbox::BlowboxCore']]],
   ['window',['Window',['../classblowbox_1_1_window.html',1,'blowbox']]],
   ['window_5f',['window_',['../classblowbox_1_1_window.html#acbd01fbc157de0ade290364da38879b8',1,'blowbox::Window']]],
   ['window_5ficon_5f',['window_icon_',['../classblowbox_1_1_window.html#a956890f2755192784e693ce4c9e18b49',1,'blowbox::Window']]],
@@ -17,5 +18,7 @@ var searchData=
   ['window_5ftitle_5f',['window_title_',['../classblowbox_1_1_window.html#a2206c4e5ce268dbb851b7767f92a0ceb',1,'blowbox::Window']]],
   ['windows_5f',['windows_',['../classblowbox_1_1_g_l_f_w_manager.html#a1a9672c2ad450e172d15f8db9b74fc45',1,'blowbox::GLFWManager']]],
   ['world_5ftransform_5f',['world_transform_',['../classblowbox_1_1_entity.html#aac40a0d9fb9a14b8e1c5124901a31467',1,'blowbox::Entity']]],
+  ['worst_5fblock_5ftime',['worst_block_time',['../structblowbox_1_1_performance_profiler_1_1_profiler_block_data.html#a40385d2950049c5cef9574e9dfad48a9',1,'blowbox::PerformanceProfiler::ProfilerBlockData']]],
+  ['worst_5fblock_5ftime_5foverall',['worst_block_time_overall',['../structblowbox_1_1_performance_profiler_1_1_profiler_block_data.html#adc7570589155e97993673a19b6e1ce3f',1,'blowbox::PerformanceProfiler::ProfilerBlockData']]],
   ['wstring',['WString',['../namespaceblowbox.html#a06fd2b1aebfdc8ad2c458f2bf4744963',1,'blowbox']]]
 ];

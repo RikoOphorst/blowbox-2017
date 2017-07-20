@@ -1,6 +1,7 @@
 var searchData=
 [
   ['parent_5f',['parent_',['../classblowbox_1_1_entity.html#a260e4205c4ad74832954151553a08b5f',1,'blowbox::Entity']]],
+  ['performance_5fprofiler_5f',['performance_profiler_',['../classblowbox_1_1_blowbox_core.html#acb535a1698428624b7e0690b87a974da',1,'blowbox::BlowboxCore::performance_profiler_()'],['../classblowbox_1_1_get.html#ab7f547bc32dc2da939f6aed250195f3d',1,'blowbox::Get::performance_profiler_()']]],
   ['pipeline_5fstate_5f',['pipeline_state_',['../classblowbox_1_1_im_gui_manager.html#a627c0f7a66b94bfd4136bb0d083d6e5b',1,'blowbox::ImGuiManager']]],
   ['pixel_5fcomposition_5f',['pixel_composition_',['../classblowbox_1_1_image.html#afcdffc3c6e7e6f063d5b760f90166f1a',1,'blowbox::Image']]],
   ['pixel_5fdata_5f',['pixel_data_',['../classblowbox_1_1_image.html#af68186d12d7deb4b9a0fc109299d2366',1,'blowbox::Image']]],
@@ -9,6 +10,10 @@ var searchData=
   ['position',['position',['../classblowbox_1_1_vertex.html#a25e305a3a32d3c787be020aa49dcbaa0',1,'blowbox::Vertex']]],
   ['position_5f',['position_',['../classblowbox_1_1_entity.html#abb7fe7f77e5278c2c6371c314d876294',1,'blowbox::Entity::position_()'],['../classblowbox_1_1_camera.html#a00edfb0cfd9379d5e23957e878d0a794',1,'blowbox::Camera::position_()']]],
   ['pressed',['pressed',['../structblowbox_1_1_keyboard_state_1_1_key_state.html#a9f657549b5ff34c42130401fdb5f56ac',1,'blowbox::KeyboardState::KeyState::pressed()'],['../structblowbox_1_1_mouse_state_1_1_mouse_button_state.html#a2a3232cb93a4ea54c3c69cd5f15c9e0d',1,'blowbox::MouseState::MouseButtonState::pressed()']]],
+  ['process_5ftime_5f',['process_time_',['../classblowbox_1_1_time.html#a484487123aa0072cc72f54455db0dcb5',1,'blowbox::Time']]],
+  ['profiler_5fblock_5ffilters_5f',['profiler_block_filters_',['../classblowbox_1_1_performance_profiler.html#ae16da8a6457d069f7e933f168afa5290',1,'blowbox::PerformanceProfiler']]],
+  ['profiler_5fblocks_5f',['profiler_blocks_',['../classblowbox_1_1_performance_profiler.html#a2de6e879f8f7b5485bdaab5a13af51f5',1,'blowbox::PerformanceProfiler']]],
+  ['profiler_5fblocks_5fsingle_5fframe_5f',['profiler_blocks_single_frame_',['../classblowbox_1_1_performance_profiler.html#a5c20f3d7c023ed30e8e18947f5870a0b',1,'blowbox::PerformanceProfiler']]],
   ['projection_5f',['projection_',['../classblowbox_1_1_camera.html#a5803e6f06144e2ec711d984c588afd08',1,'blowbox::Camera']]],
   ['projection_5fdirty_5f',['projection_dirty_',['../classblowbox_1_1_camera.html#abc56a1d84d7fc73fa2eb4da50efb4e7e',1,'blowbox::Camera']]],
   ['pso_5f',['pso_',['../classblowbox_1_1_p_s_o.html#a37bc8a39d24100edd8b12fb2139204dc',1,'blowbox::PSO']]],

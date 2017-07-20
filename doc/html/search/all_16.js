@@ -18,6 +18,7 @@ var searchData=
   ['_7egraphicspso',['~GraphicsPSO',['../classblowbox_1_1_graphics_p_s_o.html#ab7fbe282af1f3c930120fbbecab80d60',1,'blowbox::GraphicsPSO']]],
   ['_7eimage',['~Image',['../classblowbox_1_1_image.html#ac477232d3275f5dbd2755808e49358fe',1,'blowbox::Image']]],
   ['_7eimguimanager',['~ImGuiManager',['../classblowbox_1_1_im_gui_manager.html#a24833a748c71b342a98192873af4f316',1,'blowbox::ImGuiManager']]],
+  ['_7eprofilerblock',['~ProfilerBlock',['../classblowbox_1_1_performance_profiler_1_1_profiler_block.html#ae8219a9c47379605e4fe4ba85ec88d70',1,'blowbox::PerformanceProfiler::ProfilerBlock']]],
   ['_7erootparameter',['~RootParameter',['../classblowbox_1_1_root_parameter.html#a988cef107c8975c7f50e7c2f68b1bf96',1,'blowbox::RootParameter']]],
   ['_7erootsignature',['~RootSignature',['../classblowbox_1_1_root_signature.html#aa08ee0d3f64dcce82cc83abb408ae663',1,'blowbox::RootSignature']]],
   ['_7escenemanager',['~SceneManager',['../classblowbox_1_1_scene_manager.html#a47ddda41301201372ae669b93638700b',1,'blowbox::SceneManager']]],

@@ -144,6 +144,8 @@ Public Member Functions</h2></td></tr>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:ad86ce0c06025543c33cec23016108ce9"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_window.html#ad86ce0c06025543c33cec23016108ce9">GlfwKeyCallback</a> (GLFWwindow *window, int key, int scancode, int action, int modifiers)</td></tr>
 <tr class="separator:ad86ce0c06025543c33cec23016108ce9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed8e3b19b10853e1522f0dbf4ff55d47"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_window.html#aed8e3b19b10853e1522f0dbf4ff55d47">GlfwCharCallback</a> (GLFWwindow *window, unsigned int unicode_character)</td></tr>
+<tr class="separator:aed8e3b19b10853e1522f0dbf4ff55d47"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac25bc658444428b2bf89266ca09c648d"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_window.html#ac25bc658444428b2bf89266ca09c648d">GlfwCursorPosCallback</a> (GLFWwindow *window, double x, double y)</td></tr>
 <tr class="separator:ac25bc658444428b2bf89266ca09c648d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae74eeb582db535cd5ed57825f782b5c1"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_window.html#ae74eeb582db535cd5ed57825f782b5c1">GlfwMouseButtonCallback</a> (GLFWwindow *window, int button, int action, int modifiers)</td></tr>
@@ -410,6 +412,49 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>The title of the window. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="aed8e3b19b10853e1522f0dbf4ff55d47"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void blowbox::Window::GlfwCharCallback </td>
+          <td>(</td>
+          <td class="paramtype">GLFWwindow *&#160;</td>
+          <td class="paramname"><em>window</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>unicode_character</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This is the callback function that is used for character input. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">window</td><td>The window that the callback function is associated with. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">unicode_character</td><td>The character in question. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -1029,13 +1074,13 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>E:/Projects/blowbox-2017/src/win32/<a class="el" href="window_8h_source.html">window.h</a></li>
-<li>E:/Projects/blowbox-2017/src/win32/window.cc</li>
+<li>C:/Projects/blowbox-2017/src/win32/<a class="el" href="window_8h_source.html">window.h</a></li>
+<li>C:/Projects/blowbox-2017/src/win32/window.cc</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jul 16 2017 21:59:54 for Blowbox 2017 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Jul 19 2017 23:46:13 for Blowbox 2017 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

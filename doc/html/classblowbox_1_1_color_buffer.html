@@ -107,12 +107,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a83de213e072f5db2fede7192401436f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9601a8181cc0d8a8cf6d9106820b0bf0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_color_buffer.html#a9601a8181cc0d8a8cf6d9106820b0bf0">ColorBuffer</a> (float clear_color[4])</td></tr>
 <tr class="separator:a9601a8181cc0d8a8cf6d9106820b0bf0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4bfbc3f8b651fad0f3cce29e1d9cb860"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_color_buffer.html#a4bfbc3f8b651fad0f3cce29e1d9cb860">CreateFromSwapChain</a> (const eastl::wstring &amp;name, ID3D12Resource *swap_chain_resource)</td></tr>
-<tr class="separator:a4bfbc3f8b651fad0f3cce29e1d9cb860"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa4774b1e383a8615d86ba1ff7293abcc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_color_buffer.html#aa4774b1e383a8615d86ba1ff7293abcc">CreateFromTexture</a> (ID3D12Resource *texture_resource, int slice=0)</td></tr>
-<tr class="separator:aa4774b1e383a8615d86ba1ff7293abcc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6864bbb094e2c5abed7d138dc00c55e5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_color_buffer.html#a6864bbb094e2c5abed7d138dc00c55e5">Create</a> (const eastl::wstring &amp;name, UINT width, UINT height, DXGI_FORMAT format)</td></tr>
-<tr class="separator:a6864bbb094e2c5abed7d138dc00c55e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a89959b3152cabec2223e10bbd967b5f1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_color_buffer.html#a89959b3152cabec2223e10bbd967b5f1">CreateFromSwapChain</a> (const <a class="el" href="namespaceblowbox.html#a06fd2b1aebfdc8ad2c458f2bf4744963">WString</a> &amp;name, ID3D12Resource *swap_chain_resource, float clear_color[4])</td></tr>
+<tr class="separator:a89959b3152cabec2223e10bbd967b5f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f405bd5c8991eb4ec45117732c9fb06"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_color_buffer.html#a4f405bd5c8991eb4ec45117732c9fb06">Create</a> (const <a class="el" href="namespaceblowbox.html#a06fd2b1aebfdc8ad2c458f2bf4744963">WString</a> &amp;name, UINT width, UINT height, DXGI_FORMAT format)</td></tr>
+<tr class="separator:a4f405bd5c8991eb4ec45117732c9fb06"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7d3b371d165cc481f3c63efe4c72922a"><td class="memItemLeft" align="right" valign="top">const UINT &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_color_buffer.html#a7d3b371d165cc481f3c63efe4c72922a">GetSRV</a> () const </td></tr>
 <tr class="separator:a7d3b371d165cc481f3c63efe4c72922a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a376e2eb784856d5fd535e89324dda68d"><td class="memItemLeft" align="right" valign="top">const UINT &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_color_buffer.html#a376e2eb784856d5fd535e89324dda68d">GetRTV</a> () const </td></tr>
@@ -167,6 +165,11 @@ Protected Member Functions</h2></td></tr>
 <tr class="separator:a2909beccc243d9fb02771bf08ac8357d inherit pro_methods_classblowbox_1_1_pixel_buffer"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a554cfe778ca4f986c1001d61408963b2 inherit pro_methods_classblowbox_1_1_pixel_buffer"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_pixel_buffer.html#a554cfe778ca4f986c1001d61408963b2">CreateTextureResource</a> (const <a class="el" href="namespaceblowbox.html#a06fd2b1aebfdc8ad2c458f2bf4744963">WString</a> &amp;name, const D3D12_RESOURCE_DESC &amp;resource_desc, const D3D12_CLEAR_VALUE &amp;clear_value)</td></tr>
 <tr class="separator:a554cfe778ca4f986c1001d61408963b2 inherit pro_methods_classblowbox_1_1_pixel_buffer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_methods_classblowbox_1_1_gpu_resource"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_classblowbox_1_1_gpu_resource')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="classblowbox_1_1_gpu_resource.html">blowbox::GpuResource</a></td></tr>
+<tr class="memitem:a575eb5390d80735c446db102e74af1ff inherit pro_methods_classblowbox_1_1_gpu_resource"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_gpu_resource.html#a575eb5390d80735c446db102e74af1ff">AddToMemoryProfiler</a> ()</td></tr>
+<tr class="separator:a575eb5390d80735c446db102e74af1ff inherit pro_methods_classblowbox_1_1_gpu_resource"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a41abd669f87d52649797a5e7b2546c2d inherit pro_methods_classblowbox_1_1_gpu_resource"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_gpu_resource.html#a41abd669f87d52649797a5e7b2546c2d">RemoveFromMemoryProfiler</a> ()</td></tr>
+<tr class="separator:a41abd669f87d52649797a5e7b2546c2d inherit pro_methods_classblowbox_1_1_gpu_resource"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -204,6 +207,8 @@ Additional Inherited Members</h2></td></tr>
 <tr class="memitem:aec63e905a8b42d52c24befcf80210c33 inherit pro_attribs_classblowbox_1_1_pixel_buffer"><td class="memItemLeft" align="right" valign="top">DXGI_FORMAT&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_pixel_buffer.html#aec63e905a8b42d52c24befcf80210c33">format_</a></td></tr>
 <tr class="separator:aec63e905a8b42d52c24befcf80210c33 inherit pro_attribs_classblowbox_1_1_pixel_buffer"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_attribs_classblowbox_1_1_gpu_resource"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classblowbox_1_1_gpu_resource')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="classblowbox_1_1_gpu_resource.html">blowbox::GpuResource</a></td></tr>
+<tr class="memitem:a277275f61958df889385eaabb0757c14 inherit pro_attribs_classblowbox_1_1_gpu_resource"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceblowbox.html#a06fd2b1aebfdc8ad2c458f2bf4744963">WString</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_gpu_resource.html#a277275f61958df889385eaabb0757c14">name_</a></td></tr>
+<tr class="separator:a277275f61958df889385eaabb0757c14 inherit pro_attribs_classblowbox_1_1_gpu_resource"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a139891c8bbf51fffd06cb264e670912e inherit pro_attribs_classblowbox_1_1_gpu_resource"><td class="memItemLeft" align="right" valign="top">ID3D12Resource *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_gpu_resource.html#a139891c8bbf51fffd06cb264e670912e">resource_</a></td></tr>
 <tr class="separator:a139891c8bbf51fffd06cb264e670912e inherit pro_attribs_classblowbox_1_1_gpu_resource"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adb2c0dde544b06c181034d13882a3cbe inherit pro_attribs_classblowbox_1_1_gpu_resource"><td class="memItemLeft" align="right" valign="top">D3D12_RESOURCE_STATES&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_gpu_resource.html#adb2c0dde544b06c181034d13882a3cbe">usage_state_</a></td></tr>
@@ -269,14 +274,14 @@ Inheritance diagram for blowbox::ColorBuffer:</div>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a6864bbb094e2c5abed7d138dc00c55e5"></a>
+<a class="anchor" id="a4f405bd5c8991eb4ec45117732c9fb06"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">void blowbox::ColorBuffer::Create </td>
           <td>(</td>
-          <td class="paramtype">const eastl::wstring &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespaceblowbox.html#a06fd2b1aebfdc8ad2c458f2bf4744963">WString</a> &amp;&#160;</td>
           <td class="paramname"><em>name</em>, </td>
         </tr>
         <tr>
@@ -309,9 +314,9 @@ Inheritance diagram for blowbox::ColorBuffer:</div>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">name</td><td>The name for the <a class="el" href="classblowbox_1_1_color_buffer.html" title="Buffer-type for buffers with color data in them. ">ColorBuffer</a>. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">width</td><td>The width of the <a class="el" href="classblowbox_1_1_color_buffer.html" title="Buffer-type for buffers with color data in them. ">ColorBuffer</a> in texels </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">height</td><td>The height of the <a class="el" href="classblowbox_1_1_color_buffer.html" title="Buffer-type for buffers with color data in them. ">ColorBuffer</a> in texels </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">format</td><td>The per-texel data format </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">width</td><td>The width of the <a class="el" href="classblowbox_1_1_color_buffer.html" title="Buffer-type for buffers with color data in them. ">ColorBuffer</a> in texels. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">height</td><td>The height of the <a class="el" href="classblowbox_1_1_color_buffer.html" title="Buffer-type for buffers with color data in them. ">ColorBuffer</a> in texels. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">format</td><td>The per-texel data format. </td></tr>
   </table>
   </dd>
 </dl>
@@ -350,21 +355,27 @@ Inheritance diagram for blowbox::ColorBuffer:</div>
 
 </div>
 </div>
-<a class="anchor" id="a4bfbc3f8b651fad0f3cce29e1d9cb860"></a>
+<a class="anchor" id="a89959b3152cabec2223e10bbd967b5f1"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">void blowbox::ColorBuffer::CreateFromSwapChain </td>
           <td>(</td>
-          <td class="paramtype">const eastl::wstring &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespaceblowbox.html#a06fd2b1aebfdc8ad2c458f2bf4744963">WString</a> &amp;&#160;</td>
           <td class="paramname"><em>name</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">ID3D12Resource *&#160;</td>
-          <td class="paramname"><em>swap_chain_resource</em>&#160;</td>
+          <td class="paramname"><em>swap_chain_resource</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>clear_color</em>[4]&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -379,41 +390,7 @@ Inheritance diagram for blowbox::ColorBuffer:</div>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">name</td><td>The name for the <a class="el" href="classblowbox_1_1_color_buffer.html" title="Buffer-type for buffers with color data in them. ">ColorBuffer</a>. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">swap_chain_resource</td><td>The resource you got from the <a class="el" href="classblowbox_1_1_swap_chain.html" title="Wraps the IDXGISwapChain. ">SwapChain</a>. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a class="anchor" id="aa4774b1e383a8615d86ba1ff7293abcc"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void blowbox::ColorBuffer::CreateFromTexture </td>
-          <td>(</td>
-          <td class="paramtype">ID3D12Resource *&#160;</td>
-          <td class="paramname"><em>texture_resource</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>slice</em> = <code>0</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Creates a <a class="el" href="classblowbox_1_1_color_buffer.html" title="Buffer-type for buffers with color data in them. ">ColorBuffer</a> from a pre-existing texture. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">texture_resource</td><td>The resource to create this <a class="el" href="classblowbox_1_1_color_buffer.html" title="Buffer-type for buffers with color data in them. ">ColorBuffer</a> from </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">slice</td><td>Fuck if I know, I wrote this shit about a year ago and only documenting it now (Jul 2017).... </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">clear_color</td><td>The clear color that should be used for this buffer when clearing it. </td></tr>
   </table>
   </dd>
 </dl>
@@ -652,13 +629,13 @@ Inheritance diagram for blowbox::ColorBuffer:</div>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>E:/Projects/blowbox-2017/src/renderer/buffers/<a class="el" href="color__buffer_8h_source.html">color_buffer.h</a></li>
-<li>E:/Projects/blowbox-2017/src/renderer/buffers/color_buffer.cc</li>
+<li>C:/Projects/blowbox-2017/src/renderer/buffers/<a class="el" href="color__buffer_8h_source.html">color_buffer.h</a></li>
+<li>C:/Projects/blowbox-2017/src/renderer/buffers/color_buffer.cc</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jul 16 2017 21:59:53 for Blowbox 2017 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Jul 19 2017 23:46:12 for Blowbox 2017 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

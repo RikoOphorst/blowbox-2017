@@ -65,19 +65,12 @@ namespace blowbox
         }
     }
 
-    struct CompareProfilerBlockSingleFrame
-    {
-        inline bool operator() (const PerformanceProfiler::ProfilerBlockFrameData& a, const PerformanceProfiler::ProfilerBlockFrameData& b)
-        {
-            return (a.total_time > b.total_time);
-        }
-    };
-
     //------------------------------------------------------------------------------------------------------
     void PerformanceProfiler::RenderWindow()
     {
         if (show_window_)
         {
+            ProfilerBlock block("PerformanceProfiler::RenderWindow");
             ImGui::SetNextWindowSize(ImVec2(600, 500), ImGuiSetCond_FirstUseEver);
             ImGui::SetNextWindowPosCenter(ImGuiSetCond_FirstUseEver);
 
@@ -237,6 +230,7 @@ namespace blowbox
     //------------------------------------------------------------------------------------------------------
     void PerformanceProfiler::NewFrame()
     {
+        ProfilerBlock block("PerformanceProfiler::NewFrame");
         if (catch_next_frame_ == true)
         {
             catch_frame_ = true;

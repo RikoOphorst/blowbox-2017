@@ -7,5 +7,16 @@ var searchData=
   ['commandcontextmanager',['CommandContextManager',['../classblowbox_1_1_command_context_manager.html',1,'blowbox']]],
   ['commandmanager',['CommandManager',['../classblowbox_1_1_command_manager.html',1,'blowbox']]],
   ['commandqueue',['CommandQueue',['../classblowbox_1_1_command_queue.html',1,'blowbox']]],
-  ['computepso',['ComputePSO',['../classblowbox_1_1_compute_p_s_o.html',1,'blowbox']]]
+  ['comparedebugwindowpriority',['CompareDebugWindowPriority',['../structblowbox_1_1_debug_menu_1_1_compare_debug_window_priority.html',1,'blowbox::DebugMenu']]],
+  ['comparegpuresourcebydimension',['CompareGpuResourceByDimension',['../structblowbox_1_1_memory_profiler_1_1_compare_gpu_resource_by_dimension.html',1,'blowbox::MemoryProfiler']]],
+  ['comparegpuresourcebydimensionreverted',['CompareGpuResourceByDimensionReverted',['../structblowbox_1_1_memory_profiler_1_1_compare_gpu_resource_by_dimension_reverted.html',1,'blowbox::MemoryProfiler']]],
+  ['comparegpuresourcebyformat',['CompareGpuResourceByFormat',['../structblowbox_1_1_memory_profiler_1_1_compare_gpu_resource_by_format.html',1,'blowbox::MemoryProfiler']]],
+  ['comparegpuresourcebyformatreverted',['CompareGpuResourceByFormatReverted',['../structblowbox_1_1_memory_profiler_1_1_compare_gpu_resource_by_format_reverted.html',1,'blowbox::MemoryProfiler']]],
+  ['comparegpuresourcebyname',['CompareGpuResourceByName',['../structblowbox_1_1_memory_profiler_1_1_compare_gpu_resource_by_name.html',1,'blowbox::MemoryProfiler']]],
+  ['comparegpuresourcebynamereverted',['CompareGpuResourceByNameReverted',['../structblowbox_1_1_memory_profiler_1_1_compare_gpu_resource_by_name_reverted.html',1,'blowbox::MemoryProfiler']]],
+  ['comparegpuresourcebysize',['CompareGpuResourceBySize',['../structblowbox_1_1_memory_profiler_1_1_compare_gpu_resource_by_size.html',1,'blowbox::MemoryProfiler']]],
+  ['comparegpuresourcebysizereverted',['CompareGpuResourceBySizeReverted',['../structblowbox_1_1_memory_profiler_1_1_compare_gpu_resource_by_size_reverted.html',1,'blowbox::MemoryProfiler']]],
+  ['compareprofilerblocksingleframe',['CompareProfilerBlockSingleFrame',['../structblowbox_1_1_performance_profiler_1_1_compare_profiler_block_single_frame.html',1,'blowbox::PerformanceProfiler']]],
+  ['computepso',['ComputePSO',['../classblowbox_1_1_compute_p_s_o.html',1,'blowbox']]],
+  ['console',['Console',['../classblowbox_1_1_console.html',1,'blowbox']]]
 ];

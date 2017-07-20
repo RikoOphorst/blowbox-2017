@@ -34,5 +34,20 @@ namespace blowbox
         void AddDebugWindow(int priority, WeakPtr<DebugWindow> debug_window);
     private:
         Vector<Pair<int, WeakPtr<DebugWindow>>> debug_windows_; //!< All debug windows that have been added to the DebugMenu.
+
+    protected:
+        /** @brief Compares the priorities for DebugWindows. */
+        struct CompareDebugWindowPriority
+        {
+            /**
+            * @brief Compares the priorities for DebugWindows.
+            * @param[in] a The first instance.
+            * @param[in] b The second instance.
+            */
+            inline bool operator() (const Pair<int, WeakPtr<DebugWindow>>& a, const Pair<int, WeakPtr<DebugWindow>>& b)
+            {
+                return (a.first < b.first);
+            }
+        };
     };
 }

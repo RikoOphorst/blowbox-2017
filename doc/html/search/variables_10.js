@@ -1,5 +1,11 @@
 var searchData=
 [
+  ['ram_5faverage_5fusage_5f',['ram_average_usage_',['../classblowbox_1_1_memory_stats.html#a232eda7a65a935626b248cc42cde97a8',1,'blowbox::MemoryStats']]],
+  ['ram_5foperating_5fsystem_5fbudget_5f',['ram_operating_system_budget_',['../classblowbox_1_1_memory_stats.html#a2019793ac9e36fe920640751411c1d29',1,'blowbox::MemoryStats']]],
+  ['ram_5fusage_5fhistory_5f',['ram_usage_history_',['../classblowbox_1_1_memory_stats.html#a8fcb88472d324e8066fbf4489ec816f0',1,'blowbox::MemoryStats']]],
+  ['ram_5fusage_5fhistory_5fcontiguous_5f',['ram_usage_history_contiguous_',['../classblowbox_1_1_memory_stats.html#aed7ae08428fad79d50f999277db046f6',1,'blowbox::MemoryStats']]],
+  ['ram_5fusage_5fhistory_5flower_5fbound_5f',['ram_usage_history_lower_bound_',['../classblowbox_1_1_memory_stats.html#ad7aae3676ce86a71f68f6a67d8f11237',1,'blowbox::MemoryStats']]],
+  ['ram_5fusage_5fhistory_5fupper_5fbound_5f',['ram_usage_history_upper_bound_',['../classblowbox_1_1_memory_stats.html#a3515a4bc356574ca646a98a12fd696ac',1,'blowbox::MemoryStats']]],
   ['released',['released',['../structblowbox_1_1_keyboard_state_1_1_key_state.html#a92ef4053f58b59f9a54f829e1fb9c45c',1,'blowbox::KeyboardState::KeyState::released()'],['../structblowbox_1_1_mouse_state_1_1_mouse_button_state.html#a347e1e80c6ef5cf94ce94c9c4675486c',1,'blowbox::MouseState::MouseButtonState::released()']]],
   ['render_5fcbv_5fsrv_5fuav_5fheap_5f',['render_cbv_srv_uav_heap_',['../classblowbox_1_1_blowbox_core.html#ac00ed34f39bf826dfc4021f717740158',1,'blowbox::BlowboxCore']]],
   ['render_5fcommand_5fcontext_5fmanager_5f',['render_command_context_manager_',['../classblowbox_1_1_blowbox_core.html#af7105272a718de15a28d52630fa957df',1,'blowbox::BlowboxCore']]],
@@ -12,6 +18,7 @@ var searchData=
   ['render_5frtv_5fheap_5f',['render_rtv_heap_',['../classblowbox_1_1_blowbox_core.html#afb1f4ad472c16b7bd7d033b0796e0fb6',1,'blowbox::BlowboxCore']]],
   ['render_5fswap_5fchain_5f',['render_swap_chain_',['../classblowbox_1_1_blowbox_core.html#a37d66a8634c1e31a6c85828f1eb4c33b',1,'blowbox::BlowboxCore']]],
   ['resolution_5f',['resolution_',['../classblowbox_1_1_image.html#afa7951d65866d87c573309ce391ae961',1,'blowbox::Image']]],
+  ['resource',['resource',['../structblowbox_1_1_memory_profiler_1_1_resource_data.html#a3685447e46db643c5b9ac3a7608aa6fa',1,'blowbox::MemoryProfiler::ResourceData']]],
   ['resource_5f',['resource_',['../classblowbox_1_1_gpu_resource.html#a139891c8bbf51fffd06cb264e670912e',1,'blowbox::GpuResource']]],
   ['resource_5fbarrier_5fbuffer_5f',['resource_barrier_buffer_',['../classblowbox_1_1_command_context.html#af2acc4f84f12da13621a6fc77b80d842',1,'blowbox::CommandContext']]],
   ['resource_5fflags_5f',['resource_flags_',['../classblowbox_1_1_gpu_buffer.html#a052e838aa82c2b469cedb206d40cd02d',1,'blowbox::GpuBuffer']]],

@@ -15,6 +15,11 @@ namespace blowbox
 {
     class GpuResource;
 
+    /**
+    * Provides a simple debug window with memory statistics in the main debug menu.
+    *
+    * @brief Provides an overview of memory statistics.
+    */
     class MemoryStats : public DebugWindow
     {
     public:
@@ -36,7 +41,7 @@ namespace blowbox
         int history_sample_count_;                                                          //!< The number of samples that should be kept as history for all history buffers.
 
     private:
-        bool show_window_;                                                                  //!< Whether the memory usage window should be shown.
+        bool show_window_;                                                                  //!< Whether the memory stats window should be shown.
 
         RingBuffer<uint64_t> ram_usage_history_;                                            //!< A history of how much RAM was in use.
         float ram_usage_history_contiguous_[BLOWBOX_PROFILER_HISTORY_MAX_SAMPLE_COUNT];     //!< An array used to contiguously store the RAM usage history.

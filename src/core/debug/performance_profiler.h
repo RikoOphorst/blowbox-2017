@@ -161,5 +161,21 @@ namespace blowbox
         float contiguous_block_times[BLOWBOX_PROFILER_HISTORY_MAX_SAMPLE_COUNT];            //!< An array that gets re-used for every type of block time that needs to be stored contiguously (requirement for ImGui::PlotHistogram())
 
         ImGuiTextFilter profiler_block_filters_[ProfilerBlockType_COUNT];                   //!< An array of text filters for filtering out profiler blocks from the individual ProfilerBlock views.
+    
+    protected:
+
+        /** @brief Compares single frame ProfilerBlocks. */
+        struct CompareProfilerBlockSingleFrame
+        {
+            /** 
+            * @brief Compare two ProfilerBlockFrameData objects by their total time. 
+            * @param[in] a The first instance.
+            * @param[in] b The second instance.
+            */
+            inline bool operator() (const PerformanceProfiler::ProfilerBlockFrameData& a, const PerformanceProfiler::ProfilerBlockFrameData& b)
+            {
+                return (a.total_time > b.total_time);
+            }
+        };
     };
 }

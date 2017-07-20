@@ -249,9 +249,7 @@ namespace blowbox
         SharedPtr<FrameStats> frame_stats_;                                 //!< The FrameStats instance.
         SharedPtr<MemoryStats> memory_stats_;                               //!< The MemoryStats instance.
 
-        bool exit_prompt_;
-
     public:
-        static bool alive;
+        static bool alive;                                                  //!< Static variable to determine whether the BlowboxCore is alive.
     };
 }

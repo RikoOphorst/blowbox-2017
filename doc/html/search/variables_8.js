@@ -6,9 +6,12 @@ var searchData=
   ['in_5fscene_5f',['in_scene_',['../classblowbox_1_1_entity.html#afc0625383af6c9f3ed4b72a3d92c7e18',1,'blowbox::Entity']]],
   ['index_5fbuffer_5f',['index_buffer_',['../classblowbox_1_1_mesh.html#adfc4fab4f5cbde2a1e984780e6185dbf',1,'blowbox::Mesh']]],
   ['indices_5f',['indices_',['../classblowbox_1_1_mesh_data.html#ade40c2767bbc8bb488c985a894dbd9c6',1,'blowbox::MeshData']]],
+  ['initialization_5ftime_5f',['initialization_time_',['../classblowbox_1_1_time.html#a3ef571a81e64e9897a26c81f3768cf60',1,'blowbox::Time']]],
   ['initialized_5f',['initialized_',['../classblowbox_1_1_im_gui_manager.html#a1203af4731cab68bd9fbff8ced09fe5d',1,'blowbox::ImGuiManager::initialized_()'],['../classblowbox_1_1_mesh.html#a8bb896d4913de1bbba49f84becf3de91',1,'blowbox::Mesh::initialized_()']]],
   ['input_5felement_5fdescs_5f',['input_element_descs_',['../classblowbox_1_1_graphics_p_s_o.html#a91aaf73a34d0e0d265cd1000a0a049f6',1,'blowbox::GraphicsPSO']]],
+  ['input_5fkeys_5f',['input_keys_',['../classblowbox_1_1_keyboard_state.html#a45ec5a750610066a8870aa9400b9dc3d',1,'blowbox::KeyboardState']]],
   ['instance_5f',['instance_',['../classblowbox_1_1_get.html#a156f36e1ed17f514397577b676a82660',1,'blowbox::Get']]],
+  ['is_5fcondensed_5f',['is_condensed_',['../classblowbox_1_1_memory_profiler.html#af76b7d68e79f87fe6954348649b4e8e0',1,'blowbox::MemoryProfiler']]],
   ['is_5fmapped_5f',['is_mapped_',['../classblowbox_1_1_upload_buffer.html#a5624b1d92a7a079fba2b9935fe8dff78',1,'blowbox::UploadBuffer']]],
   ['is_5fmouse_5fin_5fwindow_5f',['is_mouse_in_window_',['../classblowbox_1_1_mouse_state.html#acea4f5ba4298df72ef3e7de014fbc7fa',1,'blowbox::MouseState']]]
 ];

@@ -16,12 +16,9 @@ namespace blowbox
     class GpuResource;
 
     /**
-    * This class is here in Blowbox to let you profile your code. You can start
-    * profiling a new block of code by calling stack-allocating a PerformanceProfiler::ProfilerBlock.
-    * Once the ProfilerBlock has expired, it automatically notifies the main Profiler.
-    * See the PerformanceProfiler::ProfilerBlock for a more detailed explanation.
+    * Provides a simple debug window with frame statistics in the main debug menu.
     *
-    * @brief The main profiler in Blowbox.
+    * @brief Provides an overview of frame statistics.
     */
     class FrameStats : public DebugWindow
     {
@@ -44,7 +41,7 @@ namespace blowbox
         int history_sample_count_;                                                          //!< The number of samples that should be kept as history for all history buffers.
 
     private:
-        bool show_window_;                                                                  //!< Whether the general stats window should be shown.
+        bool show_window_;                                                                  //!< Whether the frame stats window should be shown.
         RingBuffer<float> delta_time_history_;                                              //!< A history buffer for all delta times.
         float delta_time_history_contiguous_[BLOWBOX_PROFILER_HISTORY_MAX_SAMPLE_COUNT];    //!< Stores the delta times from the delta_time_history_ contiguously in memory.
         float delta_times_upper_bound_;                                                     //!< The upper bound of the delta times (i.e. the highest delta time) that exist in the current delta_time_history_.
@@ -53,6 +50,6 @@ namespace blowbox
 
         float fps_history_contiguous_[BLOWBOX_PROFILER_HISTORY_MAX_SAMPLE_COUNT];           //!< Stores FPS values contiguously in memory.
 
-        int view_frame_stats_as_fps_;                                                       //!< Whether stats in the general stats window should be shown as delta time or as FPS.
+        int view_frame_stats_as_fps_;                                                       //!< Whether stats in the frame stats window should be shown as delta time or as FPS.
     };
 }
