@@ -74,7 +74,7 @@ namespace blowbox
             ImGui::SetNextWindowSize(ImVec2(600, 500), ImGuiSetCond_FirstUseEver);
             ImGui::SetNextWindowPosCenter(ImGuiSetCond_FirstUseEver);
 
-            if (ImGui::Begin("Performance Profiler Main", &show_window_))
+            if (ImGui::Begin("Performance Profiler Main", &show_window_, ImGuiWindowFlags_NoCollapse))
             {
                 if (ImGui::CollapsingHeader("Frame performance"))
                 {

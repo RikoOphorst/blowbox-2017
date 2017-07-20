@@ -69,7 +69,7 @@ namespace blowbox
         {
             ImGui::SetNextWindowSize(ImVec2(850, 480), ImGuiSetCond_FirstUseEver);
             ImGui::SetNextWindowPosCenter(ImGuiSetCond_FirstUseEver);
-            if (ImGui::Begin("Memory Profiler", &show_window_, ImGuiWindowFlags_NoResize))
+            if (ImGui::Begin("Memory Profiler", &show_window_, ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoCollapse))
             {
                 std::wstring_convert<std::codecvt_utf8<wchar_t>, wchar_t> converter;
 

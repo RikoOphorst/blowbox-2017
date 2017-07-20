@@ -149,7 +149,7 @@ namespace blowbox
             ImGui::SetNextWindowSize(ImVec2(600, 400), ImGuiSetCond_FirstUseEver);
             ImGui::SetNextWindowPosCenter(ImGuiSetCond_FirstUseEver);
 
-            if (ImGui::Begin("Console", &show_console_window_))
+            if (ImGui::Begin("Console", &show_console_window_, ImGuiWindowFlags_NoCollapse))
             {
                 {
                     ImGui::BeginChild("ConsoleRegion", ImVec2(0, -ImGui::GetItemsLineHeightWithSpacing()), true, ImGuiWindowFlags_HorizontalScrollbar);

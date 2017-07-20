@@ -74,7 +74,7 @@ namespace blowbox
     {
         if (show_window_)
         {
-            if (ImGui::Begin("Memory Usage", &show_window_, ImGuiWindowFlags_NoResize))
+            if (ImGui::Begin("Memory Usage", &show_window_, ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoCollapse))
             {
                 int ram_usage_count = (ram_usage_history_.size() < BLOWBOX_PROFILER_HISTORY_MAX_SAMPLE_COUNT ? ram_usage_history_.size() : BLOWBOX_PROFILER_HISTORY_MAX_SAMPLE_COUNT);
 

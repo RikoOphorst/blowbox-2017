@@ -77,7 +77,7 @@ namespace blowbox
             ImGui::SetNextWindowCollapsed(false, ImGuiSetCond_FirstUseEver);
             ImGui::SetNextWindowPosCenter(ImGuiSetCond_FirstUseEver);
 
-            if (ImGui::Begin("General Stats", &show_window_, ImGuiWindowFlags_NoResize))
+            if (ImGui::Begin("General Stats", &show_window_, ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoCollapse))
             {
                 if (view_frame_stats_as_fps_ == 0)
                 {
