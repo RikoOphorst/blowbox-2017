@@ -208,6 +208,7 @@ endif (TARGET unit)
 set_target_properties(uninstall                             PROPERTIES FOLDER deps/assimp)
 set_target_properties(UpdateAssimpLibsDebugSymbolsAndDLLs   PROPERTIES FOLDER deps/assimp)
 set_target_properties(zlibstatic                            PROPERTIES FOLDER deps/assimp)
+set_target_properties(IrrXML                                PROPERTIES FOLDER deps/assimp)
 
 set_target_properties(EASTL                                 PROPERTIES FOLDER deps/eastl)
 set_target_properties(EABase_ide                            PROPERTIES FOLDER deps/eastl)
