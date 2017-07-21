@@ -148,13 +148,14 @@ set (BUILD_SHARED_LIBS ${BUILD_SHARED_LIBS_TEMP} CACHE BOOL "whether shared libs
 # Linking Assimp
 set(CMAKE_CXX_FLAGS_DEBUG_CACHED "${CMAKE_CXX_FLAGS_DEBUG}")
 set(CMAKE_CXX_FLAGS_DEBUG "/MDd /Ob2 /O2 /DNDEBUG")
-add_subdirectory("deps/assimp-3.3.1")
+add_subdirectory("deps/assimp-4.0.0")
 target_link_libraries(blowbox_core      assimp)
 target_link_libraries(blowbox_renderer  assimp)
 target_link_libraries(blowbox_content   assimp)
 target_link_libraries(blowbox_win32     assimp)
 target_link_libraries(blowbox_util      assimp)
-include_directories("deps/assimp-3.3.1/include")
+include_directories("deps/assimp-4.0.0/include")
+include_directories("${CMAKE_CURRENT_BINARY_DIR}/deps/assimp-4.0.0/include")
 set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG_CACHED}")
 
 # Linking GLFW
@@ -216,10 +217,12 @@ set_target_properties(EAThread_ide                          PROPERTIES FOLDER de
 set_target_properties(EAStdC                                PROPERTIES FOLDER deps/eastl)
 set_target_properties(EASTLTest                             PROPERTIES FOLDER deps/eastl)
 set_target_properties(EATest                                PROPERTIES FOLDER deps/eastl)
-set_target_properties(Continuous                            PROPERTIES FOLDER deps/eastl)
-set_target_properties(Experimental                          PROPERTIES FOLDER deps/eastl)
-set_target_properties(Nightly                               PROPERTIES FOLDER deps/eastl)
-set_target_properties(NightlyMemoryCheck                    PROPERTIES FOLDER deps/eastl)
+if (BUILD_TESTING)
+    set_target_properties(Continuous                            PROPERTIES FOLDER deps/eastl)
+    set_target_properties(Experimental                          PROPERTIES FOLDER deps/eastl)
+    set_target_properties(Nightly                               PROPERTIES FOLDER deps/eastl)
+    set_target_properties(NightlyMemoryCheck                    PROPERTIES FOLDER deps/eastl)
+endif (BUILD_TESTING)
 
 set_target_properties(glfw                                  PROPERTIES FOLDER deps/glfw)
 
