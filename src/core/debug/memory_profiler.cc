@@ -20,7 +20,7 @@ namespace blowbox
         condense_(true),
         is_condensed_(false),
         has_shutdown_(false),
-        sort_type_(ResourceSortType_NAME)
+        sort_type_(ResourceSortType_SIZE)
     {
         Condense();
     }

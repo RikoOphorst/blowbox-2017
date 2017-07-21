@@ -154,7 +154,7 @@ namespace blowbox
             */
             inline bool operator() (ResourceData& a, ResourceData& b)
             {
-                return (a.total_size < b.total_size);
+                return (a.total_size > b.total_size);
             }
         };
 
@@ -168,7 +168,7 @@ namespace blowbox
             */
             inline bool operator() (ResourceData& a, ResourceData& b)
             {
-                return (a.total_size > b.total_size);
+                return (a.total_size < b.total_size);
             }
         };
 
