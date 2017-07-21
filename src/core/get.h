@@ -24,6 +24,8 @@ namespace blowbox
     class MemoryProfiler;
     class FrameStats;
     class MemoryStats;
+    class ImageManager;
+    class FileManager;
 
     /**
     * The Get class is essentially a set of getters. It allows
@@ -123,6 +125,12 @@ namespace blowbox
 
         /** @returns The MemoryStats instance. */
         static SharedPtr<MemoryStats> MemoryStats();
+
+        /** @returns The ImageManager instance. */
+        static SharedPtr<ImageManager> ImageManager();
+
+        /** @returns The FileManager instance. */
+        static SharedPtr<FileManager> FileManager();
         
     protected:
         /**
@@ -272,6 +280,20 @@ namespace blowbox
         */
         void Set(SharedPtr<blowbox::MemoryStats> instance);
 
+        /**
+        * @brief Sets the ImageManager instance.
+        * @param[in] instance The instance of the ImageManager.
+        * @remarks Only accessible to BlowboxCore.
+        */
+        void Set(SharedPtr<blowbox::ImageManager> instance);
+
+        /**
+        * @brief Sets the FileManager instance.
+        * @param[in] instance The instance of the FileManager.
+        * @remarks Only accessible to BlowboxCore.
+        */
+        void Set(SharedPtr<blowbox::FileManager> instance);
+
         static Get* instance_;                                              //!< The instance of the Get class.
 
     private:
@@ -297,5 +319,7 @@ namespace blowbox
         WeakPtr<blowbox::MemoryProfiler> memory_profiler_;                  //!< The MemoryProfiler instance.
         WeakPtr<blowbox::FrameStats> frame_stats_;                          //!< The FrameStats instance.
         WeakPtr<blowbox::MemoryStats> memory_stats_;                        //!< The MemoryStats instance.
+        WeakPtr<blowbox::ImageManager> image_manager_;                      //!< The ImageManager instance.
+        WeakPtr<blowbox::FileManager> file_manager_;                        //!< The FileManager instance.
     };
 }

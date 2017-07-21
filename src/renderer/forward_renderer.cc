@@ -6,6 +6,7 @@
 #include "renderer/commands/graphics_context.h"
 #include "core/scene/scene_manager.h"
 #include "core/debug/performance_profiler.h"
+#include "content/file_manager.h"
 
 namespace blowbox
 {
@@ -27,8 +28,8 @@ namespace blowbox
 		SharedPtr<SwapChain> swap_chain = Get::SwapChain();
         depth_buffer_.Create(L"DepthBuffer", swap_chain->GetBufferWidth(), swap_chain->GetBufferHeight(), DXGI_FORMAT_D32_FLOAT);
 
-        vertex_shader_.Create(new TextFile("./shaders/vertex.hlsl"), ShaderType_VERTEX);
-        pixel_shader_.Create(new TextFile("./shaders/pixel.hlsl"), ShaderType_PIXEL);
+        vertex_shader_.Create(Get::FileManager()->GetTextFile("./shaders/vertex.hlsl"), ShaderType_VERTEX);
+        pixel_shader_.Create(Get::FileManager()->GetTextFile("./shaders/pixel.hlsl"), ShaderType_PIXEL);
 
         main_root_signature_.Create(1, 0);
         main_root_signature_[0].InitAsConstantBuffer(0); // Constant buffer per object

@@ -1,10 +1,12 @@
 #pragma once
 
-#include "content/text_file.h"
 #include "renderer/d3d12_includes.h"
+#include "util/weak_ptr.h"
 
 namespace blowbox
 {
+    class TextFile;
+
     /**
     * This enumeration is necessary for the Shader to understand what it
     * is trying to compile. It enumerates all different shader types.
@@ -44,7 +46,7 @@ namespace blowbox
         * @param[in] shader_file The file in which the plain-text shader code is stored.
         * @param[in] shader_type The type of shader that should be created out of the shader_file.
         */
-		void Create(TextFile* shader_file, const ShaderType& shader_type);
+		void Create(WeakPtr<TextFile> shader_file, const ShaderType& shader_type);
 		
         /** @returns The type of this Shader. */
         const ShaderType& GetShaderType() const;
@@ -62,7 +64,7 @@ namespace blowbox
         const ID3DBlob* GetShaderBlob() const;
 
 	private:
-		TextFile* shader_file_;                     //!< The TextFile that was used to compile this Shader.
+        WeakPtr<TextFile> shader_file_;             //!< The TextFile that was used to compile this Shader.
 		ShaderType shader_type_;                    //!< The type of Shader this is.
         ID3DBlob* shader_blob_;                     //!< The underlying ID3DBlob where the Shader binary is stored in.
 		D3D12_SHADER_BYTECODE shader_byte_code_;    //!< A D3D12 compatible shader byte code object for this Shader.

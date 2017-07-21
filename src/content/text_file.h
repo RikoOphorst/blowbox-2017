@@ -16,7 +16,7 @@ namespace blowbox
     {
     public:
         /**
-        * Constructs a TextFile by loading a file from disk based on the supplied file_path argument.
+        * @brief Constructs a TextFile by loading a file from disk based on the supplied file_path argument.
         * @param[in] file_path The path to the file that you wish to load.
         */
         TextFile(const String& file_path);
@@ -37,6 +37,9 @@ namespace blowbox
         * @returns The contents of the file encapsulated by the TextFile.
         */
         const String& GetFileContent() const;
+
+        /** @brief Reloads the TextFile. */
+        void Reload();
 
     private:
         String file_path_; //!< File path to the file that is encapsulated by the TextFile.

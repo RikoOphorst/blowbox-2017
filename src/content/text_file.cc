@@ -12,15 +12,7 @@ namespace blowbox
     TextFile::TextFile(const String& file_path) :
         file_path_(file_path)
     {
-        char buf[512];
-        sprintf(buf, "TextFile: %s", file_path.c_str());
-        PerformanceProfiler::ProfilerBlock block(buf, ProfilerBlockType_CONTENT);
-
-        std::ifstream file(file_path.c_str());
-        std::stringstream buffer;
-        buffer << file.rdbuf();
-
-        file_content_ = buffer.str().c_str();
+        Reload();
     }
     
     //------------------------------------------------------------------------------------------------------
@@ -39,5 +31,19 @@ namespace blowbox
     const String& TextFile::GetFileContent() const
     {
         return file_content_;
+    }
+    
+    //------------------------------------------------------------------------------------------------------
+    void TextFile::Reload()
+    {
+        char buf[512];
+        sprintf(buf, "TextFile: %s", file_path_.c_str());
+        PerformanceProfiler::ProfilerBlock block(buf, ProfilerBlockType_CONTENT);
+
+        std::ifstream file(file_path_.c_str());
+        std::stringstream buffer;
+        buffer << file.rdbuf();
+
+        file_content_ = buffer.str().c_str();
     }
 }

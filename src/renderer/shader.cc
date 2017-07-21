@@ -1,5 +1,6 @@
 #include "shader.h"
 
+#include "content/text_file.h"
 #include "util/assert.h"
 #include "util/release.h"
 
@@ -7,7 +8,6 @@ namespace blowbox
 {
 	//------------------------------------------------------------------------------------------------------
 	Shader::Shader() :
-        shader_file_(nullptr),
 		shader_blob_(nullptr),
         shader_type_(ShaderType_UNKNOWN)
 	{
@@ -21,9 +21,9 @@ namespace blowbox
 	}
 	
 	//------------------------------------------------------------------------------------------------------
-	void Shader::Create(TextFile* shader_file, const ShaderType& shader_type)
+	void Shader::Create(WeakPtr<TextFile> shader_file, const ShaderType& shader_type)
 	{
-        BLOWBOX_ASSERT(shader_file != nullptr);
+        BLOWBOX_ASSERT(!shader_file.expired());
         BLOWBOX_ASSERT(shader_type != ShaderType_UNKNOWN);
 
         shader_file_ = shader_file;
@@ -62,8 +62,8 @@ namespace blowbox
 		ID3DBlob* shader_blob_intermediate = nullptr;
 		ID3DBlob* error_blob_intermediate = nullptr;
 		HRESULT hr = D3DCompile(
-            shader_file_->GetFileContent().c_str(), 
-            shader_file_->GetFileContent().size(),
+            shader_file_.lock()->GetFileContent().c_str(), 
+            shader_file_.lock()->GetFileContent().size(),
             NULL, NULL, D3D_COMPILE_STANDARD_FILE_INCLUDE, 
             entry_point.c_str(), 
             shader_model.c_str(), 

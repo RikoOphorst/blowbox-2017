@@ -67,6 +67,9 @@ namespace blowbox
         */
         const PixelComposition& GetPixelComposition() const;
 
+        /** @brief Reloads the Image. */
+        void Reload();
+
     private:
         String image_file_path_; //!< The file path that links to the image that was used to load this image from disk.
         Resolution resolution_; //!< The resolution of the image is stored here.

@@ -45,6 +45,8 @@ namespace blowbox
         BLOWBOX_ASSERT(memory_profiler_.use_count()             > 0);
         BLOWBOX_ASSERT(frame_stats_.use_count()                 > 0);
         BLOWBOX_ASSERT(memory_stats_.use_count()                > 0);
+        BLOWBOX_ASSERT(image_manager_.use_count()               > 0);
+        BLOWBOX_ASSERT(file_manager_.use_count()                > 0);
 
         finalized_ = true;
     }
@@ -189,6 +191,18 @@ namespace blowbox
     }
 
     //------------------------------------------------------------------------------------------------------
+    SharedPtr<ImageManager> Get::ImageManager()
+    {
+        return Get::instance_->image_manager_.lock();
+    }
+
+    //------------------------------------------------------------------------------------------------------
+    SharedPtr<FileManager> Get::FileManager()
+    {
+        return Get::instance_->file_manager_.lock();
+    }
+
+    //------------------------------------------------------------------------------------------------------
     void Get::Set(blowbox::BlowboxCore* blowbox_core)
     {
 		blowbox_core_ = blowbox_core;
@@ -312,5 +326,17 @@ namespace blowbox
     void Get::Set(SharedPtr<blowbox::MemoryStats> instance)
     {
         memory_stats_ = instance;
+    }
+
+    //------------------------------------------------------------------------------------------------------
+    void Get::Set(SharedPtr<blowbox::ImageManager> instance)
+    {
+        image_manager_ = instance;
+    }
+
+    //------------------------------------------------------------------------------------------------------
+    void Get::Set(SharedPtr<blowbox::FileManager> instance)
+    {
+        file_manager_ = instance;
     }
 }

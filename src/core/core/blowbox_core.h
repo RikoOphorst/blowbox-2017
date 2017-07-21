@@ -38,6 +38,8 @@ namespace blowbox
     class MemoryProfiler;
     class FrameStats;
     class MemoryStats;
+    class ImageManager;
+    class FileManager;
 
     /**
     * This is the main class that the user has to create upon startup. It sets up everything
@@ -99,31 +101,37 @@ namespace blowbox
 
     protected:
 
-        /** @brief Starts up the Getter system. */
+        /** @brief Starts up the getter system. */
         void StartupGetter();
 
-        /** @brief Starts up the Win32 subsystems. */
+        /** @brief Starts up the content subsystems. */
+        void StartupContent();
+
+        /** @brief Starts up the win32 subsystems. */
         void StartupWin32();
 
-        /** @brief Starts up the Renderer subsystems. */
+        /** @brief Starts up the renderer subsystems. */
         void StartupRenderer();
 
-        /** @brief Starts up the Scene subsystems. */
+        /** @brief Starts up the scene subsystems. */
         void StartupScene();
 
         /** @brief Starts up the debug subsystems. */
         void StartupDebug();
 
-        /** @brief Shuts down the Getter system. */
+        /** @brief Shuts down the getter system. */
         void ShutdownGetter();
 
-        /** @brief Shuts down the Win32 subsystems. */
+        /** @brief Shuts down the content subsystems. */
+        void ShutdownContent();
+
+        /** @brief Shuts down the win32 subsystems. */
         void ShutdownWin32();
 
-        /** @brief Shuts down the Renderer subsystems. */
+        /** @brief Shuts down the renderer subsystems. */
         void ShutdownRenderer();
 
-        /** @brief Shuts down the Scene subsystems. */
+        /** @brief Shuts down the scene subsystems. */
         void ShutdownScene();
 
         /** @brief Shuts down the debug subsystems. */
@@ -223,6 +231,10 @@ namespace blowbox
 		SharedPtr<GLFWManager> win32_glfw_manager_;                         //!< The GLFWManager instance is stored here.
 		SharedPtr<Window> win32_main_window_;                               //!< The main Window instance.
         SharedPtr<Time> win32_time_;                                        //!< The Time instance.
+
+        // content stuff
+        SharedPtr<ImageManager> content_image_manager_;                     //!< The ImageManager instance.
+        SharedPtr<FileManager> content_file_manager_;                       //!< The FileManager isntance.
 
         // render stuff
         SharedPtr<Device> render_device_;                                   //!< The Device used by the renderers.

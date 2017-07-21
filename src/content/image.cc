@@ -10,15 +10,10 @@ namespace blowbox
     //------------------------------------------------------------------------------------------------------
     Image::Image(const String& image_file_path) :
         pixel_data_(nullptr),
-        pixel_composition_(PixelComposition_UNKNOWN)
+        pixel_composition_(PixelComposition_UNKNOWN),
+        image_file_path_(image_file_path)
     {
-        int pixel_composition;
-        pixel_data_ = stbi_load(image_file_path.c_str(), &resolution_.width, &resolution_.height, &pixel_composition, STBI_rgb_alpha);
-
-        struct stat buffer;
-        BLOWBOX_ASSERT((stat(image_file_path.c_str(), &buffer) == 0 && pixel_data_ != nullptr));
-        
-        pixel_composition_ = static_cast<PixelComposition>(pixel_composition);
+        Reload();
     }
 
     //------------------------------------------------------------------------------------------------------
@@ -43,5 +38,22 @@ namespace blowbox
     const PixelComposition& Image::GetPixelComposition() const
     {
         return pixel_composition_;
+    }
+    
+    //------------------------------------------------------------------------------------------------------
+    void Image::Reload()
+    {
+        if (pixel_data_ != nullptr)
+        {
+            stbi_image_free(pixel_data_);
+        }
+
+        int pixel_composition;
+        pixel_data_ = stbi_load(image_file_path_.c_str(), &resolution_.width, &resolution_.height, &pixel_composition, STBI_rgb_alpha);
+
+        struct stat buffer;
+        BLOWBOX_ASSERT((stat(image_file_path_.c_str(), &buffer) == 0 && pixel_data_ != nullptr));
+
+        pixel_composition_ = static_cast<PixelComposition>(pixel_composition);
     }
 }

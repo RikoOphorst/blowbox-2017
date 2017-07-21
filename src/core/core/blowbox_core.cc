@@ -18,6 +18,9 @@
 #include "win32/window.h"
 #include "win32/time.h"
 
+#include "content/image_manager.h"
+#include "content/file_manager.h"
+
 #include "renderer/device.h"
 #include "renderer/swap_chain.h"
 #include "renderer/forward_renderer.h"
@@ -57,6 +60,10 @@ namespace blowbox
         render_imgui_manager_(nullptr)
     {
         BLOWBOX_ASSERT(config_ != nullptr);
+
+        // Create content stuff
+        content_file_manager_ = eastl::make_shared<FileManager>();
+        content_image_manager_ = eastl::make_shared<ImageManager>();
 
         // Create win32 stuff
         win32_glfw_manager_ = eastl::make_shared<GLFWManager>();
@@ -104,6 +111,7 @@ namespace blowbox
         alive = true;
 
         StartupGetter();
+        StartupContent();
         StartupWin32();
         StartupDebug();
         StartupRenderer();
@@ -140,6 +148,7 @@ namespace blowbox
         ShutdownRenderer();
         ShutdownDebug();
         ShutdownWin32();
+        ShutdownContent();
         ShutdownGetter();
 
         alive = false;
@@ -172,6 +181,9 @@ namespace blowbox
     {
         getter_->Set(this);
 
+        getter_->Set(content_file_manager_);
+        getter_->Set(content_image_manager_);
+
         getter_->Set(win32_glfw_manager_);
         getter_->Set(win32_main_window_);
         getter_->Set(win32_time_);
@@ -197,6 +209,13 @@ namespace blowbox
         getter_->Set(memory_stats_);
 
         getter_->Finalize();
+    }
+
+    //------------------------------------------------------------------------------------------------------
+    void BlowboxCore::StartupContent()
+    {
+        content_image_manager_->Startup();
+        content_file_manager_->Startup();
     }
 
     //------------------------------------------------------------------------------------------------------
@@ -259,6 +278,16 @@ namespace blowbox
     void BlowboxCore::ShutdownGetter()
     {
 		BLOWBOX_DELETE(getter_);
+    }
+
+    //------------------------------------------------------------------------------------------------------
+    void BlowboxCore::ShutdownContent()
+    {
+        BLOWBOX_ASSERT(content_file_manager_.use_count() == 1);
+        BLOWBOX_ASSERT(content_image_manager_.use_count() == 1);
+
+        content_file_manager_.reset();
+        content_image_manager_.reset();
     }
 
     //------------------------------------------------------------------------------------------------------
