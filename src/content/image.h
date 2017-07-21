@@ -67,6 +67,9 @@ namespace blowbox
         */
         const PixelComposition& GetPixelComposition() const;
 
+        /** @returns The file path to where this Image is stored on disk. */
+        const String& GetFilePath() const;
+
         /** @brief Reloads the Image. */
         void Reload();
 

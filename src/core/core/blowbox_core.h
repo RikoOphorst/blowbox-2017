@@ -40,6 +40,8 @@ namespace blowbox
     class MemoryStats;
     class ImageManager;
     class FileManager;
+    class TextureManager;
+    class MaterialManager;
 
     /**
     * This is the main class that the user has to create upon startup. It sets up everything
@@ -244,6 +246,8 @@ namespace blowbox
         SharedPtr<DescriptorHeap> render_rtv_heap_;                         //!< DescriptorHeap for render target views.
         SharedPtr<DescriptorHeap> render_dsv_heap_;                         //!< DescriptorHeap for depth stencil views.
         SharedPtr<DescriptorHeap> render_cbv_srv_uav_heap_;                 //!< DescriptorHeap for cbv/srv/uavs.
+        SharedPtr<TextureManager> render_texture_manager_;                  //!< The TextureManager instance.
+        SharedPtr<MaterialManager> render_material_manager_;                //!< The MaterialManager instance.
 
 		SharedPtr<ForwardRenderer> render_forward_renderer_;                //!< The ForwardRenderer instance.
 		SharedPtr<DeferredRenderer> render_deferred_renderer_;              //!< The DeferredRenderer instance.

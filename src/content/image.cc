@@ -39,6 +39,12 @@ namespace blowbox
     {
         return pixel_composition_;
     }
+
+    //------------------------------------------------------------------------------------------------------
+    const String& Image::GetFilePath() const
+    {
+        return image_file_path_;
+    }
     
     //------------------------------------------------------------------------------------------------------
     void Image::Reload()
@@ -54,6 +60,6 @@ namespace blowbox
         struct stat buffer;
         BLOWBOX_ASSERT((stat(image_file_path_.c_str(), &buffer) == 0 && pixel_data_ != nullptr));
 
-        pixel_composition_ = static_cast<PixelComposition>(pixel_composition);
+        pixel_composition_ = PixelComposition_RGBA;
     }
 }

@@ -41,11 +41,8 @@ namespace blowbox
 	//------------------------------------------------------------------------------------------------------
 	void PixelBuffer::AssociateWithResource(const WString& name, ID3D12Resource* resource, const D3D12_RESOURCE_STATES& current_resource_state)
 	{
+        BLOWBOX_RELEASE(resource_);
 		BLOWBOX_ASSERT(resource != nullptr);
-		if (resource_ != nullptr)
-		{
-			resource_->Release();
-		}
 		resource_ = resource;
 
 		D3D12_RESOURCE_DESC desc = resource->GetDesc();
@@ -63,6 +60,8 @@ namespace blowbox
 	//------------------------------------------------------------------------------------------------------
 	void PixelBuffer::CreateTextureResource(const WString& name, const D3D12_RESOURCE_DESC& resource_desc, const D3D12_CLEAR_VALUE& clear_value)
 	{
+        BLOWBOX_RELEASE(resource_);
+
 		BLOWBOX_ASSERT_HR(
 			Get::Device()->Get()->CreateCommittedResource(
 				&CD3DX12_HEAP_PROPERTIES(D3D12_HEAP_TYPE_DEFAULT), 

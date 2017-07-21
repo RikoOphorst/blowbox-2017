@@ -26,6 +26,8 @@
 #include "renderer/forward_renderer.h"
 #include "renderer/deferred_renderer.h"
 #include "renderer/descriptor_heap.h"
+#include "renderer/texture_manager.h"
+#include "renderer/material_manager.h"
 #include "renderer/commands/command_context_manager.h"
 #include "renderer/commands/command_manager.h"
 #include "renderer/commands/graphics_context.h"
@@ -78,6 +80,8 @@ namespace blowbox
         render_rtv_heap_ = eastl::make_shared<DescriptorHeap>();
         render_dsv_heap_ = eastl::make_shared<DescriptorHeap>();
         render_cbv_srv_uav_heap_ = eastl::make_shared<DescriptorHeap>();
+        render_texture_manager_ = eastl::make_shared<TextureManager>();
+        render_material_manager_ = eastl::make_shared<MaterialManager>();
 
         render_forward_renderer_ = eastl::make_shared<ForwardRenderer>();
         render_deferred_renderer_ = eastl::make_shared<DeferredRenderer>();
@@ -195,6 +199,8 @@ namespace blowbox
         getter_->SetDsvHeap(render_dsv_heap_);
         getter_->SetCbvSrvUavHeap(render_cbv_srv_uav_heap_);
         getter_->Set(render_swap_chain_);
+        getter_->Set(render_texture_manager_);
+        getter_->Set(render_material_manager_);
         getter_->Set(render_forward_renderer_);
         getter_->Set(render_deferred_renderer_);
         getter_->Set(render_imgui_manager_);
@@ -252,6 +258,9 @@ namespace blowbox
             DXGI_SWAP_EFFECT_FLIP_DISCARD,
             DXGI_SWAP_CHAIN_FLAG_ALLOW_MODE_SWITCH
         );
+
+        render_texture_manager_->Startup();
+        render_material_manager_->Startup();
 
         render_forward_renderer_->Startup();
 
@@ -318,10 +327,14 @@ namespace blowbox
         BLOWBOX_ASSERT(render_command_context_manager_.use_count() == 1);
         BLOWBOX_ASSERT(render_command_manager_.use_count() == 1);
         BLOWBOX_ASSERT(render_device_.use_count() == 1);
+        BLOWBOX_ASSERT(render_texture_manager_.use_count() == 1);
+        BLOWBOX_ASSERT(render_material_manager_.use_count() == 1);
 
         render_imgui_manager_.reset();
         render_forward_renderer_.reset();
         render_deferred_renderer_.reset();
+        render_texture_manager_.reset();
+        render_material_manager_.reset();
         render_swap_chain_.reset();
         render_cbv_srv_uav_heap_.reset();
         render_dsv_heap_.reset();
