@@ -79,4 +79,10 @@ namespace blowbox
             return AddTexture(name, eastl::make_shared<Texture>());
         }
     }
+    
+    //------------------------------------------------------------------------------------------------------
+    bool TextureManager::HasBeenLoaded(const String& name)
+    {
+        return textures_.find(name) != textures_.end();
+    }
 }

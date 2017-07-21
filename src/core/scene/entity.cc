@@ -3,6 +3,7 @@
 #include "core/scene/scene_manager.h"
 #include "core/get.h"
 #include "core/debug/performance_profiler.h"
+#include "renderer/material.h"
 
 namespace blowbox
 {
@@ -65,6 +66,12 @@ namespace blowbox
     }
 
     //------------------------------------------------------------------------------------------------------
+    void Entity::SetMaterial(WeakPtr<Material> material)
+    {
+        material_ = material;
+    }
+
+    //------------------------------------------------------------------------------------------------------
 	const DirectX::XMFLOAT3& Entity::GetLocalPosition() const
     {
 		return position_;
@@ -86,6 +93,12 @@ namespace blowbox
     SharedPtr<Mesh> Entity::GetMesh() const
     {
         return mesh_;
+    }
+
+    //------------------------------------------------------------------------------------------------------
+    WeakPtr<Material> Entity::GetMaterial() const
+    {
+        return material_;
     }
 
 	//------------------------------------------------------------------------------------------------------

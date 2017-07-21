@@ -4,6 +4,7 @@
 #include "util/string.h"
 #include "util/weak_ptr.h"
 #include "renderer/texture.h"
+#include "renderer/buffers/upload_buffer.h"
 
 namespace blowbox
 {
@@ -183,6 +184,10 @@ namespace blowbox
         /** @returns This material's opacity texture map. */
         WeakPtr<Texture> GetTextureOpacity() const;
 
+        /** @returns The constant buffer that this Material uses. It has already been filled out. */
+        UploadBuffer& GetConstantBuffer();
+
+    protected:
         /**
         * @brief Converts this Material to a Material::Buffer that is readable by the GPU.
         * @param[out] output Pointer to where the buffer should be outputted. Can be nullptr.
@@ -210,5 +215,8 @@ namespace blowbox
         WeakPtr<Texture> texture_shininess_;//!< The shininess texture map of this Material.    (R8)
         WeakPtr<Texture> texture_specular_; //!< The specular texture map of this Material.     (RGB32)
         WeakPtr<Texture> texture_opacity_;  //!< The opacity texture map of this Material.      (R8)
+
+        UploadBuffer upload_buffer_;        //!< The buffer used to upload the material data to the GPU.
+        bool buffer_created_;               //!< Whether the upload buffer has been created.
     };
 }

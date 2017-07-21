@@ -11,6 +11,8 @@
 
 namespace blowbox
 {
+    class Material;
+
     /**
     * An Entity is the Blowbox equivalent of a game object. It has
     * everything in it that you need. There are no components. Every
@@ -73,6 +75,12 @@ namespace blowbox
         */
         void SetMesh(SharedPtr<Mesh> mesh);
 
+        /**
+        * @brief Sets the Material of this Entity.
+        * @param[in] material The material that you want to bind to this Entity.
+        */
+        void SetMaterial(WeakPtr<Material> material);
+
         /** @returns The local position of this Entity. */
         const DirectX::XMFLOAT3& GetLocalPosition() const;
 
@@ -82,8 +90,11 @@ namespace blowbox
         /** @returns The local scaling of this Entity. */
         const DirectX::XMFLOAT3& GetLocalScaling() const;
 
-        /** @returns The mesh that is bound to this Entity. */
+        /** @returns The Mesh that is bound to this Entity. */
         SharedPtr<Mesh> GetMesh() const;
+
+        /** @returns The Material that is bound to this Entity. */
+        WeakPtr<Material> GetMaterial() const;
 
         /**
         * @brief Returns the world transform of this Entity.
@@ -160,5 +171,7 @@ namespace blowbox
 
         SharedPtr<Mesh> mesh_;                  //!< The Mesh object that is attached to this Entity.
         UploadBuffer constant_buffer_;          //!< This Entity's constant buffer.
+
+        WeakPtr<Material> material_;            //<! The Material this Entity's Mesh should be rendered with.
     };
 }

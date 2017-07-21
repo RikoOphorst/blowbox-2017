@@ -49,6 +49,12 @@ namespace blowbox
         */
         WeakPtr<Texture> GetTexture(const String& name);
 
+        /** 
+        * @param[in] name The name of the Texture to check.
+        * @returns Whether the Texture has been loaded.
+        */
+        bool HasBeenLoaded(const String& name);
+
     private:
         UnorderedMap<String, SharedPtr<Texture>> textures_;   //!< All Textures stored in the TextureManager.
     };

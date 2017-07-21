@@ -12,7 +12,8 @@ namespace blowbox
         opacity_(1.0f),
         shininess_(1.0f),
         shininess_strength_(1.0f),
-        bump_intensity_(1.0f)
+        bump_intensity_(1.0f),
+        buffer_created_(false)
     {
 
     }
@@ -222,6 +223,24 @@ namespace blowbox
     WeakPtr<Texture> Material::GetTextureOpacity() const
     {
         return WeakPtr<Texture>();
+    }
+
+    //------------------------------------------------------------------------------------------------------
+    UploadBuffer& Material::GetConstantBuffer()
+    {
+        if (!buffer_created_)
+        {
+            upload_buffer_.Create(L"MaterialBuffer", 1, sizeof(Material::Buffer));
+            buffer_created_ = true;
+        }
+
+        Material::Buffer material_buffer;
+
+        ToBuffer(&material_buffer);
+
+        upload_buffer_.InsertDataByElement(0, &material_buffer);
+
+        return upload_buffer_;
     }
 
     //------------------------------------------------------------------------------------------------------

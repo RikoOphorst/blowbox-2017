@@ -7,6 +7,7 @@
 #include "core/scene/scene_manager.h"
 #include "core/debug/performance_profiler.h"
 #include "content/file_manager.h"
+#include "renderer/material.h"
 
 namespace blowbox
 {
@@ -31,8 +32,26 @@ namespace blowbox
         vertex_shader_.Create(Get::FileManager()->GetTextFile("./shaders/vertex.hlsl"), ShaderType_VERTEX);
         pixel_shader_.Create(Get::FileManager()->GetTextFile("./shaders/pixel.hlsl"), ShaderType_PIXEL);
 
-        main_root_signature_.Create(1, 0);
+        D3D12_SAMPLER_DESC sampler;
+        sampler.BorderColor[0] = 0.0f;
+        sampler.BorderColor[1] = 0.0f;
+        sampler.BorderColor[2] = 0.0f;
+        sampler.BorderColor[3] = 0.0f;
+        sampler.ComparisonFunc = D3D12_COMPARISON_FUNC_LESS_EQUAL;
+        sampler.MinLOD = 0.0f;
+        sampler.MaxLOD = D3D12_FLOAT32_MAX;
+        sampler.MipLODBias = 0.0f;
+        sampler.MaxAnisotropy = 8;
+        sampler.Filter = D3D12_FILTER_ANISOTROPIC;
+        sampler.AddressU = D3D12_TEXTURE_ADDRESS_MODE_WRAP;
+        sampler.AddressV = D3D12_TEXTURE_ADDRESS_MODE_WRAP;
+        sampler.AddressW = D3D12_TEXTURE_ADDRESS_MODE_WRAP;
+
+        main_root_signature_.Create(3, 1);
         main_root_signature_[0].InitAsConstantBuffer(0); // Constant buffer per object
+        main_root_signature_[1].InitAsConstantBuffer(1); // Constant buffer per material
+        main_root_signature_[2].InitAsDescriptorRange(D3D12_DESCRIPTOR_RANGE_TYPE_SRV, 1, 0); // Diffuse texture
+        main_root_signature_.InitStaticSampler(0, sampler);
         main_root_signature_.Finalize(L"RootSignatureForwardRendering", D3D12_ROOT_SIGNATURE_FLAG_ALLOW_INPUT_ASSEMBLER_INPUT_LAYOUT);
 
         D3D12_BLEND_DESC blend_state = {};
@@ -114,15 +133,24 @@ namespace blowbox
             if (mesh != nullptr)
             {
                 context.SetPrimitiveTopology(mesh->GetMeshData().GetTopology());
-                UploadBuffer& constant_buffer = entity->GetConstantBuffer();
+                UploadBuffer& object_constant_buffer = entity->GetConstantBuffer();
+                SharedPtr<Material> material = entity->GetMaterial().lock();
+                UploadBuffer& material_constant_buffer = material->GetConstantBuffer();
 
                 DirectX::XMMATRIX world_transform = entity->GetWorldTransform();
 
-                constant_buffer.InsertDataByElement(0, &world_transform);
-                constant_buffer.InsertDataByElement(1, &(Get::SceneManager()->GetMainCamera()->GetViewMatrix()));
-                constant_buffer.InsertDataByElement(2, &(Get::SceneManager()->GetMainCamera()->GetProjectionMatrix()));
+                object_constant_buffer.InsertDataByElement(0, &world_transform);
+                object_constant_buffer.InsertDataByElement(1, &(Get::SceneManager()->GetMainCamera()->GetViewMatrix()));
+                object_constant_buffer.InsertDataByElement(2, &(Get::SceneManager()->GetMainCamera()->GetProjectionMatrix()));
 
-                context.SetConstantBuffer(0, constant_buffer.GetAddressByElement(0));
+                context.SetConstantBuffer(0, object_constant_buffer.GetAddressByElement(0));
+                context.SetConstantBuffer(1, material_constant_buffer.GetAddressByElement(0));
+
+                if (!material->GetTextureDiffuse().expired())
+                {
+                    UINT srv = material->GetTextureDiffuse().lock()->GetBuffer().GetSRV();
+                    context.SetDescriptorTable(2, Get::CbvSrvUavHeap()->GetGPUDescriptorById(srv));
+                }
 
                 context.SetVertexBuffer(0, mesh->GetVertexBuffer().GetVertexBufferView());
                 context.SetIndexBuffer(mesh->GetIndexBuffer().GetIndexBufferView());

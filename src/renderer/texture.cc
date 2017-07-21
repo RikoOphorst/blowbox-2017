@@ -32,7 +32,7 @@ namespace blowbox
     Texture::Texture(WeakPtr<Image> image) :
         image_(image)
     {
-        
+        Reload();
     }
 
     //------------------------------------------------------------------------------------------------------
@@ -58,7 +58,7 @@ namespace blowbox
         SharedPtr<Image> image_ptr = image.lock();
 
         wchar_t buf[512];
-        swprintf(buf, L"TextureBuffer: %s", image_ptr->GetFilePath().c_str());
+        swprintf(buf, L"TextureBuffer");
 
         int num_channels = 0;
         switch (image_ptr->GetPixelComposition())

@@ -10,6 +10,9 @@
 #include "util/quaternion.h"
 #include "core/get.h"
 #include "core/debug/console.h"
+#include "renderer/texture_manager.h"
+#include "renderer/material_manager.h"
+#include "content/image_manager.h"
 
 #include "core/debug/performance_profiler.h"
 
@@ -32,6 +35,13 @@ namespace blowbox
             aiProcess_JoinIdenticalVertices |
             aiProcess_GenNormals
         );
+        
+        String model_directory_path = file_path_to_model;
+
+        while (model_directory_path[model_directory_path.size() - 1] != '/' && model_directory_path[model_directory_path.size() - 1] != '\\')
+        {
+            model_directory_path.pop_back();
+        }
 
         if (scene == nullptr)
         {
@@ -42,9 +52,13 @@ namespace blowbox
         const aiColor4D ZeroColor(0.0f, 0.0f, 0.0f, 1.0f);
 
         Vector<SharedPtr<Mesh>> meshes;
-        ProcessMeshes(scene->mMeshes, scene->mNumMeshes, &meshes);
+        Vector<int> material_indices;
+        ProcessMeshes(scene->mMeshes, scene->mNumMeshes, &meshes, &material_indices);
 
-        ProcessNode(scene->mRootNode, root_entity, meshes);
+        Vector<WeakPtr<Material>> materials;
+        ProcessMaterials(scene->mMaterials, scene->mNumMaterials, model_directory_path, &materials);
+
+        ProcessNode(scene->mRootNode, root_entity, meshes, material_indices, materials);
 
         int num_indices = 0, num_vertices = 0;
         for (int i = 0; i < meshes.size(); i++)
@@ -60,7 +74,7 @@ namespace blowbox
     }
     
     //------------------------------------------------------------------------------------------------------
-    void ModelFactory::ProcessMeshes(aiMesh** meshes, unsigned int num_meshes, Vector<SharedPtr<Mesh>>* out_meshes)
+    void ModelFactory::ProcessMeshes(aiMesh** meshes, unsigned int num_meshes, Vector<SharedPtr<Mesh>>* out_meshes, Vector<int>* out_material_indices)
     {
         for (unsigned int i = 0; i < num_meshes; i++)
         {
@@ -69,6 +83,7 @@ namespace blowbox
 
             ProcessVertices(meshes[i], &vertices);
             ProcessIndices(meshes[i], &indices);
+
 
             Index max = 0;
             max = ~max;
@@ -79,7 +94,9 @@ namespace blowbox
 
             SharedPtr<Mesh> mesh = eastl::make_shared<Mesh>();
             mesh->Create(MeshData(vertices, indices, D3D_PRIMITIVE_TOPOLOGY_TRIANGLELIST));
+
             (*out_meshes).push_back(mesh);
+            (*out_material_indices).push_back(meshes[i]->mMaterialIndex);
         }
     }
 
@@ -151,9 +168,145 @@ namespace blowbox
             }
         }
     }
+
+    String ConvertTexToString(int i)
+    {
+        switch (static_cast<aiTextureType>(i))
+        {
+        case aiTextureType_AMBIENT: return "Ambient";
+        case aiTextureType_DIFFUSE: return "Diffuse";
+        case aiTextureType_DISPLACEMENT: return "Displacement";
+        case aiTextureType_EMISSIVE: return "Emissive";
+        case aiTextureType_HEIGHT: return "Height";
+        case aiTextureType_LIGHTMAP: return "Lightmap";
+        case aiTextureType_NORMALS: return "Normals";
+        case aiTextureType_OPACITY: return "Opacity";
+        case aiTextureType_REFLECTION: return "Reflection";
+        case aiTextureType_SHININESS: return "Shininess";
+        case aiTextureType_SPECULAR: return "Specular";
+        }
+
+        return "unknown";
+    }
+
+    bool IsSupportedTextureType(int i)
+    {
+        switch (static_cast<aiTextureType>(i))
+        {
+        case aiTextureType_AMBIENT: return true;
+        case aiTextureType_DIFFUSE: return true;
+        case aiTextureType_EMISSIVE: return true;
+        case aiTextureType_HEIGHT: return true;
+        case aiTextureType_NORMALS: return true;
+        case aiTextureType_OPACITY: return true;
+        case aiTextureType_SHININESS: return true;
+        case aiTextureType_SPECULAR: return true;
+        }
+
+        return false;
+    }
+
+    //------------------------------------------------------------------------------------------------------
+    void ModelFactory::ProcessMaterials(aiMaterial** materials, unsigned int num_materials, const String& model_directory_path, Vector<WeakPtr<Material>>* out_materials)
+    {
+        char buf[512];
+
+        for (unsigned int i = 0; i < num_materials; i++)
+        {
+            aiMaterial* current = materials[i];
+            aiString material_name;
+            aiColor3D color_diffuse, color_specular, color_ambient, color_emissive;
+            float opacity, shininess, shininess_strength, bump_intensity;
+
+            current->Get(AI_MATKEY_NAME, material_name);
+            current->Get(AI_MATKEY_COLOR_DIFFUSE, color_diffuse);
+            current->Get(AI_MATKEY_COLOR_SPECULAR, color_specular);
+            current->Get(AI_MATKEY_COLOR_AMBIENT, color_ambient);
+            current->Get(AI_MATKEY_COLOR_EMISSIVE, color_emissive);
+            current->Get(AI_MATKEY_OPACITY, opacity);
+            current->Get(AI_MATKEY_SHININESS, shininess);
+            current->Get(AI_MATKEY_SHININESS_STRENGTH, shininess_strength);
+            current->Get(AI_MATKEY_BUMPSCALING, bump_intensity);
+
+            SharedPtr<Material> processed_material = eastl::make_shared<Material>();
+            processed_material->SetName(material_name.data);
+            processed_material->SetColorDiffuse(DirectX::XMFLOAT3(color_diffuse.r, color_diffuse.g, color_diffuse.b));
+            processed_material->SetColorSpecular(DirectX::XMFLOAT3(color_specular.r, color_specular.g, color_specular.b));
+            processed_material->SetColorAmbient(DirectX::XMFLOAT3(color_ambient.r, color_ambient.g, color_ambient.b));
+            processed_material->SetColorEmissive(DirectX::XMFLOAT3(color_emissive.r, color_emissive.g, color_emissive.b));
+            processed_material->SetOpacity(opacity);
+            processed_material->SetShininess(shininess);
+            processed_material->SetShininessStrength(shininess_strength);
+            processed_material->SetBumpIntensity(bump_intensity);
+
+            for (int i = 0; i < aiTextureType_UNKNOWN; i++)
+            {
+                if (IsSupportedTextureType(i))
+                {
+                    int texture_count = current->GetTextureCount(static_cast<aiTextureType>(i));
+
+                    if (texture_count > 0)
+                    {
+                        if (texture_count > 1)
+                        {
+                            sprintf(buf, "A material that is being loaded (%s) specifies more than one textures for one texture type (%s). This is unsupported, instead Blowbox will use only the first texture.", material_name.data, ConvertTexToString(i));
+                            Get::Console()->LogWarning(buf);
+                        }
+
+                        aiString path;
+                        current->GetTexture(static_cast<aiTextureType>(i), 0, &path);
+
+                        String full_path = model_directory_path + path.data;
+
+                        WeakPtr<Image> image;
+                        image = Get::ImageManager()->GetImage(full_path);
+
+                        SharedPtr<Texture> texture(nullptr);
+
+                        if (!Get::TextureManager()->HasBeenLoaded(full_path))
+                        {
+                            texture = eastl::make_shared<Texture>(image);
+                            Get::TextureManager()->AddTexture(full_path, texture);
+                        }
+
+                        switch (static_cast<aiTextureType>(i))
+                        {
+                        case aiTextureType_AMBIENT:
+                            processed_material->SetTextureAmbient(texture);
+                            break;
+                        case aiTextureType_DIFFUSE:
+                            processed_material->SetTextureDiffuse(texture);
+                            break;
+                        case aiTextureType_EMISSIVE:
+                            processed_material->SetTextureEmissive(texture);
+                            break;
+                        case aiTextureType_HEIGHT:
+                            processed_material->SetTextureBump(texture);
+                            break;
+                        case aiTextureType_NORMALS:
+                            processed_material->SetTextureNormal(texture);
+                            break;
+                        case aiTextureType_OPACITY:
+                            processed_material->SetTextureOpacity(texture);
+                            break;
+                        case aiTextureType_SHININESS:
+                            processed_material->SetTextureShininess(texture);
+                            break;
+                        case aiTextureType_SPECULAR:
+                            processed_material->SetTextureSpecular(texture);
+                            break;
+                        }
+                    }
+                }
+            }
+            
+            Get::MaterialManager()->AddMaterial(material_name.data, processed_material);
+            out_materials->push_back(processed_material);
+        }
+    }
     
     //------------------------------------------------------------------------------------------------------
-    Vector<SharedPtr<Entity>> ModelFactory::ProcessNode(aiNode* node, SharedPtr<Entity> parent, const Vector<SharedPtr<Mesh>>& available_meshes)
+    Vector<SharedPtr<Entity>> ModelFactory::ProcessNode(aiNode* node, SharedPtr<Entity> parent, const Vector<SharedPtr<Mesh>>& available_meshes, const Vector<int>& material_indices, const Vector<WeakPtr<Material>>& available_materials)
     {
         DirectX::XMMATRIX node_local_transform;
         node_local_transform.r[0] = DirectX::XMVectorSet(node->mTransformation.a1, node->mTransformation.b1, node->mTransformation.c1, node->mTransformation.d1);
@@ -180,6 +333,7 @@ namespace blowbox
                 new_entity->SetLocalRotation(rotation);
                 new_entity->SetLocalScaling(scaling);
                 new_entity->SetMesh(available_meshes[node->mMeshes[i]]);
+                new_entity->SetMaterial(available_materials[material_indices[node->mMeshes[i]]]);
 
                 EntityFactory::AddChildToEntity(parent, new_entity);
 
@@ -201,7 +355,7 @@ namespace blowbox
 
         for (int i = 0; i < node->mNumChildren; i++)
         {
-            ProcessNode(node->mChildren[i], entities[0], available_meshes);
+            ProcessNode(node->mChildren[i], entities[0], available_meshes, material_indices, available_materials);
         }
 
         return entities;
