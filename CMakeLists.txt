@@ -180,6 +180,8 @@ if (WIN32)
     endif(D3D12_FOUND)
 endif(WIN32)
 
+set_target_properties(blowbox_core                          PROPERTIES VS_DEBUGGER_WORKING_DIRECTORY "${CMAKE_SOURCE_DIR}")
+
 # Organize all projects into folders
 set_target_properties(blowbox_core                          PROPERTIES FOLDER blowbox)
 set_target_properties(blowbox_content                       PROPERTIES FOLDER blowbox)
