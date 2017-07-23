@@ -162,6 +162,9 @@ namespace blowbox
 
         /** @brief Finalizes the PSO by actually creating it. */
 		void Finalize() override;
+
+        /** @returns The PSO description for this PSO. */
+        const D3D12_GRAPHICS_PIPELINE_STATE_DESC& GetDesc();
 	protected:
 		D3D12_GRAPHICS_PIPELINE_STATE_DESC pso_desc_;       //!< The PSO description.
 		D3D12_INPUT_ELEMENT_DESC input_element_descs_[16];  //!< The input element descriptions.
@@ -200,6 +203,9 @@ namespace blowbox
 
         /** @brief Finalizes the PSO by actually creating it. */
 		void Finalize() override;
+
+        /** @returns The PSO description for this PSO. */
+        const D3D12_COMPUTE_PIPELINE_STATE_DESC& GetDesc();
 	protected:
 		D3D12_COMPUTE_PIPELINE_STATE_DESC pso_desc_; //!< The PSO description.
 	};

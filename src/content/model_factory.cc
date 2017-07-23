@@ -29,11 +29,10 @@ namespace blowbox
 
         Assimp::Importer importer;
         const aiScene* scene = importer.ReadFile(file_path_to_model.c_str(),
+            aiProcess_GenNormals |
             aiProcess_CalcTangentSpace |
             aiProcess_Triangulate |
-            aiProcess_FlipUVs |
-            aiProcess_JoinIdenticalVertices |
-            aiProcess_GenNormals
+            aiProcess_FlipUVs
         );
         
         String model_directory_path = file_path_to_model;
@@ -83,7 +82,6 @@ namespace blowbox
 
             ProcessVertices(meshes[i], &vertices);
             ProcessIndices(meshes[i], &indices);
-
 
             Index max = 0;
             max = ~max;
@@ -162,7 +160,7 @@ namespace blowbox
 
             BLOWBOX_ASSERT(face.mNumIndices == 3);
 
-            for (unsigned int k = 0; k < face.mNumIndices; k++)
+            for (int k = 0; k < face.mNumIndices; k++)
             {
                 (*out_indices).push_back(static_cast<Index>(face.mIndices[k]));
             }
@@ -268,6 +266,10 @@ namespace blowbox
                             texture = eastl::make_shared<Texture>(image);
                             Get::TextureManager()->AddTexture(full_path, texture);
                         }
+                        else
+                        {
+                            texture = Get::TextureManager()->GetTexture(full_path).lock();
+                        }
 
                         switch (static_cast<aiTextureType>(i))
                         {
@@ -281,8 +283,6 @@ namespace blowbox
                             processed_material->SetTextureEmissive(texture);
                             break;
                         case aiTextureType_HEIGHT:
-                            processed_material->SetTextureBump(texture);
-                            break;
                         case aiTextureType_NORMALS:
                             processed_material->SetTextureNormal(texture);
                             break;

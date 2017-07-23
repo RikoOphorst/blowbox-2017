@@ -43,14 +43,14 @@ void Run()
 {
     main_window = Get::MainWindow().get();
 
-    my_model = ModelFactory::LoadModel("./models/crytek-sponza/sponza.obj");
-    my_model->SetLocalScaling(DirectX::XMFLOAT3(0.1f, 0.1f, 0.1f));
+    my_model = ModelFactory::LoadModel("./models/nanosuit/nanosuit.obj");
+    //my_model->SetLocalScaling(DirectX::XMFLOAT3(0.1f, 0.1f, 0.1f));
     EntityFactory::AddChildToEntity(Get::SceneManager()->GetRootEntity(), my_model);
 
     camera = eastl::make_shared<PerspectiveCamera>();
 
-    camera->SetPosition(DirectX::XMFLOAT3(0.0f, 20.0f, 0.0f));
-    camera->SetRotation(DirectX::XMFLOAT3(0.0f, 0.0f, 0.0f));
+    camera->SetPosition(DirectX::XMFLOAT3(0.0f, 5.0f, 20.0f));
+    camera->SetRotation(DirectX::XMFLOAT3(0.0f, 3.14f, 0.0f));
     camera->SetNearPlane(0.1f);
     camera->SetFarPlane(2500.0f);
     camera->SetFovDegrees(90.0f);
@@ -93,7 +93,7 @@ void Update()
     if (keyboard.GetKeyDown(KeyCode_U))
         Get::Console()->LogError("error message");
 
-    my_model->SetLocalPosition(DirectX::XMFLOAT3(std::sin(Time::GetProcessTime()) * 15.0f, 0.0f, std::cos(Time::GetProcessTime()) * 15.0f));
+    //my_model->SetLocalPosition(DirectX::XMFLOAT3(std::sin(Time::GetProcessTime()) * 15.0f, 0.0f, std::cos(Time::GetProcessTime()) * 15.0f));
 }
 
 void PostUpdate()

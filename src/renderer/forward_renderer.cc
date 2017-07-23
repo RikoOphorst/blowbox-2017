@@ -3,7 +3,6 @@
 #include "core/get.h"
 #include "renderer/swap_chain.h"
 #include "renderer/descriptor_heap.h"
-#include "renderer/commands/graphics_context.h"
 #include "core/scene/scene_manager.h"
 #include "core/debug/performance_profiler.h"
 #include "content/file_manager.h"
@@ -11,6 +10,21 @@
 
 namespace blowbox
 {
+    struct PassData
+    {
+        DirectX::XMFLOAT3 eye_pos;
+        float specular_power;
+        uint32_t show_diffuse;
+        uint32_t show_specular;
+        uint32_t show_ambient;
+        uint32_t show_emissive;
+        DirectX::XMFLOAT4 light_color;
+        DirectX::XMFLOAT4 light_position;
+        float light_intensity;
+        float light_range;
+        uint32_t do_normal_mapping;
+    };
+
     //------------------------------------------------------------------------------------------------------
     ForwardRenderer::ForwardRenderer()
     {
@@ -47,10 +61,18 @@ namespace blowbox
         sampler.AddressV = D3D12_TEXTURE_ADDRESS_MODE_WRAP;
         sampler.AddressW = D3D12_TEXTURE_ADDRESS_MODE_WRAP;
 
-        main_root_signature_.Create(3, 1);
+        main_root_signature_.Create(11, 1);
         main_root_signature_[0].InitAsConstantBuffer(0); // Constant buffer per object
         main_root_signature_[1].InitAsConstantBuffer(1); // Constant buffer per material
-        main_root_signature_[2].InitAsDescriptorRange(D3D12_DESCRIPTOR_RANGE_TYPE_SRV, 1, 0); // Diffuse texture
+        main_root_signature_[2].InitAsConstantBuffer(2); // Constant buffer per pass
+        main_root_signature_[3].InitAsDescriptorRange(D3D12_DESCRIPTOR_RANGE_TYPE_SRV, 1, 0); // Ambient texture
+        main_root_signature_[4].InitAsDescriptorRange(D3D12_DESCRIPTOR_RANGE_TYPE_SRV, 1, 1); // Diffuse texture
+        main_root_signature_[5].InitAsDescriptorRange(D3D12_DESCRIPTOR_RANGE_TYPE_SRV, 1, 2); // Emissive texture
+        main_root_signature_[6].InitAsDescriptorRange(D3D12_DESCRIPTOR_RANGE_TYPE_SRV, 1, 3); // Bump texture
+        main_root_signature_[7].InitAsDescriptorRange(D3D12_DESCRIPTOR_RANGE_TYPE_SRV, 1, 4); // Normal texture
+        main_root_signature_[8].InitAsDescriptorRange(D3D12_DESCRIPTOR_RANGE_TYPE_SRV, 1, 5); // Shininess texture
+        main_root_signature_[9].InitAsDescriptorRange(D3D12_DESCRIPTOR_RANGE_TYPE_SRV, 1, 6); // Specular texture
+        main_root_signature_[10].InitAsDescriptorRange(D3D12_DESCRIPTOR_RANGE_TYPE_SRV, 1, 7); // Opacity texture
         main_root_signature_.InitStaticSampler(0, sampler);
         main_root_signature_.Finalize(L"RootSignatureForwardRendering", D3D12_ROOT_SIGNATURE_FLAG_ALLOW_INPUT_ASSEMBLER_INPUT_LAYOUT);
 
@@ -97,12 +119,38 @@ namespace blowbox
         main_pso_.SetPixelShader(pixel_shader_.GetShaderByteCode());
         main_pso_.SetSampleMask(0xFFFFFFFF);
         main_pso_.Finalize();
+
+        pass_buffer_.Create(L"PassBuffer", 1, sizeof(PassData));
     }
 
     //------------------------------------------------------------------------------------------------------
     void ForwardRenderer::Render()
     {
         PerformanceProfiler::ProfilerBlock profiler_block("FrameForwardSetup", ProfilerBlockType_RENDERER);
+
+        static float specular_power = 5.0f;
+        static DirectX::XMFLOAT4 light_color = DirectX::XMFLOAT4(0.5f, 0.5f, 0.5f, 1.0f);
+        static DirectX::XMFLOAT4 light_position = DirectX::XMFLOAT4(7.0f, 14.0f, 20.0f, 1.0f);
+        static bool emissive = false;
+        static bool ambient = false;
+        static bool diffuse = true;
+        static bool specular = true;
+        static bool normal_mapping = true;
+        static float light_intensity = 1.0f;
+        static float light_range = 75.0f;
+
+        ImGui::Begin("Stuff");
+        ImGui::SliderFloat("Specular Power", &specular_power, 0.1f, 150.0f);
+        ImGui::Checkbox("Show Emissive", &emissive);
+        ImGui::Checkbox("Show Ambient", &ambient);
+        ImGui::Checkbox("Show Diffuse", &diffuse);
+        ImGui::Checkbox("Show Specular", &specular);
+        ImGui::ColorEdit4("Light Color", &light_color.x, false);
+        ImGui::SliderFloat("Light Intensity", &light_intensity, 0.1f, 10.0f);
+        ImGui::SliderFloat("Light Range", &light_range, 0.0f, 200.0f);
+        ImGui::SliderFloat3("Light Position", &light_position.x, -20.0f, 20.0f);
+        ImGui::Checkbox("Do normal mapping", &normal_mapping);
+        ImGui::End();
 
         GraphicsContext& context = GraphicsContext::Begin(L"CommandListForwardSetup");
 
@@ -143,14 +191,33 @@ namespace blowbox
                 object_constant_buffer.InsertDataByElement(1, &(Get::SceneManager()->GetMainCamera()->GetViewMatrix()));
                 object_constant_buffer.InsertDataByElement(2, &(Get::SceneManager()->GetMainCamera()->GetProjectionMatrix()));
 
+                PassData pass_data;
+                pass_data.eye_pos = Get::SceneManager()->GetMainCamera()->GetPosition();
+                pass_data.specular_power = specular_power;
+                pass_data.show_emissive = emissive;
+                pass_data.show_ambient = ambient;
+                pass_data.show_diffuse = diffuse;
+                pass_data.show_specular = specular;
+                pass_data.light_color = light_color;
+                pass_data.light_intensity = light_intensity;
+                pass_data.light_range = light_range;
+                pass_data.light_position = light_position;
+                pass_data.do_normal_mapping = normal_mapping;
+
+                pass_buffer_.InsertDataByElement(0, &pass_data);
+
                 context.SetConstantBuffer(0, object_constant_buffer.GetAddressByElement(0));
                 context.SetConstantBuffer(1, material_constant_buffer.GetAddressByElement(0));
+                context.SetConstantBuffer(2, pass_buffer_.GetAddressByElement(0));
 
-                if (!material->GetTextureDiffuse().expired())
-                {
-                    UINT srv = material->GetTextureDiffuse().lock()->GetBuffer().GetSRV();
-                    context.SetDescriptorTable(2, Get::CbvSrvUavHeap()->GetGPUDescriptorById(srv));
-                }
+                BindTexture(context, 3, material->GetTextureAmbient());
+                BindTexture(context, 4, material->GetTextureDiffuse());
+                BindTexture(context, 5, material->GetTextureEmissive());
+                BindTexture(context, 6, material->GetTextureBump());
+                BindTexture(context, 7, material->GetTextureNormal());
+                BindTexture(context, 8, material->GetTextureShininess());
+                BindTexture(context, 9, material->GetTextureSpecular());
+                BindTexture(context, 10, material->GetTextureOpacity());
 
                 context.SetVertexBuffer(0, mesh->GetVertexBuffer().GetVertexBufferView());
                 context.SetIndexBuffer(mesh->GetIndexBuffer().GetIndexBufferView());
@@ -160,5 +227,14 @@ namespace blowbox
         }
 
         context.Finish();
+    }
+
+    void ForwardRenderer::BindTexture(GraphicsContext& context, UINT root_signature_slot, WeakPtr<Texture> texture)
+    {
+        if (!texture.expired())
+        {
+            UINT srv = texture.lock()->GetBuffer().GetSRV();
+            context.SetDescriptorTable(root_signature_slot, Get::CbvSrvUavHeap()->GetGPUDescriptorById(srv));
+        }
     }
 }

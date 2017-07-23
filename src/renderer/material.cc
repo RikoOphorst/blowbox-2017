@@ -8,7 +8,7 @@ namespace blowbox
         color_ambient_(0.0f, 0.0f, 0.0f),
         color_emissive_(0.0f, 0.0f, 0.0f),
         color_diffuse_(0.0f, 0.0f, 0.0f),
-        color_specular_(0.0f, 0.0f, 0.0f),
+        color_specular_(1.0f, 1.0f, 1.0f),
         opacity_(1.0f),
         shininess_(1.0f),
         shininess_strength_(1.0f),
@@ -120,8 +120,10 @@ namespace blowbox
         texture_specular_ = texture;
     }
 
+    //------------------------------------------------------------------------------------------------------
     void Material::SetTextureOpacity(WeakPtr<Texture> texture)
     {
+        texture_opacity_ = texture;
     }
 
     //------------------------------------------------------------------------------------------------------
@@ -220,9 +222,10 @@ namespace blowbox
         return texture_specular_;
     }
 
+    //------------------------------------------------------------------------------------------------------
     WeakPtr<Texture> Material::GetTextureOpacity() const
     {
-        return WeakPtr<Texture>();
+        return texture_opacity_;
     }
 
     //------------------------------------------------------------------------------------------------------

@@ -14,7 +14,7 @@ newmtl leaf
 	Ke 0.0000 0.0000 0.0000
 	map_Ka textures\sponza_thorn_diff.png
 	map_Kd textures\sponza_thorn_diff.png
-	map_Ks textures\sponza_thorn_spec.png
+	map_Ks textures\sponza_thorn_diff.png
 	map_d textures\sponza_thorn_mask.png
 	map_bump textures\sponza_thorn_bump.png
 
@@ -31,7 +31,7 @@ newmtl vase_round
 	Ke 0.0000 0.0000 0.0000
 	map_Ka textures\vase_round.png
 	map_Kd textures\vase_round.png
-	map_Ks textures\vase_round_spec.png
+	map_Ks textures\vase_round.png
 	map_bump textures\vase_round_bump.png
 
 newmtl Material__57
@@ -47,7 +47,7 @@ newmtl Material__57
 	Ke 0.0000 0.0000 0.0000
 	map_Ka textures\vase_plant.png
 	map_Kd textures\vase_plant.png
-	map_Kd textures\vase_plant_spec.png
+	map_Ks textures\vase_plant.png
 	map_d textures\vase_plant_mask.png
 
 newmtl Material__298
@@ -188,7 +188,7 @@ newmtl column_b
 	Ke 0.0000 0.0000 0.0000
 	map_Ka textures\sponza_column_b_diff.png
 	map_Kd textures\sponza_column_b_diff.png
-	map_Ks textures\sponza_column_b_spec.png
+	map_Ns textures\sponza_column_b_spec.png
 	map_bump textures\sponza_column_b_bump.png
 
 newmtl Material__47

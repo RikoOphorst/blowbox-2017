@@ -101,6 +101,12 @@ namespace blowbox
 
 		BLOWBOX_ASSERT_HR(Get::Device()->Get()->CreateGraphicsPipelineState(&pso_desc_, IID_PPV_ARGS(&pso_)));
 	}
+
+    //------------------------------------------------------------------------------------------------------
+    const D3D12_GRAPHICS_PIPELINE_STATE_DESC& GraphicsPSO::GetDesc()
+    {
+        return pso_desc_;
+    }
 	
 	//------------------------------------------------------------------------------------------------------
 	ComputePSO::ComputePSO()
@@ -124,4 +130,10 @@ namespace blowbox
 
 		Get::Device()->Get()->CreateComputePipelineState(&pso_desc_, IID_PPV_ARGS(&pso_));
 	}
+    
+    //------------------------------------------------------------------------------------------------------
+    const D3D12_COMPUTE_PIPELINE_STATE_DESC& ComputePSO::GetDesc()
+    {
+        return pso_desc_;
+    }
 }
