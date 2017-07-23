@@ -10,9 +10,9 @@ namespace blowbox
         color_diffuse_(0.0f, 0.0f, 0.0f),
         color_specular_(1.0f, 1.0f, 1.0f),
         opacity_(1.0f),
-        shininess_(1.0f),
-        shininess_strength_(1.0f),
-        bump_intensity_(1.0f),
+        specular_scale_(1.0f),
+        specular_power_(1.0f),
+        bump_intensity_(5.0f),
         buffer_created_(false)
     {
 
@@ -61,15 +61,15 @@ namespace blowbox
     }
 
     //------------------------------------------------------------------------------------------------------
-    void Material::SetShininess(float shininess)
+    void Material::SetSpecularScale(float specular_scale)
     {
-        shininess_ = shininess;
+        specular_scale_ = specular_scale;
     }
 
     //------------------------------------------------------------------------------------------------------
-    void Material::SetShininessStrength(float shininess_strength)
+    void Material::SetSpecularPower(float specular_power)
     {
-        shininess_strength_ = shininess_strength;
+        specular_power_ = specular_power;
     }
 
     //------------------------------------------------------------------------------------------------------
@@ -109,9 +109,9 @@ namespace blowbox
     }
 
     //------------------------------------------------------------------------------------------------------
-    void Material::SetTextureShininess(WeakPtr<Texture> texture)
+    void Material::SetTextureSpecularPower(WeakPtr<Texture> texture)
     {
-        texture_shininess_ = texture;
+        texture_specular_power_ = texture;
     }
 
     //------------------------------------------------------------------------------------------------------
@@ -163,15 +163,15 @@ namespace blowbox
     }
 
     //------------------------------------------------------------------------------------------------------
-    const float& Material::GetShininess() const
+    const float& Material::GetSpecularScale() const
     {
-        return shininess_;
+        return specular_scale_;
     }
 
     //------------------------------------------------------------------------------------------------------
-    const float& Material::GetShininessStrength() const
+    const float& Material::GetSpecularPower() const
     {
-        return shininess_strength_;
+        return specular_power_;
     }
 
     //------------------------------------------------------------------------------------------------------
@@ -211,9 +211,9 @@ namespace blowbox
     }
 
     //------------------------------------------------------------------------------------------------------
-    WeakPtr<Texture> Material::GetTextureShininess() const
+    WeakPtr<Texture> Material::GetTextureSpecularPower() const
     {
-        return texture_shininess_;
+        return texture_specular_power_;
     }
 
     //------------------------------------------------------------------------------------------------------
@@ -257,14 +257,14 @@ namespace blowbox
             output->color_emissive = color_emissive_;
             output->color_specular = color_specular_;
             output->opacity = opacity_;
-            output->shininess = shininess_;
-            output->shininess_strength = shininess_strength_;
+            output->specular_scale = specular_scale_;
+            output->specular_power = specular_power_;
             output->use_ambient_texture = static_cast<uint32_t>(!texture_ambient_.expired());
             output->use_diffuse_texture = static_cast<uint32_t>(!texture_diffuse_.expired());
             output->use_emissive_texture = static_cast<uint32_t>(!texture_emissive_.expired());
             output->use_bump_texture = static_cast<uint32_t>(!texture_bump_.expired());
             output->use_normal_texture = static_cast<uint32_t>(!texture_normal_.expired());
-            output->use_shininess_texture = static_cast<uint32_t>(!texture_shininess_.expired());
+            output->use_shininess_texture = static_cast<uint32_t>(!texture_specular_power_.expired());
             output->use_specular_texture = static_cast<uint32_t>(!texture_specular_.expired());
             output->use_opacity_texture = static_cast<uint32_t>(!texture_opacity_.expired());
         }

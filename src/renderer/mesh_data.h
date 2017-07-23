@@ -1,6 +1,7 @@
 #pragma once
 
 #include "util/vector.h"
+#include "util/string.h"
 #include "renderer/vertex.h"
 
 namespace blowbox
@@ -20,12 +21,19 @@ namespace blowbox
 
         /**
         * @brief Constructs a MeshData with a given set of vertices, indices and topology.
+        * @param[in] name The name for this MeshData.
         * @param[in] vertices The vertices for this MeshData.
         * @param[in] indices The indices for this MeshData.
         * @param[in] topology The topology of the MeshData.
         */
-        MeshData(const Vector<Vertex>& vertices, const Vector<Index>& indices, D3D_PRIMITIVE_TOPOLOGY topology);
+        MeshData(const String& name, const Vector<Vertex>& vertices, const Vector<Index>& indices, D3D_PRIMITIVE_TOPOLOGY topology);
         ~MeshData();
+
+        /** 
+        * @brief Sets the name of this MeshData.
+        * @param[in] name The name for this MeshData.
+        */
+        void SetName(const String& name);
 
         /**
         * @brief Sets the vertices for this MeshData.
@@ -60,7 +68,11 @@ namespace blowbox
         /** @returns The topology of this MeshData. */
         D3D_PRIMITIVE_TOPOLOGY GetTopology() const;
 
+        /** @returns The name of this MeshData. */
+        const String& GetName() const;
+
     private:
+        String name_;                       //!< The name of this MeshData.
         Vector<Vertex> vertices_;           //!< The vertices of this MeshData.
         Vector<Index> indices_;             //!< The indices of this MeshData.
         D3D_PRIMITIVE_TOPOLOGY topology_;   //!< The topology of this MeshData.

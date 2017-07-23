@@ -11,6 +11,9 @@ namespace blowbox
         DebugWindow();
         virtual ~DebugWindow();
 
+        /** @brief Starts a new frame. */
+        virtual void NewFrame() = 0;
+
         /** @brief Renders the actual window. */
         virtual void RenderWindow() = 0;
 

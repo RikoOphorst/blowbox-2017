@@ -30,6 +30,9 @@ namespace blowbox
         Console();
         ~Console();
 
+        /** @brief Starts a new frame in the Console. */
+        void NewFrame() override;
+
         /** @brief Renders the menu for the Console. */
         void RenderMenu() override;
 

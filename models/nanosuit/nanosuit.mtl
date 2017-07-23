@@ -1,7 +1,7 @@
 # Blender MTL File: 'nanosuit.blend'
 # Material Count: 6
 newmtl Arm
-Ns 96.078431
+Ns 1
 Ka 0.000000 0.000000 0.000000
 Kd 0.640000 0.640000 0.640000
 Ks 0.500000 0.500000 0.500000
@@ -14,7 +14,7 @@ map_Ks arm_showroom_spec.png
 
 
 newmtl Body
-Ns 96.078431
+Ns 1
 Ka 0.000000 0.000000 0.000000
 Kd 0.640000 0.640000 0.640000
 Ks 0.500000 0.500000 0.500000
@@ -27,7 +27,7 @@ map_Ks body_showroom_spec.png
 
 
 newmtl Glass
-Ns 96.078431
+Ns 1
 Ka 0.000000 0.000000 0.000000
 Kd 0.640000 0.640000 0.640000
 Ks 0.500000 0.500000 0.500000
@@ -39,7 +39,7 @@ map_Bump glass_ddn.png
 
 
 newmtl Hand
-Ns 96.078431
+Ns 1
 Ka 0.000000 0.000000 0.000000
 Kd 0.640000 0.640000 0.640000
 Ks 0.500000 0.500000 0.500000
@@ -52,7 +52,7 @@ map_Ks hand_showroom_spec.png
 
 
 newmtl Helmet
-Ns 96.078431
+Ns 1
 Ka 0.000000 0.000000 0.000000
 Kd 0.640000 0.640000 0.640000
 Ks 0.500000 0.500000 0.500000
@@ -65,7 +65,7 @@ map_Ks helmet_showroom_spec.png
 
 
 newmtl Leg
-Ns 96.078431
+Ns 1
 Ka 0.000000 0.000000 0.000000
 Kd 0.640000 0.640000 0.640000
 Ks 0.500000 0.500000 0.500000

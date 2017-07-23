@@ -85,11 +85,12 @@ struct Light
     float3 position;
     float3 color;
     float range;
+    float intensity;
 };
 
 float DoAttenuation(Light light, float3 P, float3 N, float3 E)
 {
-    return 1.0f - smoothstep(light.range * 0.75f, light.range, distance(P, light.position));
+    return 1.0f - smoothstep(light.range * 0.50f, light.range, distance(P, light.position));
 }
 
 float3 DoDiffuse(Material mat, Light light, float3 P, float3 N, float3 E)
@@ -117,8 +118,8 @@ LightingResult DoLighting(Material mat, Light light, float3 P, float3 N, float3 
     LightingResult result;
 
     float attenuation = DoAttenuation(light, P, N, E);
-    result.diffuse =    DoDiffuse(mat, light, P, N, E) * attenuation;
-    result.specular =   DoSpecular(mat, light, P, N, E) * attenuation;
+    result.diffuse =    DoDiffuse(mat, light, P, N, E) * light.intensity * attenuation;
+    result.specular =   DoSpecular(mat, light, P, N, E) * light.intensity * attenuation;
 
     return result;
 }
@@ -139,9 +140,27 @@ float3 DoNormalMapping(float3x3 TBN, Texture2D tex, sampler s, float2 uv)
     return normalize(mul(normal, TBN));
 }
 
-[earlydepthstencil]
+float3 DoBumpMapping(float3x3 TBN, Texture2D tex, sampler s, float2 uv, float bumpScale)
+{
+    float height = tex.Sample(s, uv).r * bumpScale;
+    float heightU = tex.Sample(s, uv, int2(1, 0)).r * bumpScale;
+    float heightV = tex.Sample(s, uv, int2(0, 1)).r * bumpScale;
+ 
+    float3 p = { 0, 0, height };
+    float3 pU = { 1, 0, heightU };
+    float3 pV = { 0, 1, heightV };
+ 
+    float3 normal = cross(normalize(pU - p), normalize(pV - p));
+ 
+    normal = mul(normal, TBN);
+ 
+    return normal;
+}
+
 float4 main(VertexOut input) : SV_Target0
 {
+    float3 GlobalAmbient = float3(0.05f, 0.05f, 0.05f);
+
     Material material;
     material.Diffuse = MaterialColorDiffuse;
     material.Specular = MaterialColorSpecular;
@@ -185,9 +204,11 @@ float4 main(VertexOut input) : SV_Target0
         N = DoNormalMapping(TBN, TextureNormal, Sampler, input.UV);
     }
 
-    if (MaterialUseSpecularPowerTexture)
+    if (MaterialUseBumpTexture && NormalMapping != 0)
     {
-        material.SpecularPower = TextureAmbient.Sample(Sampler, input.UV).x;
+        float3x3 TBN = float3x3(normalize(input.TangentWorld), normalize(input.BitangentWorld), normalize(input.NormalWorld));
+        
+        N = DoBumpMapping(TBN, TextureBump, Sampler, input.UV, MaterialBumpIntensity);
     }
 
     if (MaterialUseOpacityTexture)
@@ -195,12 +216,15 @@ float4 main(VertexOut input) : SV_Target0
         clip(TextureOpacity.Sample(Sampler, input.UV).x - 0.05f);
     }
 
+    material.Ambient *= GlobalAmbient;
+    material.Specular *= MaterialSpecularScale;
     material.SpecularPower = max(material.SpecularPower, 1.0f);
 
     Light light;
     light.color = PassLightColor.xyz;
     light.position = PassLightPosition.xyz;
     light.range = LightRange;
+    light.intensity = LightIntensity;
 
     LightingResult result = DoLighting(material, light, P, N, E);
 

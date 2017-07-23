@@ -29,7 +29,7 @@ namespace blowbox
         if (add_succeeded)
         {
             child->parent_ = entity;
-            child->transform_dirty_ = true;
+            MakeEntityGraphDirty(child.get());
         }
 
         if (entity->GetInScene() == true && child->GetInScene() == false)
@@ -43,9 +43,25 @@ namespace blowbox
     {
         bool remove_succeeded = entity->RemoveChild(child);
 
-        if (remove_succeeded == true && child->GetInScene() == true)
+        if (remove_succeeded == true)
         {
-            Get::SceneManager()->RemoveEntity(child);
+            MakeEntityGraphDirty(child.get());
+
+            if (child->GetInScene() == true)
+            {
+                Get::SceneManager()->RemoveEntity(child);
+            }
+        }
+    }
+    
+    //------------------------------------------------------------------------------------------------------
+    void EntityFactory::MakeEntityGraphDirty(Entity* entity)
+    {
+        entity->transform_dirty_ = true;
+
+        for (int i = 0; i < entity->children_.size(); i++)
+        {
+            MakeEntityGraphDirty(entity->children_[i].get());
         }
     }
 }

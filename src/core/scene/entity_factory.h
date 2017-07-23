@@ -42,5 +42,7 @@ namespace blowbox
         * @param[in] child The child you want to remove from the entity
         */
         static void RemoveChildFromEntity(SharedPtr<Entity> entity, SharedPtr<Entity> child);
+
+        static void MakeEntityGraphDirty(Entity* entity);
     };
 }

@@ -2,7 +2,7 @@
 # File Created: 20.08.2010 18:13:43
 
 newmtl leaf
-	Ns 10.0000
+	Ns 1.0000
 	Ni 1.5000
 	d 1.0000
 	Tr 0.0000
@@ -19,7 +19,7 @@ newmtl leaf
 	map_bump textures\sponza_thorn_bump.png
 
 newmtl vase_round
-	Ns 10.0000
+	Ns 1.0000
 	Ni 1.5000
 	d 1.0000
 	Tr 0.0000
@@ -35,7 +35,7 @@ newmtl vase_round
 	map_bump textures\vase_round_bump.png
 
 newmtl Material__57
-	Ns 10.0000
+	Ns 1.0000
 	Ni 1.5000
 	d 1.0000
 	Tr 0.0000
@@ -51,7 +51,7 @@ newmtl Material__57
 	map_d textures\vase_plant_mask.png
 
 newmtl Material__298
-	Ns 10.0000
+	Ns 1.0000
 	Ni 1.5000
 	d 1.0000
 	Tr 0.0000
@@ -67,7 +67,7 @@ newmtl Material__298
 
 
 newmtl bricks
-	Ns 10.0000
+	Ns 1.0000
 	Ni 1.5000
 	d 1.0000
 	Tr 0.0000
@@ -83,7 +83,7 @@ newmtl bricks
 	map_bump textures\spnza_bricks_a_bump.png
 
 newmtl arch
-	Ns 10.0000
+	Ns 1.0000
 	Ni 1.5000
 	d 1.0000
 	Tr 0.0000
@@ -99,7 +99,7 @@ newmtl arch
 	map_bump textures\sponza_arch_bump.png
 
 newmtl ceiling
-	Ns 10.0000
+	Ns 1.0000
 	Ni 1.5000
 	d 1.0000
 	Tr 0.0000
@@ -114,7 +114,7 @@ newmtl ceiling
 	map_Ns textures\sponza_ceiling_a_spec.png
 
 newmtl column_a
-	Ns 10.0000
+	Ns 1.0000
 	Ni 1.5000
 	d 1.0000
 	Tr 0.0000
@@ -130,7 +130,7 @@ newmtl column_a
 	map_bump textures\sponza_column_a_bump.png
 
 newmtl floor
-	Ns 10.0000
+	Ns 1.0000
 	Ni 1.5000
 	d 1.0000
 	Tr 0.0000
@@ -145,7 +145,7 @@ newmtl floor
 	map_Ns textures\sponza_floor_a_spec.png
 
 newmtl column_c
-	Ns 10.0000
+	Ns 1.0000
 	Ni 1.5000
 	d 1.0000
 	Tr 0.0000
@@ -161,7 +161,7 @@ newmtl column_c
 	map_bump textures\sponza_column_c_bump.png
 
 newmtl details
-	Ns 10.0000
+	Ns 1.0000
 	Ni 1.5000
 	d 1.0000
 	Tr 0.0000
@@ -176,7 +176,7 @@ newmtl details
 	map_Ns textures\sponza_details_spec.png
 
 newmtl column_b
-	Ns 10.0000
+	Ns 1.0000
 	Ni 1.5000
 	d 1.0000
 	Tr 0.0000
@@ -204,7 +204,7 @@ newmtl Material__47
 	Ke 0.0000 0.0000 0.0000
 
 newmtl flagpole
-	Ns 10.0000
+	Ns 1.0000
 	Ni 1.5000
 	d 1.0000
 	Tr 0.0000
@@ -219,7 +219,7 @@ newmtl flagpole
 	map_Ns textures\sponza_flagpole_spec.png
 
 newmtl fabric_e
-	Ns 10.0000
+	Ns 1.0000
 	Ni 1.5000
 	d 1.0000
 	Tr 0.0000
@@ -234,7 +234,7 @@ newmtl fabric_e
 	map_Ns textures\sponza_fabric_spec.png
 
 newmtl fabric_d
-	Ns 10.0000
+	Ns 1.0000
 	Ni 1.5000
 	d 1.0000
 	Tr 0.0000
@@ -249,7 +249,7 @@ newmtl fabric_d
 	map_Ns textures\sponza_fabric_spec.png
 
 newmtl fabric_a
-	Ns 10.0000
+	Ns 1.0000
 	Ni 1.5000
 	d 1.0000
 	Tr 0.0000
@@ -264,7 +264,7 @@ newmtl fabric_a
 	map_Ns textures\sponza_fabric_spec.png
 
 newmtl fabric_g
-	Ns 10.0000
+	Ns 1.0000
 	Ni 1.5000
 	d 1.0000
 	Tr 0.0000
@@ -278,7 +278,7 @@ newmtl fabric_g
 	map_Kd textures\sponza_curtain_blue_diff.png
 
 newmtl fabric_c
-	Ns 10.0000
+	Ns 1.0000
 	Ni 1.5000
 	d 1.0000
 	Tr 0.0000
@@ -292,7 +292,7 @@ newmtl fabric_c
 	map_Kd textures\sponza_curtain_diff.png
 
 newmtl fabric_f
-	Ns 10.0000
+	Ns 1.0000
 	Ni 1.5000
 	d 1.0000
 	Tr 0.0000
@@ -306,7 +306,7 @@ newmtl fabric_f
 	map_Kd textures\sponza_curtain_green_diff.png
 
 newmtl chain
-	Ns 10.0000
+	Ns 1.0000
 	Ni 1.5000
 	d 1.0000
 	Tr 0.0000
@@ -322,7 +322,7 @@ newmtl chain
 	map_bump textures\chain_texture_bump.png
 
 newmtl vase_hanging
-	Ns 10.0000
+	Ns 1.0000
 	Ni 1.5000
 	d 1.0000
 	Tr 0.0000
@@ -336,7 +336,7 @@ newmtl vase_hanging
 	map_Kd textures\vase_hanging.png
 
 newmtl vase
-	Ns 10.0000
+	Ns 1.0000
 	Ni 1.5000
 	d 1.0000
 	Tr 0.0000
@@ -351,7 +351,7 @@ newmtl vase
 	map_bump textures\vase_bump.png
 
 newmtl Material__25
-	Ns 10.0000
+	Ns 1.0000
 	Ni 1.5000
 	d 1.0000
 	Tr 0.0000
@@ -366,7 +366,7 @@ newmtl Material__25
 	map_bump textures\lion_bump.png
 
 newmtl roof
-	Ns 10.0000
+	Ns 1.0000
 	Ni 1.5000
 	d 1.0000
 	Tr 0.0000

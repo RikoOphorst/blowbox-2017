@@ -36,8 +36,6 @@ namespace blowbox
     class Time;
     class PerformanceProfiler;
     class MemoryProfiler;
-    class FrameStats;
-    class MemoryStats;
     class ImageManager;
     class FileManager;
     class TextureManager;
@@ -262,8 +260,6 @@ namespace blowbox
         SharedPtr<Console> console_;                                        //!< The Console instance.
         SharedPtr<PerformanceProfiler> performance_profiler_;               //!< The PerformanceProfiler instance.
         SharedPtr<MemoryProfiler> memory_profiler_;                         //!< The MemoryProfiler instance.
-        SharedPtr<FrameStats> frame_stats_;                                 //!< The FrameStats instance.
-        SharedPtr<MemoryStats> memory_stats_;                               //!< The MemoryStats instance.
 
     public:
         static bool alive;                                                  //!< Static variable to determine whether the BlowboxCore is alive.

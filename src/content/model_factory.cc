@@ -91,7 +91,7 @@ namespace blowbox
             }
 
             SharedPtr<Mesh> mesh = eastl::make_shared<Mesh>();
-            mesh->Create(MeshData(vertices, indices, D3D_PRIMITIVE_TOPOLOGY_TRIANGLELIST));
+            mesh->Create(MeshData(meshes[i]->mName.data, vertices, indices, D3D_PRIMITIVE_TOPOLOGY_TRIANGLELIST));
 
             (*out_meshes).push_back(mesh);
             (*out_material_indices).push_back(meshes[i]->mMaterialIndex);
@@ -214,7 +214,7 @@ namespace blowbox
             aiMaterial* current = materials[i];
             aiString material_name;
             aiColor3D color_diffuse, color_specular, color_ambient, color_emissive;
-            float opacity, shininess, shininess_strength, bump_intensity;
+            float opacity = 1.0f, specular_scale = 1.5f, specular_power = 1.0f, bump_intensity = 5.0f;
 
             current->Get(AI_MATKEY_NAME, material_name);
             current->Get(AI_MATKEY_COLOR_DIFFUSE, color_diffuse);
@@ -222,8 +222,8 @@ namespace blowbox
             current->Get(AI_MATKEY_COLOR_AMBIENT, color_ambient);
             current->Get(AI_MATKEY_COLOR_EMISSIVE, color_emissive);
             current->Get(AI_MATKEY_OPACITY, opacity);
-            current->Get(AI_MATKEY_SHININESS, shininess);
-            current->Get(AI_MATKEY_SHININESS_STRENGTH, shininess_strength);
+            current->Get(AI_MATKEY_SHININESS, specular_scale);
+            current->Get(AI_MATKEY_SHININESS_STRENGTH, specular_power);
             current->Get(AI_MATKEY_BUMPSCALING, bump_intensity);
 
             SharedPtr<Material> processed_material = eastl::make_shared<Material>();
@@ -233,8 +233,8 @@ namespace blowbox
             processed_material->SetColorAmbient(DirectX::XMFLOAT3(color_ambient.r, color_ambient.g, color_ambient.b));
             processed_material->SetColorEmissive(DirectX::XMFLOAT3(color_emissive.r, color_emissive.g, color_emissive.b));
             processed_material->SetOpacity(opacity);
-            processed_material->SetShininess(shininess);
-            processed_material->SetShininessStrength(shininess_strength);
+            processed_material->SetSpecularScale(specular_scale);
+            processed_material->SetSpecularPower(specular_power);
             processed_material->SetBumpIntensity(bump_intensity);
 
             for (int i = 0; i < aiTextureType_UNKNOWN; i++)
@@ -283,6 +283,8 @@ namespace blowbox
                             processed_material->SetTextureEmissive(texture);
                             break;
                         case aiTextureType_HEIGHT:
+                            processed_material->SetTextureBump(texture);
+                            break;
                         case aiTextureType_NORMALS:
                             processed_material->SetTextureNormal(texture);
                             break;
@@ -290,7 +292,7 @@ namespace blowbox
                             processed_material->SetTextureOpacity(texture);
                             break;
                         case aiTextureType_SHININESS:
-                            processed_material->SetTextureShininess(texture);
+                            processed_material->SetTextureSpecularPower(texture);
                             break;
                         case aiTextureType_SPECULAR:
                             processed_material->SetTextureSpecular(texture);

@@ -4,6 +4,7 @@
 #include "core/get.h"
 #include "core/debug/performance_profiler.h"
 #include "renderer/material.h"
+#include "core/scene/entity_factory.h"
 
 namespace blowbox
 {
@@ -14,6 +15,7 @@ namespace blowbox
         scaling_(DirectX::XMFLOAT3(1.0f, 1.0f, 1.0f)),
         world_transform_(DirectX::XMMatrixIdentity()),
         transform_dirty_(true),
+        is_visible_(true),
         in_scene_(false),
         name_(name)
     {
@@ -42,27 +44,33 @@ namespace blowbox
 	void Entity::SetLocalPosition(const DirectX::XMFLOAT3& position)
     {
 		position_ = position;
-		transform_dirty_ = true;
+        EntityFactory::MakeEntityGraphDirty(this);
     }
 
 	//------------------------------------------------------------------------------------------------------
 	void Entity::SetLocalRotation(const DirectX::XMFLOAT3& rotation)
     {
 		rotation_ = rotation;
-		transform_dirty_ = true;
+        EntityFactory::MakeEntityGraphDirty(this);
     }
 
 	//------------------------------------------------------------------------------------------------------
 	void Entity::SetLocalScaling(const DirectX::XMFLOAT3& scaling)
     {
 		scaling_ = scaling;
-		transform_dirty_ = true;
+        EntityFactory::MakeEntityGraphDirty(this);
     }
 
     //------------------------------------------------------------------------------------------------------
     void Entity::SetMesh(SharedPtr<Mesh> mesh)
     {
         mesh_ = mesh;
+    }
+
+    //------------------------------------------------------------------------------------------------------
+    void Entity::SetVisible(bool visibility)
+    {
+        is_visible_ = visibility;
     }
 
     //------------------------------------------------------------------------------------------------------
@@ -93,6 +101,12 @@ namespace blowbox
     SharedPtr<Mesh> Entity::GetMesh() const
     {
         return mesh_;
+    }
+
+    //------------------------------------------------------------------------------------------------------
+    bool Entity::GetVisible() const
+    {
+        return is_visible_;
     }
 
     //------------------------------------------------------------------------------------------------------

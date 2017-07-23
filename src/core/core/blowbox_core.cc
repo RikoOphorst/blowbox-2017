@@ -11,8 +11,6 @@
 #include "core/debug/console.h"
 #include "core/debug/performance_profiler.h"
 #include "core/debug/memory_profiler.h"
-#include "core/debug/frame_stats.h"
-#include "core/debug/memory_stats.h"
 
 #include "win32/glfw_manager.h"
 #include "win32/window.h"
@@ -96,8 +94,6 @@ namespace blowbox
         console_ = eastl::make_shared<Console>();
         performance_profiler_ = eastl::make_shared<PerformanceProfiler>();
         memory_profiler_ = eastl::make_shared<MemoryProfiler>();
-        frame_stats_ = eastl::make_shared<FrameStats>();
-        memory_stats_ = eastl::make_shared<MemoryStats>();
 
         // Create Getter
 		getter_ = new Get();
@@ -130,10 +126,7 @@ namespace blowbox
         {
             win32_glfw_manager_->Update();
             win32_time_->NewFrame();
-            performance_profiler_->NewFrame();
-            memory_profiler_->NewFrame();
-            frame_stats_->NewFrame();
-            memory_stats_->NewFrame();
+            debug_menu_->NewFrame();
             render_imgui_manager_->NewFrame();
 
             Update();
@@ -211,8 +204,6 @@ namespace blowbox
         getter_->Set(console_);
         getter_->Set(performance_profiler_);
         getter_->Set(memory_profiler_);
-        getter_->Set(frame_stats_);
-        getter_->Set(memory_stats_);
 
         getter_->Finalize();
     }
@@ -276,9 +267,8 @@ namespace blowbox
     //------------------------------------------------------------------------------------------------------
     void BlowboxCore::StartupDebug()
     {
+        debug_menu_->Startup();
         debug_menu_->AddDebugWindow(1, console_);
-        debug_menu_->AddDebugWindow(2, frame_stats_);
-        debug_menu_->AddDebugWindow(3, memory_stats_);
         debug_menu_->AddDebugWindow(4, performance_profiler_);
         debug_menu_->AddDebugWindow(5, memory_profiler_);
     }
@@ -357,20 +347,18 @@ namespace blowbox
     void BlowboxCore::ShutdownDebug()
     {
         memory_profiler_->Shutdown();
+        debug_menu_->Shutdown();
+
+        BLOWBOX_ASSERT(debug_menu_.use_count() == 1);
+        debug_menu_.reset();
 
         BLOWBOX_ASSERT(performance_profiler_.use_count() == 1);
-        BLOWBOX_ASSERT(frame_stats_.use_count() == 1);
         BLOWBOX_ASSERT(memory_profiler_.use_count() == 1);
-        BLOWBOX_ASSERT(memory_stats_.use_count() == 1);
         BLOWBOX_ASSERT(console_.use_count() == 1);
-        BLOWBOX_ASSERT(debug_menu_.use_count() == 1);
 
         performance_profiler_.reset();
-        frame_stats_.reset();
         memory_profiler_.reset();
-        memory_stats_.reset();
         console_.reset();
-        debug_menu_.reset();
     }
 
     //------------------------------------------------------------------------------------------------------

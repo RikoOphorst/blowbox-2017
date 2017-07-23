@@ -173,12 +173,27 @@ namespace blowbox
         context.SetPipelineState(main_pso_);
         context.SetRootSignature(main_root_signature_);
 
+        PassData pass_data;
+        pass_data.eye_pos = Get::SceneManager()->GetMainCamera()->GetPosition();
+        pass_data.specular_power = specular_power;
+        pass_data.show_emissive = emissive;
+        pass_data.show_ambient = ambient;
+        pass_data.show_diffuse = diffuse;
+        pass_data.show_specular = specular;
+        pass_data.light_color = light_color;
+        pass_data.light_intensity = light_intensity;
+        pass_data.light_range = light_range;
+        pass_data.light_position = light_position;
+        pass_data.do_normal_mapping = normal_mapping;
+
+        pass_buffer_.InsertDataByElement(0, &pass_data);
+
         for (int i = 0; i < entities.size(); i++)
         {
             SharedPtr<Entity>& entity = entities[i];
             SharedPtr<Mesh> mesh = entity->GetMesh();
 
-            if (mesh != nullptr)
+            if (mesh != nullptr && entity->GetVisible())
             {
                 context.SetPrimitiveTopology(mesh->GetMeshData().GetTopology());
                 UploadBuffer& object_constant_buffer = entity->GetConstantBuffer();
@@ -191,21 +206,6 @@ namespace blowbox
                 object_constant_buffer.InsertDataByElement(1, &(Get::SceneManager()->GetMainCamera()->GetViewMatrix()));
                 object_constant_buffer.InsertDataByElement(2, &(Get::SceneManager()->GetMainCamera()->GetProjectionMatrix()));
 
-                PassData pass_data;
-                pass_data.eye_pos = Get::SceneManager()->GetMainCamera()->GetPosition();
-                pass_data.specular_power = specular_power;
-                pass_data.show_emissive = emissive;
-                pass_data.show_ambient = ambient;
-                pass_data.show_diffuse = diffuse;
-                pass_data.show_specular = specular;
-                pass_data.light_color = light_color;
-                pass_data.light_intensity = light_intensity;
-                pass_data.light_range = light_range;
-                pass_data.light_position = light_position;
-                pass_data.do_normal_mapping = normal_mapping;
-
-                pass_buffer_.InsertDataByElement(0, &pass_data);
-
                 context.SetConstantBuffer(0, object_constant_buffer.GetAddressByElement(0));
                 context.SetConstantBuffer(1, material_constant_buffer.GetAddressByElement(0));
                 context.SetConstantBuffer(2, pass_buffer_.GetAddressByElement(0));
@@ -215,7 +215,7 @@ namespace blowbox
                 BindTexture(context, 5, material->GetTextureEmissive());
                 BindTexture(context, 6, material->GetTextureBump());
                 BindTexture(context, 7, material->GetTextureNormal());
-                BindTexture(context, 8, material->GetTextureShininess());
+                BindTexture(context, 8, material->GetTextureSpecularPower());
                 BindTexture(context, 9, material->GetTextureSpecular());
                 BindTexture(context, 10, material->GetTextureOpacity());
 

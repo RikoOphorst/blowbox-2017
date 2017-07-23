@@ -17,6 +17,7 @@ namespace blowbox
     */
     class MaterialManager
     {
+        friend class MaterialList;
     public:
         MaterialManager();
         ~MaterialManager();

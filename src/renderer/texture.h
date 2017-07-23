@@ -20,6 +20,8 @@ namespace blowbox
         ColorBuffer& GetBuffer();
         const String& GetName() const;
 
+        WeakPtr<Image> GetImage() const;
+
         void SetName(const String& name);
     private:
         String name_;

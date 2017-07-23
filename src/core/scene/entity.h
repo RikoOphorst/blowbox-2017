@@ -76,6 +76,12 @@ namespace blowbox
         void SetMesh(SharedPtr<Mesh> mesh);
 
         /**
+        * @brief Sets the visibility of this Entity.
+        * @param[in] visibility The visibility of this Entity.
+        */
+        void SetVisible(bool visibility);
+
+        /**
         * @brief Sets the Material of this Entity.
         * @param[in] material The material that you want to bind to this Entity.
         */
@@ -92,6 +98,9 @@ namespace blowbox
 
         /** @returns The Mesh that is bound to this Entity. */
         SharedPtr<Mesh> GetMesh() const;
+        
+        /** @returns Whether this Entity is visible. */
+        bool GetVisible() const;
 
         /** @returns The Material that is bound to this Entity. */
         WeakPtr<Material> GetMaterial() const;
@@ -168,6 +177,7 @@ namespace blowbox
         bool transform_dirty_;                  //!< Whether the current world_transform_ is dirty (i.e. position/rotation/scaling changed).
 
         bool in_scene_;                         //!< Flag that determines whether this Entity exists in the SceneManager.
+        bool is_visible_;                       //!< Whether this Entity is visible in the scene (i.e. being rendered).
 
         SharedPtr<Mesh> mesh_;                  //!< The Mesh object that is attached to this Entity.
         UploadBuffer constant_buffer_;          //!< This Entity's constant buffer.

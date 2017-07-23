@@ -9,7 +9,8 @@ namespace blowbox
     }
     
     //------------------------------------------------------------------------------------------------------
-    MeshData::MeshData(const Vector<Vertex>& vertices, const Vector<Index>& indices, D3D_PRIMITIVE_TOPOLOGY topology) :
+    MeshData::MeshData(const String& name, const Vector<Vertex>& vertices, const Vector<Index>& indices, D3D_PRIMITIVE_TOPOLOGY topology) :
+        name_(name),
         vertices_(vertices),
         indices_(indices),
         topology_(topology)
@@ -21,6 +22,12 @@ namespace blowbox
     MeshData::~MeshData()
     {
 
+    }
+
+    //------------------------------------------------------------------------------------------------------
+    void MeshData::SetName(const String& name)
+    {
+        name_ = name;
     }
 
     //------------------------------------------------------------------------------------------------------
@@ -75,5 +82,11 @@ namespace blowbox
     D3D_PRIMITIVE_TOPOLOGY MeshData::GetTopology() const
     {
         return topology_;
+    }
+    
+    //------------------------------------------------------------------------------------------------------
+    const String& MeshData::GetName() const
+    {
+        return name_;
     }
 }

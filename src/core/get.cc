@@ -43,8 +43,6 @@ namespace blowbox
         BLOWBOX_ASSERT(time_.use_count()                        > 0);
         BLOWBOX_ASSERT(performance_profiler_.use_count()        > 0);
         BLOWBOX_ASSERT(memory_profiler_.use_count()             > 0);
-        BLOWBOX_ASSERT(frame_stats_.use_count()                 > 0);
-        BLOWBOX_ASSERT(memory_stats_.use_count()                > 0);
         BLOWBOX_ASSERT(image_manager_.use_count()               > 0);
         BLOWBOX_ASSERT(file_manager_.use_count()                > 0);
         BLOWBOX_ASSERT(texture_manager_.use_count()             > 0);
@@ -178,18 +176,6 @@ namespace blowbox
     SharedPtr<MemoryProfiler> Get::MemoryProfiler()
     {
         return Get::instance_->memory_profiler_.lock();
-    }
-    
-    //------------------------------------------------------------------------------------------------------
-    SharedPtr<FrameStats> Get::FrameStats()
-    {
-        return Get::instance_->frame_stats_.lock();
-    }
-
-    //------------------------------------------------------------------------------------------------------
-    SharedPtr<MemoryStats> Get::MemoryStats()
-    {
-        return Get::instance_->memory_stats_.lock();
     }
 
     //------------------------------------------------------------------------------------------------------
@@ -328,18 +314,6 @@ namespace blowbox
     void Get::Set(SharedPtr<blowbox::MemoryProfiler> instance)
     {
         memory_profiler_ = instance;
-    }
-
-    //------------------------------------------------------------------------------------------------------
-    void Get::Set(SharedPtr<blowbox::FrameStats> instance)
-    {
-        frame_stats_ = instance;
-    }
-
-    //------------------------------------------------------------------------------------------------------
-    void Get::Set(SharedPtr<blowbox::MemoryStats> instance)
-    {
-        memory_stats_ = instance;
     }
 
     //------------------------------------------------------------------------------------------------------

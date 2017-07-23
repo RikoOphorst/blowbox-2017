@@ -22,8 +22,6 @@ namespace blowbox
     class Time;
     class PerformanceProfiler;
     class MemoryProfiler;
-    class FrameStats;
-    class MemoryStats;
     class ImageManager;
     class FileManager;
     class TextureManager;
@@ -121,12 +119,6 @@ namespace blowbox
 
         /** @returns The MemoryProfiler instance. */
         static SharedPtr<MemoryProfiler> MemoryProfiler();
-
-        /** @returns The FrameStats instance. */
-        static SharedPtr<FrameStats> FrameStats();
-
-        /** @returns The MemoryStats instance. */
-        static SharedPtr<MemoryStats> MemoryStats();
 
         /** @returns The ImageManager instance. */
         static SharedPtr<ImageManager> ImageManager();
@@ -273,21 +265,6 @@ namespace blowbox
         * @remarks Only accessible to BlowboxCore.
         */
         void Set(SharedPtr<blowbox::MemoryProfiler> instance);
-
-        /**
-        * @brief Sets the FrameStats instance.
-        * @param[in] instance The instance of the FrameStats.
-        * @remarks Only accessible to BlowboxCore.
-        */
-        void Set(SharedPtr<blowbox::FrameStats> instance);
-
-        /**
-        * @brief Sets the MemoryStats instance.
-        * @param[in] instance The instance of the MemoryStats.
-        * @remarks Only accessible to BlowboxCore.
-        */
-        void Set(SharedPtr<blowbox::MemoryStats> instance);
-
         /**
         * @brief Sets the ImageManager instance.
         * @param[in] instance The instance of the ImageManager.
@@ -339,8 +316,6 @@ namespace blowbox
         WeakPtr<blowbox::Time> time_;                                       //!< The Time instance.
         WeakPtr<blowbox::PerformanceProfiler> performance_profiler_;        //!< The PerformanceProfiler instance.
         WeakPtr<blowbox::MemoryProfiler> memory_profiler_;                  //!< The MemoryProfiler instance.
-        WeakPtr<blowbox::FrameStats> frame_stats_;                          //!< The FrameStats instance.
-        WeakPtr<blowbox::MemoryStats> memory_stats_;                        //!< The MemoryStats instance.
         WeakPtr<blowbox::ImageManager> image_manager_;                      //!< The ImageManager instance.
         WeakPtr<blowbox::FileManager> file_manager_;                        //!< The FileManager instance.
         WeakPtr<blowbox::TextureManager> texture_manager_;                  //!< The TextureManager instance.
