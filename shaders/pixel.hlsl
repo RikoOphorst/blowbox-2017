@@ -195,6 +195,8 @@ float4 main(VertexOut input) : SV_Target0
         clip(TextureOpacity.Sample(Sampler, input.UV).x - 0.05f);
     }
 
+    material.SpecularPower = max(material.SpecularPower, 1.0f);
+
     Light light;
     light.color = PassLightColor.xyz;
     light.position = PassLightPosition.xyz;
