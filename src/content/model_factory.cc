@@ -214,7 +214,7 @@ namespace blowbox
             aiMaterial* current = materials[i];
             aiString material_name;
             aiColor3D color_diffuse, color_specular, color_ambient, color_emissive;
-            float opacity = 1.0f, specular_scale = 1.5f, specular_power = 1.0f, bump_intensity = 5.0f;
+            float opacity = 1.0f, specular_scale = 0.5f, specular_power = 1.0f, bump_intensity = 5.0f;
 
             current->Get(AI_MATKEY_NAME, material_name);
             current->Get(AI_MATKEY_COLOR_DIFFUSE, color_diffuse);
@@ -234,7 +234,7 @@ namespace blowbox
             processed_material->SetColorEmissive(DirectX::XMFLOAT3(color_emissive.r, color_emissive.g, color_emissive.b));
             processed_material->SetOpacity(opacity);
             processed_material->SetSpecularScale(specular_scale);
-            processed_material->SetSpecularPower(specular_power);
+            processed_material->SetSpecularPower(eastl::clamp(specular_power, 2.0f, 1000.0f));
             processed_material->SetBumpIntensity(bump_intensity);
 
             for (int i = 0; i < aiTextureType_UNKNOWN; i++)
