@@ -4,7 +4,7 @@
 #include "util/shared_ptr.h"
 #include "util/weak_ptr.h"
 #include "util/string.h"
-#include "renderer/material.h"
+#include "renderer/materials/material.h"
 
 namespace blowbox
 {

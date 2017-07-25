@@ -6,6 +6,8 @@
 
 namespace blowbox
 {
+    KeyboardState::KeyState KeyboardState::default_key_state_ = { false, false, false, false, false, false };
+
     //------------------------------------------------------------------------------------------------------
     KeyboardState::KeyboardState()
     {
@@ -82,7 +84,7 @@ namespace blowbox
         }
         else
         {
-            return { false, false, false, false, false, false };
+            return default_key_state_;
         }
     }
 

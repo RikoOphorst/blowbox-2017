@@ -58,6 +58,7 @@ namespace blowbox
         SharedPtr<Image> image_ptr = image.lock();
 
         wchar_t buf[512];
+#pragma warning(suppress : 4996)
         swprintf(buf, L"TextureBuffer");
 
         int num_channels = 0;

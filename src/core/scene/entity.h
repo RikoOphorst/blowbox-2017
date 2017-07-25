@@ -5,7 +5,7 @@
 #include "util/vector.h"
 #include "util/queue.h"
 #include "util/string.h"
-#include "renderer/mesh.h"
+#include "renderer/meshes/mesh.h"
 #include "renderer/buffers/upload_buffer.h"
 #include <DirectXMath.h>
 

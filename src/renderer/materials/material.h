@@ -1,9 +1,9 @@
 #pragma once
 
-#include "d3d12_includes.h"
+#include "renderer/d3d12_includes.h"
 #include "util/string.h"
 #include "util/weak_ptr.h"
-#include "renderer/texture.h"
+#include "renderer/textures/texture.h"
 #include "renderer/buffers/upload_buffer.h"
 
 namespace blowbox

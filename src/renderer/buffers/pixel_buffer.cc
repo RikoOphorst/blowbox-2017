@@ -164,7 +164,8 @@ namespace blowbox
 		case DXGI_FORMAT_D16_UNORM:
 
 			BLOWBOX_ASSERT(false && "Requested a UAV format for a depth stencil format.");
-            break;
+            
+            return DXGI_FORMAT_UNKNOWN;
 #endif
 
 		default:

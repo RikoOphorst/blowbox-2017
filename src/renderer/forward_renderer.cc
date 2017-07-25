@@ -6,8 +6,8 @@
 #include "core/scene/scene_manager.h"
 #include "core/debug/performance_profiler.h"
 #include "content/file_manager.h"
-#include "renderer/material.h"
-#include "renderer/material_manager.h"
+#include "renderer/materials/material.h"
+#include "renderer/materials/material_manager.h"
 
 namespace blowbox
 {
@@ -112,7 +112,7 @@ namespace blowbox
         main_pso_.SetBlendState(blend_state);
         main_pso_.SetRasterizerState(rasterizer_state);
         main_pso_.SetDepthStencilState(depth_stencil_state);
-        main_pso_.SetInputLayout(Vertex::GetInputElements().size(), &(Vertex::GetInputElements()[0]));
+        main_pso_.SetInputLayout(static_cast<UINT>(Vertex::GetInputElements().size()), &(Vertex::GetInputElements()[0]));
         main_pso_.SetPrimitiveTopologyType(D3D12_PRIMITIVE_TOPOLOGY_TYPE_TRIANGLE);
         main_pso_.SetRenderTargetFormat(DXGI_FORMAT_R8G8B8A8_UNORM, DXGI_FORMAT_D32_FLOAT);
         main_pso_.SetRootSignature(main_root_signature_);
@@ -234,7 +234,7 @@ namespace blowbox
                 context.SetVertexBuffer(0, mesh->GetVertexBuffer().GetVertexBufferView());
                 context.SetIndexBuffer(mesh->GetIndexBuffer().GetIndexBufferView());
 
-                context.DrawIndexed(mesh->GetMeshData().GetIndices().size());
+                context.DrawIndexed(static_cast<UINT>(mesh->GetMeshData().GetIndices().size()));
             }
         }
 

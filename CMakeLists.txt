@@ -14,6 +14,7 @@ set(BLOWBOX_VERSION_MAJOR 1)
 set(BLOWBOX_VERSION_MINOR 0)
 add_definitions(-DBLOWBOX_VERSION_MAJOR=${BLOWBOX_VERSION_MAJOR})
 add_definitions(-DBLOWBOX_VERSION_MINOR=${BLOWBOX_VERSION_MINOR})
+add_definitions(-D_CRT_SECURE_NO_WARNINGS)
 
 # Throw an error if we're not on Windows
 if (NOT WIN32)
@@ -57,6 +58,22 @@ file(GLOB RendererCamerasFiles
     src/renderer/cameras/*.cc 
     src/renderer/cameras/*.h 
 )
+file(GLOB RendererMeshesFiles
+    src/renderer/meshes/*.cc 
+    src/renderer/meshes/*.h 
+)
+file(GLOB RendererLightsFiles
+    src/renderer/lights/*.cc 
+    src/renderer/lights/*.h 
+)
+file(GLOB RendererMaterialsFiles
+    src/renderer/materials/*.cc 
+    src/renderer/materials/*.h 
+)
+file(GLOB RendererTexturesFiles
+    src/renderer/textures/*.cc 
+    src/renderer/textures/*.h 
+)
 file(GLOB ContentFiles
     src/content/*.cc 
     src/content/*.h 
@@ -93,6 +110,10 @@ source_group("renderer\\imgui"      FILES       ${RendererImguiFiles})
 source_group("renderer\\buffers"    FILES       ${RendererBuffersFiles})
 source_group("renderer\\commands"   FILES       ${RendererCommandsFiles})
 source_group("renderer\\cameras"    FILES       ${RendererCamerasFiles})
+source_group("renderer\\meshes"     FILES       ${RendererMeshesFiles})
+source_group("renderer\\lights"     FILES       ${RendererLightsFiles})
+source_group("renderer\\materials"  FILES       ${RendererMaterialsFiles})
+source_group("renderer\\textures"   FILES       ${RendererTexturesFiles})
 source_group("content"              FILES       ${ContentFiles})
 source_group("content\\stb"         FILES       ${ContentStbFiles})
 source_group("core"                 FILES       ${CoreFiles})
@@ -103,7 +124,15 @@ source_group("util"                 FILES       ${UtilFiles})
 
 # Add the libraries and executables to the main solution
 add_library(blowbox_win32           STATIC      ${Win32Files})
-add_library(blowbox_renderer        STATIC      ${RendererFiles} ${RendererImguiFiles} ${RendererBuffersFiles} ${RendererCommandsFiles} ${RendererCamerasFiles})
+add_library(blowbox_renderer        STATIC      ${RendererFiles} 
+                                                ${RendererImguiFiles} 
+                                                ${RendererBuffersFiles} 
+                                                ${RendererCommandsFiles} 
+                                                ${RendererCamerasFiles} 
+                                                ${RendererMeshesFiles} 
+                                                ${RendererLightsFiles} 
+                                                ${RendererMaterialsFiles} 
+                                                ${RendererTexturesFiles})
 add_library(blowbox_content         STATIC      ${ContentFiles} ${ContentStbFiles})
 add_library(blowbox_util            STATIC      ${UtilFiles})
 add_executable(blowbox_core                     ${CoreFiles} ${CoreCoreFiles} ${CoreSceneFiles} ${CoreDebugFiles})

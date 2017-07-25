@@ -141,5 +141,8 @@ namespace blowbox
         bool is_mouse_in_window_;                                   //!< Whether the mouse is in the window.
 
         Map<MouseButton, MouseButtonState> mouse_button_states_;    //!< All the different mouse states.
+
+        static MouseButtonState default_mouse_button_state_;        //!< A default mouse button state (everything false). Used by the various Getters if they need to return an empty state.
+        static DirectX::XMFLOAT2 default_mouse_float2_;             //<! A default mouse float2 (everything 0.0f). Used by the various Getters if they need to return an empty state.
     };
 }

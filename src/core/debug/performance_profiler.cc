@@ -141,7 +141,7 @@ namespace blowbox
                                     {
                                         ProfilerBlockData& block_data = it->second;
                                         RingBuffer<ProfilerBlockTime>& block_times = block_data.block_times;
-                                        float most_current_block_time = block_times[0].end_time - block_times[0].start_time;
+                                        float most_current_block_time = static_cast<float>(block_times[0].end_time - block_times[0].start_time);
                                         float total_block_time = 0.0f;
 
                                         if (Time::GetProcessTimeAsDouble() - block_data.last_recalculation > (double)bounds_reset_interval_)
@@ -156,7 +156,7 @@ namespace blowbox
 
                                             contiguous_block_times[j] = static_cast<float>(current_time);
 
-                                            total_block_time += current_time;
+                                            total_block_time += static_cast<float>(current_time);
 
                                             if (Time::GetProcessTimeAsDouble() - block_data.last_recalculation >(double)bounds_reset_interval_)
                                             {
@@ -185,7 +185,7 @@ namespace blowbox
                                             block_data.last_recalculation = Time::GetProcessTimeAsDouble();
                                         }
 
-                                        ImGui::PlotHistogram("Block history", contiguous_block_times, block_times.size(), 0, nullptr, 0.0f, block_data.worst_block_time_overall * 1.1f, ImVec2(260, 50), 4);
+                                        ImGui::PlotHistogram("Block history", contiguous_block_times, static_cast<int>(block_times.size()), 0, nullptr, 0.0f, static_cast<float>(block_data.worst_block_time_overall * 1.1), ImVec2(260, 50), 4);
 
                                         ImGui::Columns(2);
                                         ImGui::Text("Last block time:");

@@ -3,7 +3,7 @@
 #include "core/scene/scene_manager.h"
 #include "core/get.h"
 #include "core/debug/performance_profiler.h"
-#include "renderer/material.h"
+#include "renderer/materials/material.h"
 #include "core/scene/entity_factory.h"
 
 namespace blowbox

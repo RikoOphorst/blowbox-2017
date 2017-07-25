@@ -76,14 +76,14 @@ namespace blowbox
         {
             if (ImGui::Begin("Memory Usage", &show_window_, ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoCollapse))
             {
-                int ram_usage_count = (ram_usage_history_.size() < BLOWBOX_PROFILER_HISTORY_MAX_SAMPLE_COUNT ? ram_usage_history_.size() : BLOWBOX_PROFILER_HISTORY_MAX_SAMPLE_COUNT);
+                int ram_usage_count = static_cast<int>(ram_usage_history_.size() < BLOWBOX_PROFILER_HISTORY_MAX_SAMPLE_COUNT ? ram_usage_history_.size() : BLOWBOX_PROFILER_HISTORY_MAX_SAMPLE_COUNT);
 
                 for (int i = 0; i < ram_usage_count; i++)
                 {
                     ram_usage_history_contiguous_[i] = static_cast<float>(ram_usage_history_[i] / 1000);
                 }
 
-                ImGui::PlotHistogram("RAM Usage (KB)", ram_usage_history_contiguous_, ram_usage_count, 0, nullptr, 0.0f, ram_operating_system_budget_ / 1000, ImVec2(300, 50), 4);
+                ImGui::PlotHistogram("RAM Usage (KB)", ram_usage_history_contiguous_, ram_usage_count, 0, nullptr, 0.0f, static_cast<float>(ram_operating_system_budget_ / 1000), ImVec2(300, 50), 4);
 
                 ImGui::Columns(2, nullptr, false);
                 ImGui::Text("Lowest RAM usage:");
@@ -110,14 +110,14 @@ namespace blowbox
 
                 ImGui::Separator();
 
-                int vram_usage_count = (vram_usage_history_.size() < BLOWBOX_PROFILER_HISTORY_MAX_SAMPLE_COUNT ? vram_usage_history_.size() : BLOWBOX_PROFILER_HISTORY_MAX_SAMPLE_COUNT);
+                int vram_usage_count = static_cast<int>(vram_usage_history_.size() < BLOWBOX_PROFILER_HISTORY_MAX_SAMPLE_COUNT ? vram_usage_history_.size() : BLOWBOX_PROFILER_HISTORY_MAX_SAMPLE_COUNT);
 
                 for (int i = 0; i < vram_usage_count; i++)
                 {
                     vram_usage_history_contiguous_[i] = static_cast<float>(vram_usage_history_[i] / 1000);
                 }
 
-                ImGui::PlotHistogram("VRAM Usage (MB)", vram_usage_history_contiguous_, vram_usage_count, 0, nullptr, 0.0f, vram_operating_system_budget_ / 1000, ImVec2(300, 50), 4);
+                ImGui::PlotHistogram("VRAM Usage (MB)", vram_usage_history_contiguous_, vram_usage_count, 0, nullptr, 0.0f, static_cast<float>(vram_operating_system_budget_ / 1000), ImVec2(300, 50), 4);
 
                 ImGui::Columns(2, nullptr, false);
                 ImGui::Text("Lowest VRAM usage:");

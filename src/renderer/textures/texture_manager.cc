@@ -48,8 +48,10 @@ namespace blowbox
         else
         {
             char buf[512];
-            sprintf(buf, "Tried adding a Texture (%s) to the TextureManager, but a Texture was already present under that name. No action was taken, but this might result in unexpected behaviour.");
+            sprintf(buf, "Tried adding a Texture (%s) to the TextureManager, but a Texture was already present under that name. No action was taken, but this might result in unexpected behaviour.", name.c_str());
             Get::Console()->LogWarning(buf);
+
+            return WeakPtr<Texture>();
         }
     }
 

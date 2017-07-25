@@ -1,6 +1,6 @@
 #pragma once
 
-#include "renderer/mesh_data.h"
+#include "renderer/meshes/mesh_data.h"
 #include "renderer/buffers/structured_buffer.h"
 #include "renderer/buffers/byte_address_buffer.h"
 

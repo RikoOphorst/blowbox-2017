@@ -39,6 +39,7 @@ namespace blowbox
 
         wchar_t buf[512];
 
+#pragma warning(suppress : 4996)
         swprintf(buf, L"%s::Counter", name_.c_str());
 		counter_buffer_.Create(buf, 1, 4);
 

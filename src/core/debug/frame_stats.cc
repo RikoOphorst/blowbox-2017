@@ -81,7 +81,7 @@ namespace blowbox
             {
                 if (view_frame_stats_as_fps_ == 0)
                 {
-                    int delta_times_count = (delta_time_history_.size() < BLOWBOX_PROFILER_HISTORY_MAX_SAMPLE_COUNT ? delta_time_history_.size() : BLOWBOX_PROFILER_HISTORY_MAX_SAMPLE_COUNT);
+                    int delta_times_count = static_cast<int>(delta_time_history_.size() < BLOWBOX_PROFILER_HISTORY_MAX_SAMPLE_COUNT ? delta_time_history_.size() : BLOWBOX_PROFILER_HISTORY_MAX_SAMPLE_COUNT);
 
                     for (int i = 0; i < delta_times_count; i++)
                     {
@@ -110,7 +110,7 @@ namespace blowbox
                 }
                 else
                 {
-                    int delta_times_count = (delta_time_history_.size() < BLOWBOX_PROFILER_HISTORY_MAX_SAMPLE_COUNT ? delta_time_history_.size() : BLOWBOX_PROFILER_HISTORY_MAX_SAMPLE_COUNT);
+                    int delta_times_count = static_cast<int>(delta_time_history_.size() < BLOWBOX_PROFILER_HISTORY_MAX_SAMPLE_COUNT ? delta_time_history_.size() : BLOWBOX_PROFILER_HISTORY_MAX_SAMPLE_COUNT);
 
                     for (int i = 0; i < delta_times_count; i++)
                     {

@@ -2,8 +2,8 @@
 
 #include "core/get.h"
 #include "core/debug/material_viewer.h"
-#include "renderer/material.h"
-#include "renderer/material_manager.h"
+#include "renderer/materials/material.h"
+#include "renderer/materials/material_manager.h"
 #include "win32/window.h"
 #include "util/sort.h"
 #include "util/algorithm.h"

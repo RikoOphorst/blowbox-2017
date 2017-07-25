@@ -2,7 +2,7 @@
 
 #include "util/vector.h"
 #include "util/string.h"
-#include "renderer/vertex.h"
+#include "renderer/meshes/vertex.h"
 
 namespace blowbox
 {

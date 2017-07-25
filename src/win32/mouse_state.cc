@@ -6,6 +6,9 @@
 
 namespace blowbox
 {
+    MouseState::MouseButtonState MouseState::default_mouse_button_state_ = { false, false, false, false, false, false };
+    DirectX::XMFLOAT2 MouseState::default_mouse_float2_ = DirectX::XMFLOAT2(0.0f, 0.0f);
+
     //------------------------------------------------------------------------------------------------------
     MouseState::MouseState() :
         mouse_position_(0.0f, 0.0f),
@@ -88,7 +91,7 @@ namespace blowbox
         }
         else
         {
-            return DirectX::XMFLOAT2(0.0f, 0.0f);
+            return default_mouse_float2_;
         }
     }
 
@@ -101,7 +104,7 @@ namespace blowbox
         }
         else
         {
-            return DirectX::XMFLOAT2(0.0f, 0.0f);
+            return default_mouse_float2_;
         }
     }
 
@@ -114,7 +117,7 @@ namespace blowbox
         }
         else
         {
-            return DirectX::XMFLOAT2(0.0f, 0.0f);
+            return default_mouse_float2_;
         }
     }
 

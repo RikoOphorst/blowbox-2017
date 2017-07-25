@@ -4,7 +4,7 @@
 #include "core/debug/debug_menu.h"
 #include "core/debug/material_list.h"
 #include "core/scene/entity.h"
-#include "renderer/material.h"
+#include "renderer/materials/material.h"
 
 namespace blowbox
 {
@@ -47,7 +47,7 @@ namespace blowbox
             SharedPtr<Entity> entity = entity_.lock();
             
             char buf[256];
-            sprintf(buf, "EntityView: %s###Entity%i", entity->GetName().c_str(), reinterpret_cast<uintptr_t>(entity.get()), reinterpret_cast<uintptr_t>(entity.get()));
+            sprintf(buf, "EntityView: %s###Entity%i", entity->GetName().c_str(), static_cast<int>(reinterpret_cast<uintptr_t>(entity.get())));
 
             ImGui::SetNextWindowPosCenter(ImGuiSetCond_FirstUseEver);
             ImGui::SetNextWindowSize(ImVec2(275.0f, 300.0f), ImGuiSetCond_FirstUseEver);

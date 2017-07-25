@@ -117,5 +117,6 @@ namespace blowbox
     private:
         Map<KeyCode, KeyState> key_states_; //!< A map of KeyCodes to KeyStates.
         Queue<unsigned int> input_keys_;    //!< The keys that were pressed over the last frame, in correct order. These are stored in unicode ids.
+        static KeyState default_key_state_; //!< A default key state that gets used when Getters have to return an empty state.
     };
 }

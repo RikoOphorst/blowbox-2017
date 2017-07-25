@@ -1,7 +1,7 @@
 #include "material_viewer.h"
 
-#include "renderer/material.h"
-#include "renderer/texture.h"
+#include "renderer/materials/material.h"
+#include "renderer/textures/texture.h"
 
 namespace blowbox
 {
@@ -44,7 +44,7 @@ namespace blowbox
             SharedPtr<Material> material = material_.lock();
 
             char buf[256];
-            sprintf(buf, "MaterialView: %s###Material%i", material->GetName().c_str(), reinterpret_cast<uintptr_t>(material.get()), reinterpret_cast<uintptr_t>(material.get()));
+            sprintf(buf, "MaterialView: %s###Material%i", material->GetName().c_str(), static_cast<int>(reinterpret_cast<uintptr_t>(material.get())));
 
             ImGui::SetNextWindowPosCenter(ImGuiSetCond_FirstUseEver);
             ImGui::SetNextWindowSize(ImVec2(450.0f, 350.0f), ImGuiSetCond_FirstUseEver);

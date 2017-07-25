@@ -211,14 +211,14 @@ namespace blowbox
             D3D12_VERTEX_BUFFER_VIEW vertex_buffer_view;
             vertex_buffer_view.BufferLocation = buffer_address + read_cursor;
             vertex_buffer_view.StrideInBytes = sizeof(ImDrawVert);
-            vertex_buffer_view.SizeInBytes = vertices_size;
-            read_cursor += vertices_size;
+            vertex_buffer_view.SizeInBytes = static_cast<UINT>(vertices_size);
+            read_cursor += static_cast<int64_t>(vertices_size);
         
             D3D12_INDEX_BUFFER_VIEW index_buffer_view;
             index_buffer_view.BufferLocation = buffer_address + read_cursor;
-            index_buffer_view.SizeInBytes = indices_size;
+            index_buffer_view.SizeInBytes = static_cast<UINT>(indices_size);
             index_buffer_view.Format = DXGI_FORMAT_R16_UINT;
-            read_cursor += indices_size;
+            read_cursor += static_cast<int64_t>(indices_size);
         
             context.SetVertexBuffers(0, 1, &vertex_buffer_view);
             context.SetIndexBuffer(index_buffer_view);
@@ -241,7 +241,7 @@ namespace blowbox
                 idx_offset += pcmd->ElemCount;
             }
         
-            vtx_offset += vertices_count;
+            vtx_offset += static_cast<int>(vertices_count);
         }
         
         context.Finish();

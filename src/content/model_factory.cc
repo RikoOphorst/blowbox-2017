@@ -10,8 +10,8 @@
 #include "util/quaternion.h"
 #include "core/get.h"
 #include "core/debug/console.h"
-#include "renderer/texture_manager.h"
-#include "renderer/material_manager.h"
+#include "renderer/textures/texture_manager.h"
+#include "renderer/materials/material_manager.h"
 #include "content/image_manager.h"
 
 #include "core/debug/performance_profiler.h"
@@ -62,11 +62,11 @@ namespace blowbox
         int num_indices = 0, num_vertices = 0;
         for (int i = 0; i < meshes.size(); i++)
         {
-            num_indices += meshes[i]->GetMeshData().GetIndices().size();
-            num_vertices += meshes[i]->GetMeshData().GetVertices().size();
+            num_indices += static_cast<int>(meshes[i]->GetMeshData().GetIndices().size());
+            num_vertices += static_cast<int>(meshes[i]->GetMeshData().GetVertices().size());
         }
 
-        sprintf(buf, "A model (%s) has been loaded.\nMeshes: %i\nVertices: %i\nIndices: %i", file_path_to_model.c_str(), meshes.size(), num_vertices, num_indices);
+        sprintf(buf, "A model (%s) has been loaded.\nMeshes: %i\nVertices: %i\nIndices: %i", file_path_to_model.c_str(), static_cast<int>(meshes.size()), num_vertices, num_indices);
         Get::Console()->LogStatus(buf);
 
         return root_entity;
@@ -160,7 +160,7 @@ namespace blowbox
 
             BLOWBOX_ASSERT(face.mNumIndices == 3);
 
-            for (int k = 0; k < face.mNumIndices; k++)
+            for (unsigned int k = 0; k < face.mNumIndices; k++)
             {
                 (*out_indices).push_back(static_cast<Index>(face.mIndices[k]));
             }
@@ -247,7 +247,7 @@ namespace blowbox
                     {
                         if (texture_count > 1)
                         {
-                            sprintf(buf, "A material that is being loaded (%s) specifies more than one textures for one texture type (%s). This is unsupported, instead Blowbox will use only the first texture.", material_name.data, ConvertTexToString(i));
+                            sprintf(buf, "A material that is being loaded (%s) specifies more than one textures for one texture type (%s). This is unsupported, instead Blowbox will use only the first texture.", material_name.data, ConvertTexToString(i).c_str());
                             Get::Console()->LogWarning(buf);
                         }
 
@@ -328,7 +328,7 @@ namespace blowbox
         
         if (node->mNumMeshes >= 1)
         {
-            for (int i = 0; i < node->mNumMeshes; i++)
+            for (unsigned int i = 0; i < node->mNumMeshes; i++)
             {
                 SharedPtr<Entity> new_entity = EntityFactory::CreateEntity(node->mName.C_Str());
                 new_entity->SetLocalPosition(translation);
@@ -355,7 +355,7 @@ namespace blowbox
             entities.push_back(new_entity);
         }
 
-        for (int i = 0; i < node->mNumChildren; i++)
+        for (unsigned int i = 0; i < node->mNumChildren; i++)
         {
             ProcessNode(node->mChildren[i], entities[0], available_meshes, material_indices, available_materials);
         }
