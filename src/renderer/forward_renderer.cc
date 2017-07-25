@@ -7,6 +7,7 @@
 #include "core/debug/performance_profiler.h"
 #include "content/file_manager.h"
 #include "renderer/material.h"
+#include "renderer/material_manager.h"
 
 namespace blowbox
 {
@@ -129,15 +130,15 @@ namespace blowbox
         PerformanceProfiler::ProfilerBlock profiler_block("FrameForwardSetup", ProfilerBlockType_RENDERER);
 
         static float specular_power = 5.0f;
-        static DirectX::XMFLOAT4 light_color = DirectX::XMFLOAT4(0.5f, 0.5f, 0.5f, 1.0f);
-        static DirectX::XMFLOAT4 light_position = DirectX::XMFLOAT4(7.0f, 14.0f, 20.0f, 1.0f);
+        static DirectX::XMFLOAT4 light_color = DirectX::XMFLOAT4(1.0f, 1.0f, 1.0f, 1.0f);
+        static DirectX::XMFLOAT4 light_position = DirectX::XMFLOAT4(-20.0f, 14.0f, 0.0f, 1.0f);
         static bool emissive = false;
         static bool ambient = false;
         static bool diffuse = true;
         static bool specular = true;
         static bool normal_mapping = true;
         static float light_intensity = 1.0f;
-        static float light_range = 75.0f;
+        static float light_range = 200.0f;
 
         ImGui::Begin("Stuff");
         ImGui::SliderFloat("Specular Power", &specular_power, 0.1f, 150.0f);
@@ -197,7 +198,18 @@ namespace blowbox
             {
                 context.SetPrimitiveTopology(mesh->GetMeshData().GetTopology());
                 UploadBuffer& object_constant_buffer = entity->GetConstantBuffer();
-                SharedPtr<Material> material = entity->GetMaterial().lock();
+
+                Material* material = nullptr;
+
+                if (!entity->GetMaterial().expired())
+                {
+                    material = entity->GetMaterial().lock().get();
+                }
+                else
+                {
+                    material = Get::MaterialManager()->GetMaterial("DefaultMaterial").lock().get();
+                }
+
                 UploadBuffer& material_constant_buffer = material->GetConstantBuffer();
 
                 DirectX::XMMATRIX world_transform = entity->GetWorldTransform();

@@ -49,9 +49,9 @@ namespace blowbox
             char buf[256];
             sprintf(buf, "EntityView: %s###Entity%i", entity->GetName().c_str(), reinterpret_cast<uintptr_t>(entity.get()), reinterpret_cast<uintptr_t>(entity.get()));
 
-            ImGui::SetNextWindowPosCenter(ImGuiSetCond_Once);
-            ImGui::SetNextWindowSize(ImVec2(275.0f, 300.0f), ImGuiSetCond_Once);
-            ImGui::SetNextWindowCollapsed(false, ImGuiSetCond_Appearing);
+            ImGui::SetNextWindowPosCenter(ImGuiSetCond_FirstUseEver);
+            ImGui::SetNextWindowSize(ImVec2(275.0f, 300.0f), ImGuiSetCond_FirstUseEver);
+            ImGui::SetNextWindowCollapsed(false, ImGuiSetCond_FirstUseEver);
 
             if (focus_)
             {

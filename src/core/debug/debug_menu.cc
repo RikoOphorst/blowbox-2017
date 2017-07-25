@@ -78,7 +78,7 @@ namespace blowbox
 
         if (name != "" && named_windows_.find(name) == named_windows_.end())
         {
-            named_windows_[name] == debug_window;
+            named_windows_[name] = debug_window;
         }
     }
     

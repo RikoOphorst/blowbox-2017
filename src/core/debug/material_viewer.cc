@@ -46,9 +46,9 @@ namespace blowbox
             char buf[256];
             sprintf(buf, "MaterialView: %s###Material%i", material->GetName().c_str(), reinterpret_cast<uintptr_t>(material.get()), reinterpret_cast<uintptr_t>(material.get()));
 
-            ImGui::SetNextWindowPosCenter(ImGuiSetCond_Once);
-            ImGui::SetNextWindowSize(ImVec2(450.0f, 350.0f), ImGuiSetCond_Once);
-            ImGui::SetNextWindowCollapsed(false, ImGuiSetCond_Appearing);
+            ImGui::SetNextWindowPosCenter(ImGuiSetCond_FirstUseEver);
+            ImGui::SetNextWindowSize(ImVec2(450.0f, 350.0f), ImGuiSetCond_FirstUseEver);
+            ImGui::SetNextWindowCollapsed(false, ImGuiSetCond_FirstUseEver);
 
             if (focus_)
             {

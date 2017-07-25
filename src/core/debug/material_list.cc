@@ -5,6 +5,8 @@
 #include "renderer/material.h"
 #include "renderer/material_manager.h"
 #include "win32/window.h"
+#include "util/sort.h"
+#include "util/algorithm.h"
 
 namespace blowbox
 {
@@ -78,18 +80,45 @@ namespace blowbox
     {
         if (show_window_)
         {
-            ImGui::SetNextWindowSize(ImVec2(450.0f, 300.0f), ImGuiSetCond_Once);
-            ImGui::SetNextWindowPosCenter(ImGuiSetCond_Once);
+            ImGui::SetNextWindowSize(ImVec2(300.0f, 450.0f), ImGuiSetCond_FirstUseEver);
+            ImGui::SetNextWindowPosCenter(ImGuiSetCond_FirstUseEver);
 
             if (ImGui::Begin("Material List", &show_window_))
             {
                 UnorderedMap<String, SharedPtr<Material>> materials = Get::MaterialManager()->materials_;
 
+                material_name_filter_.Draw("Find materials", 170.0f);
+
+                ImGui::Separator();
+
+                Vector<SharedPtr<Material>> sorted_materials;
+
                 for (auto it = materials.begin(); it != materials.end(); it++)
                 {
-                    if (ImGui::Selectable(it->first.c_str()))
+                    sorted_materials.push_back(it->second);
+                }
+                
+                auto compare = [](const SharedPtr<Material>& a, const SharedPtr<Material>& b)
+                {
+                    String name1 = a->GetName();
+                    String name2 = b->GetName();
+                    eastl::transform(name1.begin(), name1.end(), name1.begin(), ::tolower);
+                    eastl::transform(name2.begin(), name2.end(), name2.begin(), ::tolower);
+                    return name1 < name2;
+                };
+
+                eastl::sort(sorted_materials.begin(), sorted_materials.end(), compare);
+
+                for (int i = 0; i < sorted_materials.size(); i++)
+                {
+                    if (material_name_filter_.PassFilter(sorted_materials[i]->GetName().c_str()))
                     {
-                        SpawnMaterialViewer(it->second);
+                        ImGui::Text("%i:", i);
+                        ImGui::SameLine(50.0f);
+                        if (ImGui::Selectable(sorted_materials[i]->GetName().c_str(), material_viewers_.find(reinterpret_cast<uintptr_t>(sorted_materials[i].get())) != material_viewers_.end()))
+                        {
+                            SpawnMaterialViewer(sorted_materials[i]);
+                        }
                     }
                 }
             }

@@ -29,9 +29,9 @@ namespace blowbox
         void SetFovDegrees(float fov_in_degrees);
 
         /** @returns The field of view for the camera in radians. */
-        float GetFOVRadians() const;
+        float GetFovRadians() const;
         /** @returns The field of view for the camera in degrees. */
-        float GetFOVDegrees() const;
+        float GetFovDegrees() const;
 
     protected:
         /** @brief (Re)-calculates the projection matrix of the camera. */

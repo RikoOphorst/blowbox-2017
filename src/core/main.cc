@@ -33,7 +33,6 @@ BlowboxCore* blowbox_instance;
 Window* main_window;
 
 SharedPtr<Entity> my_model;
-SharedPtr<PerspectiveCamera> camera;
 
 double previous_time = 0;
 bool my_window_open = true;
@@ -44,9 +43,10 @@ void Run()
     main_window = Get::MainWindow().get();
 
     my_model = ModelFactory::LoadModel("./models/crytek-sponza/sponza.obj");
+    my_model->SetLocalScaling(DirectX::XMFLOAT3(0.1f, 0.1f, 0.1f));
     EntityFactory::AddChildToEntity(Get::SceneManager()->GetRootEntity(), my_model);
 
-    camera = eastl::make_shared<PerspectiveCamera>();
+    SharedPtr<PerspectiveCamera> camera = eastl::make_shared<PerspectiveCamera>();
 
     camera->SetPosition(DirectX::XMFLOAT3(0.0f, 5.0f, 20.0f));
     camera->SetRotation(DirectX::XMFLOAT3(0.0f, 3.14f, 0.0f));
@@ -59,6 +59,8 @@ void Run()
 
 void Update()
 {
+    SharedPtr<Camera> camera = Get::SceneManager()->GetMainCamera();
+
     KeyboardState& keyboard = Get::MainWindow()->GetKeyboardState();
 
     float speed = 5.0f;
@@ -91,8 +93,6 @@ void Update()
         Get::Console()->LogWarning("warning message");
     if (keyboard.GetKeyDown(KeyCode_U))
         Get::Console()->LogError("error message");
-
-    //my_model->SetLocalPosition(DirectX::XMFLOAT3(std::sin(Time::GetProcessTime()) * 5.0f, 0.0f, std::cos(Time::GetProcessTime()) * 5.0f));
 }
 
 void PostUpdate()

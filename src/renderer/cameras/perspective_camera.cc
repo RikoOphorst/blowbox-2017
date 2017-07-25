@@ -33,13 +33,13 @@ namespace blowbox
     }
 
     //------------------------------------------------------------------------------------------------------
-    float PerspectiveCamera::GetFOVRadians() const
+    float PerspectiveCamera::GetFovRadians() const
     {
         return fov_in_radians_;
     }
 
     //------------------------------------------------------------------------------------------------------
-    float PerspectiveCamera::GetFOVDegrees() const
+    float PerspectiveCamera::GetFovDegrees() const
     {
         return DirectX::XMConvertToDegrees(fov_in_radians_);
     }

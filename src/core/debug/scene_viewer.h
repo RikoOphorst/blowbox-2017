@@ -38,6 +38,7 @@ namespace blowbox
 
     private:
         bool show_window_;
+        bool show_entity_view_;
 
         ImGuiTextFilter entity_name_filter_;
         ViewType view_type_;

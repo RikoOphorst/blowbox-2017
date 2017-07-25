@@ -97,7 +97,7 @@ float3 DoDiffuse(Material mat, Light light, float3 P, float3 N, float3 E)
 {
     float3 L = normalize(light.position - P);
 
-    return mat.Diffuse * light.color * max(dot(N, L), 0.0f);
+    return light.color * max(dot(N, L), 0.0f);
 }
 
 float3 DoSpecular(Material mat, Light light, float3 P, float3 N, float3 E)
@@ -106,7 +106,7 @@ float3 DoSpecular(Material mat, Light light, float3 P, float3 N, float3 E)
     float3 V = normalize(E - P);
     float3 H = normalize(L + V);
 
-    return mat.Specular * pow(max(dot(N, H), 0), mat.SpecularPower);
+    return pow(max(dot(N, H), 0), mat.SpecularPower);
 }
 
 LightingResult DoLighting(Material mat, Light light, float3 P, float3 N, float3 E)
@@ -189,7 +189,7 @@ float4 main(VertexOut input) : SV_Target0
 
     if (MaterialUseSpecularPowerTexture)
     {
-        material.SpecularPower = TextureSpecularPower.Sample(Sampler, input.UV).x;
+        material.SpecularPower = TextureSpecularPower.Sample(Sampler, input.UV).x * MaterialSpecularScale;
     }
 
     if (MaterialUseSpecularTexture)
@@ -216,8 +216,6 @@ float4 main(VertexOut input) : SV_Target0
         clip(TextureOpacity.Sample(Sampler, input.UV).x - 0.05f);
     }
 
-    material.Ambient *= GlobalAmbient;
-    material.Specular *= MaterialSpecularScale;
     material.SpecularPower = max(material.SpecularPower, 1.0f);
 
     Light light;
@@ -229,18 +227,11 @@ float4 main(VertexOut input) : SV_Target0
     LightingResult result = DoLighting(material, light, P, N, E);
 
     float3 color = 0.0f;
-
-    if (ShowAmbient)
-        color += material.Ambient;
-
-    if (ShowEmissive)
-        color += material.Emissive;
-
-    if (ShowDiffuse)
-        color += result.diffuse;
-
-    if (ShowSpecular)
-        color += result.specular;
+    
+    color += material.Emissive;
+    color += material.Ambient * GlobalAmbient;
+    color += material.Diffuse * result.diffuse;
+    color += material.Diffuse * result.specular;
 
     return float4(color, 1.0f);
 }

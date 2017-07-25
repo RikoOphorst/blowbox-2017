@@ -78,5 +78,6 @@ namespace blowbox
         Resolution resolution_; //!< The resolution of the image is stored here.
         unsigned char* pixel_data_; //!< The actual pixel data of the image. This pointer is owned, generated and destroyed by stb_image. We are only allowed to read from it.
         PixelComposition pixel_composition_; //!< The per pixel composition of the pixel data. Refer to blowbox::PixelComposition.
+        bool corrupt_; //!< Whether this Image is corrupt (i.e. couldn't be loaded from disk).
     };
 }
