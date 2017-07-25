@@ -34,6 +34,7 @@ namespace blowbox
         /**
         * @brief Adds a Material to the MaterialManager. 
         * @param[in] name The name of the Material to be added.
+        * @param[in] material The Material to be added.
         * @remarks If an entry with that name already exists, all settings from the to-be-added Material will be copied into the Material instance that was already stored in the MaterialManager.
         */
         WeakPtr<Material> AddMaterial(const String& name, SharedPtr<Material> material);

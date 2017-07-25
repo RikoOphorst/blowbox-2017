@@ -1,7 +1,10 @@
 var searchData=
 [
   ['i',['i',['../structblowbox_1_1_param32_bit.html#ab0f24f5720291fc961f8972a4bd90fb6',1,'blowbox::Param32Bit']]],
+  ['image_5f',['image_',['../classblowbox_1_1_texture.html#a60255234a1ebedf8628ad9e45927d37f',1,'blowbox::Texture']]],
   ['image_5ffile_5fpath_5f',['image_file_path_',['../classblowbox_1_1_image.html#a2ba0b2d6382e6332f82081cf4094b1eb',1,'blowbox::Image']]],
+  ['image_5fmanager_5f',['image_manager_',['../classblowbox_1_1_get.html#a061a7658587d32b28bca6e62ae2e25a7',1,'blowbox::Get']]],
+  ['images_5f',['images_',['../classblowbox_1_1_image_manager.html#a0551c0bfe89005604bdc544b94698e5a',1,'blowbox::ImageManager']]],
   ['imgui_5fmanager_5f',['imgui_manager_',['../classblowbox_1_1_get.html#afb54181b468cfae21755f5bd761bf0af',1,'blowbox::Get']]],
   ['in_5fscene_5f',['in_scene_',['../classblowbox_1_1_entity.html#afc0625383af6c9f3ed4b72a3d92c7e18',1,'blowbox::Entity']]],
   ['index_5fbuffer_5f',['index_buffer_',['../classblowbox_1_1_mesh.html#adfc4fab4f5cbde2a1e984780e6185dbf',1,'blowbox::Mesh']]],
@@ -13,5 +16,6 @@ var searchData=
   ['instance_5f',['instance_',['../classblowbox_1_1_get.html#a156f36e1ed17f514397577b676a82660',1,'blowbox::Get']]],
   ['is_5fcondensed_5f',['is_condensed_',['../classblowbox_1_1_memory_profiler.html#af76b7d68e79f87fe6954348649b4e8e0',1,'blowbox::MemoryProfiler']]],
   ['is_5fmapped_5f',['is_mapped_',['../classblowbox_1_1_upload_buffer.html#a5624b1d92a7a079fba2b9935fe8dff78',1,'blowbox::UploadBuffer']]],
-  ['is_5fmouse_5fin_5fwindow_5f',['is_mouse_in_window_',['../classblowbox_1_1_mouse_state.html#acea4f5ba4298df72ef3e7de014fbc7fa',1,'blowbox::MouseState']]]
+  ['is_5fmouse_5fin_5fwindow_5f',['is_mouse_in_window_',['../classblowbox_1_1_mouse_state.html#acea4f5ba4298df72ef3e7de014fbc7fa',1,'blowbox::MouseState']]],
+  ['is_5fvisible_5f',['is_visible_',['../classblowbox_1_1_entity.html#af6826ec59ce414a7791a9530daacebd7',1,'blowbox::Entity']]]
 ];

@@ -167,43 +167,6 @@ namespace blowbox
         }
     }
 
-    String ConvertTexToString(int i)
-    {
-        switch (static_cast<aiTextureType>(i))
-        {
-        case aiTextureType_AMBIENT: return "Ambient";
-        case aiTextureType_DIFFUSE: return "Diffuse";
-        case aiTextureType_DISPLACEMENT: return "Displacement";
-        case aiTextureType_EMISSIVE: return "Emissive";
-        case aiTextureType_HEIGHT: return "Height";
-        case aiTextureType_LIGHTMAP: return "Lightmap";
-        case aiTextureType_NORMALS: return "Normals";
-        case aiTextureType_OPACITY: return "Opacity";
-        case aiTextureType_REFLECTION: return "Reflection";
-        case aiTextureType_SHININESS: return "Shininess";
-        case aiTextureType_SPECULAR: return "Specular";
-        }
-
-        return "unknown";
-    }
-
-    bool IsSupportedTextureType(int i)
-    {
-        switch (static_cast<aiTextureType>(i))
-        {
-        case aiTextureType_AMBIENT: return true;
-        case aiTextureType_DIFFUSE: return true;
-        case aiTextureType_EMISSIVE: return true;
-        case aiTextureType_HEIGHT: return true;
-        case aiTextureType_NORMALS: return true;
-        case aiTextureType_OPACITY: return true;
-        case aiTextureType_SHININESS: return true;
-        case aiTextureType_SPECULAR: return true;
-        }
-
-        return false;
-    }
-
     //------------------------------------------------------------------------------------------------------
     void ModelFactory::ProcessMaterials(aiMaterial** materials, unsigned int num_materials, const String& model_directory_path, Vector<WeakPtr<Material>>* out_materials)
     {
@@ -239,7 +202,7 @@ namespace blowbox
 
             for (int i = 0; i < aiTextureType_UNKNOWN; i++)
             {
-                if (IsSupportedTextureType(i))
+                if (CheckIfTextureTypeIsSupported(static_cast<aiTextureType>(i)))
                 {
                     int texture_count = current->GetTextureCount(static_cast<aiTextureType>(i));
 
@@ -247,7 +210,7 @@ namespace blowbox
                     {
                         if (texture_count > 1)
                         {
-                            sprintf(buf, "A material that is being loaded (%s) specifies more than one textures for one texture type (%s). This is unsupported, instead Blowbox will use only the first texture.", material_name.data, ConvertTexToString(i).c_str());
+                            sprintf(buf, "A material that is being loaded (%s) specifies more than one textures for one texture type (%s). This is unsupported, instead Blowbox will use only the first texture.", material_name.data, ConvertTextureTypeToString(static_cast<aiTextureType>(i)).c_str());
                             Get::Console()->LogWarning(buf);
                         }
 
@@ -361,5 +324,44 @@ namespace blowbox
         }
 
         return entities;
+    }
+
+    //------------------------------------------------------------------------------------------------------
+    String ModelFactory::ConvertTextureTypeToString(aiTextureType type)
+    {
+        switch (type)
+        {
+        case aiTextureType_AMBIENT: return "Ambient";
+        case aiTextureType_DIFFUSE: return "Diffuse";
+        case aiTextureType_DISPLACEMENT: return "Displacement";
+        case aiTextureType_EMISSIVE: return "Emissive";
+        case aiTextureType_HEIGHT: return "Height";
+        case aiTextureType_LIGHTMAP: return "Lightmap";
+        case aiTextureType_NORMALS: return "Normals";
+        case aiTextureType_OPACITY: return "Opacity";
+        case aiTextureType_REFLECTION: return "Reflection";
+        case aiTextureType_SHININESS: return "Shininess";
+        case aiTextureType_SPECULAR: return "Specular";
+        }
+
+        return "unknown";
+    }
+
+    //------------------------------------------------------------------------------------------------------
+    bool ModelFactory::CheckIfTextureTypeIsSupported(aiTextureType type)
+    {
+        switch (type)
+        {
+        case aiTextureType_AMBIENT: return true;
+        case aiTextureType_DIFFUSE: return true;
+        case aiTextureType_EMISSIVE: return true;
+        case aiTextureType_HEIGHT: return true;
+        case aiTextureType_NORMALS: return true;
+        case aiTextureType_OPACITY: return true;
+        case aiTextureType_SHININESS: return true;
+        case aiTextureType_SPECULAR: return true;
+        }
+
+        return false;
     }
 }

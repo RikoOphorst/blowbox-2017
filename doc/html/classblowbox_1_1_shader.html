@@ -106,8 +106,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a31e341edeec8dc02a6d6aa69b81eb442"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5b905c6f0d050958951b42e833ff33c4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_shader.html#a5b905c6f0d050958951b42e833ff33c4">~Shader</a> ()</td></tr>
 <tr class="separator:a5b905c6f0d050958951b42e833ff33c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9fdd966487f1cf7086c66f118735711c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_shader.html#a9fdd966487f1cf7086c66f118735711c">Create</a> (<a class="el" href="classblowbox_1_1_text_file.html">TextFile</a> *shader_file, const <a class="el" href="namespaceblowbox.html#aef90d12f29d3a70a9c585237e7a16e2d">ShaderType</a> &amp;shader_type)</td></tr>
-<tr class="separator:a9fdd966487f1cf7086c66f118735711c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a97bc8509c73e1a5c4cccbf53e613d431"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_shader.html#a97bc8509c73e1a5c4cccbf53e613d431">Create</a> (<a class="el" href="namespaceblowbox.html#acb3dc9c3141598cb9bf4d95680dad0e9">WeakPtr</a>&lt; <a class="el" href="classblowbox_1_1_text_file.html">TextFile</a> &gt; shader_file, const <a class="el" href="namespaceblowbox.html#aef90d12f29d3a70a9c585237e7a16e2d">ShaderType</a> &amp;shader_type)</td></tr>
+<tr class="separator:a97bc8509c73e1a5c4cccbf53e613d431"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac3f8d204cf512a5aef4f62d81afc5a5c"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="namespaceblowbox.html#aef90d12f29d3a70a9c585237e7a16e2d">ShaderType</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_shader.html#ac3f8d204cf512a5aef4f62d81afc5a5c">GetShaderType</a> () const </td></tr>
 <tr class="separator:ac3f8d204cf512a5aef4f62d81afc5a5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0eedb34bd4549fbe7c5ca31f222c2884"><td class="memItemLeft" align="right" valign="top">const D3D12_SHADER_BYTECODE &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_shader.html#a0eedb34bd4549fbe7c5ca31f222c2884">GetShaderByteCode</a> () const </td></tr>
@@ -121,8 +121,8 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a290352bc69d8e42c0b9606177e71b99a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classblowbox_1_1_text_file.html">TextFile</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_shader.html#a290352bc69d8e42c0b9606177e71b99a">shader_file_</a></td></tr>
-<tr class="separator:a290352bc69d8e42c0b9606177e71b99a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1675fb95247ed038ff0034ef08436286"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceblowbox.html#acb3dc9c3141598cb9bf4d95680dad0e9">WeakPtr</a>&lt; <a class="el" href="classblowbox_1_1_text_file.html">TextFile</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_shader.html#a1675fb95247ed038ff0034ef08436286">shader_file_</a></td></tr>
+<tr class="separator:a1675fb95247ed038ff0034ef08436286"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4d3d397a86ace867f4443b41f409a816"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceblowbox.html#aef90d12f29d3a70a9c585237e7a16e2d">ShaderType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_shader.html#a4d3d397a86ace867f4443b41f409a816">shader_type_</a></td></tr>
 <tr class="separator:a4d3d397a86ace867f4443b41f409a816"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ada21195f5eb774f625a77b1fd7967d4f"><td class="memItemLeft" align="right" valign="top">ID3DBlob *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_shader.html#ada21195f5eb774f625a77b1fd7967d4f">shader_blob_</a></td></tr>
@@ -132,7 +132,7 @@ Private Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Wraps <a class="el" href="classblowbox_1_1_shader.html" title="Wraps Shader objects. ">Shader</a> objects. </p>
-<p>Provided a <a class="el" href="classblowbox_1_1_text_file.html" title="Wraps the loading and accessing of text files from disk. ">TextFile</a>, this class can compile a shader for you and make it usable throughout the rest of the engine. Call <a class="el" href="classblowbox_1_1_shader.html#a9fdd966487f1cf7086c66f118735711c" title="Creates the actual Shader. ">Shader::Create()</a> and it will automatically be available for use to you. </p>
+<p>Provided a <a class="el" href="classblowbox_1_1_text_file.html" title="Wraps the loading and accessing of text files from disk. ">TextFile</a>, this class can compile a shader for you and make it usable throughout the rest of the engine. Call <a class="el" href="classblowbox_1_1_shader.html#a97bc8509c73e1a5c4cccbf53e613d431" title="Creates the actual Shader. ">Shader::Create()</a> and it will automatically be available for use to you. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a31e341edeec8dc02a6d6aa69b81eb442"></a>
 <div class="memitem">
@@ -169,14 +169,14 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a9fdd966487f1cf7086c66f118735711c"></a>
+<a class="anchor" id="a97bc8509c73e1a5c4cccbf53e613d431"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">void blowbox::Shader::Create </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classblowbox_1_1_text_file.html">TextFile</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="namespaceblowbox.html#acb3dc9c3141598cb9bf4d95680dad0e9">WeakPtr</a>&lt; <a class="el" href="classblowbox_1_1_text_file.html">TextFile</a> &gt;&#160;</td>
           <td class="paramname"><em>shader_file</em>, </td>
         </tr>
         <tr>
@@ -329,7 +329,7 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a290352bc69d8e42c0b9606177e71b99a"></a>
+<a class="anchor" id="a1675fb95247ed038ff0034ef08436286"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -337,7 +337,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classblowbox_1_1_text_file.html">TextFile</a>* blowbox::Shader::shader_file_</td>
+          <td class="memname"><a class="el" href="namespaceblowbox.html#acb3dc9c3141598cb9bf4d95680dad0e9">WeakPtr</a>&lt;<a class="el" href="classblowbox_1_1_text_file.html">TextFile</a>&gt; blowbox::Shader::shader_file_</td>
         </tr>
       </table>
   </td>
@@ -380,7 +380,7 @@ Private Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Jul 19 2017 23:46:13 for Blowbox 2017 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Jul 25 2017 18:20:26 for Blowbox 2017 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

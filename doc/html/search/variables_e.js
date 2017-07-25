@@ -1,6 +1,7 @@
 var searchData=
 [
   ['parent_5f',['parent_',['../classblowbox_1_1_entity.html#a260e4205c4ad74832954151553a08b5f',1,'blowbox::Entity']]],
+  ['pass_5fbuffer_5f',['pass_buffer_',['../classblowbox_1_1_forward_renderer.html#ada40504c3eabf0a19e306d50504f21dd',1,'blowbox::ForwardRenderer']]],
   ['performance_5fprofiler_5f',['performance_profiler_',['../classblowbox_1_1_blowbox_core.html#acb535a1698428624b7e0690b87a974da',1,'blowbox::BlowboxCore::performance_profiler_()'],['../classblowbox_1_1_get.html#ab7f547bc32dc2da939f6aed250195f3d',1,'blowbox::Get::performance_profiler_()']]],
   ['pipeline_5fstate_5f',['pipeline_state_',['../classblowbox_1_1_im_gui_manager.html#a627c0f7a66b94bfd4136bb0d083d6e5b',1,'blowbox::ImGuiManager']]],
   ['pixel_5fcomposition_5f',['pixel_composition_',['../classblowbox_1_1_image.html#afcdffc3c6e7e6f063d5b760f90166f1a',1,'blowbox::Image']]],

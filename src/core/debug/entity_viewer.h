@@ -9,9 +9,14 @@ namespace blowbox
 {
     class Entity;
 
+    /** @brief DebugWindow for viewing/editing a specific Entity. */
     class EntityViewer : public DebugWindow
     {
     public:
+        /**
+        * @brief Constructs an EntityViewer.
+        * @param[in] entity The entity to be viewed.
+        */
         EntityViewer(WeakPtr<Entity> entity);
         ~EntityViewer();
 
@@ -33,8 +38,8 @@ namespace blowbox
         /** @brief Gives this EntityViewer focus. */
         void Focus();
     private:
-        bool show_window_;
-        WeakPtr<Entity> entity_;
-        bool focus_;
+        bool show_window_;      //!< Whether the window is being shown.
+        WeakPtr<Entity> entity_;//!< The Entity this EntityViewer is describing.
+        bool focus_;            //!< Whether this window wants focus.
     };
 }

@@ -1,27 +1,6 @@
 var searchData=
 [
-  ['_7eblowboxcore',['~BlowboxCore',['../classblowbox_1_1_blowbox_core.html#adfe04183cda42eed8d27493dfe7947d2',1,'blowbox::BlowboxCore']]],
-  ['_7ecommandallocatorpool',['~CommandAllocatorPool',['../classblowbox_1_1_command_allocator_pool.html#a80fe2113abba8a42287c2a6610ce2957',1,'blowbox::CommandAllocatorPool']]],
-  ['_7ecommandcontext',['~CommandContext',['../classblowbox_1_1_command_context.html#a444ae36d6f74b03871ebb7809d8c3ba8',1,'blowbox::CommandContext']]],
-  ['_7ecommandcontextmanager',['~CommandContextManager',['../classblowbox_1_1_command_context_manager.html#aaddd5fe156bf99e6ea5cbb13359f2a97',1,'blowbox::CommandContextManager']]],
-  ['_7ecommandmanager',['~CommandManager',['../classblowbox_1_1_command_manager.html#a4e6f03ce9980faf10a2a0146168d18e1',1,'blowbox::CommandManager']]],
-  ['_7ecommandqueue',['~CommandQueue',['../classblowbox_1_1_command_queue.html#a53e085c263e180854e764b48e6b4cc58',1,'blowbox::CommandQueue']]],
-  ['_7ecomputepso',['~ComputePSO',['../classblowbox_1_1_compute_p_s_o.html#a79171076a4feaa5d2d0204ebba972d10',1,'blowbox::ComputePSO']]],
-  ['_7edescriptorheap',['~DescriptorHeap',['../classblowbox_1_1_descriptor_heap.html#aa7de0aac69d99bac1423c9e29359ed65',1,'blowbox::DescriptorHeap']]],
-  ['_7edevice',['~Device',['../classblowbox_1_1_device.html#a36a0227a51f9043b1c93503dd01c1444',1,'blowbox::Device']]],
-  ['_7eentity',['~Entity',['../classblowbox_1_1_entity.html#a627ca90c0962aec073f477aab2937239',1,'blowbox::Entity']]],
-  ['_7eforwardrenderer',['~ForwardRenderer',['../classblowbox_1_1_forward_renderer.html#aad78f8c879129e6d4350479521bd648c',1,'blowbox::ForwardRenderer']]],
-  ['_7eget',['~Get',['../classblowbox_1_1_get.html#a0178abdbad01bbd727a9cd550aadb973',1,'blowbox::Get']]],
-  ['_7eglfwmanager',['~GLFWManager',['../classblowbox_1_1_g_l_f_w_manager.html#a4ace25878afea7105012eb0d0f8a63e1',1,'blowbox::GLFWManager']]],
-  ['_7egpubuffer',['~GpuBuffer',['../classblowbox_1_1_gpu_buffer.html#aba2fd676a417979e2ee7246cd4036169',1,'blowbox::GpuBuffer']]],
-  ['_7egpuresource',['~GpuResource',['../classblowbox_1_1_gpu_resource.html#ac0d74136512be257ef8da2413a52e038',1,'blowbox::GpuResource']]],
-  ['_7egraphicspso',['~GraphicsPSO',['../classblowbox_1_1_graphics_p_s_o.html#ab7fbe282af1f3c930120fbbecab80d60',1,'blowbox::GraphicsPSO']]],
-  ['_7eimage',['~Image',['../classblowbox_1_1_image.html#ac477232d3275f5dbd2755808e49358fe',1,'blowbox::Image']]],
-  ['_7eimguimanager',['~ImGuiManager',['../classblowbox_1_1_im_gui_manager.html#a24833a748c71b342a98192873af4f316',1,'blowbox::ImGuiManager']]],
-  ['_7eprofilerblock',['~ProfilerBlock',['../classblowbox_1_1_performance_profiler_1_1_profiler_block.html#ae8219a9c47379605e4fe4ba85ec88d70',1,'blowbox::PerformanceProfiler::ProfilerBlock']]],
-  ['_7erootparameter',['~RootParameter',['../classblowbox_1_1_root_parameter.html#a988cef107c8975c7f50e7c2f68b1bf96',1,'blowbox::RootParameter']]],
-  ['_7erootsignature',['~RootSignature',['../classblowbox_1_1_root_signature.html#aa08ee0d3f64dcce82cc83abb408ae663',1,'blowbox::RootSignature']]],
-  ['_7escenemanager',['~SceneManager',['../classblowbox_1_1_scene_manager.html#a47ddda41301201372ae669b93638700b',1,'blowbox::SceneManager']]],
-  ['_7eshader',['~Shader',['../classblowbox_1_1_shader.html#a5b905c6f0d050958951b42e833ff33c4',1,'blowbox::Shader']]],
-  ['_7etextfile',['~TextFile',['../classblowbox_1_1_text_file.html#a7a6fb2446b1a60e8676776f00a6458d2',1,'blowbox::TextFile']]]
+  ['waitforfence',['WaitForFence',['../classblowbox_1_1_command_manager.html#acb07ac7d7326f8786f7139f5e5349f9e',1,'blowbox::CommandManager::WaitForFence()'],['../classblowbox_1_1_command_queue.html#a426684659d70445520f7e77da058dc76',1,'blowbox::CommandQueue::WaitForFence()']]],
+  ['waitforidle',['WaitForIdle',['../classblowbox_1_1_command_queue.html#a32ab746953f708174d6d5356fc266ac1',1,'blowbox::CommandQueue']]],
+  ['waitforidlegpu',['WaitForIdleGPU',['../classblowbox_1_1_command_manager.html#ae59eeac69a498f8ae99a18a1967e9bd6',1,'blowbox::CommandManager']]]
 ];

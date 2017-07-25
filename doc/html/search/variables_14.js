@@ -8,6 +8,7 @@ var searchData=
   ['view_5f',['view_',['../classblowbox_1_1_camera.html#ac873d2e5c1c2ffb2ff9beed33b87202a',1,'blowbox::Camera']]],
   ['view_5fdirty_5f',['view_dirty_',['../classblowbox_1_1_camera.html#a5859c6c213c8a436af8b8fe4159872ac',1,'blowbox::Camera']]],
   ['view_5fframe_5fstats_5fas_5ffps_5f',['view_frame_stats_as_fps_',['../classblowbox_1_1_frame_stats.html#a79fcc315fb6309337075e0bd67e84263',1,'blowbox::FrameStats']]],
+  ['view_5ftype_5f',['view_type_',['../classblowbox_1_1_scene_viewer.html#aab45c01c5d57f1546a6d62c46b9bb8b1',1,'blowbox::SceneViewer']]],
   ['vram_5faverage_5fusage_5f',['vram_average_usage_',['../classblowbox_1_1_memory_stats.html#a02653f9ffc74a62b15a2e494acf46d77',1,'blowbox::MemoryStats']]],
   ['vram_5foperating_5fsystem_5fbudget_5f',['vram_operating_system_budget_',['../classblowbox_1_1_memory_stats.html#ab3ecc91ffcf2bd0e1ce20396ca3499d6',1,'blowbox::MemoryStats']]],
   ['vram_5fusage_5fhistory_5f',['vram_usage_history_',['../classblowbox_1_1_memory_stats.html#aea168eace00aed9d00995e1cc86c9914',1,'blowbox::MemoryStats']]],

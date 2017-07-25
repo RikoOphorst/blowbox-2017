@@ -1,9 +1,14 @@
 var searchData=
 [
   ['i',['i',['../structblowbox_1_1_param32_bit.html#ab0f24f5720291fc961f8972a4bd90fb6',1,'blowbox::Param32Bit']]],
-  ['image',['Image',['../classblowbox_1_1_image.html#ac7cfb758b2660564bc764ceedc358a1d',1,'blowbox::Image']]],
   ['image',['Image',['../classblowbox_1_1_image.html',1,'blowbox']]],
+  ['image',['Image',['../classblowbox_1_1_image.html#ac7cfb758b2660564bc764ceedc358a1d',1,'blowbox::Image']]],
+  ['image_5f',['image_',['../classblowbox_1_1_texture.html#a60255234a1ebedf8628ad9e45927d37f',1,'blowbox::Texture']]],
   ['image_5ffile_5fpath_5f',['image_file_path_',['../classblowbox_1_1_image.html#a2ba0b2d6382e6332f82081cf4094b1eb',1,'blowbox::Image']]],
+  ['image_5fmanager_5f',['image_manager_',['../classblowbox_1_1_get.html#a061a7658587d32b28bca6e62ae2e25a7',1,'blowbox::Get']]],
+  ['imagemanager',['ImageManager',['../classblowbox_1_1_image_manager.html',1,'blowbox']]],
+  ['imagemanager',['ImageManager',['../classblowbox_1_1_get.html#a1cf529c28045a1fd5a988770b69efcb1',1,'blowbox::Get']]],
+  ['images_5f',['images_',['../classblowbox_1_1_image_manager.html#a0551c0bfe89005604bdc544b94698e5a',1,'blowbox::ImageManager']]],
   ['imgui_5fmanager_5f',['imgui_manager_',['../classblowbox_1_1_get.html#afb54181b468cfae21755f5bd761bf0af',1,'blowbox::Get']]],
   ['imguimanager',['ImGuiManager',['../classblowbox_1_1_im_gui_manager.html',1,'blowbox']]],
   ['imguimanager',['ImGuiManager',['../classblowbox_1_1_get.html#aa154ded4d02839f009cbdb079b612a3c',1,'blowbox::Get::ImGuiManager()'],['../classblowbox_1_1_im_gui_manager.html#a668c6d2a9e9b689b4a216d5a34960568',1,'blowbox::ImGuiManager::ImGuiManager()']]],
@@ -39,7 +44,9 @@ var searchData=
   ['is_5fcondensed_5f',['is_condensed_',['../classblowbox_1_1_memory_profiler.html#af76b7d68e79f87fe6954348649b4e8e0',1,'blowbox::MemoryProfiler']]],
   ['is_5fmapped_5f',['is_mapped_',['../classblowbox_1_1_upload_buffer.html#a5624b1d92a7a079fba2b9935fe8dff78',1,'blowbox::UploadBuffer']]],
   ['is_5fmouse_5fin_5fwindow_5f',['is_mouse_in_window_',['../classblowbox_1_1_mouse_state.html#acea4f5ba4298df72ef3e7de014fbc7fa',1,'blowbox::MouseState']]],
+  ['is_5fvisible_5f',['is_visible_',['../classblowbox_1_1_entity.html#af6826ec59ce414a7791a9530daacebd7',1,'blowbox::Entity']]],
   ['isblowboxalive',['IsBlowboxAlive',['../classblowbox_1_1_blowbox_core.html#a56b68dbf03e3b1ae8c1442b956304a7f',1,'blowbox::BlowboxCore']]],
   ['isfencecomplete',['IsFenceComplete',['../classblowbox_1_1_command_manager.html#a61ee83677a4c2b73de551a685772058b',1,'blowbox::CommandManager::IsFenceComplete()'],['../classblowbox_1_1_command_queue.html#ad08e1b23ba941de2ea565550a73ea903',1,'blowbox::CommandQueue::IsFenceComplete()']]],
+  ['isshown',['IsShown',['../classblowbox_1_1_entity_viewer.html#ae408113385448f23bd69b168f2ffb169',1,'blowbox::EntityViewer::IsShown()'],['../classblowbox_1_1_material_viewer.html#a197df842967b702f85b43305c9422c81',1,'blowbox::MaterialViewer::IsShown()']]],
   ['istransformdirty',['IsTransformDirty',['../classblowbox_1_1_entity.html#ac110711ac804fc922eb5463aae741566',1,'blowbox::Entity']]]
 ];

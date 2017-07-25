@@ -12,6 +12,10 @@ namespace blowbox
     class BinaryFile
     {
     public:
+        /**
+        * @brief Constructs a BinaryFile.
+        * @param[in] file_path The filepath to the file to be loaded.
+        */
         BinaryFile(const String& file_path);
         ~BinaryFile();
 

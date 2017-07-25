@@ -101,6 +101,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:acccb63a43053fc0ac341e4836c7fb9bf"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_debug_window.html#acccb63a43053fc0ac341e4836c7fb9bf">NewFrame</a> ()=0</td></tr>
+<tr class="separator:acccb63a43053fc0ac341e4836c7fb9bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a40522652b42cd1a6bb1f854b8a55b1e0"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_debug_window.html#a40522652b42cd1a6bb1f854b8a55b1e0">RenderWindow</a> ()=0</td></tr>
 <tr class="separator:a40522652b42cd1a6bb1f854b8a55b1e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4ecff80e3f6cb7fec59439863522a8a9"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_debug_window.html#a4ecff80e3f6cb7fec59439863522a8a9">RenderMenu</a> ()=0</td></tr>
@@ -114,14 +116,45 @@ Inheritance diagram for blowbox::DebugWindow:</div>
  <div class="center">
   <img src="classblowbox_1_1_debug_window.png" usemap="#blowbox::DebugWindow_map" alt=""/>
   <map id="blowbox::DebugWindow_map" name="blowbox::DebugWindow_map">
-<area href="classblowbox_1_1_console.html" title="Operates a console to which you can send messages. " alt="blowbox::Console" shape="rect" coords="0,56,179,80"/>
-<area href="classblowbox_1_1_frame_stats.html" title="Provides an overview of frame statistics. " alt="blowbox::FrameStats" shape="rect" coords="189,56,368,80"/>
-<area href="classblowbox_1_1_memory_profiler.html" title="Provides memory profiling statistics. " alt="blowbox::MemoryProfiler" shape="rect" coords="378,56,557,80"/>
-<area href="classblowbox_1_1_memory_stats.html" title="Provides an overview of memory statistics. " alt="blowbox::MemoryStats" shape="rect" coords="567,56,746,80"/>
-<area href="classblowbox_1_1_performance_profiler.html" title="The main profiler in Blowbox. " alt="blowbox::PerformanceProfiler" shape="rect" coords="756,56,935,80"/>
+<area href="classblowbox_1_1_console.html" title="Operates a console to which you can send messages. " alt="blowbox::Console" shape="rect" coords="189,56,368,80"/>
+<area href="classblowbox_1_1_entity_viewer.html" title="DebugWindow for viewing/editing a specific Entity. " alt="blowbox::EntityViewer" shape="rect" coords="189,112,368,136"/>
+<area href="classblowbox_1_1_frame_stats.html" title="Provides an overview of frame statistics. " alt="blowbox::FrameStats" shape="rect" coords="189,168,368,192"/>
+<area href="classblowbox_1_1_material_list.html" title="Lists all Materials that are currently in the MaterialManager. " alt="blowbox::MaterialList" shape="rect" coords="189,224,368,248"/>
+<area href="classblowbox_1_1_material_viewer.html" title="DebugWindow for viewing/editing a specific Material&#39;s info. " alt="blowbox::MaterialViewer" shape="rect" coords="189,280,368,304"/>
+<area href="classblowbox_1_1_memory_profiler.html" title="Provides memory profiling statistics. " alt="blowbox::MemoryProfiler" shape="rect" coords="189,336,368,360"/>
+<area href="classblowbox_1_1_memory_stats.html" title="Provides an overview of memory statistics. " alt="blowbox::MemoryStats" shape="rect" coords="189,392,368,416"/>
+<area href="classblowbox_1_1_performance_profiler.html" title="The main profiler in Blowbox. " alt="blowbox::PerformanceProfiler" shape="rect" coords="189,448,368,472"/>
+<area href="classblowbox_1_1_scene_viewer.html" title="Debug Window for viewing everything that exists in the scene (Entities, Lights, Cameras, etc). " alt="blowbox::SceneViewer" shape="rect" coords="189,504,368,528"/>
 </map>
  </div></div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="acccb63a43053fc0ac341e4836c7fb9bf"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void blowbox::DebugWindow::NewFrame </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Starts a new frame. </p>
+
+<p>Implemented in <a class="el" href="classblowbox_1_1_performance_profiler.html#a881b026eacb8a364eeca6d4fbe367e33">blowbox::PerformanceProfiler</a>, <a class="el" href="classblowbox_1_1_memory_profiler.html#afc781672539027a46b5ecd240bb0c8ff">blowbox::MemoryProfiler</a>, <a class="el" href="classblowbox_1_1_frame_stats.html#af97a9b281f7a7efd0c6900df412e4364">blowbox::FrameStats</a>, <a class="el" href="classblowbox_1_1_memory_stats.html#a0c17d3cd8d657d81f24fc5f3a2517c06">blowbox::MemoryStats</a>, <a class="el" href="classblowbox_1_1_console.html#a57baf7c72a46c8b29d9f1afe1aa5a8d6">blowbox::Console</a>, <a class="el" href="classblowbox_1_1_scene_viewer.html#a769139724f8cb57c045adbab515da550">blowbox::SceneViewer</a>, <a class="el" href="classblowbox_1_1_material_viewer.html#a96d0c410a84abf84abe5d93fab3ad4e1">blowbox::MaterialViewer</a>, <a class="el" href="classblowbox_1_1_entity_viewer.html#aa0c75c2fb192e0189b9dc7f84f1f5026">blowbox::EntityViewer</a>, and <a class="el" href="classblowbox_1_1_material_list.html#a0adebb4a545a595309eac7997aef2b74">blowbox::MaterialList</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="a4ecff80e3f6cb7fec59439863522a8a9"></a>
 <div class="memitem">
 <div class="memproto">
@@ -145,7 +178,7 @@ Inheritance diagram for blowbox::DebugWindow:</div>
 
 <p>Renders the context menu for this window. </p>
 
-<p>Implemented in <a class="el" href="classblowbox_1_1_performance_profiler.html#a25197fb54a0ac9514bffc501bfeedf60">blowbox::PerformanceProfiler</a>, <a class="el" href="classblowbox_1_1_console.html#a106cef99d0b71b716bc60e2c983613e8">blowbox::Console</a>, <a class="el" href="classblowbox_1_1_memory_profiler.html#ae002b4357d247e1a668b70aaed79e65e">blowbox::MemoryProfiler</a>, <a class="el" href="classblowbox_1_1_frame_stats.html#a4a33411bd3afd082eca818174b33839b">blowbox::FrameStats</a>, and <a class="el" href="classblowbox_1_1_memory_stats.html#a02029afb04939bf71fa465cdb64013e1">blowbox::MemoryStats</a>.</p>
+<p>Implemented in <a class="el" href="classblowbox_1_1_performance_profiler.html#a25197fb54a0ac9514bffc501bfeedf60">blowbox::PerformanceProfiler</a>, <a class="el" href="classblowbox_1_1_console.html#a106cef99d0b71b716bc60e2c983613e8">blowbox::Console</a>, <a class="el" href="classblowbox_1_1_scene_viewer.html#abda829bbc72203c7f40fe0e53595b6d2">blowbox::SceneViewer</a>, <a class="el" href="classblowbox_1_1_memory_profiler.html#ae002b4357d247e1a668b70aaed79e65e">blowbox::MemoryProfiler</a>, <a class="el" href="classblowbox_1_1_frame_stats.html#a4a33411bd3afd082eca818174b33839b">blowbox::FrameStats</a>, <a class="el" href="classblowbox_1_1_memory_stats.html#a02029afb04939bf71fa465cdb64013e1">blowbox::MemoryStats</a>, <a class="el" href="classblowbox_1_1_material_viewer.html#ad73e753a49a67d7176521505cd82bb8a">blowbox::MaterialViewer</a>, <a class="el" href="classblowbox_1_1_entity_viewer.html#a3dc8dd357a8b03e44c30ff46411aa796">blowbox::EntityViewer</a>, and <a class="el" href="classblowbox_1_1_material_list.html#a652632468d6e9ce22407389e59f475ff">blowbox::MaterialList</a>.</p>
 
 </div>
 </div>
@@ -172,7 +205,7 @@ Inheritance diagram for blowbox::DebugWindow:</div>
 
 <p>Renders the actual window. </p>
 
-<p>Implemented in <a class="el" href="classblowbox_1_1_performance_profiler.html#a39f34065c4e672404541f6de4ea4b4a1">blowbox::PerformanceProfiler</a>, <a class="el" href="classblowbox_1_1_console.html#a2199b3d266cfcae6087806f004649c8e">blowbox::Console</a>, <a class="el" href="classblowbox_1_1_memory_profiler.html#a666e8a1b698100c620ea65cf99dae298">blowbox::MemoryProfiler</a>, <a class="el" href="classblowbox_1_1_frame_stats.html#ab8727819e6bf0a0b73191bfeceb3955b">blowbox::FrameStats</a>, and <a class="el" href="classblowbox_1_1_memory_stats.html#a74026bd03e96624c31f39c7142c9659b">blowbox::MemoryStats</a>.</p>
+<p>Implemented in <a class="el" href="classblowbox_1_1_performance_profiler.html#a39f34065c4e672404541f6de4ea4b4a1">blowbox::PerformanceProfiler</a>, <a class="el" href="classblowbox_1_1_console.html#a2199b3d266cfcae6087806f004649c8e">blowbox::Console</a>, <a class="el" href="classblowbox_1_1_scene_viewer.html#a4cd5189b7ddab825212aefc20485efc5">blowbox::SceneViewer</a>, <a class="el" href="classblowbox_1_1_memory_profiler.html#a666e8a1b698100c620ea65cf99dae298">blowbox::MemoryProfiler</a>, <a class="el" href="classblowbox_1_1_frame_stats.html#ab8727819e6bf0a0b73191bfeceb3955b">blowbox::FrameStats</a>, <a class="el" href="classblowbox_1_1_memory_stats.html#a74026bd03e96624c31f39c7142c9659b">blowbox::MemoryStats</a>, <a class="el" href="classblowbox_1_1_material_viewer.html#af17f4b646fd45717a37e195ab988bb64">blowbox::MaterialViewer</a>, <a class="el" href="classblowbox_1_1_entity_viewer.html#a71841e3974b06c11fcf3742b8e143f09">blowbox::EntityViewer</a>, and <a class="el" href="classblowbox_1_1_material_list.html#a788cd3fa29098ac492b0ab2494f8d6b8">blowbox::MaterialList</a>.</p>
 
 </div>
 </div>
@@ -183,7 +216,7 @@ Inheritance diagram for blowbox::DebugWindow:</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Jul 19 2017 23:46:12 for Blowbox 2017 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Jul 25 2017 18:20:24 for Blowbox 2017 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

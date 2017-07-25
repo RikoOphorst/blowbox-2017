@@ -264,7 +264,7 @@ namespace blowbox
             output->use_emissive_texture = static_cast<uint32_t>(!texture_emissive_.expired());
             output->use_bump_texture = static_cast<uint32_t>(!texture_bump_.expired());
             output->use_normal_texture = static_cast<uint32_t>(!texture_normal_.expired());
-            output->use_shininess_texture = static_cast<uint32_t>(!texture_specular_power_.expired());
+            output->use_specular_power_texture = static_cast<uint32_t>(!texture_specular_power_.expired());
             output->use_specular_texture = static_cast<uint32_t>(!texture_specular_.expired());
             output->use_opacity_texture = static_cast<uint32_t>(!texture_opacity_.expired());
         }

@@ -91,6 +91,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classblowbox_1_1_forward_renderer-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -111,6 +112,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a8bec56d59333690b0a561b63f85f1f65"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_forward_renderer.html#a8bec56d59333690b0a561b63f85f1f65">Render</a> ()</td></tr>
 <tr class="separator:a8bec56d59333690b0a561b63f85f1f65"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:a9b7234fe42e372cd61cf847052ce649d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9b7234fe42e372cd61cf847052ce649d"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>BindTexture</b> (<a class="el" href="classblowbox_1_1_graphics_context.html">GraphicsContext</a> &amp;context, UINT root_signature_slot, <a class="el" href="namespaceblowbox.html#acb3dc9c3141598cb9bf4d95680dad0e9">WeakPtr</a>&lt; <a class="el" href="classblowbox_1_1_texture.html">Texture</a> &gt; texture)</td></tr>
+<tr class="separator:a9b7234fe42e372cd61cf847052ce649d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr class="memitem:a611e83338ce38f2abb12769d665b40d9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classblowbox_1_1_shader.html">Shader</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_forward_renderer.html#a611e83338ce38f2abb12769d665b40d9">vertex_shader_</a></td></tr>
@@ -123,6 +130,8 @@ Private Attributes</h2></td></tr>
 <tr class="separator:a1ac83e42f112945696086e4dd773ae50"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af3bc6fa4518b3b58a72b717762fae4a9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classblowbox_1_1_depth_buffer.html">DepthBuffer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_forward_renderer.html#af3bc6fa4518b3b58a72b717762fae4a9">depth_buffer_</a></td></tr>
 <tr class="separator:af3bc6fa4518b3b58a72b717762fae4a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada40504c3eabf0a19e306d50504f21dd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classblowbox_1_1_upload_buffer.html">UploadBuffer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblowbox_1_1_forward_renderer.html#ada40504c3eabf0a19e306d50504f21dd">pass_buffer_</a></td></tr>
+<tr class="separator:ada40504c3eabf0a19e306d50504f21dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Implements a forward rendering technique. </p>
@@ -264,6 +273,28 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="ada40504c3eabf0a19e306d50504f21dd"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classblowbox_1_1_upload_buffer.html">UploadBuffer</a> blowbox::ForwardRenderer::pass_buffer_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Buffer for storing pass data. </p>
+
+</div>
+</div>
 <a class="anchor" id="a0069cc8525bce92a7e7400dbfd8606f0"></a>
 <div class="memitem">
 <div class="memproto">
@@ -315,7 +346,7 @@ Private Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Jul 19 2017 23:46:12 for Blowbox 2017 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Jul 25 2017 18:20:24 for Blowbox 2017 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

@@ -1,6 +1,9 @@
 var searchData=
 [
   ['material',['Material',['../classblowbox_1_1_material.html',1,'blowbox']]],
+  ['materiallist',['MaterialList',['../classblowbox_1_1_material_list.html',1,'blowbox']]],
+  ['materialmanager',['MaterialManager',['../classblowbox_1_1_material_manager.html',1,'blowbox']]],
+  ['materialviewer',['MaterialViewer',['../classblowbox_1_1_material_viewer.html',1,'blowbox']]],
   ['memoryprofiler',['MemoryProfiler',['../classblowbox_1_1_memory_profiler.html',1,'blowbox']]],
   ['memorystats',['MemoryStats',['../classblowbox_1_1_memory_stats.html',1,'blowbox']]],
   ['mesh',['Mesh',['../classblowbox_1_1_mesh.html',1,'blowbox']]],

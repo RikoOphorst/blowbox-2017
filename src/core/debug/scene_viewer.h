@@ -12,9 +12,11 @@ namespace blowbox
     class Entity;
     class EntityViewer;
 
+    /** @brief Debug Window for viewing everything that exists in the scene (Entities, Lights, Cameras, etc). */
     class SceneViewer : public DebugWindow
     {
     public:
+        /** @brief The view type of the entities being rendered in the entity overview. */
         enum ViewType
         {
             ViewType_LIST,
@@ -34,15 +36,19 @@ namespace blowbox
         void RenderWindow() override;
 
     protected:
+        /**
+        * @brief Recursively iterates over an Entity's graph of children.
+        * @param[in] entity The entity to iterate over.
+        */
         void RenderEntityInGraph(SharedPtr<Entity> entity);
 
     private:
-        bool show_window_;
-        bool show_entity_view_;
+        bool show_window_;                                          //!< Whether the main window is being shown.
+        bool show_entity_view_;                                     //!< Whether the entity overview is being shown.
 
-        ImGuiTextFilter entity_name_filter_;
-        ViewType view_type_;
+        ImGuiTextFilter entity_name_filter_;                        //!< Text filter for filtering entities by name.
+        ViewType view_type_;                                        //!< The way the entities are rendered in the entity overview.
         
-        Map<uintptr_t, UniquePtr<EntityViewer>> entity_viewers_;
+        Map<uintptr_t, UniquePtr<EntityViewer>> entity_viewers_;    //!< All the different active EntityViewer instances.
     };
 }

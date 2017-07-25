@@ -6,5 +6,8 @@ var searchData=
   ['end_5ftime',['end_time',['../structblowbox_1_1_performance_profiler_1_1_profiler_block_time.html#a7eedbd3ff4de343abd8922725b3f07ca',1,'blowbox::PerformanceProfiler::ProfilerBlockTime']]],
   ['end_5ftime_5f',['end_time_',['../classblowbox_1_1_performance_profiler_1_1_profiler_block.html#a3fbdc6feaf267b616eefd856434e565a',1,'blowbox::PerformanceProfiler::ProfilerBlock']]],
   ['entities_5fto_5fbe_5fadded_5f',['entities_to_be_added_',['../classblowbox_1_1_scene_manager.html#a33127a36af0eeffa719e7edb9c1b4380',1,'blowbox::SceneManager']]],
-  ['entities_5fto_5fbe_5fremoved_5f',['entities_to_be_removed_',['../classblowbox_1_1_scene_manager.html#a6f7172aa4384edadf26623ed26c331eb',1,'blowbox::SceneManager']]]
+  ['entities_5fto_5fbe_5fremoved_5f',['entities_to_be_removed_',['../classblowbox_1_1_scene_manager.html#a6f7172aa4384edadf26623ed26c331eb',1,'blowbox::SceneManager']]],
+  ['entity_5f',['entity_',['../classblowbox_1_1_entity_viewer.html#a4d0528213b9eb050c2b8144121585840',1,'blowbox::EntityViewer']]],
+  ['entity_5fname_5ffilter_5f',['entity_name_filter_',['../classblowbox_1_1_scene_viewer.html#a26f8e6f8d7a212269f51abc2f13f4fa7',1,'blowbox::SceneViewer']]],
+  ['entity_5fviewers_5f',['entity_viewers_',['../classblowbox_1_1_scene_viewer.html#a2b39e60398bc498ea69932757c4918a5',1,'blowbox::SceneViewer']]]
 ];

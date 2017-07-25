@@ -18,26 +18,27 @@ namespace blowbox
     class Material
     {
     public:
+        /** @brief This struct is used to keep the actual layout of the buffer that gets send to the GPU. */
         struct Buffer
         {
-            DirectX::XMFLOAT3 color_diffuse;
-            uint32_t use_ambient_texture;       // 16 byte boundary
-            DirectX::XMFLOAT3 color_specular;
-            uint32_t use_diffuse_texture;       // 16 byte boundary
-            DirectX::XMFLOAT3 color_ambient;
-            uint32_t use_emissive_texture;      // 16 byte boundary
-            DirectX::XMFLOAT3 color_emissive;
-            uint32_t use_bump_texture;          // 16 byte boundary
+            DirectX::XMFLOAT3 color_diffuse;    //!< The diffuse color.
+            uint32_t use_ambient_texture;       //!< Whether the ambient texture slot should be used (non-null if yes).
+            DirectX::XMFLOAT3 color_specular;   //!< The specular color.
+            uint32_t use_diffuse_texture;       //!< Whether the diffuse texture slot should be used (non-null if yes).
+            DirectX::XMFLOAT3 color_ambient;    //!< The ambient color.
+            uint32_t use_emissive_texture;      //!< Whether the emissive texture slot should be used (non-null if yes).
+            DirectX::XMFLOAT3 color_emissive;   //!< The emissive color.
+            uint32_t use_bump_texture;          //!< Whether the bump texture slot should be used (non-null if yes).
 
-            float opacity;
-            float specular_scale;
-            float specular_power;
-            float bump_intensity;               // 16 byte boundary
+            float opacity;                      //!< The opacity for this material.
+            float specular_scale;               //!< The specular scale for this material.
+            float specular_power;               //!< The specular power for this material.
+            float bump_intensity;               //!< The bump intensity for this material.
 
-            uint32_t use_normal_texture;
-            uint32_t use_shininess_texture;
-            uint32_t use_specular_texture;
-            uint32_t use_opacity_texture;       // 16 byte boundary
+            uint32_t use_normal_texture;        //!< Whether the normal texture slot should be used (non-null if yes).
+            uint32_t use_specular_power_texture;//!< Whether the specular power texture slot should be used (non-null if yes).
+            uint32_t use_specular_texture;      //!< Whether the specular color texture slot should be used (non-null if yes).
+            uint32_t use_opacity_texture;       //!< Whether the opacity texture slot should be used (non-null if yes).
         };
 
         Material();
@@ -81,14 +82,14 @@ namespace blowbox
         void SetOpacity(float opacity);
 
         /**
-        * @brief Sets the specular scale of this Material. It scales the specular color.
-        * @param[in] specular_scale The new shininess value.
+        * @brief Sets the specular scale of this Material. It scales the specular power.
+        * @param[in] specular_scale The new specular scale value.
         */
         void SetSpecularScale(float specular_scale);
 
         /**
         * @brief Sets the specular power. This determines how shiny the object actually is (sometimes referred to as shininess). Used only if no specular power texture is available.
-        * @param[in] specular_power The new shininess strength value.
+        * @param[in] specular_power The new specular power value.
         */
         void SetSpecularPower(float specular_power);
 
@@ -117,7 +118,7 @@ namespace blowbox
         void SetTextureEmissive(WeakPtr<Texture> texture);
 
         /**
-        * @brief Sets the bump Texture for this Material. This should be an texture with only a single gray channel.
+        * @brief Sets the bump Texture for this Material. This should be a texture with only a single gray channel.
         * @param[in] texture The texture that should be used as the bump texture.
         */
         void SetTextureBump(WeakPtr<Texture> texture);
@@ -129,13 +130,13 @@ namespace blowbox
         void SetTextureNormal(WeakPtr<Texture> texture);
 
         /**
-        * @brief Sets the specular power Texture for this Material. This should be an RGB texture.
+        * @brief Sets the specular power Texture for this Material. This should be a texture with only a single gray channel.
         * @param[in] texture The texture that should be used as the specular power texture.
         */
         void SetTextureSpecularPower(WeakPtr<Texture> texture);
 
         /**
-        * @brief Sets the ambient Texture for this Material. This should be an RGB texture.
+        * @brief Sets the specular color Texture for this Material. This should be an RGB texture.
         * @param[in] texture The texture that should be used as the specular texture.
         */
         void SetTextureSpecular(WeakPtr<Texture> texture);
@@ -160,9 +161,9 @@ namespace blowbox
 
         /** @returns This material's opacity. */
         const float& GetOpacity() const;
-        /** @returns This material's shininess. */
+        /** @returns This material's specular scale (how much the specular power gets scaled). */
         const float& GetSpecularScale() const;
-        /** @returns This material's shininess strength. */
+        /** @returns This material's specular power. */
         const float& GetSpecularPower() const;
         /** @returns This material's bump intensity. */
         const float& GetBumpIntensity() const;
@@ -179,7 +180,7 @@ namespace blowbox
         WeakPtr<Texture> GetTextureNormal() const;
         /** @returns This material's specular power texture map. */
         WeakPtr<Texture> GetTextureSpecularPower() const;
-        /** @returns This material's specular texture map. */
+        /** @returns This material's specular color texture map. */
         WeakPtr<Texture> GetTextureSpecular() const;
         /** @returns This material's opacity texture map. */
         WeakPtr<Texture> GetTextureOpacity() const;
@@ -203,8 +204,8 @@ namespace blowbox
         DirectX::XMFLOAT3 color_specular_;          //!< The specular color of this Material.
 
         float opacity_;                             //!< The opacity of this Material.
-        float specular_scale_;                      //!< The shininess of this Material (this scales the specular color).
-        float specular_power_;                      //!< The shininess strength of this Material (defines how shiny the object is).
+        float specular_scale_;                      //!< The specular scale of this Material (this scales the specular power).
+        float specular_power_;                      //!< The specular power of this Material (defines how shiny the object is).
         float bump_intensity_;                      //!< The bump intensity of this Material (defines how "far" bumps in bump maps should be scaled).
 
         WeakPtr<Texture> texture_ambient_;          //!< The ambient texture map of this Material.          (RGB32)

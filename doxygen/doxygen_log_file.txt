@@ -2,4 +2,16 @@ C:/Projects/blowbox-2017/src/util/eastl.h:27: warning: Found ';' while parsing i
 C:/Projects/blowbox-2017/src/util/eastl.h:30: warning: Found ';' while parsing initializer list! (doxygen could be confused by a macro call without semicolon)
 C:/Projects/blowbox-2017/src/util/eastl.h:38: warning: Found ';' while parsing initializer list! (doxygen could be confused by a macro call without semicolon)
 C:/Projects/blowbox-2017/src/util/eastl.h:41: warning: Found ';' while parsing initializer list! (doxygen could be confused by a macro call without semicolon)
-C:/Projects/blowbox-2017/src/renderer/material.h:8: warning: Compound blowbox::Material is not documented.
+C:/Projects/blowbox-2017/src/renderer/forward_renderer.cc:15: warning: Compound blowbox::PassData is not documented.
+C:/Projects/blowbox-2017/src/renderer/forward_renderer.h:38: warning: Member BindTexture(GraphicsContext &context, UINT root_signature_slot, WeakPtr< Texture > texture) (function) of class blowbox::ForwardRenderer is not documented.
+C:/Projects/blowbox-2017/src/renderer/forward_renderer.cc:16: warning: Member eye_pos (variable) of class blowbox::PassData is not documented.
+C:/Projects/blowbox-2017/src/renderer/forward_renderer.cc:17: warning: Member specular_power (variable) of class blowbox::PassData is not documented.
+C:/Projects/blowbox-2017/src/renderer/forward_renderer.cc:18: warning: Member show_diffuse (variable) of class blowbox::PassData is not documented.
+C:/Projects/blowbox-2017/src/renderer/forward_renderer.cc:19: warning: Member show_specular (variable) of class blowbox::PassData is not documented.
+C:/Projects/blowbox-2017/src/renderer/forward_renderer.cc:20: warning: Member show_ambient (variable) of class blowbox::PassData is not documented.
+C:/Projects/blowbox-2017/src/renderer/forward_renderer.cc:21: warning: Member show_emissive (variable) of class blowbox::PassData is not documented.
+C:/Projects/blowbox-2017/src/renderer/forward_renderer.cc:22: warning: Member light_color (variable) of class blowbox::PassData is not documented.
+C:/Projects/blowbox-2017/src/renderer/forward_renderer.cc:23: warning: Member light_position (variable) of class blowbox::PassData is not documented.
+C:/Projects/blowbox-2017/src/renderer/forward_renderer.cc:24: warning: Member light_intensity (variable) of class blowbox::PassData is not documented.
+C:/Projects/blowbox-2017/src/renderer/forward_renderer.cc:25: warning: Member light_range (variable) of class blowbox::PassData is not documented.
+C:/Projects/blowbox-2017/src/renderer/forward_renderer.cc:26: warning: Member do_normal_mapping (variable) of class blowbox::PassData is not documented.

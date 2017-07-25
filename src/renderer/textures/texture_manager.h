@@ -33,6 +33,7 @@ namespace blowbox
         /**
         * @brief Adds a Texture to the TextureManager.
         * @param[in] name The name of the Texture to be added.
+        * @param[in] texture The texture that should be added under this name.
         * @remarks If an entry with that name already exists, all settings from the to-be-added Texture will be copied into the Texture instance that was already stored in the TextureManager.
         */
         WeakPtr<Texture> AddTexture(const String& name, SharedPtr<Texture> texture);

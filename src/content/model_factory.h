@@ -7,6 +7,7 @@
 struct aiMesh;
 struct aiMaterial;
 struct aiNode;
+enum aiTextureType;
 
 namespace blowbox
 {
@@ -57,7 +58,7 @@ namespace blowbox
         /**
         * @brief Processes all imported materials by Assimp to blowbox format.
         * @param[in] materials All materials that were imported by Assimp.
-        * @param[in] num_material The number of materials in the materials array.
+        * @param[in] num_materials The number of materials in the materials array.
         * @param[in] model_directory_path The directory in which the model is located that we're currently loading.
         * @param[out] out_materials The materials that were converted.
         */
@@ -72,5 +73,18 @@ namespace blowbox
         * @param[in] available_materials An array of materials from which the materials should be picked as defined by the node.
         */
         static Vector<SharedPtr<Entity>> ProcessNode(aiNode* node, SharedPtr<Entity> parent, const Vector<SharedPtr<Mesh>>& available_meshes, const Vector<int>& material_indices, const Vector<WeakPtr<Material>>& available_materials);
+
+    private:
+        /**
+        * @brief Converts an aiTextureType to a string.
+        * @param[in] type The type to be converted.
+        */
+        static String ConvertTextureTypeToString(aiTextureType type);
+
+        /**
+        * @brief Checks if an aiTextureType is supported by blowbox.
+        * @param[in] type The type to be checked.
+        */
+        static bool CheckIfTextureTypeIsSupported(aiTextureType type);
     };
 }

@@ -5,17 +5,18 @@ var searchData=
   ['fence_5f',['fence_',['../classblowbox_1_1_command_queue.html#a6a2e800d89829d830a4841372c5576ba',1,'blowbox::CommandQueue']]],
   ['fence_5fevent_5fhandle_5f',['fence_event_handle_',['../classblowbox_1_1_command_queue.html#a20aeca5f7fa0c80a1b2a50759563b2c3',1,'blowbox::CommandQueue']]],
   ['file_5fcontent_5f',['file_content_',['../classblowbox_1_1_text_file.html#a65ef4c992da11417f3d919a072394aad',1,'blowbox::TextFile']]],
+  ['file_5fmanager_5f',['file_manager_',['../classblowbox_1_1_get.html#a03eb0f28dc800651bb95c9d0d72055ad',1,'blowbox::Get']]],
   ['file_5fpath_5f',['file_path_',['../classblowbox_1_1_text_file.html#ae477a9a79b422bba7ea63b4814fbce5c',1,'blowbox::TextFile']]],
   ['filter_5f',['filter_',['../classblowbox_1_1_memory_profiler.html#a6ab2aae54ee3461e17875e628ad121dd',1,'blowbox::MemoryProfiler']]],
   ['finalized_5f',['finalized_',['../classblowbox_1_1_get.html#adeb761026ed282e06cc6295c2330b64c',1,'blowbox::Get::finalized_()'],['../classblowbox_1_1_root_signature.html#a1b8c4dd78580975d9a6b73b1837d7d52',1,'blowbox::RootSignature::finalized_()']]],
   ['finished_5f',['finished_',['../classblowbox_1_1_performance_profiler_1_1_profiler_block.html#a8a7e407bea2a1db518f87d988aef7be3',1,'blowbox::PerformanceProfiler::ProfilerBlock']]],
   ['flags',['flags',['../structblowbox_1_1_adapter.html#a92a3a8368de1be1cea356f82a390be1e',1,'blowbox::Adapter']]],
+  ['focus_5f',['focus_',['../classblowbox_1_1_entity_viewer.html#a12aef73af49a96877066b335c010d266',1,'blowbox::EntityViewer::focus_()'],['../classblowbox_1_1_material_viewer.html#a7cf7eee97df62c232641670c28589477',1,'blowbox::MaterialViewer::focus_()']]],
   ['focused_5f',['focused_',['../classblowbox_1_1_window.html#a72a2b17340f7ed73b7b4576de5e78bdc',1,'blowbox::Window']]],
   ['format',['format',['../structblowbox_1_1_memory_profiler_1_1_resource_data.html#aab13b4de4896e569b8a2c11d2a2d1fcd',1,'blowbox::MemoryProfiler::ResourceData']]],
   ['format_5f',['format_',['../classblowbox_1_1_pixel_buffer.html#aec63e905a8b42d52c24befcf80210c33',1,'blowbox::PixelBuffer']]],
   ['forward_5frenderer_5f',['forward_renderer_',['../classblowbox_1_1_get.html#a020dc7a4adf73147a4327192ff8e13c1',1,'blowbox::Get']]],
   ['fov_5fin_5fradians_5f',['fov_in_radians_',['../classblowbox_1_1_perspective_camera.html#aad6afc1a588057adf3870b96795369d6',1,'blowbox::PerspectiveCamera']]],
   ['fps_5fhistory_5fcontiguous_5f',['fps_history_contiguous_',['../classblowbox_1_1_frame_stats.html#a6979d37ce7782644d54a519f89a33468',1,'blowbox::FrameStats']]],
-  ['frame_5fstart_5ftime_5f',['frame_start_time_',['../classblowbox_1_1_time.html#a42f99a7aebcc1d361412298977fe903e',1,'blowbox::Time']]],
-  ['frame_5fstats_5f',['frame_stats_',['../classblowbox_1_1_blowbox_core.html#af891a12cf7ea30391d3fee5b34a10e96',1,'blowbox::BlowboxCore::frame_stats_()'],['../classblowbox_1_1_get.html#a1e45a86e615ef039962b5efc8bb5e02f',1,'blowbox::Get::frame_stats_()']]]
+  ['frame_5fstart_5ftime_5f',['frame_start_time_',['../classblowbox_1_1_time.html#a42f99a7aebcc1d361412298977fe903e',1,'blowbox::Time']]]
 ];

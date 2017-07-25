@@ -2,7 +2,10 @@ var searchData=
 [
   ['data_5fformat_5f',['data_format_',['../classblowbox_1_1_typed_buffer.html#a53eab76b8717f192428f80305f82e966',1,'blowbox::TypedBuffer']]],
   ['debug_5fmenu_5f',['debug_menu_',['../classblowbox_1_1_blowbox_core.html#a1f035760633e599777e4d43a5c4af6b8',1,'blowbox::BlowboxCore::debug_menu_()'],['../classblowbox_1_1_get.html#a8e3ae383016604b80e2ce672ec900cb7',1,'blowbox::Get::debug_menu_()']]],
-  ['debug_5fwindows_5f',['debug_windows_',['../classblowbox_1_1_debug_menu.html#ad54325af14b15b83e3431e2eb2d9517d',1,'blowbox::DebugMenu']]],
+  ['debug_5fwindows_5f',['debug_windows_',['../classblowbox_1_1_debug_menu.html#a1c782e5ff84af43ea0448cfe3d28de5c',1,'blowbox::DebugMenu']]],
+  ['default_5fkey_5fstate_5f',['default_key_state_',['../classblowbox_1_1_keyboard_state.html#a684a8f09a18b0646e76f117ae2521711',1,'blowbox::KeyboardState']]],
+  ['default_5fmouse_5fbutton_5fstate_5f',['default_mouse_button_state_',['../classblowbox_1_1_mouse_state.html#af9c879798f9bf7eda5fe797dc1571295',1,'blowbox::MouseState']]],
+  ['default_5fmouse_5ffloat2_5f',['default_mouse_float2_',['../classblowbox_1_1_mouse_state.html#accb27bc1e23a898dd50de6c9768fc64f',1,'blowbox::MouseState']]],
   ['deferred_5frenderer_5f',['deferred_renderer_',['../classblowbox_1_1_get.html#ac8575de5652af62d3e63de0b4cba5906',1,'blowbox::Get']]],
   ['delta_5fmouse_5fposition_5f',['delta_mouse_position_',['../classblowbox_1_1_mouse_state.html#a8707bd7867a0ef0bb16e95ef8ba9a271',1,'blowbox::MouseState']]],
   ['delta_5fmouse_5fposition_5faccumulator_5f',['delta_mouse_position_accumulator_',['../classblowbox_1_1_mouse_state.html#a02836ce309ffae32ef777ddaefbbefe3',1,'blowbox::MouseState']]],

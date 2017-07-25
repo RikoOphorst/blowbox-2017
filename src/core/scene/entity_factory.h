@@ -43,6 +43,10 @@ namespace blowbox
         */
         static void RemoveChildFromEntity(SharedPtr<Entity> entity, SharedPtr<Entity> child);
 
+        /**
+        * @brief Iterates over a graph of Entities and marks all of the transforms as dirty.
+        * @param[in] entity The entity to start iterating from.
+        */
         static void MakeEntityGraphDirty(Entity* entity);
     };
 }

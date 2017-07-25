@@ -166,7 +166,7 @@ float4 main(VertexOut input) : SV_Target0
     material.Specular = MaterialColorSpecular;
     material.Ambient = MaterialColorAmbient;
     material.Emissive = MaterialColorEmissive;
-    material.SpecularPower = MaterialSpecularPower;
+    material.SpecularPower = MaterialSpecularPower * MaterialSpecularScale;
 
     float3 P = input.PosWorld.xyz;
     float3 N = normalize(input.NormalWorld);

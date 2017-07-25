@@ -13,6 +13,7 @@ namespace blowbox
     class Material;
     class MaterialViewer;
 
+    /** @brief Lists all Materials that are currently in the MaterialManager. */
     class MaterialList : public DebugWindow
     {
     public:
@@ -28,13 +29,15 @@ namespace blowbox
         /** @brief Renders the actual window. */
         void RenderWindow() override;
 
+        /**
+        * @brief Spawns a MaterialViewer.
+        * @param[in] material The Material the new MaterialViewer should be based on.
+        */
         void SpawnMaterialViewer(WeakPtr<Material> material);
 
     private:
-        bool show_window_;
-
-        ImGuiTextFilter material_name_filter_;
-
-        Map<uintptr_t, UniquePtr<MaterialViewer>> material_viewers_;
+        bool show_window_;                                              //!< Whether the main window is being shown.
+        ImGuiTextFilter material_name_filter_;                          //!< Text filter for searching for materials in the list. 
+        Map<uintptr_t, UniquePtr<MaterialViewer>> material_viewers_;    //!< All material viewers active in this MaterialList.
     };
 }

@@ -49,6 +49,6 @@ namespace blowbox
         WeakPtr<Image> GetImage(const String& file_path);
 
     private:
-        UnorderedMap<String, SharedPtr<Image>> images_;
+        UnorderedMap<String, SharedPtr<Image>> images_; //!< All images that are in the ImageManager.
     };
 }

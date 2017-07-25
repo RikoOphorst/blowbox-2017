@@ -1,5 +1,10 @@
 var searchData=
 [
-  ['newframe',['NewFrame',['../classblowbox_1_1_frame_stats.html#af97a9b281f7a7efd0c6900df412e4364',1,'blowbox::FrameStats::NewFrame()'],['../classblowbox_1_1_memory_profiler.html#afc781672539027a46b5ecd240bb0c8ff',1,'blowbox::MemoryProfiler::NewFrame()'],['../classblowbox_1_1_memory_stats.html#a0c17d3cd8d657d81f24fc5f3a2517c06',1,'blowbox::MemoryStats::NewFrame()'],['../classblowbox_1_1_performance_profiler.html#a881b026eacb8a364eeca6d4fbe367e33',1,'blowbox::PerformanceProfiler::NewFrame()'],['../classblowbox_1_1_im_gui_manager.html#a2ac131c71b2eece0f175515e33235f74',1,'blowbox::ImGuiManager::NewFrame()'],['../classblowbox_1_1_time.html#a6620d7b0415b02d4d3c7f82ee061166b',1,'blowbox::Time::NewFrame()']]],
-  ['noncopyable',['NonCopyable',['../structblowbox_1_1_non_copyable.html#a566ee5522b6ad16f5bd1d73ea28a86f6',1,'blowbox::NonCopyable::NonCopyable()=default'],['../structblowbox_1_1_non_copyable.html#a4a6f88a0f21e39a00caedd0699b0b4d9',1,'blowbox::NonCopyable::NonCopyable(const NonCopyable &amp;)=delete']]]
+  ['mainwindow',['MainWindow',['../classblowbox_1_1_get.html#ae10e90c3ae003b178b1160b07574eb2e',1,'blowbox::Get']]],
+  ['makeentitygraphdirty',['MakeEntityGraphDirty',['../classblowbox_1_1_entity_factory.html#af7ad229f943ffd94d112fa422b99b5d3',1,'blowbox::EntityFactory']]],
+  ['map',['Map',['../classblowbox_1_1_upload_buffer.html#a8e7b7b8330d71f05946a7747d5368948',1,'blowbox::UploadBuffer']]],
+  ['materialmanager',['MaterialManager',['../classblowbox_1_1_get.html#a0ad18d122931fc1de75d74f6b034e5ba',1,'blowbox::Get']]],
+  ['materialviewer',['MaterialViewer',['../classblowbox_1_1_material_viewer.html#a520081dafacb03c0dd560f0a859248a7',1,'blowbox::MaterialViewer']]],
+  ['memoryprofiler',['MemoryProfiler',['../classblowbox_1_1_get.html#ae44e539be0807de125fb5acc62e3e0f6',1,'blowbox::Get']]],
+  ['meshdata',['MeshData',['../classblowbox_1_1_mesh_data.html#a31191070ace57f13b9e0ee7af40e6ce6',1,'blowbox::MeshData']]]
 ];

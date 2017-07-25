@@ -9,9 +9,16 @@ namespace blowbox
 {
     class Material;
 
+    /**
+    * @brief DebugWindow for viewing/editing a specific Material's info
+    */
     class MaterialViewer : public DebugWindow
     {
     public:
+        /**
+        * @brief Constructs a MaterialViewer.
+        * @param[in] material The material to view.
+        */
         MaterialViewer(WeakPtr<Material> material);
         ~MaterialViewer();
 
@@ -33,8 +40,8 @@ namespace blowbox
         /** @brief Gives this EntityViewer focus. */
         void Focus();
     private:
-        bool show_window_;
-        WeakPtr<Material> material_;
-        bool focus_;
+        bool show_window_;              //!< Whether the window is being shown.
+        WeakPtr<Material> material_;    //!< The Material that is being viewed with this viewer.
+        bool focus_;                    //!< Whether this window wants focus.
     };
 }

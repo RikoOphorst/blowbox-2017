@@ -86,6 +86,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="functions_func_e.html#index_e"><span>e</span></a></li>
       <li><a href="functions_func_f.html#index_f"><span>f</span></a></li>
       <li><a href="functions_func_g.html#index_g"><span>g</span></a></li>
+      <li><a href="functions_func_h.html#index_h"><span>h</span></a></li>
       <li><a href="functions_func_i.html#index_i"><span>i</span></a></li>
       <li><a href="functions_func_l.html#index_l"><span>l</span></a></li>
       <li><a href="functions_func_m.html#index_m"><span>m</span></a></li>
@@ -138,8 +139,23 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>SetBufferUAV()
 : <a class="el" href="classblowbox_1_1_graphics_context.html#ace9500405f3bd43a21e3abc1e9cc9c75">blowbox::GraphicsContext</a>
 </li>
+<li>SetBumpIntensity()
+: <a class="el" href="classblowbox_1_1_material.html#aead0c0f9f7a820172aa7923910eff4f9">blowbox::Material</a>
+</li>
 <li>SetCbvSrvUavHeap()
 : <a class="el" href="classblowbox_1_1_get.html#ae1a893a58547cc674c284a900c7fd8d2">blowbox::Get</a>
+</li>
+<li>SetColorAmbient()
+: <a class="el" href="classblowbox_1_1_material.html#a4f38e55872414a86b27865379adf27c5">blowbox::Material</a>
+</li>
+<li>SetColorDiffuse()
+: <a class="el" href="classblowbox_1_1_material.html#abdc76f2f01d0c41e80feb376f068cd07">blowbox::Material</a>
+</li>
+<li>SetColorEmissive()
+: <a class="el" href="classblowbox_1_1_material.html#a8ff8ec334d71cb6ccb0c0c62c8628b6a">blowbox::Material</a>
+</li>
+<li>SetColorSpecular()
+: <a class="el" href="classblowbox_1_1_material.html#a003d1ebd5ecaab37bb82973cc281667f">blowbox::Material</a>
 </li>
 <li>SetComputeShader()
 : <a class="el" href="classblowbox_1_1_compute_p_s_o.html#ac1030910c5d25dfebb515e19fed6324a">blowbox::ComputePSO</a>
@@ -148,7 +164,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="classblowbox_1_1_graphics_context.html#aa6bbc836fc1b143908864de9f8d65482">blowbox::GraphicsContext</a>
 </li>
 <li>SetConstants()
-: <a class="el" href="classblowbox_1_1_graphics_context.html#a5cb313834425b529a6ac8bf6eeed02bc">blowbox::GraphicsContext</a>
+: <a class="el" href="classblowbox_1_1_graphics_context.html#afb5e60e9ed0460ea89543652a4fb3fb1">blowbox::GraphicsContext</a>
 </li>
 <li>SetDepthStencilState()
 : <a class="el" href="classblowbox_1_1_graphics_p_s_o.html#a2c50755d187e4b00e235dee0e2c3d366">blowbox::GraphicsPSO</a>
@@ -222,6 +238,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>SetMainCamera()
 : <a class="el" href="classblowbox_1_1_scene_manager.html#a5300cbc4d795e894e81c8fcd06580e5d">blowbox::SceneManager</a>
 </li>
+<li>SetMaterial()
+: <a class="el" href="classblowbox_1_1_entity.html#a5cabb49681731f15cba2e09f80757580">blowbox::Entity</a>
+</li>
 <li>SetMesh()
 : <a class="el" href="classblowbox_1_1_entity.html#ab5516b44213e478329394487b719ee9b">blowbox::Entity</a>
 </li>
@@ -243,9 +262,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>SetName()
 : <a class="el" href="classblowbox_1_1_command_context.html#aadc32ba016ed4444296f21034b8e2a26">blowbox::CommandContext</a>
 , <a class="el" href="classblowbox_1_1_entity.html#a177d56a29e72172023a55e7005aef3da">blowbox::Entity</a>
+, <a class="el" href="classblowbox_1_1_material.html#af35e440d719c13976915ae712c161cfb">blowbox::Material</a>
+, <a class="el" href="classblowbox_1_1_mesh_data.html#a45d548f8c182c5d2062e8a34b74efc92">blowbox::MeshData</a>
+, <a class="el" href="classblowbox_1_1_texture.html#a2c7c4bf796bc10432ee9863d918c44bb">blowbox::Texture</a>
 </li>
 <li>SetNearPlane()
 : <a class="el" href="classblowbox_1_1_camera.html#addc53f9fa42b9d1cf741989d47bb2adb">blowbox::Camera</a>
+</li>
+<li>SetOpacity()
+: <a class="el" href="classblowbox_1_1_material.html#a23b95d3f76b4ee995f5cf173914d93c5">blowbox::Material</a>
 </li>
 <li>SetOrthographicSize()
 : <a class="el" href="classblowbox_1_1_orthographic_camera.html#ae397b31394bba750c6362a8957996274">blowbox::OrthographicCamera</a>
@@ -284,7 +309,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="classblowbox_1_1_blowbox_core.html#a6cd9258bc70f4d6c8c2c828505346130">blowbox::BlowboxCore</a>
 </li>
 <li>SetRenderTarget()
-: <a class="el" href="classblowbox_1_1_graphics_context.html#ad4e4b32048120dae25e83c7ab930516e">blowbox::GraphicsContext</a>
+: <a class="el" href="classblowbox_1_1_graphics_context.html#a5d14f50be7feb8d96c0c91ac6a5d7e20">blowbox::GraphicsContext</a>
 </li>
 <li>SetRenderTargetFormat()
 : <a class="el" href="classblowbox_1_1_graphics_p_s_o.html#a2bc2c87b1c9e2e4c953e4d67c2ae26be">blowbox::GraphicsPSO</a>
@@ -320,8 +345,38 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>SetShutdownProcedure()
 : <a class="el" href="classblowbox_1_1_blowbox_core.html#a5036612a7b3abc498b065942075157e8">blowbox::BlowboxCore</a>
 </li>
+<li>SetSpecularPower()
+: <a class="el" href="classblowbox_1_1_material.html#a9d412335361a83b14e2b860b07377c7c">blowbox::Material</a>
+</li>
+<li>SetSpecularScale()
+: <a class="el" href="classblowbox_1_1_material.html#a32640ce9b413195650539b3eb89f8660">blowbox::Material</a>
+</li>
 <li>SetStencilRef()
 : <a class="el" href="classblowbox_1_1_graphics_context.html#ac30249142ef9bf065396b954386d9d59">blowbox::GraphicsContext</a>
+</li>
+<li>SetTextureAmbient()
+: <a class="el" href="classblowbox_1_1_material.html#a1cc4f460ec518a2faaa9d356470ad1f5">blowbox::Material</a>
+</li>
+<li>SetTextureBump()
+: <a class="el" href="classblowbox_1_1_material.html#a3a8b8922307424897b65942502843260">blowbox::Material</a>
+</li>
+<li>SetTextureDiffuse()
+: <a class="el" href="classblowbox_1_1_material.html#ab5df901c84cf41a65c106b97a14a005e">blowbox::Material</a>
+</li>
+<li>SetTextureEmissive()
+: <a class="el" href="classblowbox_1_1_material.html#accfbfcc45970e5ce874f827ce8a11942">blowbox::Material</a>
+</li>
+<li>SetTextureNormal()
+: <a class="el" href="classblowbox_1_1_material.html#a0fc6f128381a5d3a768fc446171a5f4d">blowbox::Material</a>
+</li>
+<li>SetTextureOpacity()
+: <a class="el" href="classblowbox_1_1_material.html#a526bff0e47d917741dff92f575ba04a6">blowbox::Material</a>
+</li>
+<li>SetTextureSpecular()
+: <a class="el" href="classblowbox_1_1_material.html#af12f3b32d286130a23fc4c06bc8cd821">blowbox::Material</a>
+</li>
+<li>SetTextureSpecularPower()
+: <a class="el" href="classblowbox_1_1_material.html#a65aee526c5914780684f747b5aec2ea7">blowbox::Material</a>
 </li>
 <li>SetTopology()
 : <a class="el" href="classblowbox_1_1_mesh_data.html#ae1e72309c90897a5d3819c075d8a3858">blowbox::MeshData</a>
@@ -347,6 +402,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>SetViewportAndScissor()
 : <a class="el" href="classblowbox_1_1_graphics_context.html#a40ea696d1bb32fa651976b6f4b8a0958">blowbox::GraphicsContext</a>
 </li>
+<li>SetVisible()
+: <a class="el" href="classblowbox_1_1_entity.html#a99989c70972a3c37397969efccba562a">blowbox::Entity</a>
+</li>
 <li>SetWindowIcon()
 : <a class="el" href="classblowbox_1_1_window.html#a54e84cefd941b866a505759fa3e01d4e">blowbox::Window</a>
 </li>
@@ -367,11 +425,19 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </li>
 <li>Shutdown()
 : <a class="el" href="classblowbox_1_1_blowbox_core.html#a0bc3fe5ee2fdaf252a5814fb4348d2f4">blowbox::BlowboxCore</a>
+, <a class="el" href="classblowbox_1_1_debug_menu.html#a68599e2569db3bf7d3f2bfe62d6eb04a">blowbox::DebugMenu</a>
 , <a class="el" href="classblowbox_1_1_entity.html#aa70fae1d85146fd46e523003a4766722">blowbox::Entity</a>
+, <a class="el" href="classblowbox_1_1_file_manager.html#af2b0b564762d38d5a0d062cbf1cdf5ec">blowbox::FileManager</a>
 , <a class="el" href="classblowbox_1_1_g_l_f_w_manager.html#a01ac8a0036acb3b74729866daa0002a5">blowbox::GLFWManager</a>
+, <a class="el" href="classblowbox_1_1_image_manager.html#a362df65f41eccc09aa2ec8d1bee24a01">blowbox::ImageManager</a>
 , <a class="el" href="classblowbox_1_1_im_gui_manager.html#a5755f847a8c84b068d52bcf5b2d38aad">blowbox::ImGuiManager</a>
+, <a class="el" href="classblowbox_1_1_material_manager.html#a318bc6af61c26ffa08ab0bfd473daced">blowbox::MaterialManager</a>
 , <a class="el" href="classblowbox_1_1_memory_profiler.html#a589010aa067a3275f5d68097dc5f929a">blowbox::MemoryProfiler</a>
 , <a class="el" href="classblowbox_1_1_scene_manager.html#ac249d8d2dc49e8cfd0021ac58b68cbd3">blowbox::SceneManager</a>
+, <a class="el" href="classblowbox_1_1_texture_manager.html#ab129a12b5fe466764b5903c5c1e7f5f3">blowbox::TextureManager</a>
+</li>
+<li>ShutdownContent()
+: <a class="el" href="classblowbox_1_1_blowbox_core.html#a9c3c5a75fb2a6b2a7d4509571c47e14e">blowbox::BlowboxCore</a>
 </li>
 <li>ShutdownDebug()
 : <a class="el" href="classblowbox_1_1_blowbox_core.html#a959946d032dcb40be7bc10a93d87e260">blowbox::BlowboxCore</a>
@@ -388,6 +454,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>ShutdownWin32()
 : <a class="el" href="classblowbox_1_1_blowbox_core.html#a4655a2c211c0c5a409cf67dd4cbabbbc">blowbox::BlowboxCore</a>
 </li>
+<li>SpawnMaterialViewer()
+: <a class="el" href="classblowbox_1_1_material_list.html#ab6ba178a1185725ca103c37060230999">blowbox::MaterialList</a>
+</li>
 <li>StallForFence()
 : <a class="el" href="classblowbox_1_1_command_queue.html#a4b686c9059319de4894e0f477d612851">blowbox::CommandQueue</a>
 </li>
@@ -397,8 +466,16 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>Startup()
 : <a class="el" href="classblowbox_1_1_command_context_manager.html#a808e5122e43b783a3c954b7fce21eb0e">blowbox::CommandContextManager</a>
 , <a class="el" href="classblowbox_1_1_command_manager.html#ab0f2409117bf031fb08c3789f99ae083">blowbox::CommandManager</a>
+, <a class="el" href="classblowbox_1_1_debug_menu.html#a52a5d0b998615a3875867e76843cb9ce">blowbox::DebugMenu</a>
+, <a class="el" href="classblowbox_1_1_file_manager.html#a827645d300f3b72b32f04c4f3e71e9d1">blowbox::FileManager</a>
 , <a class="el" href="classblowbox_1_1_forward_renderer.html#a815d4590b49e308b352c653645935f2d">blowbox::ForwardRenderer</a>
+, <a class="el" href="classblowbox_1_1_image_manager.html#a64d52849b3ae083aff8ef87d0ba3ef1d">blowbox::ImageManager</a>
+, <a class="el" href="classblowbox_1_1_material_manager.html#aae0a2c7d82978ce7c7964594320d848c">blowbox::MaterialManager</a>
 , <a class="el" href="classblowbox_1_1_scene_manager.html#a2fae4e2f2d29444f18125982bf291d10">blowbox::SceneManager</a>
+, <a class="el" href="classblowbox_1_1_texture_manager.html#a889105ce89b1c53c75e8821e4a2d347d">blowbox::TextureManager</a>
+</li>
+<li>StartupContent()
+: <a class="el" href="classblowbox_1_1_blowbox_core.html#a29a032fa9bd64338f8eb0218cde7f326">blowbox::BlowboxCore</a>
 </li>
 <li>StartupDebug()
 : <a class="el" href="classblowbox_1_1_blowbox_core.html#ac42cebf543a148c2697aa1bf18642b09">blowbox::BlowboxCore</a>
@@ -422,7 +499,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Jul 19 2017 23:46:14 for Blowbox 2017 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Jul 25 2017 18:20:27 for Blowbox 2017 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

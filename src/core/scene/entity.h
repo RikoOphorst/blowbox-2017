@@ -182,6 +182,6 @@ namespace blowbox
         SharedPtr<Mesh> mesh_;                  //!< The Mesh object that is attached to this Entity.
         UploadBuffer constant_buffer_;          //!< This Entity's constant buffer.
 
-        WeakPtr<Material> material_;            //<! The Material this Entity's Mesh should be rendered with.
+        WeakPtr<Material> material_;            //!< The Material this Entity's Mesh should be rendered with.
     };
 }
