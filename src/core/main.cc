@@ -25,8 +25,6 @@
 #include "renderer/cameras/orthographic_camera.h"
 #include <algorithm>
 
-#include <Psapi.h>
-
 using namespace blowbox;
 
 BlowboxCore* blowbox_instance;
