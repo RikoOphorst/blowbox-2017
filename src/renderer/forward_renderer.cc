@@ -8,6 +8,9 @@
 #include "content/file_manager.h"
 #include "renderer/materials/material.h"
 #include "renderer/materials/material_manager.h"
+#include "renderer/lights/directional_light.h"
+#include "renderer/lights/point_light.h"
+#include "renderer/lights/spot_light.h"
 
 namespace blowbox
 {
@@ -62,7 +65,7 @@ namespace blowbox
         sampler.AddressV = D3D12_TEXTURE_ADDRESS_MODE_WRAP;
         sampler.AddressW = D3D12_TEXTURE_ADDRESS_MODE_WRAP;
 
-        main_root_signature_.Create(11, 1);
+        main_root_signature_.Create(14, 1);
         main_root_signature_[0].InitAsConstantBuffer(0); // Constant buffer per object
         main_root_signature_[1].InitAsConstantBuffer(1); // Constant buffer per material
         main_root_signature_[2].InitAsConstantBuffer(2); // Constant buffer per pass
@@ -74,6 +77,9 @@ namespace blowbox
         main_root_signature_[8].InitAsDescriptorRange(D3D12_DESCRIPTOR_RANGE_TYPE_SRV, 1, 5); // Shininess texture
         main_root_signature_[9].InitAsDescriptorRange(D3D12_DESCRIPTOR_RANGE_TYPE_SRV, 1, 6); // Specular texture
         main_root_signature_[10].InitAsDescriptorRange(D3D12_DESCRIPTOR_RANGE_TYPE_SRV, 1, 7); // Opacity texture
+        main_root_signature_[11].InitAsBufferSRV(8); // Directional lights
+        main_root_signature_[12].InitAsBufferSRV(9); // Point lights
+        main_root_signature_[13].InitAsBufferSRV(10); // Spot lights
         main_root_signature_.InitStaticSampler(0, sampler);
         main_root_signature_.Finalize(L"RootSignatureForwardRendering", D3D12_ROOT_SIGNATURE_FLAG_ALLOW_INPUT_ASSEMBLER_INPUT_LAYOUT);
 
@@ -90,7 +96,7 @@ namespace blowbox
 
         D3D12_RASTERIZER_DESC rasterizer_state = {};
         rasterizer_state.FillMode = D3D12_FILL_MODE_SOLID;
-        rasterizer_state.CullMode = D3D12_CULL_MODE_NONE;
+        rasterizer_state.CullMode = D3D12_CULL_MODE_BACK;
         rasterizer_state.FrontCounterClockwise = TRUE;
         rasterizer_state.DepthBias = D3D12_DEFAULT_DEPTH_BIAS;
         rasterizer_state.DepthBiasClamp = D3D12_DEFAULT_DEPTH_BIAS_CLAMP;
@@ -122,40 +128,19 @@ namespace blowbox
         main_pso_.Finalize();
 
         pass_buffer_.Create(L"PassBuffer", 1, sizeof(PassData));
+
+        directional_lights_buffer_.Create(L"DirectionalLights", BLOWBOX_MAX_LIGHTS_PER_TYPE, sizeof(DirectionalLight::Buffer), nullptr);
+        point_lights_buffer_.Create(L"PointLights", BLOWBOX_MAX_LIGHTS_PER_TYPE, sizeof(PointLight::Buffer), nullptr);
+        spot_lights_buffer_.Create(L"SpotLights", BLOWBOX_MAX_LIGHTS_PER_TYPE, sizeof(SpotLight::Buffer), nullptr);
     }
 
     //------------------------------------------------------------------------------------------------------
     void ForwardRenderer::Render()
     {
         PerformanceProfiler::ProfilerBlock profiler_block("FrameForwardSetup", ProfilerBlockType_RENDERER);
-
-        static float specular_power = 5.0f;
-        static DirectX::XMFLOAT4 light_color = DirectX::XMFLOAT4(1.0f, 1.0f, 1.0f, 1.0f);
-        static DirectX::XMFLOAT4 light_position = DirectX::XMFLOAT4(-20.0f, 14.0f, 0.0f, 1.0f);
-        static bool emissive = false;
-        static bool ambient = false;
-        static bool diffuse = true;
-        static bool specular = true;
-        static bool normal_mapping = true;
-        static float light_intensity = 1.0f;
-        static float light_range = 200.0f;
-
-        ImGui::Begin("Stuff");
-        ImGui::SliderFloat("Specular Power", &specular_power, 0.1f, 150.0f);
-        ImGui::Checkbox("Show Emissive", &emissive);
-        ImGui::Checkbox("Show Ambient", &ambient);
-        ImGui::Checkbox("Show Diffuse", &diffuse);
-        ImGui::Checkbox("Show Specular", &specular);
-        ImGui::ColorEdit4("Light Color", &light_color.x, false);
-        ImGui::SliderFloat("Light Intensity", &light_intensity, 0.1f, 10.0f);
-        ImGui::SliderFloat("Light Range", &light_range, 0.0f, 200.0f);
-        ImGui::SliderFloat3("Light Position", &light_position.x, -20.0f, 20.0f);
-        ImGui::Checkbox("Do normal mapping", &normal_mapping);
-        ImGui::End();
-
         GraphicsContext& context = GraphicsContext::Begin(L"CommandListForwardSetup");
 
-		SharedPtr<SwapChain> swap_chain = Get::SwapChain();
+        SharedPtr<SwapChain> swap_chain = Get::SwapChain();
 
         ColorBuffer& back_buffer = swap_chain->GetBackBuffer();
         context.SetRenderTarget(back_buffer.GetRTV(), depth_buffer_.GetDSV());
@@ -166,28 +151,24 @@ namespace blowbox
 
         context.SetViewportAndScissor(0, 0, swap_chain->GetBufferWidth(), swap_chain->GetBufferHeight());
 
+        context.SetPipelineState(main_pso_);
+        context.SetRootSignature(main_root_signature_);
+
+        PreparePassBuffer();
+        context.SetConstantBuffer(2, pass_buffer_.GetAddressByElement(0));
+
+        PrepareDirectionalLights();
+        PreparePointLights();
+        PrepareSpotLights();
+
+        context.SetBufferSRV(11, directional_lights_buffer_);
+        context.SetBufferSRV(12, point_lights_buffer_);
+        context.SetBufferSRV(13, spot_lights_buffer_);
+
         profiler_block.Finish();
         PerformanceProfiler::ProfilerBlock profiler_block2("FrameRecordingDrawCalls", ProfilerBlockType_RENDERER);
 
         Vector<SharedPtr<Entity>>& entities = Get::SceneManager()->GetEntities();
-
-        context.SetPipelineState(main_pso_);
-        context.SetRootSignature(main_root_signature_);
-
-        PassData pass_data;
-        pass_data.eye_pos = Get::SceneManager()->GetMainCamera()->GetPosition();
-        pass_data.specular_power = specular_power;
-        pass_data.show_emissive = emissive;
-        pass_data.show_ambient = ambient;
-        pass_data.show_diffuse = diffuse;
-        pass_data.show_specular = specular;
-        pass_data.light_color = light_color;
-        pass_data.light_intensity = light_intensity;
-        pass_data.light_range = light_range;
-        pass_data.light_position = light_position;
-        pass_data.do_normal_mapping = normal_mapping;
-
-        pass_buffer_.InsertDataByElement(0, &pass_data);
 
         for (int i = 0; i < entities.size(); i++)
         {
@@ -220,7 +201,6 @@ namespace blowbox
 
                 context.SetConstantBuffer(0, object_constant_buffer.GetAddressByElement(0));
                 context.SetConstantBuffer(1, material_constant_buffer.GetAddressByElement(0));
-                context.SetConstantBuffer(2, pass_buffer_.GetAddressByElement(0));
 
                 BindTexture(context, 3, material->GetTextureAmbient());
                 BindTexture(context, 4, material->GetTextureDiffuse());
@@ -241,6 +221,7 @@ namespace blowbox
         context.Finish();
     }
 
+    //------------------------------------------------------------------------------------------------------
     void ForwardRenderer::BindTexture(GraphicsContext& context, UINT root_signature_slot, WeakPtr<Texture> texture)
     {
         if (!texture.expired())
@@ -248,5 +229,89 @@ namespace blowbox
             UINT srv = texture.lock()->GetBuffer().GetSRV();
             context.SetDescriptorTable(root_signature_slot, Get::CbvSrvUavHeap()->GetGPUDescriptorById(srv));
         }
+    }
+    
+    //------------------------------------------------------------------------------------------------------
+    void ForwardRenderer::PrepareRenderTargets()
+    {
+        GraphicsContext& context = GraphicsContext::Begin(L"PrepareRenderTargets");
+        context.Finish();
+    }
+
+    //------------------------------------------------------------------------------------------------------
+    void ForwardRenderer::PreparePassBuffer()
+    {
+        PassData pass_data;
+        pass_data.eye_pos = Get::SceneManager()->GetMainCamera()->GetPosition();
+        pass_buffer_.InsertDataByElement(0, &pass_data);
+    }
+
+    //------------------------------------------------------------------------------------------------------
+    void ForwardRenderer::PrepareDirectionalLights()
+    {
+        Vector<SharedPtr<DirectionalLight>>& directional_lights = Get::SceneManager()->GetDirectionalLights();
+        Vector<DirectionalLight::Buffer> directional_light_buffers;
+        DirectionalLight::Buffer inactive_directional_light;
+        inactive_directional_light.active = false;
+
+        for (int i = 0; i < BLOWBOX_MAX_LIGHTS_PER_TYPE; i++)
+        {
+            if (i < directional_lights.size())
+            {
+                directional_light_buffers.push_back(directional_lights[i]->GetBuffer());
+            }
+            else
+            {
+                directional_light_buffers.push_back(inactive_directional_light);
+            }
+        }
+
+        CommandContext::InitializeBuffer(directional_lights_buffer_, &directional_light_buffers[0], directional_light_buffers.size() * sizeof(directional_lights));
+    }
+
+    //------------------------------------------------------------------------------------------------------
+    void ForwardRenderer::PreparePointLights()
+    {
+        Vector<SharedPtr<PointLight>>& point_lights = Get::SceneManager()->GetPointLights();
+        Vector<PointLight::Buffer> point_light_buffers;
+        PointLight::Buffer inactive_point_light;
+        inactive_point_light.active = false;
+
+        for (int i = 0; i < BLOWBOX_MAX_LIGHTS_PER_TYPE; i++)
+        {
+            if (i < point_lights.size())
+            {
+                point_light_buffers.push_back(point_lights[i]->GetBuffer());
+            }
+            else
+            {
+                point_light_buffers.push_back(inactive_point_light);
+            }
+        }
+
+        CommandContext::InitializeBuffer(point_lights_buffer_, &point_light_buffers[0], point_light_buffers.size() * sizeof(point_lights));
+    }
+
+    //------------------------------------------------------------------------------------------------------
+    void ForwardRenderer::PrepareSpotLights()
+    {
+        Vector<SharedPtr<SpotLight>>& spot_lights = Get::SceneManager()->GetSpotLights();
+        Vector<SpotLight::Buffer> spot_light_buffers;
+        SpotLight::Buffer inactive_spot_light;
+        inactive_spot_light.active = false;
+
+        for (int i = 0; i < BLOWBOX_MAX_LIGHTS_PER_TYPE; i++)
+        {
+            if (i < spot_lights.size())
+            {
+                spot_light_buffers.push_back(spot_lights[i]->GetBuffer());
+            }
+            else
+            {
+                spot_light_buffers.push_back(inactive_spot_light);
+            }
+        }
+
+        CommandContext::InitializeBuffer(spot_lights_buffer_, &spot_light_buffers[0], spot_light_buffers.size() * sizeof(spot_lights));
     }
 }

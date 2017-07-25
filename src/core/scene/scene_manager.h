@@ -8,6 +8,10 @@
 
 namespace blowbox
 {
+    class DirectionalLight;
+    class PointLight;
+    class SpotLight;
+
     /**
     * Manages the entire scene. It keeps a list of all Entity instances 
     * and updates them accordingly. It also keeps track of the root of
@@ -84,13 +88,29 @@ namespace blowbox
         /** @returns The main Camera of this scene. */
         SharedPtr<Camera> GetMainCamera();
 
+        void AddDirectionalLight(SharedPtr<DirectionalLight> light);
+        void AddPointLight(SharedPtr<PointLight> light);
+        void AddSpotLight(SharedPtr<SpotLight> light);
+
+        void RemoveDirectionalLight(SharedPtr<DirectionalLight> light);
+        void RemovePointLight(SharedPtr<PointLight> light);
+        void RemoveSpotLight(SharedPtr<SpotLight> light);
+
+        Vector<SharedPtr<DirectionalLight>>& GetDirectionalLights();
+        Vector<SharedPtr<PointLight>>& GetPointLights();
+        Vector<SharedPtr<SpotLight>>& GetSpotLights();
+
     private:
-        SharedPtr<Entity> root_entity_;                     //!< The root Entity in the scene.
-        Vector<SharedPtr<Entity>> all_entities_;            //!< All Entity instances in the scene.
+        SharedPtr<Entity> root_entity_;                             //!< The root Entity in the scene.
+        Vector<SharedPtr<Entity>> all_entities_;                    //!< All Entity instances in the scene.
 
-        Queue<SharedPtr<Entity>> entities_to_be_added_;     //!< Queue for Entity instances that need to be added to the scene.
-        Queue<SharedPtr<Entity>> entities_to_be_removed_;   //!< Queue for Entity instances that need to be removed from the scene.
+        Queue<SharedPtr<Entity>> entities_to_be_added_;             //!< Queue for Entity instances that need to be added to the scene.
+        Queue<SharedPtr<Entity>> entities_to_be_removed_;           //!< Queue for Entity instances that need to be removed from the scene.
 
-        SharedPtr<Camera> main_camera_;                     //!< Stores the main camera for the scene.
+        SharedPtr<Camera> main_camera_;                             //!< Stores the main camera for the scene.
+
+        Vector<SharedPtr<DirectionalLight>> directional_lights_;    //!< All DirectionalLight instances in the scene.
+        Vector<SharedPtr<PointLight>> point_lights_;                //!< All PointLight instances in the scene.
+        Vector<SharedPtr<SpotLight>> spot_lights_;                  //!< All SpotLight instances in the scene.
     };
 }

@@ -32,7 +32,8 @@ namespace blowbox
             aiProcess_GenNormals |
             aiProcess_CalcTangentSpace |
             aiProcess_Triangulate |
-            aiProcess_FlipUVs
+            aiProcess_FlipUVs |
+            aiProcess_FlipWindingOrder
         );
         
         String model_directory_path = file_path_to_model;

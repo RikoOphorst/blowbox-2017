@@ -1,7 +1,6 @@
 #include "scene_manager.h"
 
 #include "core/debug/performance_profiler.h"
-
 #include "core/scene/entity_factory.h"
 
 namespace blowbox
@@ -103,6 +102,81 @@ namespace blowbox
     SharedPtr<Camera> SceneManager::GetMainCamera()
     {
         return main_camera_;
+    }
+
+    //------------------------------------------------------------------------------------------------------
+    void SceneManager::AddDirectionalLight(SharedPtr<DirectionalLight> light)
+    {
+        directional_lights_.push_back(light);
+    }
+
+    //------------------------------------------------------------------------------------------------------
+    void SceneManager::AddPointLight(SharedPtr<PointLight> light)
+    {
+        point_lights_.push_back(light);
+    }
+
+    //------------------------------------------------------------------------------------------------------
+    void SceneManager::AddSpotLight(SharedPtr<SpotLight> light)
+    {
+        spot_lights_.push_back(light);
+    }
+
+    //------------------------------------------------------------------------------------------------------
+    void SceneManager::RemoveDirectionalLight(SharedPtr<DirectionalLight> light)
+    {
+        for (int i = 0; i < directional_lights_.size(); i++)
+        {
+            if (directional_lights_[i] == light)
+            {
+                directional_lights_.erase(directional_lights_.begin() + i);
+                break;
+            }
+        }
+    }
+
+    //------------------------------------------------------------------------------------------------------
+    void SceneManager::RemovePointLight(SharedPtr<PointLight> light)
+    {
+        for (int i = 0; i < point_lights_.size(); i++)
+        {
+            if (point_lights_[i] == light)
+            {
+                point_lights_.erase(point_lights_.begin() + i);
+                break;
+            }
+        }
+    }
+
+    //------------------------------------------------------------------------------------------------------
+    void SceneManager::RemoveSpotLight(SharedPtr<SpotLight> light)
+    {
+        for (int i = 0; i < spot_lights_.size(); i++)
+        {
+            if (spot_lights_[i] == light)
+            {
+                spot_lights_.erase(spot_lights_.begin() + i);
+                break;
+            }
+        }
+    }
+
+    //------------------------------------------------------------------------------------------------------
+    Vector<SharedPtr<DirectionalLight>>& SceneManager::GetDirectionalLights()
+    {
+        return directional_lights_;
+    }
+
+    //------------------------------------------------------------------------------------------------------
+    Vector<SharedPtr<PointLight>>& SceneManager::GetPointLights()
+    {
+        return point_lights_;
+    }
+
+    //------------------------------------------------------------------------------------------------------
+    Vector<SharedPtr<SpotLight>>& SceneManager::GetSpotLights()
+    {
+        return spot_lights_;
     }
 
     //------------------------------------------------------------------------------------------------------

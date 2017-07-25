@@ -62,6 +62,18 @@ cbuffer PassBuffer : register(b2)
     uint NormalMapping;
 }
 
+struct PointLight
+{
+    float3 position;
+    float range;
+    float3 color;
+    float intensity;
+    uint active;
+    float2 padding;
+};
+
+StructuredBuffer<PointLight> PointLightBuffer : register(t9);
+
 struct VertexOut
 {
     float4 PosLocal : POSITIONLOCAL;
@@ -88,19 +100,19 @@ struct Light
     float intensity;
 };
 
-float DoAttenuation(Light light, float3 P, float3 N, float3 E)
+float DoAttenuation(PointLight light, float3 P, float3 N, float3 E)
 {
     return 1.0f - smoothstep(light.range * 0.50f, light.range, distance(P, light.position));
 }
 
-float3 DoDiffuse(Material mat, Light light, float3 P, float3 N, float3 E)
+float3 DoDiffuse(Material mat, PointLight light, float3 P, float3 N, float3 E)
 {
     float3 L = normalize(light.position - P);
 
     return light.color * max(dot(N, L), 0.0f);
 }
 
-float3 DoSpecular(Material mat, Light light, float3 P, float3 N, float3 E)
+float3 DoSpecular(Material mat, PointLight light, float3 P, float3 N, float3 E)
 {
     float3 L = normalize(light.position - P);
     float3 V = normalize(E - P);
@@ -109,7 +121,7 @@ float3 DoSpecular(Material mat, Light light, float3 P, float3 N, float3 E)
     return pow(max(dot(N, H), 0), mat.SpecularPower);
 }
 
-LightingResult DoLighting(Material mat, Light light, float3 P, float3 N, float3 E)
+LightingResult DoPointLight(Material mat, PointLight light, float3 P, float3 N, float3 E)
 {
     float3 L = light.position - P;
     float D = length(L);
@@ -122,6 +134,29 @@ LightingResult DoLighting(Material mat, Light light, float3 P, float3 N, float3 
     result.specular =   DoSpecular(mat, light, P, N, E) * light.intensity * attenuation;
 
     return result;
+}
+
+LightingResult DoLighting(Material mat, StructuredBuffer<PointLight> point_lights, float3 P, float3 N, float3 E)
+{
+    LightingResult total;
+    total.diffuse = 0;
+    total.specular = 0;
+
+    uint num_point_lights = 0;
+    uint point_lights_stride = 0;
+    point_lights.GetDimensions(num_point_lights, point_lights_stride);
+    
+    for (uint i = 0; i < 128; i++)
+    {
+        if (point_lights[i].active != 0)
+        {
+            LightingResult current = DoPointLight(mat, point_lights[i], P, N, E);
+            total.diffuse += current.diffuse;
+            total.specular += current.specular;
+        }
+    }
+
+    return total;
 }
 
 float3 ExpandNormal(float3 normal)
@@ -218,13 +253,7 @@ float4 main(VertexOut input) : SV_Target0
 
     material.SpecularPower = max(material.SpecularPower, 1.0f);
 
-    Light light;
-    light.color = PassLightColor.xyz;
-    light.position = PassLightPosition.xyz;
-    light.range = LightRange;
-    light.intensity = LightIntensity;
-
-    LightingResult result = DoLighting(material, light, P, N, E);
+    LightingResult result = DoLighting(material, PointLightBuffer, P, N, E);
 
     float3 color = 0.0f;
     

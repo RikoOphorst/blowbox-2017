@@ -189,6 +189,7 @@ namespace blowbox
         context.SetPrimitiveTopology(D3D_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
         context.SetPipelineState(imgui_manager->pipeline_state_);
         context.SetRootSignature(imgui_manager->root_signature_);
+        context.SetDescriptorHeap(D3D12_DESCRIPTOR_HEAP_TYPE_CBV_SRV_UAV, Get::CbvSrvUavHeap()->Get());
         
         D3D12_GPU_VIRTUAL_ADDRESS buffer_address = imgui_manager->upload_buffer_.GetAddressByElement(0);
         context.SetConstantBuffer(1, buffer_address);

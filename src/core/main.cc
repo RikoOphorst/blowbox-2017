@@ -23,6 +23,7 @@
 #include "renderer/descriptor_heap.h"
 #include "renderer/cameras/perspective_camera.h"
 #include "renderer/cameras/orthographic_camera.h"
+#include "renderer/lights/point_light.h"
 #include <algorithm>
 
 using namespace blowbox;
@@ -35,6 +36,8 @@ SharedPtr<Entity> my_model;
 double previous_time = 0;
 bool my_window_open = true;
 bool show_test_window = true;
+
+SharedPtr<PointLight> point_lights[128];
 
 void Run()
 {
@@ -53,6 +56,18 @@ void Run()
     camera->SetFovDegrees(90.0f);
 
     Get::SceneManager()->SetMainCamera(camera);
+
+    for (int i = 0; i < 128; i++)
+    {
+        point_lights[i] = eastl::make_shared<PointLight>();
+
+        point_lights[i]->SetPosition(DirectX::XMFLOAT3(-256.0f + (4.0f * i), 3.0f, 0.0f));
+        point_lights[i]->SetColor(DirectX::XMFLOAT3(1.0f, 1.0f, 1.0f));
+        point_lights[i]->SetRange(5.0f);
+        point_lights[i]->SetIntensity(0.5f);
+
+        Get::SceneManager()->AddPointLight(point_lights[i]);
+    }
 }
 
 void Update()
