@@ -57,13 +57,13 @@ void Run()
 
     Get::SceneManager()->SetMainCamera(camera);
 
-    for (int i = 0; i < 128; i++)
+    for (int i = 0; i < 6; i++)
     {
         point_lights[i] = eastl::make_shared<PointLight>();
 
-        point_lights[i]->SetPosition(DirectX::XMFLOAT3(-256.0f + (4.0f * i), 3.0f, 0.0f));
+        point_lights[i]->SetPosition(DirectX::XMFLOAT3(-120.0f + (40.0f * i), 20.0f, 0.0f));
         point_lights[i]->SetColor(DirectX::XMFLOAT3(1.0f, 1.0f, 1.0f));
-        point_lights[i]->SetRange(5.0f);
+        point_lights[i]->SetRange(50.0f);
         point_lights[i]->SetIntensity(0.5f);
 
         Get::SceneManager()->AddPointLight(point_lights[i]);

@@ -74,6 +74,10 @@ file(GLOB RendererTexturesFiles
     src/renderer/textures/*.cc 
     src/renderer/textures/*.h 
 )
+file(GLOB RendererDDSFiles
+    src/renderer/dds/*.cc 
+    src/renderer/dds/*.h 
+)
 file(GLOB ContentFiles
     src/content/*.cc 
     src/content/*.h 
@@ -114,6 +118,7 @@ source_group("renderer\\meshes"     FILES       ${RendererMeshesFiles})
 source_group("renderer\\lights"     FILES       ${RendererLightsFiles})
 source_group("renderer\\materials"  FILES       ${RendererMaterialsFiles})
 source_group("renderer\\textures"   FILES       ${RendererTexturesFiles})
+source_group("renderer\\dds"        FILES       ${RendererDDSFiles})
 source_group("content"              FILES       ${ContentFiles})
 source_group("content\\stb"         FILES       ${ContentStbFiles})
 source_group("core"                 FILES       ${CoreFiles})
@@ -132,7 +137,8 @@ add_library(blowbox_renderer        STATIC      ${RendererFiles}
                                                 ${RendererMeshesFiles} 
                                                 ${RendererLightsFiles} 
                                                 ${RendererMaterialsFiles} 
-                                                ${RendererTexturesFiles})
+                                                ${RendererTexturesFiles}
+                                                ${RendererDDSFiles})
 add_library(blowbox_content         STATIC      ${ContentFiles} ${ContentStbFiles})
 add_library(blowbox_util            STATIC      ${UtilFiles})
 add_executable(blowbox_core                     ${CoreFiles} ${CoreCoreFiles} ${CoreSceneFiles} ${CoreDebugFiles})
