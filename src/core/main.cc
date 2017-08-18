@@ -61,9 +61,9 @@ void Run()
     {
         point_lights[i] = eastl::make_shared<PointLight>();
 
-        point_lights[i]->SetPosition(DirectX::XMFLOAT3(-256.0f + (4.0f * i), 3.0f, 0.0f));
+        point_lights[i]->SetPosition(DirectX::XMFLOAT3(-174.0f + (rand() % 348), 5.0f + (rand() % 100), -100.0f + (rand() % 200)));
         point_lights[i]->SetColor(DirectX::XMFLOAT3(1.0f, 1.0f, 1.0f));
-        point_lights[i]->SetRange(5.0f);
+        point_lights[i]->SetRange(75.0f);
         point_lights[i]->SetIntensity(0.5f);
 
         Get::SceneManager()->AddPointLight(point_lights[i]);
@@ -106,6 +106,35 @@ void Update()
         Get::Console()->LogWarning("warning message");
     if (keyboard.GetKeyDown(KeyCode_U))
         Get::Console()->LogError("error message");
+
+    if (keyboard.GetKeyPressed(KeyCode_ENTER))
+    {
+        Get::Console()->LogStatus(eastl::to_string(camera->GetPosition().x) + " | " + eastl::to_string(camera->GetPosition().y) + " | " + eastl::to_string(camera->GetPosition().z));
+    }
+
+    static float light_speed = 50.0f;
+    static float light_size = 75.0f;
+    static DirectX::XMFLOAT3 light_color = DirectX::XMFLOAT3(1.0f, 1.0f, 1.0f);
+
+    for (int i = 0; i < 128; i++)
+    {
+        DirectX::XMFLOAT3 position = point_lights[i]->GetPosition();
+        point_lights[i]->SetPosition(DirectX::XMFLOAT3(position.x, position.y, position.z + light_speed * Time::GetDeltaTime()));
+    
+        point_lights[i]->SetRange(light_size);
+        point_lights[i]->SetColor(light_color);
+
+        if (position.z + light_speed * Time::GetDeltaTime() > 100.0f)
+        {
+            point_lights[i]->SetPosition(DirectX::XMFLOAT3(-174.0f + (rand() % 348), 5.0f + (rand() % 100), -100.0f + (rand() % 200)));
+        }
+    }
+
+    ImGui::Begin("Light Sim");
+    ImGui::SliderFloat("Light speed", &light_speed, 0.0f, 200.0f);
+    ImGui::ColorEdit3("Light color", &light_color.x);
+    ImGui::SliderFloat("Light size", &light_size, 1.0f, 250.0f);
+    ImGui::End();
 }
 
 void PostUpdate()
